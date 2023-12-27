@@ -6,7 +6,6 @@ import { ReactComponent as LogoIcon } from "./svgs/logo_icon.svg";
 
 const HeaderWrap = styled.div`
   padding: 0 20px;
-
   div {
     justify-content: space-between;
     align-items: center;
@@ -54,8 +53,7 @@ const FooterWrap = styled.div`
   padding: 80px 120px 26px;
   height: 400px;
 `;
-
-export const Layout = () => {
+const Layout = () => {
   return (
     <>
       <GlobalStyle />
@@ -96,3 +94,4 @@ export const Layout = () => {
     </>
   );
 };
+export default Layout;

@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "./layout";
-import Home from "./pages/home/Home";
-import Test from "./test";
+import Layout from "./Layout";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Project from "./pages/Project";
+import Services from "./pages/Services";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -14,7 +16,7 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Test />,
+            element: <Project />,
           },
         ],
       },
@@ -23,7 +25,7 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <div>services짱짱써비스</div>,
+            element: <Services />,
           },
         ],
       },
@@ -32,7 +34,7 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <div>contact</div>,
+            element: <Contact />,
           },
         ],
       },
