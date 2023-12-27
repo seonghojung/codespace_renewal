@@ -1,7 +1,6 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
-import App from "./App";
-import Child from "./Child";
+import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./layout";
+import Home from "./Home";
 
 export const router = createBrowserRouter([
   {
@@ -9,16 +8,7 @@ export const router = createBrowserRouter([
     id: "root",
     element: <Layout />,
     children: [
-      { index: true, element: <App /> },
-      {
-        path: "about",
-        children: [
-          {
-            index: true,
-            element: <Child />,
-          },
-        ],
-      },
+      { index: true, element: <Home /> },
       {
         path: "project",
         children: [
@@ -29,11 +19,11 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: "recruit",
+        path: "services",
         children: [
           {
             index: true,
-            element: <div>recruit</div>,
+            element: <div>services</div>,
           },
         ],
       },
