@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Child from "./Child";
 
@@ -6,6 +6,13 @@ export const router = createBrowserRouter([
   {
     path: "/",
     id: "root",
+    element: (
+      <>
+        <div>header</div>
+        <Outlet />
+        <div>footer</div>
+      </>
+    ),
     children: [
       { index: true, element: <App /> },
       {
