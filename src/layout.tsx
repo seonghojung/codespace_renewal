@@ -1,8 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
-import { ReactComponent as HamburgerIcon } from "../src/svgs/hamburger.svg";
-import { ReactComponent as LogoIcon } from "../src/svgs/logo_icon.svg";
+import { ReactComponent as HamburgerIcon } from "./svgs/hamburger.svg";
+import { ReactComponent as LogoIcon } from "./svgs/logo_icon.svg";
 
 const HeaderWrap = styled.div`
   padding: 0 20px;
