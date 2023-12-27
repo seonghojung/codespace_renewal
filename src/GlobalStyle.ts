@@ -58,13 +58,38 @@ a {
   text-decoration:none;
   color:inherit;
 }
+button{
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
 
 body {
-  max-width: 1440px;
+  max-width: 375px;
   margin: 0 auto;
   font-family: "Pretendard-Regular", sans-serif;
   font-size: 14px;
   line-height: 1.2;
   scroll-behavior: smooth;
+
+  .mobile {
+    display: block;
+  }
+  .pc {
+    display: none;
+  }
 }
+
+
+@media (min-width: 1200px) {
+    body {
+      max-width: 1440px;
+      .mobile {
+      display: none;
+      }
+      .pc {
+        display: block;
+      }
+    }
+  }
 `;
