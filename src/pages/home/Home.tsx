@@ -1,6 +1,7 @@
-import MainBanner from "./MainBanner";
-import MainProject from "./MainProject";
 import MainVisual from "./MainVisual";
+import MainProject from "./MainProject";
+import MainBanner from "./MainBanner";
+import Carousel from "./Carousel";
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
       <MainVisual />
       <MainProject />
       <MainBanner />
+      <Carousel />
     </>
   );
 }
