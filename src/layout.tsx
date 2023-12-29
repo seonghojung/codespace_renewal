@@ -4,7 +4,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import { ReactComponent as HamburgerIcon } from "./svgs/hamburger.svg";
 import { ReactComponent as LogoIcon } from "./svgs/logo_icon.svg";
 
-const HeaderWrap = styled.div`
+const HeaderWrap = styled.header`
   padding: 0 20px;
   div {
     justify-content: space-between;
@@ -48,10 +48,77 @@ const HeaderWrap = styled.div`
   }
 `;
 
-const FooterWrap = styled.div`
+const FooterWrap = styled.footer`
   background-color: #f4f5f8;
-  padding: 80px 120px 26px;
-  height: 400px;
+  padding: 60px 10px 20px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .rspWrap {
+    header {
+      img {
+        width: 193px;
+        height: 28px;
+      }
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+      li {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        h2 {
+          color: rgba(0, 0, 0, 0.6);
+          font-size: 16px;
+          font-weight: 500;
+        }
+        div.content {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          a {
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 12px;
+            font-weight: 400;
+            &:hover {
+              color: rgba(0, 0, 0, 0.6);
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    span {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    padding: 80px 120px 26px;
+    .rspWrap {
+      justify-content: space-between;
+      display: flex;
+      ul {
+        width: 489px;
+        margin-top: 0px;
+        li {
+          gap: 12px;
+          h2 {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
 `;
 const Layout = () => {
   return (
@@ -90,7 +157,47 @@ const Layout = () => {
         </div>
       </HeaderWrap>
       <Outlet />
-      <FooterWrap>footer</FooterWrap>
+      <FooterWrap>
+        <div className="rspWrap">
+          <header>
+            <a href="/">
+              <img src="images/logo.png" alt="코드스페이스" />
+            </a>
+          </header>
+          <ul>
+            <li>
+              <h2 className="title">MAIN</h2>
+            </li>
+            <li>
+              <h2 className="title">PROJECT</h2>
+              <div className="content">
+                <a href="#">Project</a>
+              </div>
+            </li>
+            <li>
+              <h2 className="title">SERVICES</h2>
+              <div className="content">
+                <a href="#">Websites</a>
+                <a href="#">Application</a>
+                <a href="#">Management</a>
+                <a href="#">UI/UX</a>
+                <a href="#">CMS Solution</a>
+                <a href="#">SEO</a>
+              </div>
+            </li>
+            <li>
+              <h2 className="title">CONTACT</h2>
+              <div className="content">
+                <a href="#"> Contact</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <footer>
+          <span>©2023 Code Space co. ltd.</span>
+          <span style={{ display: "none" }}>언어 : 한국어</span>
+        </footer>
+      </FooterWrap>
     </>
   );
 };
