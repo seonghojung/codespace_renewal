@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
 import { ReactComponent as HamburgerIcon } from "./svgs/hamburger.svg";
 import { ReactComponent as LogoIcon } from "./svgs/logo_icon.svg";
+import { Link } from "react-router-dom";
 
 const HeaderWrap = styled.header`
   padding: 0 20px;
@@ -126,17 +127,17 @@ const Layout = () => {
       <GlobalStyle />
       <HeaderWrap>
         <div className="mobile">
-          <a href="/">
+          <Link to="/">
             <LogoIcon />
-          </a>
+          </Link>
           <button>
             <HamburgerIcon />
           </button>
         </div>
         <div className="pc">
-          <a href="/">
+          <Link to="/">
             <img src="images/logo.png" alt="코드스페이스" />
-          </a>
+          </Link>
           <ul>
             <li>
               <NavLink to="/project" className={({ isActive }) => (isActive ? "active" : "")}>
@@ -160,9 +161,9 @@ const Layout = () => {
       <FooterWrap>
         <div className="rspWrap">
           <header>
-            <a href="/">
+            <Link to="/">
               <img src="images/logo.png" alt="코드스페이스" />
-            </a>
+            </Link>
           </header>
           <ul>
             <li>
@@ -171,24 +172,24 @@ const Layout = () => {
             <li>
               <h2 className="title">PROJECT</h2>
               <div className="content">
-                <a href="#">Project</a>
+                <Link to="#">Project</Link>
               </div>
             </li>
             <li>
               <h2 className="title">SERVICES</h2>
               <div className="content">
-                <a href="#">Websites</a>
-                <a href="#">Application</a>
-                <a href="#">Management</a>
-                <a href="#">UI/UX</a>
-                <a href="#">CMS Solution</a>
-                <a href="#">SEO</a>
+                <Link to="#">Websites</Link>
+                <Link to="#">Application</Link>
+                <Link to="#">Management</Link>
+                <Link to="#">UI/UX</Link>
+                <Link to="#">CMS Solution</Link>
+                <Link to="#">SEO</Link>
               </div>
             </li>
             <li>
               <h2 className="title">CONTACT</h2>
               <div className="content">
-                <a href="#"> Contact</a>
+                <Link to="#"> Contact</Link>
               </div>
             </li>
           </ul>
