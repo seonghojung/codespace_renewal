@@ -25,18 +25,27 @@ const MainImgSectionBox = () => {
             <RspPc /> 개발 솔루션을 제공하고 있습니다.
           </Subtitle>
         </TextWrap>
-        <MainAccordion>
+        <MainAccordion flush>
           <MainAccordionItem eventKey="0">
             <MainAccordionHeader>WEBSITES</MainAccordionHeader>
-            <MainAccordionBody>아코디언 안에 들어갈 내용들</MainAccordionBody>
+            <MainAccordionBody>
+              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만들며,
+              더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을 가능하게 하는 개발 솔루션을 제공하고 있습니다.
+            </MainAccordionBody>
           </MainAccordionItem>
           <MainAccordionItem eventKey="1">
             <MainAccordionHeader>APPLICATION</MainAccordionHeader>
-            <MainAccordionBody>아코디언 안에 들어갈 내용들</MainAccordionBody>
+            <MainAccordionBody>
+              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만들며,
+              더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을 가능하게 하는 개발 솔루션을 제공하고 있습니다.
+            </MainAccordionBody>
           </MainAccordionItem>
           <MainAccordionItem eventKey="2">
             <MainAccordionHeader>MANAGEMENT</MainAccordionHeader>
-            <MainAccordionBody>아코디언 안에 들어갈 내용들</MainAccordionBody>
+            <MainAccordionBody>
+              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만들며,
+              더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을 가능하게 하는 개발 솔루션을 제공하고 있습니다.
+            </MainAccordionBody>
           </MainAccordionItem>
         </MainAccordion>
       </TextBox>
@@ -65,15 +74,61 @@ const MainImg = styled.img`
   width: 375px;
   height: 480px;
 `;
-const TextBox = styled.div``;
+const TextBox = styled.div`
+  margin: 80px 10px 0 10px;
+`;
 const TextWrap = styled.div``;
-const Title = styled.p``;
-const Subtitle = styled.p``;
-const MainAccordion = styled(Accordion)``;
-const MainAccordionItem = styled(Accordion.Item)``;
+const Title = styled.p`
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.36;
+  color: #000;
+`;
+const Subtitle = styled.p`
+  margin-top: 23px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.31;
+  color: rgba(0, 0, 0, 0.8);
+`;
+const MainAccordion = styled(Accordion)`
+  margin-top: 60px;
+  --bs-accordion-btn-icon: url("images/arrow_bottom-gray.png");
+  --bs-accordion-btn-active-icon: url("images/arrow_top-black.png");
+`;
+const MainAccordionItem = styled(Accordion.Item)`
+  border: none;
+  button {
+    padding: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+    padding-bottom: 18px;
+  }
+
+  .accordion-button:focus {
+    border: none;
+    box-shadow: none;
+  }
+`;
+
 const MainAccordionHeader = styled(Accordion.Header)`
   button:not(.collapsed) {
     background-color: #fff;
+    box-shadow: none;
+  }
+
+  .accordion-button:after {
+    width: 11px;
+    height: 8px;
+    background-size: contain;
+    margin-right: 60px;
   }
 `;
-const MainAccordionBody = styled(Accordion.Body)``;
+const MainAccordionBody = styled(Accordion.Body)`
+  padding: 0 14px 26px 0;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.31;
+  color: rgba(0, 0, 0, 0.8);
+`;

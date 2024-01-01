@@ -1,56 +1,83 @@
 import styled from "styled-components";
 import Accordion from "react-bootstrap/Accordion";
+import FAQAccordion from "./component/FAQAccordion";
 
 const FAQ = () => {
   return (
-    <MainAccordion>
-      <MainAccordionItem eventKey="0">
-        <MainAccordionHeader>프로젝트는 어떻게 진행이 되나요?</MainAccordionHeader>
-        <MainAccordionBody>
-          FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
+    <>
+      <FAQSection>
+        <FAQTitle>FAQ</FAQTitle>
+        <FAQAccordionWrap>
+          <FAQAccordion
+            eventKey={"0"}
+            header={"프로젝트는 어떻게 진행이 되나요?"}
+            body={` FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
           들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다.
           간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로
-          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.
-        </MainAccordionBody>
-      </MainAccordionItem>
-      <MainAccordionItem eventKey="1">
-        <MainAccordionHeader>프로젝트는 어떻게 진행이 되나요?</MainAccordionHeader>
-        <MainAccordionBody>
-          FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
+          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.`}
+          />
+          <FAQAccordion
+            eventKey={"1"}
+            header={"프로젝트는 어떻게 진행이 되나요?"}
+            body={` FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
           들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다.
           간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로
-          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.
-        </MainAccordionBody>
-      </MainAccordionItem>
-      <MainAccordionItem eventKey="2">
-        <MainAccordionHeader>프로젝트는 어떻게 진행이 되나요?</MainAccordionHeader>
-        <MainAccordionBody>
-          FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
+          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.`}
+          />
+          <FAQAccordion
+            eventKey={"2"}
+            header={"프로젝트는 어떻게 진행이 되나요?"}
+            body={` FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
           들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다.
           간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로
-          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.
-        </MainAccordionBody>
-      </MainAccordionItem>
-    </MainAccordion>
+          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.`}
+          />
+          <FAQAccordion
+            eventKey={"3"}
+            header={"프로젝트는 어떻게 진행이 되나요?"}
+            body={` FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
+          들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다.
+          간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로
+          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.`}
+          />
+          <FAQAccordion
+            eventKey={"4"}
+            header={"프로젝트는 어떻게 진행이 되나요?"}
+            body={` FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
+          들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다.
+          간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로
+          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.`}
+          />
+          <FAQAccordion
+            eventKey={"5"}
+            header={"프로젝트는 어떻게 진행이 되나요?"}
+            body={` FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이
+          들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다.
+          간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로
+          넣어서 운용이 됩니다. FAQ에 대한 내용이 들어가는 위치입니다. 간단하게 텍스트 위주로 넣어서 운용이 됩니다.`}
+          />
+        </FAQAccordionWrap>
+      </FAQSection>
+    </>
   );
 };
 
 export default FAQ;
 
-const MainAccordion = styled(Accordion)``;
-const MainAccordionItem = styled(Accordion.Item)``;
-const MainAccordionHeader = styled(Accordion.Header)`
-  button,
-  button:not(.collapsed) {
-    background-color: #1a1f27;
-    color: #fff;
-  }
-
-  .accordion-button:after {
-    width: 14px;
-    height: 8px;
-    background-image: url(images/arrow_bottom.png);
-    background-size: auto;
-  }
+const FAQSection = styled.section`
+  background-color: #1a1f27;
+  margin-top: 160px;
+  padding: 0 10px 140px 10px;
 `;
-const MainAccordionBody = styled(Accordion.Body)``;
+
+const FAQTitle = styled.p`
+  padding-top: 60px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.14;
+  color: #fff;
+`;
+
+const FAQAccordionWrap = styled.div`
+  margin-top: 65px;
+`;

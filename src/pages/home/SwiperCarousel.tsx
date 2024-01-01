@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Mousewheel } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 interface SwiperCarouselProps {
@@ -19,7 +19,19 @@ interface SlideProps {
 
 const SwiperCarousel = ({ slideImgs }: SwiperCarouselProps) => {
   return (
-    <Swiper className="mySwiper" slidesPerView={2} spaceBetween={34} mousewheel>
+    <Container
+      className="mySwiper"
+      slidesPerView={"auto"}
+      spaceBetween={34}
+      autoplay={{
+        delay: 0,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+      }}
+      speed={6000}
+      loop
+      modules={[Autoplay]}
+    >
       {slideImgs.map((img, i) => {
         const isEven = i % 2 === 0;
         const slideWidth = isEven ? 300 : 234;
@@ -32,15 +44,27 @@ const SwiperCarousel = ({ slideImgs }: SwiperCarouselProps) => {
           </Slide>
         );
       })}
-    </Swiper>
+    </Container>
   );
 };
 
 export default SwiperCarousel;
 
+const Container = styled(Swiper)`
+  &&& {
+    margin-top: 40px;
+  }
+
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+`;
+
 const Slide = styled(SwiperSlide)<SlideProps>`
-  width: ${({ width }) => `${width}px`} !important;
-  margin-top: ${({ mt }) => `${mt}px`};
+  &&& {
+    width: ${({ width }) => `${width}px`};
+    margin-top: ${({ mt }) => `${mt}px`};
+  }
 `;
 
 const Carousel = styled.img`
