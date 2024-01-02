@@ -5,21 +5,6 @@ import MainSwiper from "./MainSwiper";
 import SwiperCarousel from "./SwiperCarousel";
 import FAQ from "./FAQ";
 
-function Home() {
-  return (
-    <>
-      <MainVisual />
-      <MainProject />
-      <MainBanner />
-      <MainSwiper slideImgs={swiperImgs} />
-      {/* <SwiperCarousel slideImgs={swiperImgs} /> */}
-      <FAQ />
-    </>
-  );
-}
-
-export default Home;
-
 const swiperImgs = [
   {
     src: "images/bg_row.png",
@@ -70,3 +55,18 @@ const swiperImgs = [
     height: 300,
   },
 ];
+
+function Home() {
+  return (
+    <>
+      <MainVisual />
+      <MainProject />
+      <MainBanner />
+      <MainSwiper slideImgs={swiperImgs} />
+      {/* <SwiperCarousel slideImgs={swiperImgs} /> */}
+      <FAQ />
+    </>
+  );
+}
+
+export default Home;
