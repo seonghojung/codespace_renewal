@@ -56,7 +56,16 @@ const MainProject = () => {
         <MainProjectTextWrap>
           <MainProjectTitleWrap>
             <BestIcon />
-            <MainTitle>WE GROW PRODUCT. INTRODUCE A NEW PROJECT.</MainTitle>
+            <MainTitle>
+              WE GROW
+              <br />
+              PRODUCT.
+              <br />
+              INTRODUCE
+              <br />A NEW
+              <br />
+              PROJECT.
+            </MainTitle>
           </MainProjectTitleWrap>
           <SubTitle>
             <span style={{ fontWeight: "600" }}>파트너의 제품과 함께 성장하는 코드스페이스</span>의 새로운 프<RspMb />
@@ -89,6 +98,9 @@ export default MainProject;
 
 const MainProjectSection = styled.section`
   margin-top: 142px;
+  @media (min-width: 1200px) {
+    margin: 160px 160px 0 120px;
+  }
 `;
 
 // 반응형 줄바꿈
@@ -108,10 +120,19 @@ const RspPc = styled.br`
 `;
 
 // 소개 및 메인 프로젝트 영역
-const MainContentBox = styled.div``;
+const MainContentBox = styled.div`
+  @media (min-width: 1200px) {
+    display: flex;
+  }
+`;
 const MainProjectImg = styled.img`
   width: 375px;
   height: 480px;
+
+  @media (min-width: 1200px) {
+    width: 580px;
+    height: 760px;
+  }
 `;
 const MainProjectTextWrap = styled.div``;
 const MainProjectTitleWrap = styled.div``;
