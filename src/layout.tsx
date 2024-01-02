@@ -12,6 +12,7 @@ const HeaderWrap = styled.header`
     align-items: center;
     height: 100px;
     &.mobile {
+      height: 108px;
       display: flex;
     }
   }
