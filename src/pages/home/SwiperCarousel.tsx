@@ -22,7 +22,7 @@ const SwiperCarousel = ({ slideImgs }: SwiperCarouselProps) => {
     <Container
       className="mySwiper"
       slidesPerView={"auto"}
-      spaceBetween={34}
+      // spaceBetween={34}
       autoplay={{
         delay: 0,
         stopOnLastSlide: false,
@@ -65,10 +65,11 @@ const Slide = styled(SwiperSlide)<SlideProps>`
   &&& {
     width: ${({ width }) => `${width}px`};
     margin-top: ${({ mt }) => `${mt}px`};
-
+    margin-right: 34px;
     @media (min-width: 1200px) {
       width: ${({ pcwidth }) => `${pcwidth}px`};
       margin-top: ${({ pcmt }) => `${pcmt}px`};
+      margin-right: 60px;
     }
   }
 `;

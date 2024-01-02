@@ -145,6 +145,7 @@ const MainProjectImg = styled.img`
   }
 `;
 const MainProjectTextWrap = styled.div`
+  margin-top: 40px;
   @media (min-width: 1200px) {
     margin-top: 175px;
     margin-left: 161px;
