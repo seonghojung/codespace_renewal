@@ -126,7 +126,12 @@ const MainAccordionItem = styled(Accordion.Item)`
     font-size: 22px;
     font-weight: 600;
     color: #000;
-    padding-bottom: 18px;
+  }
+
+  &:not(:first-child) {
+    button {
+      margin-top: 18px;
+    }
   }
 
   .accordion-button {
@@ -159,7 +164,7 @@ const MainAccordionHeader = styled(Accordion.Header)`
   }
 `;
 const MainAccordionBody = styled(Accordion.Body)`
-  padding: 0 14px 26px 0;
+  padding: 16px 14px 26px 0;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.31;

@@ -7,14 +7,14 @@ interface SwiperCarouselProps {
   slideImgs: {
     src: string;
     alt: string;
-    width: number;
-    height: number;
   }[];
 }
 
 interface SlideProps {
   width: number;
+  pcwidth: number;
   mt: number;
+  pcmt: number;
 }
 
 const SwiperCarousel = ({ slideImgs }: SwiperCarouselProps) => {
@@ -35,12 +35,13 @@ const SwiperCarousel = ({ slideImgs }: SwiperCarouselProps) => {
       {slideImgs.map((img, i) => {
         const isEven = i % 2 === 0;
         const slideWidth = isEven ? 300 : 234;
+        const slidePCWidth = isEven ? 540 : 420;
         const slideMarginTop = isEven ? 33 : 0;
+        const slidePCMarginTop = isEven ? 60 : 0;
 
         return (
-          <Slide key={`carousel${i}`} width={slideWidth} mt={slideMarginTop}>
-            {/* fixme. 이미지속성 추가 및 수정 (src={img.src}) */}
-            <Carousel src={img.src} alt={img.alt} width={img.width} height={img.height} />
+          <Slide key={`carousel${i}`} width={slideWidth} pcwidth={slidePCWidth} mt={slideMarginTop} pcmt={slidePCMarginTop}>
+            <Carousel src={img.src} alt={img.alt} />
           </Slide>
         );
       })}
@@ -64,10 +65,15 @@ const Slide = styled(SwiperSlide)<SlideProps>`
   &&& {
     width: ${({ width }) => `${width}px`};
     margin-top: ${({ mt }) => `${mt}px`};
+
+    @media (min-width: 1200px) {
+      width: ${({ pcwidth }) => `${pcwidth}px`};
+      margin-top: ${({ pcmt }) => `${pcmt}px`};
+    }
   }
 `;
 
 const Carousel = styled.img`
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  width: 100%;
+  height: 100%;
 `;

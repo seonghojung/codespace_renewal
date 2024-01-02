@@ -21,6 +21,10 @@ export default MainSwiper;
 const SwiperTitleWrap = styled.div`
   margin-top: 160px;
   margin-left: 10px;
+
+  @media (min-width: 1200px) {
+    margin-left: 120px;
+  }
 `;
 
 const SwiperTitle = styled.p`

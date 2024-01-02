@@ -68,6 +68,10 @@ const FAQSection = styled.section`
   background-color: #1a1f27;
   margin-top: 160px;
   padding: 0 10px 140px 10px;
+
+  @media (min-width: 1200px) {
+    padding: 0 120px 160px 120px;
+  }
 `;
 
 const FAQTitle = styled.p`
@@ -80,4 +84,8 @@ const FAQTitle = styled.p`
 
 const FAQAccordionWrap = styled.div`
   margin-top: 65px;
+
+  @media (min-width: 1200px) {
+    margin-top: 61px;
+  }
 `;

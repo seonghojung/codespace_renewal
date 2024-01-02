@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 
 @font-face {
@@ -106,6 +106,8 @@ body {
 }
 
 
+
+
 @media (min-width: 1200px) {
     body {
       max-width: 1440px;
@@ -116,5 +118,21 @@ body {
         display: block;
       }
     }
+  }
+  
+`;
+
+export const RspMb = styled.br`
+  display: block;
+
+  @media (min-width: 1200px) {
+    display: none;
+  }
+`;
+export const RspPc = styled.br`
+  display: none;
+
+  @media (min-width: 1200px) {
+    display: block;
   }
 `;

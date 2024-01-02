@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import Accordion from "react-bootstrap/Accordion";
 
-const FAQAccordion = ({ eventKey, header, body }) => {
+interface FAQAccordionProps {
+  eventKey: string;
+  header: string;
+  body: string;
+}
+
+const FAQAccordion = ({ eventKey, header, body }: FAQAccordionProps) => {
   return (
     <AccordionWrap>
-      <AccordionItem eventKey="0">
+      <AccordionItem eventKey={eventKey}>
         <AccordionHeader>{header}</AccordionHeader>
         <AccordionBody>{body}</AccordionBody>
       </AccordionItem>
@@ -53,4 +59,8 @@ const AccordionBody = styled(Accordion.Body)`
   color: rgba(255, 255, 255, 0.8);
   background-color: #1a1f27;
   padding: 21px 28px 35px 20px;
+
+  @media (min-width: 1200px) {
+    padding: 34px 11px 35px 10px;
+  }
 `;
