@@ -132,6 +132,8 @@ const CategoryListWrap = styled.ul`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
   }
 `;
 
@@ -152,21 +154,16 @@ const CategoryList = styled.li<{ selected: boolean }>`
   @media (min-width: 1200px) {
     font-size: 28px;
 
-    &:not(:first-child, :nth-child(5)) {
+    &:not(:nth-child(5)) {
       margin-left: 0;
     }
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+
     &:nth-child(5),
     &:nth-child(6) {
       margin-top: 0;
-    }
-
-    &:nth-child(2n) {
-      width: 208px;
-      margin-top: 17px;
-    }
-    &:nth-child(2n-1) {
-      width: 218px;
-      margin-top: 16px;
     }
   }
 `;
@@ -181,6 +178,7 @@ const CardBox = styled.div`
 const CardWrap = styled.div`
   @media (min-width: 1200px) {
     display: flex;
+    margin-left: 20px;
     &:not(:first-child) {
       margin-top: 100px;
     }
