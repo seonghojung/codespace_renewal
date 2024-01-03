@@ -17,6 +17,7 @@ const SectionWrap = styled.section`
     text-decoration-line: underline;
   }
   @media (min-width: 1200px) {
+    padding: 60px 120px 148px 120px;
     h2 {
       line-height: 48px;
     }
