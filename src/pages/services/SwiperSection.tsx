@@ -15,6 +15,9 @@ const SectionWrap = styled.section`
   .swiper {
     margin-top: 80px;
     .swiper-wrapper {
+      -webkit-transition-timing-function: linear !important;
+      -o-transition-timing-function: linear !important;
+      transition-timing-function: linear !important;
       display: flex;
       align-items: center;
       .swiper-slide {
