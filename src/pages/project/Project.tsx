@@ -178,6 +178,7 @@ const CardBox = styled.div`
 const CardWrap = styled.div`
   @media (min-width: 1200px) {
     display: flex;
+    margin-left: 20px;
     &:not(:first-child) {
       margin-top: 100px;
     }
