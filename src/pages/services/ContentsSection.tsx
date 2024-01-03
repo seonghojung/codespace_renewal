@@ -176,7 +176,7 @@ const ContentItem = ({ content, isLeftImage }: Prop) => {
   if (isLeftImage) {
     return (
       <Wrapper>
-        <ContentImg src={content.image} />
+        <ContentImg />
         <ContentWrapLeft>
           <span>{content.subtitle}</span>
           <h2>{content.h3}</h2>
@@ -212,7 +212,7 @@ const ContentItem = ({ content, isLeftImage }: Prop) => {
             })}
           </TechDescItems>
         </ContentWrapRight>
-        <ContentImg src={content.image} />
+        <ContentImg />
       </Wrapper>
     );
   }

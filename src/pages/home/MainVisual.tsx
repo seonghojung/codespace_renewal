@@ -122,8 +122,8 @@ const Subtitle = styled.p`
 `;
 const MainAccordion = styled(Accordion)`
   margin-top: 60px;
-  --bs-accordion-btn-icon: url("images/arrow_bottom-gray.png");
-  --bs-accordion-btn-active-icon: url("images/arrow_top-black.png");
+  --bs-accordion-btn-icon: url("/images/arrow_bottom-gray.png");
+  --bs-accordion-btn-active-icon: url("/images/arrow_top-black.png");
 
   @media (min-width: 1200px) {
     margin-top: 28px;

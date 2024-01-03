@@ -80,7 +80,7 @@ const SwiperSection = () => {
       >
         {SwiperItems.map((item, index) => {
           const isVertical = (index + 1) % 2 !== 0;
-          return <SwiperSlide key={index}>{isVertical ? <SlideImgVertical src={item} /> : <SlideImgHorizontal src={item} />}</SwiperSlide>;
+          return <SwiperSlide key={index}>{isVertical ? <SlideImgVertical /> : <SlideImgHorizontal />}</SwiperSlide>;
         })}
       </Swiper>
     </SectionWrap>
