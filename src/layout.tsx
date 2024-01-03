@@ -12,11 +12,13 @@ const HeaderWrap = styled.header`
     align-items: center;
     height: 100px;
     &.mobile {
+      height: 108px;
       display: flex;
     }
   }
 
   @media (min-width: 1200px) {
+    padding: 0 120px;
     div.pc {
       display: flex;
     }
