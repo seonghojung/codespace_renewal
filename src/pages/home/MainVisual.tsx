@@ -29,22 +29,32 @@ const MainImgSectionBox = () => {
           <MainAccordionItem eventKey="0">
             <MainAccordionHeader>WEBSITES</MainAccordionHeader>
             <MainAccordionBody>
-              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을 가능하게 하는 개발
-              솔루션을 제공하고 있습니다.
+              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 <br />
+              설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만<br />
+              들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및<br />
+              확장성을 가능하게 하는 개발 솔루션을 제공하고 있<br />
+              습니다.
             </MainAccordionBody>
           </MainAccordionItem>
           <MainAccordionItem eventKey="1">
             <MainAccordionHeader>APPLICATION</MainAccordionHeader>
             <MainAccordionBody>
-              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을 가능하게 하는 개발
-              솔루션을 제공하고 있습니다.
+              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 <br />
+              설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만<br />
+              들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및<br />
+              확장성을 가능하게 하는 개발 솔루션을 제공하고 있<br />
+              습니다.
             </MainAccordionBody>
           </MainAccordionItem>
           <MainAccordionItem eventKey="2">
             <MainAccordionHeader>MANAGEMENT</MainAccordionHeader>
             <MainAccordionBody>
-              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을 가능하게 하는 개발
-              솔루션을 제공하고 있습니다.
+              코드스페이스는 파트너의 비즈니스 모델에 따른 목표
+              <br />
+              설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만<br />
+              들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및<br />
+              확장성을 가능하게 하는 개발 솔루션을 제공하고 있<br />
+              습니다.
             </MainAccordionBody>
           </MainAccordionItem>
         </MainAccordion>
@@ -133,14 +143,14 @@ const MainAccordionItem = styled(Accordion.Item)`
       margin-top: 18px;
     }
   }
-
-  .accordion-button {
-    width: 330px;
-  }
-
   .accordion-button:focus {
     border: none;
     box-shadow: none;
+  }
+  @media (min-width: 1200px) {
+    .accordion-button {
+      width: 330px;
+    }
   }
 `;
 
