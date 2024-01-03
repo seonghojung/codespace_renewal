@@ -18,6 +18,7 @@ const HeaderWrap = styled.header`
   }
 
   @media (min-width: 1200px) {
+    padding: 0 120px;
     div.pc {
       display: flex;
     }
