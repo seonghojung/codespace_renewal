@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
 import { ReactComponent as HamburgerIcon } from "./svgs/hamburger.svg";
 import { ReactComponent as LogoIcon } from "./svgs/logo_icon.svg";
-import { ReactComponent as CloseIcon } from "./svgs/close.svg";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import SlideBar from "./components/SlideBar";
 
 const HeaderWrap = styled.header`
   padding: 0 20px;
@@ -129,13 +129,15 @@ const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const isOpenHandler = () => {
-    setIsOpen(!isOpen);
-    console.log(isOpen);
+    setIsOpen(true);
+  };
+  const isCloseHandler = () => {
+    setIsOpen(false);
   };
 
   return (
     <>
-      {isOpen && <App2 closeHandler={isOpenHandler} />}
+      <SlideBar closeHandler={isCloseHandler} open={isOpen} />
       <GlobalStyle />
       <HeaderWrap>
         <div className="mobile">
@@ -215,83 +217,3 @@ const Layout = () => {
   );
 };
 export default Layout;
-
-const App2 = ({ closeHandler }: any) => {
-  useEffect(() => {
-    document.body.style.cssText = `
-      position: fixed; 
-      top: -${window.scrollY}px;
-      overflow-y: scroll;
-      width: 100%;`;
-    return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
-    };
-  }, []);
-
-  return (
-    <AppWrapper>
-      <HeaderWrap>
-        <div className="mobile">
-          <Link to="/">
-            <LogoIcon onClick={closeHandler} />
-          </Link>
-          <button type="button" onClick={closeHandler}>
-            <CloseIcon />
-          </button>
-        </div>
-      </HeaderWrap>
-      <SideMenu>
-        <MenuList>
-          <li>
-            <NavLink to="/project" className={({ isActive }) => (isActive ? "active" : "")} onClick={closeHandler}>
-              PROJECT
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/services" className={({ isActive }) => (isActive ? "active" : "")} onClick={closeHandler}>
-              SERVICES
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")} onClick={closeHandler}>
-              CONTACT
-            </NavLink>
-          </li>
-        </MenuList>
-      </SideMenu>
-    </AppWrapper>
-  );
-};
-
-const AppWrapper = styled.div`
-  li {
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 18px;
-    font-weight: 500;
-    a {
-      &:hover {
-        color: #000;
-      }
-      &.active {
-        color: #000;
-      }
-    }
-  }
-`;
-
-const SideMenu = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff;
-  overflow-x: hidden;
-  transition: width 0.5s;
-`;
-
-const MenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 20px;
-`;

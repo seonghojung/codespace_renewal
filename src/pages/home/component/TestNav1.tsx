@@ -370,8 +370,7 @@ const TestChild = styled.div`
 const AppWrapper = styled.div`
   position: fixed;
   width: 100%;
-  /* background-color: rgb(69, 117, 245); */
-  background-color: pink;
+  background-color: rgb(69, 117, 245);
   z-index: 9999;
   visibility: hidden;
   opacity: 0;
