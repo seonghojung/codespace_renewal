@@ -4,11 +4,37 @@ import MainBanner from "./MainBanner";
 import MainSwiper from "./MainSwiper";
 import FAQ from "./FAQ";
 
+import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+import { styled } from "styled-components";
+
+interface MainProjectWrapProps {
+  $isView: boolean;
+}
+
+const MainProjectWrap = styled.div<MainProjectWrapProps>`
+  opacity: ${(props) => (props.$isView ? 1 : 0)};
+`;
+
 function Home() {
+  const [isView, setIsView] = useState(false);
+
+  const [ref, inView] = useInView({
+    threshold: 0.3, // 가시성이 50% 이상일 때 트리거
+    onChange: (inView) => {
+      if (inView) {
+        console.log("h2");
+        setIsView(true);
+      }
+    },
+  });
+
   return (
     <>
       <MainVisual />
-      <MainProject />
+      <MainProjectWrap ref={ref} $isView={isView}>
+        <MainProject />
+      </MainProjectWrap>
       <MainBanner />
       <MainSwiper slideImgs={swiperImgs} />
       <FAQ />

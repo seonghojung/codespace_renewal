@@ -22,7 +22,6 @@ const SwiperCarousel = ({ slideImgs }: SwiperCarouselProps) => {
     <Container
       className="mySwiper"
       slidesPerView={"auto"}
-      // spaceBetween={34}
       autoplay={{
         delay: 0,
         stopOnLastSlide: false,
