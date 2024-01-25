@@ -33,10 +33,12 @@ const ProjectCard = forwardRef<HTMLVideoElement, SubProjectProps>(({ mt, ml, src
       }
     };
 
-    videoRef.current?.addEventListener("canplay", handleMouseOver);
+    videoRef.current?.addEventListener("mouseover", handleMouseOver);
+    videoRef.current?.addEventListener("mouseout", handleMouseOut);
 
     return () => {
-      videoRef.current?.removeEventListener("canplay", handleMouseOver);
+      videoRef.current?.removeEventListener("mouseover", handleMouseOver);
+      videoRef.current?.removeEventListener("mouseout", handleMouseOut);
     };
   }, [ref]);
 

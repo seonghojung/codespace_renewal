@@ -3,8 +3,12 @@ import { styled } from "styled-components";
 import ProjectCard from "../../components/ProjectCard";
 
 const Project = () => {
-  // TODO - 실데이터 삽입 이후, 로직 수정
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+  const videoRef3 = useRef(null);
+  const videoRef4 = useRef(null);
+  const videoRef5 = useRef(null);
+  const videoRef6 = useRef(null);
 
   const data = [
     { name: "Management Name 1", description: "부동산 데이터 소팅 및 사용자 인터페이스 설계", category: "Management", src: "", alt: "" },
@@ -78,18 +82,18 @@ const Project = () => {
       </NavWrap>
       <CardBox>
         <CardWrap>
-          <ProjectCard ref={videoRef} width={630} height={420} mt={0} title={filteredItems[0].name} description={filteredItems[0].description} />
-          <ProjectCard ref={videoRef} width={420} height={420} mt={100} ml={110} title={filteredItems[1].name} description={filteredItems[1].description} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef1} width={630} height={420} mt={0} title={filteredItems[0].name} description={filteredItems[0].description} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef2} width={420} height={420} mt={100} ml={110} title={filteredItems[1].name} description={filteredItems[1].description} />
         </CardWrap>
         <CardWrap>
-          <ProjectCard ref={videoRef} width={1160} height={480} mt={100} title={filteredItems[2].name} description={filteredItems[2].description} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef3} width={1160} height={480} mt={100} title={filteredItems[2].name} description={filteredItems[2].description} />
         </CardWrap>
         <CardWrap>
-          <ProjectCard ref={videoRef} width={630} height={420} mt={100} title={filteredItems[3].name} description={filteredItems[3].description} />
-          <ProjectCard ref={videoRef} width={420} height={420} mt={100} ml={110} title={filteredItems[4].name} description={filteredItems[4].description} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef4} width={630} height={420} mt={100} title={filteredItems[3].name} description={filteredItems[3].description} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef5} width={420} height={420} mt={100} ml={110} title={filteredItems[4].name} description={filteredItems[4].description} />
         </CardWrap>
         <CardWrap>
-          <ProjectCard ref={videoRef} width={1160} height={480} mt={100} title={filteredItems[5].name} description={filteredItems[5].description} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef6} width={1160} height={480} mt={100} title={filteredItems[5].name} description={filteredItems[5].description} />
         </CardWrap>
       </CardBox>
     </ProjectWrap>

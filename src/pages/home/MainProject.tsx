@@ -30,18 +30,21 @@ const MainProject = () => {
     <MainProjectSection>
       <MainContentBox ref={ref} $isView={inView}>
         <MainProjectImg src={"/images/main_banner-mb.png"} />
+        {/* <MainProjectImg src="/images/nineArk.mp4" autoPlay muted loop /> */}
         <MainProjectTextWrap>
           <BestIcon />
           <MainProjectTitleWrap>
             <MainTitleWrap>
               <MainTitle animated="true">
-                WE GROW
+                <WeGrowTitle>WE GROW</WeGrowTitle>
                 <br />
-                PRODUCT.
+                <ProductTitle>PRODUCT.</ProductTitle>
                 <br />
-                INTRODUCE
-                <br />A NEW <RspPc />
-                PROJECT.
+                <IntroduceTitle>INTRODUCE</IntroduceTitle>
+                <br />
+                <ANewTitle>A NEW</ANewTitle>
+                <RspPc />
+                <ProjectTitle>PROJECT.</ProjectTitle>
               </MainTitle>
             </MainTitleWrap>
             <SubTitleWrap>
@@ -162,6 +165,72 @@ const MainTitleWrap = styled.div`
 `;
 
 const MainTitle = styled.h2<ITitle>`
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 0.81;
+  color: #000;
+
+  @media (min-width: 1200px) {
+    font-size: 62px;
+    line-height: 0.87;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2.5s ease-in-out;
+  }
+`;
+
+const WeGrowTitle = styled.h2<ITitle>`
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 0.81;
+  color: #000;
+
+  @media (min-width: 1200px) {
+    font-size: 62px;
+    line-height: 0.87;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2.5s ease-in-out;
+  }
+`;
+const ProductTitle = styled.h2<ITitle>`
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 0.81;
+  color: #000;
+
+  @media (min-width: 1200px) {
+    font-size: 62px;
+    line-height: 0.87;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2.5s ease-in-out;
+  }
+`;
+const IntroduceTitle = styled.h2<ITitle>`
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 0.81;
+  color: #000;
+
+  @media (min-width: 1200px) {
+    font-size: 62px;
+    line-height: 0.87;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2.5s ease-in-out;
+  }
+`;
+const ANewTitle = styled.h2<ITitle>`
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 0.81;
+  color: #000;
+
+  @media (min-width: 1200px) {
+    font-size: 62px;
+    line-height: 0.87;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2.5s ease-in-out;
+  }
+`;
+const ProjectTitle = styled.h2<ITitle>`
   font-size: 42px;
   font-weight: bold;
   line-height: 0.81;

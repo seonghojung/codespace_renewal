@@ -13,31 +13,30 @@ const fadeIn = keyframes`
 `;
 
 const MainImgSectionBox = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+  // const videoRef = useRef<HTMLVideoElement>(null);
+  // const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseOver = () => {
-    setIsHovered(true);
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
+  // const handleMouseOver = () => {
+  //   setIsHovered(true);
+  //   if (videoRef.current) {
+  //     videoRef.current.play();
+  //   }
+  // };
 
-  const handleMouseOut = () => {
-    setIsHovered(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
+  // const handleMouseOut = () => {
+  //   setIsHovered(false);
+  //   if (videoRef.current) {
+  //     videoRef.current.pause();
+  //     videoRef.current.currentTime = 0;
+  //   }
+  // };
 
   return (
     <MainVisualSection>
-      <MainVideo src="/images/kia.mp4" ref={videoRef} muted loop onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
+      <MainVideo src="/images/kia.mp4" autoPlay muted loop />
       <TextBox>
         <TextWrap>
           <TitleWrap>
-            {/* <Title transformValue={transformValue}> */}
             <Title animated="true">
               서비스 본질에 집중할 수 있는
               <br />
@@ -120,15 +119,7 @@ const MainVisualSection = styled.section`
     margin: 0 100px;
   }
 `;
-const MainImg = styled.img`
-  width: 375px;
-  height: 480px;
 
-  @media (min-width: 1200px) {
-    width: 1240px;
-    height: 600px;
-  }
-`;
 const MainVideo = styled.video`
   width: 100%;
   height: 420px;
@@ -171,12 +162,10 @@ const Title = styled.h1<TextBoxProps>`
   font-weight: 600;
   line-height: 1.36;
   color: #000;
-  /* transform: ${(props) => (props.animated ? "translate(0px, 0px)" : "translate(0px, 150%)")};
-  animation: ${(props) => (props.animated ? fadeIn : "none")} 1.5s ease; */
 
   @media (min-width: 1200px) {
     transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
-    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 1.5s ease;
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 1s ease;
   }
 `;
 
@@ -191,13 +180,11 @@ const Subtitle = styled.h2<TextBoxProps>`
   font-weight: 300;
   line-height: 1.31;
   color: rgba(0, 0, 0, 0.8);
-  /* transform: ${(props) => (props.animated ? "translate(0px, 0px)" : "translate(0px, 150%)")};
-  animation: ${(props) => (props.animated ? fadeIn : "none")} 0.5s ease; */
 
   @media (min-width: 1200px) {
     margin-top: 34px;
     transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
-    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 0.5s ease;
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 1.7s ease;
   }
 `;
 const MainAccordion = styled(Accordion)`
