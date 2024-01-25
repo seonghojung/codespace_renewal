@@ -37,7 +37,7 @@ const SectionWrap = styled.section`
 const SubHeaderWrap = styled.div`
   padding-top: 60px;
   padding-left: 22px;
-  h2 {
+  h1 {
     width: 272px;
     color: #000;
     font-size: 24px;
@@ -48,7 +48,7 @@ const SubHeaderWrap = styled.div`
       display: none;
     }
   }
-  p {
+  h2 {
     margin-top: 34px;
     color: rgba(0, 0, 0, 0.8);
     font-family: Pretendard;
@@ -60,7 +60,7 @@ const SubHeaderWrap = styled.div`
   @media (min-width: 1200px) {
     padding-top: 80px;
     padding-left: 80px;
-    h2 {
+    h1 {
       width: 730px;
       font-size: 42px;
       font-weight: 600;
@@ -69,7 +69,7 @@ const SubHeaderWrap = styled.div`
         display: inline;
       }
     }
-    p {
+    h2 {
       width: 752px;
       br {
         display: none;
@@ -85,16 +85,14 @@ const HeaderSection = () => {
         <BlueDotIcon />
       </h1>
       <SubHeaderWrap>
-        <h2>
+        <h1>
           순간을 해결하는 솔루션이 아닌
           <br /> 오랜시간 함께 성장하는 솔루션을 제공합니다
+        </h1>
+        <h2>
+          파트너의 경험을 통해 만들어진 비즈니스 구조를 이해하고 사용자 관점의 설계와 디자인을 기반으로 꾸준히 발전할 수 있는 개발 솔루션을 제공하고 있습니다.
+          <br /> <br /> 코드스페이스는 당장의 제품 서비스를 만들고 싶은 목표를 해소하는 것이 아닌 다양한 오브젝트로 확장과 전개가 가능한 제품 서비스를 만들고자 하는 파트너를 위해 일하고 있습니다.
         </h2>
-        <p>
-          파트너의 경험을 통해 만들어진 비즈니스 구조를 이해하고 사용자 관점의 설계와 디자인을 기반으로 꾸준히 발전할 수 있는 개발 솔루션을 제공하고
-          있습니다.
-          <br /> <br /> 코드스페이스는 당장의 제품 서비스를 만들고 싶은 목표를 해소하는 것이 아닌 다양한 오브젝트로 확장과 전개가 가능한 제품 서비스를
-          만들고자 하는 파트너를 위해 일하고 있습니다.
-        </p>
       </SubHeaderWrap>
     </SectionWrap>
   );

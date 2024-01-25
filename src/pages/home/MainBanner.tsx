@@ -41,7 +41,7 @@ const Banner = styled.div`
   }
 `;
 
-const BannerTitle = styled.p`
+const BannerTitle = styled.h2`
   position: absolute;
   top: 40px;
   left: 10px;

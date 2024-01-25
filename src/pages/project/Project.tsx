@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { styled } from "styled-components";
 import ProjectCard from "../../components/ProjectCard";
 
 const Project = () => {
+  // TODO - 실데이터 삽입 이후, 로직 수정
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const data = [
     { name: "Management Name 1", description: "부동산 데이터 소팅 및 사용자 인터페이스 설계", category: "Management", src: "", alt: "" },
     { name: "Management Name 2", description: "부동산 데이터 소팅 및 사용자 인터페이스 설계", category: "Management", src: "", alt: "" },
@@ -54,39 +57,39 @@ const Project = () => {
         </ProjectTitle>
         <CategoryListWrap>
           <CategoryList onClick={() => filterByCategory("")} selected={selectedCategory === ""}>
-            ALL
+            <h2>ALL</h2>
           </CategoryList>
           <CategoryList onClick={() => filterByCategory("Management")} selected={selectedCategory === "Management"}>
-            MANAGEMENT
+            <h2>MANAGEMENT</h2>
           </CategoryList>
           <CategoryList onClick={() => filterByCategory("Websites")} selected={selectedCategory === "Websites"}>
-            WEBSITES
+            <h2>WEBSITES</h2>
           </CategoryList>
           <CategoryList onClick={() => filterByCategory("UIUX")} selected={selectedCategory === "UIUX"}>
-            UI/UX
+            <h2>UI/UX</h2>
           </CategoryList>
           <CategoryList onClick={() => filterByCategory("Application")} selected={selectedCategory === "Application"}>
-            APPLICATION
+            <h2>APPLICATION</h2>
           </CategoryList>
           <CategoryList onClick={() => filterByCategory("CMSSolution")} selected={selectedCategory === "CMSSolution"}>
-            CMS SOLUTION
+            <h2>CMS SOLUTION</h2>
           </CategoryList>
         </CategoryListWrap>
       </NavWrap>
       <CardBox>
         <CardWrap>
-          <ProjectCard width={630} height={420} mt={0} title={filteredItems[0].name} description={filteredItems[0].description} />
-          <ProjectCard width={420} height={420} mt={100} ml={110} title={filteredItems[1].name} description={filteredItems[1].description} />
+          <ProjectCard ref={videoRef} width={630} height={420} mt={0} title={filteredItems[0].name} description={filteredItems[0].description} />
+          <ProjectCard ref={videoRef} width={420} height={420} mt={100} ml={110} title={filteredItems[1].name} description={filteredItems[1].description} />
         </CardWrap>
         <CardWrap>
-          <ProjectCard width={1160} height={480} mt={100} title={filteredItems[2].name} description={filteredItems[2].description} />
+          <ProjectCard ref={videoRef} width={1160} height={480} mt={100} title={filteredItems[2].name} description={filteredItems[2].description} />
         </CardWrap>
         <CardWrap>
-          <ProjectCard width={630} height={420} mt={100} title={filteredItems[3].name} description={filteredItems[3].description} />
-          <ProjectCard width={420} height={420} mt={100} ml={110} title={filteredItems[4].name} description={filteredItems[4].description} />
+          <ProjectCard ref={videoRef} width={630} height={420} mt={100} title={filteredItems[3].name} description={filteredItems[3].description} />
+          <ProjectCard ref={videoRef} width={420} height={420} mt={100} ml={110} title={filteredItems[4].name} description={filteredItems[4].description} />
         </CardWrap>
         <CardWrap>
-          <ProjectCard width={1160} height={480} mt={100} title={filteredItems[5].name} description={filteredItems[5].description} />
+          <ProjectCard ref={videoRef} width={1160} height={480} mt={100} title={filteredItems[5].name} description={filteredItems[5].description} />
         </CardWrap>
       </CardBox>
     </ProjectWrap>
@@ -111,7 +114,7 @@ const NavWrap = styled.div`
   }
 `;
 
-const ProjectTitle = styled.p`
+const ProjectTitle = styled.h1`
   font-size: 28px;
   font-weight: 600;
   line-height: 1.36;

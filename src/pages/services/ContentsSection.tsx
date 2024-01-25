@@ -25,12 +25,7 @@ const contents: IContent[] = [
     h3: "어디서든 다양한 경험의 확장이 가능하도록",
     description:
       "웹사이트 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
   {
     image: "#",
@@ -38,12 +33,7 @@ const contents: IContent[] = [
     h3: "고객의 손에 우리의 서비스가 구현 되는 것을 도와주는",
     description:
       "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
   {
     image: "#",
@@ -51,12 +41,7 @@ const contents: IContent[] = [
     h3: "올바른 서비스로 발전할 수 있도록 함께 노력하는",
     description:
       "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
   {
     image: "#",
@@ -72,12 +57,7 @@ const contents: IContent[] = [
     h3: "자체적으로 제품의 고도화를 이어갈 수 있도록 도와주는",
     description:
       "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
 ];
 
@@ -178,8 +158,8 @@ const ContentItem = ({ content, isLeftImage }: Prop) => {
       <Wrapper>
         <ContentImg />
         <ContentWrapLeft>
-          <span>{content.subtitle}</span>
-          <h2>{content.h3}</h2>
+          <h2>{content.subtitle}</h2>
+          <h3>{content.h3}</h3>
           <p>{content.description}</p>
           <TechDescItems>
             {content.techDescription.map((techDescItem, index) => {
@@ -198,8 +178,8 @@ const ContentItem = ({ content, isLeftImage }: Prop) => {
     return (
       <Wrapper>
         <ContentWrapRight>
-          <span>{content.subtitle}</span>
-          <h2>{content.h3}</h2>
+          <h2>{content.subtitle}</h2>
+          <h3>{content.h3}</h3>
           <p>{content.description}</p>
           <TechDescItems>
             {content.techDescription.map((techDescItem, index) => {

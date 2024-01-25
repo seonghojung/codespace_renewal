@@ -74,16 +74,16 @@ export const ContactEmailSection = () => {
     <SectionWrap>
       <TitleWrap>
         <h1>프로젝트에 대한 문의나 의뢰가 있나요?</h1>
-        <p>email@codespace.im</p>
+        <h2>email@codespace.im</h2>
       </TitleWrap>
       <Wrapper>
         <SubTitleWrap>
-          <h2>채용과 관련하여 궁금하신 점이 있나요?</h2>
-          <p>email@codespace.im</p>
+          <h1>채용과 관련하여 궁금하신 점이 있나요?</h1>
+          <h2>email@codespace.im</h2>
         </SubTitleWrap>
         <SubTitleWrap>
-          <h2>비즈니스 파트너 제휴가 필요하신가요?</h2>
-          <p>email@codespace.im</p>
+          <h1>비즈니스 파트너 제휴가 필요하신가요?</h1>
+          <h2>email@codespace.im</h2>
         </SubTitleWrap>
       </Wrapper>
     </SectionWrap>

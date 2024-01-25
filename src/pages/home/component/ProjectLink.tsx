@@ -32,6 +32,10 @@ const LinkText = styled.span<ProjectLinkProps>`
   font-weight: 500;
   line-height: 1.125;
   color: ${({ color }) => color};
+
+  &:hover {
+    color: pink;
+  }
 `;
 const LinkIcon = styled(LinkImg)`
   margin-left: 5px;

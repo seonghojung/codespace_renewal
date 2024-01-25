@@ -1,48 +1,74 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ReactComponent as BestImg } from "../../svgs/best.svg";
 import ProjectLink from "./component/ProjectLink";
 import ProjectCard from "../../components/ProjectCard";
+import { useRef } from "react";
+import { useInView } from "react-intersection-observer";
+
+const fadeIn = keyframes`
+  from {
+    transform: translate(0px, 150%);
+  }
+
+  to {
+    transform: translate(0px, 0px);
+  }
+`;
 
 const MainProject = () => {
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+  const videoRef3 = useRef(null);
+  const videoRef4 = useRef(null);
+
+  const [ref, inView] = useInView({
+    threshold: 0.3, // 가시성이 15% 이상일 때 트리거
+    triggerOnce: true,
+  });
+
   return (
     <MainProjectSection>
-      <MainContentBox>
-        <MainProjectImg />
+      <MainContentBox ref={ref} $isView={inView}>
+        <MainProjectImg src={"/images/main_banner-mb.png"} />
         <MainProjectTextWrap>
           <BestIcon />
           <MainProjectTitleWrap>
-            <MainTitle>
-              WE GROW
-              <br />
-              PRODUCT.
-              <br />
-              INTRODUCE
-              <br />A NEW <RspPc />
-              PROJECT.
-            </MainTitle>
-            <SubTitle>
-              <span style={{ fontWeight: "600" }}>파트너의 제품과 함께 성장하는 코드스페이스</span>의 새로운 프<RspMb />
-              로젝트를
-              <RspPc /> 확인해보세요. 명확한 솔루션을 통해 비즈니스
-              <RspMb /> 성장과 파트너의 아이
-              <RspPc />
-              디어를 현실로 구현하는 것을 통해
-              <RspMb /> 함께 성장하며 발전하는 것은
-              <RspPc /> 우리가 생각하는
-              <RspMb /> 가장 중요한 기본입니다.
-            </SubTitle>
+            <MainTitleWrap>
+              <MainTitle animated="true">
+                WE GROW
+                <br />
+                PRODUCT.
+                <br />
+                INTRODUCE
+                <br />A NEW <RspPc />
+                PROJECT.
+              </MainTitle>
+            </MainTitleWrap>
+            <SubTitleWrap>
+              <SubTitle animated="true">
+                <span style={{ fontWeight: "600" }}>파트너의 제품과 함께 성장하는 코드스페이스</span>의 새로운 프<RspMb />
+                로젝트를
+                <RspPc /> 확인해보세요. 명확한 솔루션을 통해 비즈니스
+                <RspMb /> 성장과 파트너의 아이
+                <RspPc />
+                디어를 현실로 구현하는 것을 통해
+                <RspMb /> 함께 성장하며 발전하는 것은
+                <RspPc /> 우리가 생각하는
+                <RspMb /> 가장 중요한 기본입니다.
+              </SubTitle>
+            </SubTitleWrap>
             <ProjectLink color="#000" />
           </MainProjectTitleWrap>
         </MainProjectTextWrap>
       </MainContentBox>
       <SubContentBox>
         <SubProjectsWrap>
-          <ProjectCard width={630} height={420} mt={0} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
-          <ProjectCard width={420} height={420} mt={100} ml={110} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef1} width={630} height={420} mt={0} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef2} width={420} height={420} mt={100} ml={110} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
         </SubProjectsWrap>
         <SubProjectsWrap>
-          <ProjectCard width={420} height={420} mt={100} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
-          <ProjectCard width={630} height={420} mt={100} ml={110} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef3} width={420} height={420} mt={100} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
+          <ProjectCard src={"/images/nineArk.mp4"} ref={videoRef4} width={630} height={420} mt={100} ml={110} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
         </SubProjectsWrap>
       </SubContentBox>
     </MainProjectSection>
@@ -75,19 +101,29 @@ const RspPc = styled.br`
 `;
 
 // 소개 및 메인 프로젝트 영역
-const MainContentBox = styled.div`
+
+interface IMainContentBox {
+  $isView: boolean;
+}
+
+const MainContentBox = styled.div<IMainContentBox>`
+  opacity: 1;
+
   @media (min-width: 1200px) {
+    opacity: ${(props) => (props.$isView ? 1 : 0)};
+    transition: opacity 0.5s ease; // 부드러운 효과를 위한 트랜지션 추가
+
     display: flex;
   }
 `;
 const MainProjectImg = styled.img`
-  width: 375px;
-  height: 480px;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
 
   @media (min-width: 1200px) {
     width: 580px;
     height: 760px;
-    /* border-radius: 20px; */
   }
 `;
 const MainProjectTextWrap = styled.div`
@@ -115,7 +151,17 @@ const BestIcon = styled(BestImg)`
     left: -80px;
   }
 `;
-const MainTitle = styled.p`
+
+interface ITitle {
+  animated?: string;
+}
+
+const MainTitleWrap = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
+
+const MainTitle = styled.h2<ITitle>`
   font-size: 42px;
   font-weight: bold;
   line-height: 0.81;
@@ -124,9 +170,17 @@ const MainTitle = styled.p`
   @media (min-width: 1200px) {
     font-size: 62px;
     line-height: 0.87;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2.5s ease-in-out;
   }
 `;
-const SubTitle = styled.p`
+
+const SubTitleWrap = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
+
+const SubTitle = styled.p<ITitle>`
   margin-top: 40px;
   font-size: 16px;
   font-weight: 300;
@@ -135,6 +189,8 @@ const SubTitle = styled.p`
 
   @media (min-width: 1200px) {
     margin-top: 40px;
+    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
+    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2s ease-in-out;
   }
 `;
 
