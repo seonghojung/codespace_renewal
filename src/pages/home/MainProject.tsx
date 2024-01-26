@@ -1,61 +1,65 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { ReactComponent as BestImg } from "../../svgs/best.svg";
 import ProjectLink from "./component/ProjectLink";
 import ProjectCard from "../../components/ProjectCard";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-const fadeIn = keyframes`
-  from {
-    transform: translate(0px, 150%);
-  }
-
-  to {
-    transform: translate(0px, 0px);
-  }
-`;
-
 const MainProject = () => {
+  // TODO: 썸네일 영상의 이름으로 수정할 예정
   const videoRef1 = useRef(null);
   const videoRef2 = useRef(null);
   const videoRef3 = useRef(null);
   const videoRef4 = useRef(null);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   const [ref, inView] = useInView({
-    threshold: 0.35, // 가시성이 15% 이상일 때 트리거
     triggerOnce: true,
+    threshold: 0.3,
+    onChange: (inView) => {
+      setIsVisible(inView);
+    },
   });
 
   return (
     <MainProjectSection>
-      <MainContentBox ref={ref} $isView={inView}>
-        <MainProjectImg src={"/images/main_banner-mb.png"} />
-        {/* <MainProjectImg src="/images/nineArk.mp4" autoPlay muted loop /> */}
+      <MainContentBox ref={ref}>
+        <MainProjectImg src="/images/BTBG_thumb.mp4" autoPlay muted loop />
         <MainProjectTextWrap>
-          <BestIcon />
+          <BestIconWrap>
+            <BestIcon $isVisible={isVisible} />
+          </BestIconWrap>
           <MainProjectTitleWrap>
-            <MainTitleWrap>
-              {/* <MainTitle > */}
+            <HeadingTitleWrap>
               <MainTitleWrap>
-                <WeGrowTitle animated="true">WE GROW</WeGrowTitle>
+                <MainTitle $isVisible={isVisible} $second={0.6}>
+                  WE GROW
+                </MainTitle>
               </MainTitleWrap>
               <MainTitleWrap>
-                <ProductTitle animated="true">PRODUCT.</ProductTitle>
+                <MainTitle $isVisible={isVisible} $second={0.9}>
+                  PRODUCT.
+                </MainTitle>
               </MainTitleWrap>
               <MainTitleWrap>
-                <IntroduceTitle animated="true">INTRODUCE</IntroduceTitle>
+                <MainTitle $isVisible={isVisible} $second={1.2}>
+                  INTRODUCE
+                </MainTitle>
               </MainTitleWrap>
               <MainTitleWrap>
-                <ANewTitle animated="true">A NEW</ANewTitle>
+                <MainTitle $isVisible={isVisible} $second={1.5}>
+                  A NEW
+                </MainTitle>
               </MainTitleWrap>
-              {/* <RspPc /> */}
               <MainTitleWrap>
-                <ProjectTitle animated="true">PROJECT.</ProjectTitle>
+                <MainTitle $isVisible={isVisible} $second={1.8}>
+                  PROJECT.
+                </MainTitle>
               </MainTitleWrap>
-              {/* </MainTitle> */}
-            </MainTitleWrap>
+            </HeadingTitleWrap>
             <SubTitleWrap>
-              <SubTitle animated="true">
+              <SubTitle>
                 <span style={{ fontWeight: "600" }}>파트너의 제품과 함께 성장하는 코드스페이스</span>의 새로운 프
                 <RspMb />
                 로젝트를
@@ -74,17 +78,9 @@ const MainProject = () => {
       </MainContentBox>
       <SubContentBox>
         <SubProjectsWrap>
+          <ProjectCard src={"/images/chartIn_thumb.mp4"} ref={videoRef1} width={630} height={420} mt={0} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
           <ProjectCard
-            src={"/images/nineArk.mp4"}
-            ref={videoRef1}
-            width={630}
-            height={420}
-            mt={0}
-            title={"PROJECT NAME"}
-            description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"}
-          />
-          <ProjectCard
-            src={"/images/nineArk.mp4"}
+            src={"/images/doosil_thumb.mp4"}
             ref={videoRef2}
             width={420}
             height={420}
@@ -95,25 +91,8 @@ const MainProject = () => {
           />
         </SubProjectsWrap>
         <SubProjectsWrap>
-          <ProjectCard
-            src={"/images/nineArk.mp4"}
-            ref={videoRef3}
-            width={420}
-            height={420}
-            mt={100}
-            title={"PROJECT NAME"}
-            description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"}
-          />
-          <ProjectCard
-            src={"/images/nineArk.mp4"}
-            ref={videoRef4}
-            width={630}
-            height={420}
-            mt={100}
-            ml={110}
-            title={"PROJECT NAME"}
-            description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"}
-          />
+          <ProjectCard src={"/images/help_thumb.mp4"} ref={videoRef3} width={420} height={420} mt={100} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
+          <ProjectCard src={"/images/ufo_thumb.mp4"} ref={videoRef4} width={630} height={420} mt={100} ml={110} title={"PROJECT NAME"} description={"부동산 데이터 소팅 및 사용자 인터페이스 설계"} />
         </SubProjectsWrap>
       </SubContentBox>
     </MainProjectSection>
@@ -122,12 +101,28 @@ const MainProject = () => {
 
 export default MainProject;
 
-const MainProjectSection = styled.section`
-  margin-top: 160px;
-  @media (min-width: 1200px) {
-    margin: 160px 160px 0 120px;
+// keyframes
+
+const fadeIn = keyframes`
+  from {
+    transform: translate(0px, 150%);
+  }
+
+  to {
+    transform: translate(0px, 0px);
   }
 `;
+const fadeInImg = keyframes`
+  from {
+    transform: translate(-20%,100%);
+  }
+
+  to {
+    transform: translate(0px, 0px);
+  }
+`;
+
+// styled-components
 
 // 반응형 줄바꿈
 const RspMb = styled.br`
@@ -145,23 +140,22 @@ const RspPc = styled.br`
   }
 `;
 
+const MainProjectSection = styled.section`
+  margin-top: 160px;
+  @media (min-width: 1200px) {
+    margin: 160px 160px 0 120px;
+  }
+`;
+
 // 소개 및 메인 프로젝트 영역
-
-interface IMainContentBox {
-  $isView: boolean;
-}
-
-const MainContentBox = styled.div<IMainContentBox>`
+const MainContentBox = styled.div`
   opacity: 1;
 
   @media (min-width: 1200px) {
-    opacity: ${(props) => (props.$isView ? 1 : 0)};
-    transition: opacity 0.25s ease-in-out; // 부드러운 효과를 위한 트랜지션 추가
-
     display: flex;
   }
 `;
-const MainProjectImg = styled.img`
+const MainProjectImg = styled.video`
   width: 100%;
   height: 420px;
   object-fit: cover;
@@ -188,40 +182,54 @@ const MainProjectTitleWrap = styled.div`
     margin-left: 0;
   }
 `;
-const BestIcon = styled(BestImg)`
+
+const BestIconWrap = styled.div`
+  position: relative;
+  overflow: hidden;
   width: 106px;
   height: 106px;
   @media (min-width: 1200px) {
     position: absolute;
     top: -70px;
     left: -80px;
+    z-index: 5;
   }
 `;
 
-interface ITitle {
-  animated?: string;
+interface IBestIcon {
+  $isVisible?: boolean;
 }
+
+const BestIcon = styled(BestImg)<IBestIcon>`
+  width: 106px;
+  height: 106px;
+  @media (min-width: 1200px) {
+    transform: translate(0px, 150%);
+    animation: ${(props) =>
+      props.$isVisible
+        ? css`
+            ${fadeInImg} 1s ease 0.1s forwards
+          `
+        : ""};
+  }
+`;
+
+const HeadingTitleWrap = styled.h2`
+  @media (min-width: 1200px) {
+  }
+`;
 
 const MainTitleWrap = styled.div`
   position: relative;
   overflow: hidden;
 `;
 
-const MainTitle = styled.h2<ITitle>`
-  font-size: 42px;
-  font-weight: bold;
-  line-height: 0.81;
-  color: #000;
+interface IMainTitle {
+  $isVisible: boolean;
+  $second: number;
+}
 
-  @media (min-width: 1200px) {
-    font-size: 62px;
-    line-height: 0.87;
-    transform: ${(props) => (props.animated === "true" ? "translate(0px, 0px)" : "translate(0px, 150%)")};
-    animation: ${(props) => (props.animated === "true" ? fadeIn : "none")} 2s ease;
-  }
-`;
-
-const WeGrowTitle = styled.h2<ITitle>`
+const MainTitle = styled.div<IMainTitle>`
   font-size: 42px;
   font-weight: bold;
   line-height: 0.81;
@@ -231,59 +239,11 @@ const WeGrowTitle = styled.h2<ITitle>`
     font-size: 62px;
     line-height: 0.87;
     transform: translate(0px, 150%);
-    animation: ${fadeIn} 1s ease 0.6s forwards;
-  }
-`;
-const ProductTitle = styled.h2<ITitle>`
-  font-size: 42px;
-  font-weight: bold;
-  line-height: 0.81;
-  color: #000;
-
-  @media (min-width: 1200px) {
-    font-size: 62px;
-    line-height: 0.87;
-    transform: translate(0px, 150%);
-    animation: ${fadeIn} 1s ease 0.9s forwards;
-  }
-`;
-const IntroduceTitle = styled.h2<ITitle>`
-  font-size: 42px;
-  font-weight: bold;
-  line-height: 0.81;
-  color: #000;
-
-  @media (min-width: 1200px) {
-    font-size: 62px;
-    line-height: 0.87;
-    transform: translate(0px, 150%);
-    animation: ${fadeIn} 1s ease 1.2s forwards;
-  }
-`;
-const ANewTitle = styled.h2<ITitle>`
-  font-size: 42px;
-  font-weight: bold;
-  line-height: 0.81;
-  color: #000;
-
-  @media (min-width: 1200px) {
-    font-size: 62px;
-    line-height: 0.87;
-    transform: translate(0px, 150%);
-    animation: ${fadeIn} 1s ease 1.5s forwards;
-  }
-`;
-const ProjectTitle = styled.h2<ITitle>`
-  font-size: 42px;
-  font-weight: bold;
-  line-height: 0.81;
-  color: #000;
-
-  @media (min-width: 1200px) {
-    font-size: 62px;
-    line-height: 0.87;
-    transform: translate(0px, 150%);
-    animation: ${fadeIn} 1s ease 1.8s forwards;
+    animation: ${(props) =>
+      props.$isVisible &&
+      css`
+        ${fadeIn} 1s ease ${props.$second}s forwards
+      `};
   }
 `;
 
@@ -292,7 +252,7 @@ const SubTitleWrap = styled.div`
   overflow: hidden;
 `;
 
-const SubTitle = styled.p<ITitle>`
+const SubTitle = styled.p`
   margin-top: 40px;
   font-size: 16px;
   font-weight: 300;
@@ -302,12 +262,11 @@ const SubTitle = styled.p<ITitle>`
   @media (min-width: 1200px) {
     margin-top: 40px;
     transform: translate(0px, 150%);
-    animation: ${fadeIn} 1s ease 2.1s forwards;
+    animation: ${fadeIn} 1s ease 2.5s forwards;
   }
 `;
 
 // 나머지 프로젝트 영역
-
 const SubContentBox = styled.div`
   margin-top: 160px;
 `;
