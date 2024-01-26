@@ -3,9 +3,9 @@
 import styled, { keyframes } from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { BestSVG } from "@/components/icons";
+import { BestSVG } from "@/app/components/icons";
 import ProjectLink from "./components/ProjectLink";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/app/components/ProjectCard";
 
 const fadeIn = keyframes`
   from {

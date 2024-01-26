@@ -2,7 +2,7 @@
 
 import { styled } from "styled-components";
 import Link from "next/link";
-import { LinkSVG, LinkWhiteSVG } from "@/components/icons";
+import { LinkSVG, LinkWhiteSVG } from "@/app/components/icons";
 
 interface ProjectLinkProps {
   color: string;

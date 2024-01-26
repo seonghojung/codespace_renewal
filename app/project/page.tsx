@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { styled } from "styled-components";
-import ProjectCard from "../../components/ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 
 const Project = () => {
   const videoRef1 = useRef(null);
