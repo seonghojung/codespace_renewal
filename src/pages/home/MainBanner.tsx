@@ -1,13 +1,37 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import ProjectLink from "./component/ProjectLink";
+import { useEffect, useRef } from "react";
 
 const MainBanner = () => {
+  const content = "상상력을 현실로 \n 코드스페이스";
+  const textRef = useRef<HTMLDivElement>(null);
+  let i = 0;
+
+  useEffect(() => {
+    const text = textRef.current;
+
+    function typing() {
+      let txt = content[i++];
+      if (text) {
+        text.innerHTML += txt === "\n" ? "<br/>" : txt;
+        if (i >= content.length) {
+          // i가 content.length와 같거나 클 때 반복을 멈추도록 수정
+          clearInterval(typingInterval);
+        }
+      }
+    }
+
+    const typingInterval = setInterval(typing, 150);
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, []);
+
   return (
     <Banner>
       <BannerTitle>
-        상상력을 현실로
-        <br />
-        코드스페이스
+        <Title ref={textRef}></Title>
+        <TypingCursor>ㅣ</TypingCursor>
       </BannerTitle>
       <BannerSubTitleWrap>
         <BannerSubTitle>
@@ -28,6 +52,12 @@ const MainBanner = () => {
 
 export default MainBanner;
 
+const blink = keyframes`
+  to {
+    opacity: 0;
+  }
+`;
+
 const Banner = styled.div`
   margin-top: 160px;
   position: relative;
@@ -42,6 +72,22 @@ const Banner = styled.div`
 `;
 
 const BannerTitle = styled.h2`
+  /* position: absolute;
+  top: 40px;
+  left: 10px;
+  font-size: 48px;
+  font-weight: 600;
+  color: #fff;
+
+  @media (min-width: 1200px) {
+    top: 80px;
+    left: 120px;
+    font-size: 80px;
+    line-height: 1.25;
+  } */
+`;
+
+const Title = styled.span`
   position: absolute;
   top: 40px;
   left: 10px;
@@ -54,6 +100,23 @@ const BannerTitle = styled.h2`
     left: 120px;
     font-size: 80px;
     line-height: 1.25;
+  }
+`;
+
+const TypingCursor = styled.span`
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  font-size: 48px;
+  font-weight: 600;
+  color: #fff;
+
+  @media (min-width: 1200px) {
+    top: 80px;
+    left: 120px;
+    font-size: 80px;
+    line-height: 1.25;
+    animation: ${blink} 0.5s infinite;
   }
 `;
 
