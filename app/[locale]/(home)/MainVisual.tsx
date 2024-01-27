@@ -2,6 +2,7 @@
 
 import styled, { keyframes } from "styled-components";
 import Accordion from "react-bootstrap/Accordion";
+import { useTranslations } from "next-intl";
 
 const MainImgSectionBox = () => {
   return (

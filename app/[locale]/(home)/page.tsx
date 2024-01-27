@@ -3,10 +3,14 @@ import MainProject from "./MainProject";
 import MainBanner from "./MainBanner";
 import MainSwiper from "./MainSwiper";
 import FAQ from "./FAQ";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("Index");
+  const a = t("title");
   return (
     <>
+      <h1>{a}</h1>
       <MainVisual />
       <MainProject />
       <MainBanner />
