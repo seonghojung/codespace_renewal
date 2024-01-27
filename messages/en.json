@@ -1,5 +1,50 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "Home": {
+    "MainVisual": {
+      "title": "We transform your imagination into reality",
+      "subTitle": "Make your dreams come true at Codespace. Explore our expertise. You won’t be disappointed."
+    },
+    "MainProject": {
+      "description": "Check out our new project at Codespace.Fundamental principle of Codespace is growing together by implementing our partner's ideas into reality through clear solutions for business growth."
+    },
+    "MainBanner": {
+      "descriptionSegment1": "Difficult technical terms, hesitation about necessity, and all the efforts to find answers due to uncertainty - Codespace will be a sloution.",
+      "descriptionSegment2": "We will focus on implementing a business model created solely from partner's imagination, using the simplest words and essential elements. We will assist you in bringing it to the market, helping you find the product-market fit",
+      "requestBtn": "REQUEST A QUOTE"
+    },
+    "Component": {
+      "moreBtn": "Find out more"
+    }
+  },
+  "Services": {
+    "HeaderSection": {
+      "title": "We provide solutions for long-term growth, not just for immediate problem-solving.",
+      "description": "We provide platform development solutions where partners' ideas can be accurately reflected in the ever-evolving digital environment. Our development approach showcases consistency across various environments, including user experience, design, and development infrastructure, fostering businesses for better growth and profitability."
+    },
+    "ContentsSection": {
+      "WEB": {
+        "title": "Compatible Website in all OS environment",
+        "description": "We provide an optimal user experience through a website that is accessible on various devices and browsers. This includes considerations for responsive design, cross-browser compatibility, accessibility, SEO optimization, and improved content readability to ensure proper display across diverse environments such as mobile and PC."
+      },
+      "APP": {
+        "title": "Application focused on core features",
+        "description": "We develop applications that accurately captures the essential features needed for business, providing maximum value for investment at a reasonable price. Launch an app development with Codespace, achieving both the quality of service and your goals."
+      },
+      "UI/UX": {
+        "title": "Attractive UI through sensuous UX ",
+        "description": "We create a visual system tailored to the industry as perceived by the partner by analyzing user patterns. Rather than simply maintaining consistency, we provide services considering future business expansion."
+      },
+      "CMS_SOLUTION": {
+        "title": "User Friendly CMS Solution",
+        "description": "We provide development service for operations using a powerful CMS solution designed for easy creation, enabling innovative content management and increasing efficiency in customer management."
+      },
+      "SEO": {
+        "title": "translate needed",
+        "description": "translate needed"
+      }
+    },
+    "SwiperSection": {
+      "title": "translate needed"
+    }
   }
 }

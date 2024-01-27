@@ -6,12 +6,11 @@ import FAQ from "./FAQ";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const t = useTranslations("Index");
-  const a = t("title");
+  const t = useTranslations("Home");
+  const MainVisualTranslate = { title: t("MainVisual.title"), subTitle: t("MainVisual.subTitle"), moreBtn: t("Component.moreBtn") };
   return (
     <>
-      <h1>{a}</h1>
-      <MainVisual />
+      <MainVisual translate={MainVisualTranslate} />
       <MainProject />
       <MainBanner />
       <MainSwiper slideImgs={swiperImgs} />

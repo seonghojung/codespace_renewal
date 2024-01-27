@@ -2,71 +2,26 @@
 
 import styled, { keyframes } from "styled-components";
 import Accordion from "react-bootstrap/Accordion";
-import { useTranslations } from "next-intl";
 
-const MainImgSectionBox = () => {
+export interface IMainVisualProps {
+  title: string;
+  subTitle: string;
+  moreBtn: string;
+}
+
+const MainImgSectionBox = ({ translate: { title, subTitle } }: { translate: IMainVisualProps }) => {
   return (
     <MainVisualSection>
       <MainVideo src="/images/kia.mp4" autoPlay muted loop />
       <TextBox>
         <TextWrap>
           <TitleWrap>
-            <Title animated="true">
-              서비스 본질에 집중할 수 있는
-              <br />
-              개발 솔루션을 제공하고
-              <RspMb />
-              있습니다
-            </Title>
+            <Title animated="true">{title}</Title>
           </TitleWrap>
           <SubtitleWrap>
-            <Subtitle animated="true">
-              코드스페이스는 파트너의 비즈니스 모델에 따른 목표 설<RspMb />
-              정을 고려하여 가장 필요한 요소들을
-              <RspPc />
-              갖춘 제품을 만들며,
-              <RspMb />더 나아가 향후 데이터 관리와 지속적인 개선 및 확장성을
-              <RspMb />
-              가능하게 하는
-              <RspPc /> 개발 솔루션을 제공하고 있습니다.
-            </Subtitle>
+            <Subtitle animated="true">{subTitle}</Subtitle>
           </SubtitleWrap>
         </TextWrap>
-        <div style={{ position: "relative", width: "341px" }}>
-          <MainAccordion flush>
-            <MainAccordionItem eventKey="0">
-              <MainAccordionHeader>WEBSITES</MainAccordionHeader>
-              <MainAccordionBody>
-                코드스페이스는 파트너의 비즈니스 모델에 따른 목표 <br />
-                설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만<br />
-                들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및<br />
-                확장성을 가능하게 하는 개발 솔루션을 제공하고 있<br />
-                습니다.
-              </MainAccordionBody>
-            </MainAccordionItem>
-            <MainAccordionItem eventKey="1">
-              <MainAccordionHeader>APPLICATION</MainAccordionHeader>
-              <MainAccordionBody>
-                코드스페이스는 파트너의 비즈니스 모델에 따른 목표 <br />
-                설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만<br />
-                들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및<br />
-                확장성을 가능하게 하는 개발 솔루션을 제공하고 있<br />
-                습니다.
-              </MainAccordionBody>
-            </MainAccordionItem>
-            <MainAccordionItem eventKey="2">
-              <MainAccordionHeader>MANAGEMENT</MainAccordionHeader>
-              <MainAccordionBody>
-                코드스페이스는 파트너의 비즈니스 모델에 따른 목표
-                <br />
-                설정을 고려하여 가장 필요한 요소들을 가춘 제품을 만<br />
-                들며, 더 나아가 향후 데이터 관리와 지속적인 개선 및<br />
-                확장성을 가능하게 하는 개발 솔루션을 제공하고 있<br />
-                습니다.
-              </MainAccordionBody>
-            </MainAccordionItem>
-          </MainAccordion>
-        </div>
       </TextBox>
     </MainVisualSection>
   );
