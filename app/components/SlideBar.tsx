@@ -7,11 +7,11 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface SlideBarProps {
-  closeHandler: React.Dispatch<React.SetStateAction<boolean>>;
+  openSlideBarHandler: (isOpened: boolean) => void;
   open: boolean;
 }
 
-const SlideBar = ({ closeHandler, open }: SlideBarProps) => {
+const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
   const path = usePathname();
   useEffect(() => {
     if (open) {
@@ -39,7 +39,7 @@ const SlideBar = ({ closeHandler, open }: SlideBarProps) => {
     <SlideBarWrap className={open ? "open" : ""}>
       <SlideHeader>
         <div className="mobile">
-          <button type="button" onClick={() => closeHandler(true)} style={{ width: "28px", height: "24px" }}>
+          <button type="button" onClick={() => openSlideBarHandler(false)} style={{ width: "28px", height: "24px" }}>
             <Image src="/svgs/close.svg" alt="닫기 아이콘" width={28} height={28} />
           </button>
         </div>
@@ -47,17 +47,17 @@ const SlideBar = ({ closeHandler, open }: SlideBarProps) => {
       <SideMenu>
         <MenuList>
           <li>
-            <Link href="/project" className={path === "/project" ? "active" : ""} onClick={() => closeHandler(true)}>
+            <Link href="/project" className={path === "/project" ? "active" : ""} onClick={() => openSlideBarHandler(true)}>
               PROJECT
             </Link>
           </li>
           <li>
-            <Link href="/services" className={path === "/services" ? "active" : ""} onClick={() => closeHandler(true)}>
+            <Link href="/services" className={path === "/services" ? "active" : ""} onClick={() => openSlideBarHandler(true)}>
               SERVICES
             </Link>
           </li>
           <li>
-            <Link href="/contact" className={path === "/contact" ? "active" : ""} onClick={() => closeHandler(true)}>
+            <Link href="/contact" className={path === "/contact" ? "active" : ""} onClick={() => openSlideBarHandler(true)}>
               CONTACT
             </Link>
           </li>
@@ -72,7 +72,7 @@ export default SlideBar;
 const SlideBarWrap = styled.div`
   position: fixed;
   z-index: 100;
-  width: 375px;
+  width: 100%;
   opacity: 0;
   visibility: hidden;
   background-color: #ccc;

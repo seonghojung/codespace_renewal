@@ -6,50 +6,54 @@ import { usePathname } from "next/navigation";
 import { styled } from "styled-components";
 import { useState } from "react";
 import SlideBar from "./SlideBar";
+
+const ButtonWrap = styled.div`
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+`;
+const ButtonWrapMobile = styled(ButtonWrap)`
+  height: 108px;
+  @media (min-width: 1200px) {
+    display: none;
+  }
+`;
+const ButtonWrapPC = styled(ButtonWrap)`
+  display: none;
+  height: 100px;
+  @media (min-width: 1200px) {
+    display: flex;
+  }
+`;
+
 const HeaderWrap = styled.header`
   padding: 0 20px;
-  div {
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    &.mobile {
-      height: 108px;
-      display: flex;
-    }
-  }
 
   @media (min-width: 1200px) {
     padding: 0 120px;
-    div.pc {
-      display: flex;
-    }
-    div.mobile {
-      display: none;
-    }
     img {
       object-fit: cover;
       display: block;
-      width: 193px;
-      height: 28px;
     }
-    ul {
-      display: flex;
-      gap: 47px;
-      li {
-        color: rgba(0, 0, 0, 0.4);
-        font-size: 18px;
-        font-weight: 500;
-        a {
-          &:hover {
-            color: #000;
-          }
-          &.active {
-            color: #000;
-          }
-        }
+    a {
+      &:hover {
+        color: #000;
+      }
+      &.active {
+        color: #000;
       }
     }
   }
+`;
+
+const LinkItems = styled.ul`
+  display: flex;
+  gap: 47px;
+`;
+const LinkItem = styled.li`
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+  font-weight: 500;
 `;
 
 export const CodespaceLogo = () => {
@@ -60,47 +64,44 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
 
-  const isOpenHandler = () => {
-    setIsOpen(true);
-  };
-  const isCloseHandler = () => {
-    setIsOpen(false);
+  const openSlideBarHandler = (isOpened: boolean) => {
+    setIsOpen(isOpened);
   };
 
   return (
     <>
-      <SlideBar closeHandler={isCloseHandler} open={isOpen} />
+      <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
       <HeaderWrap>
-        <div className="mobile">
+        <ButtonWrapMobile>
           <Link href="/">
             <Image src="/svgs/logo_icon.svg" alt="로고 아이콘" width={24} height={28} />
           </Link>
           <button>
-            <Image src="/svgs/hamburger.svg" alt="햄버거 아이콘" width={24} height={28} onClick={isOpenHandler} />
+            <Image src="/svgs/hamburger.svg" alt="햄버거 아이콘" width={24} height={28} onClick={() => openSlideBarHandler(true)} />
           </button>
-        </div>
-        <div className="pc">
+        </ButtonWrapMobile>
+        <ButtonWrapPC>
           <Link href="/">
             <CodespaceLogo />
           </Link>
-          <ul>
-            <li>
+          <LinkItems>
+            <LinkItem>
               <Link href="/project" className={path === "/project" ? "active" : ""}>
                 PROJECT
               </Link>
-            </li>
-            <li>
+            </LinkItem>
+            <LinkItem>
               <Link href="/services" className={path === "/services" ? "active" : ""}>
                 SERVICES
               </Link>
-            </li>
-            <li>
+            </LinkItem>
+            <LinkItem>
               <Link href="/contact" className={path === "/contact" ? "active" : ""}>
                 CONTACT
               </Link>
-            </li>
-          </ul>
-        </div>
+            </LinkItem>
+          </LinkItems>
+        </ButtonWrapPC>
       </HeaderWrap>
     </>
   );

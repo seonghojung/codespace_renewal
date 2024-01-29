@@ -172,29 +172,15 @@ button {
 }
 
 body {
-  max-width: 375px;
   margin: 0 auto;
   font-family: "Pretendard", sans-serif;
   font-size: 14px;
   line-height: 1.2;
   scroll-behavior: smooth;
-
-  .mobile {
-    display: block;
-  }
-  .pc {
-    display: none;
-  }
 }
 
 @media (min-width: 1200px) {
   body {
     max-width: 1440px;
-    .mobile {
-      display: none;
-    }
-    .pc {
-      display: block;
-    }
   }
 }
