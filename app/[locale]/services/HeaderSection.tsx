@@ -1,6 +1,6 @@
 "use client";
 
-import { BlueDotIcon } from "@/app/components/icons";
+import { BlueDotIcon } from "@/app/[locale]/components/icons";
 import { styled } from "styled-components";
 
 const SectionWrap = styled.section`

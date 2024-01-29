@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Navigation from "@/app/components/navigation";
-import Footer from "@/app/components/footer";
+import Navigation from "@/app/[locale]/components/navigation";
+import Footer from "@/app/[locale]/components/footer";
 import StyledComponentsRegistry from "@/lib/registry";
 
 export const metadata: Metadata = {
