@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.3.2",
     "next": "14.1.0",
     "next-i18next": "^15.2.0",
     "next-intl": "^3.5.2",
