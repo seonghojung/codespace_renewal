@@ -13,44 +13,8 @@ export default function Home() {
       <MainVisual translate={MainVisualTranslate} />
       <MainProject />
       <MainBanner />
-      <MainSwiper slideImgs={swiperImgs} />
+      <MainSwiper />
       <FAQ />
     </>
   );
 }
-
-/* fixme. 이미지 경로 및 대체 텍스트 수정 */
-const swiperImgs = [
-  {
-    src: "images/bg_row.png",
-    alt: "이미지 1",
-  },
-  {
-    src: "images/bg_col.png",
-    alt: "이미지 2",
-  },
-  {
-    src: "images/bg_row.png",
-    alt: "이미지 3",
-  },
-  {
-    src: "images/bg_col.png",
-    alt: "이미지 4",
-  },
-  {
-    src: "images/bg_row.png",
-    alt: "이미지 5",
-  },
-  {
-    src: "images/bg_col.png",
-    alt: "이미지 6",
-  },
-  {
-    src: "images/bg_row.png",
-    alt: "이미지 7",
-  },
-  {
-    src: "images/bg_col.png",
-    alt: "이미지 8",
-  },
-];

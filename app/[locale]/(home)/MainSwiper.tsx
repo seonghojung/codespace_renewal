@@ -1,7 +1,10 @@
 "use client";
 
 import styled from "styled-components";
-import SwiperCarousel from "./SwiperCarousel";
+import CarouselSwiper from "../components/Swiper";
+
+// @Fixme. 이미지 경로 및 대체 텍스트 수정 */
+const swiperImgs = ["a", "b", "c", "d"];
 
 const MainSwiper = ({ slideImgs }: any) => {
   return (
@@ -13,7 +16,7 @@ const MainSwiper = ({ slideImgs }: any) => {
           BASE IN SEOUL
         </SwiperTitle>
       </SwiperTitleWrap>
-      <SwiperCarousel slideImgs={slideImgs} />
+      <CarouselSwiper items={swiperImgs} />
     </>
   );
 };
