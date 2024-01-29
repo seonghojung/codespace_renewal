@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import closeIcon from "../../../public/svgs/close.svg";
 
 interface SlideBarProps {
   openSlideBarHandler: (isOpened: boolean) => void;
@@ -39,25 +40,25 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
     <SlideBarWrap className={open ? "open" : ""}>
       <SlideHeader>
         <div className="mobile">
-          <button type="button" onClick={() => openSlideBarHandler(false)} style={{ width: "28px", height: "24px" }}>
-            <Image src="/svgs/close.svg" alt="닫기 아이콘" width={28} height={28} />
+          <button type="button" onClick={() => openSlideBarHandler(false)}>
+            <Image src={closeIcon} alt="닫기 아이콘" />
           </button>
         </div>
       </SlideHeader>
       <SideMenu>
         <MenuList>
           <li>
-            <Link href="/project" className={path === "/project" ? "active" : ""} onClick={() => openSlideBarHandler(true)}>
+            <Link href="/project" className={path.endsWith("/project") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
               PROJECT
             </Link>
           </li>
           <li>
-            <Link href="/services" className={path === "/services" ? "active" : ""} onClick={() => openSlideBarHandler(true)}>
+            <Link href="/services" className={path.endsWith("/services") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
               SERVICES
             </Link>
           </li>
           <li>
-            <Link href="/contact" className={path === "/contact" ? "active" : ""} onClick={() => openSlideBarHandler(true)}>
+            <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
               CONTACT
             </Link>
           </li>

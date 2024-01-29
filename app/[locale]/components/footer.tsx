@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import styled from "styled-components";
-import { CodespaceLogo } from "./navigation";
+import logoIconPC from "../../../public/images/logo.png";
+import Image from "next/image";
+
 const FooterWrap = styled.footer`
   background-color: #f4f5f8;
   padding: 60px 10px 20px;
@@ -81,7 +83,7 @@ export default function Footer() {
       <div className="rspWrap">
         <header>
           <Link href="/">
-            <CodespaceLogo />
+            <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
           </Link>
         </header>
         <ul>

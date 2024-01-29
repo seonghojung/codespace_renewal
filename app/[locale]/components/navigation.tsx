@@ -6,6 +6,9 @@ import { usePathname } from "next/navigation";
 import { styled } from "styled-components";
 import { useState } from "react";
 import SlideBar from "./SlideBar";
+import { LogoIconMobile } from "./icons";
+import logoIconPC from "../../../public/images/logo.png";
+import hamburgerIcon from "../../../public/svgs/hamburger.svg";
 
 const ButtonWrap = styled.div`
   justify-content: space-between;
@@ -56,10 +59,6 @@ const LinkItem = styled.li`
   font-weight: 500;
 `;
 
-export const CodespaceLogo = () => {
-  return <Image src="/images/logo.png" alt="코드스페이스" width={193} height={28} />;
-};
-
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
@@ -74,29 +73,29 @@ export default function Navigation() {
       <HeaderWrap>
         <ButtonWrapMobile>
           <Link href="/">
-            <Image src="/svgs/logo_icon.svg" alt="로고 아이콘" width={24} height={28} />
+            <LogoIconMobile />
           </Link>
           <button>
-            <Image src="/svgs/hamburger.svg" alt="햄버거 아이콘" width={24} height={28} onClick={() => openSlideBarHandler(true)} />
+            <Image src={hamburgerIcon} alt="햄버거 아이콘" onClick={() => openSlideBarHandler(true)} />
           </button>
         </ButtonWrapMobile>
         <ButtonWrapPC>
           <Link href="/">
-            <CodespaceLogo />
+            <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
           </Link>
           <LinkItems>
             <LinkItem>
-              <Link href="/project" className={path === "/project" ? "active" : ""}>
+              <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
                 PROJECT
               </Link>
             </LinkItem>
             <LinkItem>
-              <Link href="/services" className={path === "/services" ? "active" : ""}>
+              <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
                 SERVICES
               </Link>
             </LinkItem>
             <LinkItem>
-              <Link href="/contact" className={path === "/contact" ? "active" : ""}>
+              <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
                 CONTACT
               </Link>
             </LinkItem>

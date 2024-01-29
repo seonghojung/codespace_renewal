@@ -3,9 +3,10 @@
 import styled, { keyframes } from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { BestSVG } from "@/app/[locale]/components/icons";
+
 import ProjectLink from "./components/ProjectLink";
 import ProjectCard from "@/app/[locale]/components/ProjectCard";
+import { BestIcon } from "../components/icons";
 
 const fadeIn = keyframes`
   from {
@@ -34,7 +35,7 @@ const MainProject = () => {
         <MainProjectImg src={"/images/main_banner-mb.png"} />
         {/* <MainProjectImg src="/images/nineArk.mp4" autoPlay muted loop /> */}
         <MainProjectTextWrap>
-          <BestIcon />
+          <BestIconStyle />
           <MainProjectTitleWrap>
             <MainTitleWrap>
               {/* <MainTitle > */}
@@ -190,7 +191,7 @@ const MainProjectTitleWrap = styled.div`
     margin-left: 0;
   }
 `;
-const BestIcon = styled(BestSVG)`
+const BestIconStyle = styled(BestIcon)`
   width: 106px;
   height: 106px;
   @media (min-width: 1200px) {

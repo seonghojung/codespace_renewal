@@ -2,7 +2,7 @@
 
 import { styled } from "styled-components";
 import Link from "next/link";
-import { LinkSVG, LinkWhiteSVG } from "@/app/[locale]/components/icons";
+import { ArrowIcon } from "../../components/icons";
 
 interface ProjectLinkProps {
   color: string;
@@ -12,7 +12,7 @@ const ProjectLink = ({ color }: ProjectLinkProps) => {
     <LinkWrap>
       <Link href="/project">
         <LinkText color={color}>More</LinkText>
-        {color === "#fff" ? <LinkWhiteIcon /> : <LinkIcon />}
+        {color === "#fff" ? <LinkIcon color="white" /> : <LinkIcon />}
       </Link>
     </LinkWrap>
   );
@@ -37,12 +37,7 @@ const LinkText = styled.span<ProjectLinkProps>`
     color: pink;
   }
 `;
-const LinkIcon = styled(LinkSVG)`
-  margin-left: 5px;
-  width: 18px;
-  height: 18px;
-`;
-const LinkWhiteIcon = styled(LinkWhiteSVG)`
+const LinkIcon = styled(ArrowIcon)`
   margin-left: 5px;
   width: 18px;
   height: 18px;
