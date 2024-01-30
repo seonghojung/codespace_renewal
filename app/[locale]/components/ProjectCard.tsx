@@ -1,70 +1,44 @@
-import { forwardRef, useState, useEffect, RefObject } from "react";
+import { forwardRef, useState, useEffect, RefObject, useRef } from "react";
 import styled from "styled-components";
 
 interface SubProjectProps {
-  mt?: number;
-  ml?: number;
   src?: string;
   alt?: string;
-  width?: number;
-  height?: number;
   title?: string;
   description?: string;
+  categories?: string[];
 }
 
-const ProjectCard = forwardRef<HTMLVideoElement, SubProjectProps>(({ mt, ml, src, alt, width, height, title, description }, ref) => {
-  const [isHovered, setIsHovered] = useState(false);
+const ProjectCard = ({ src: { src, alt, title, description } }: { src: SubProjectProps }) => {
+  const ref = useRef<HTMLVideoElement>(null);
+  const handleMouseOver = () => {
+    if (ref.current) {
+      ref.current.play();
+    }
+  };
 
-  useEffect(() => {
-    const videoRef = ref as RefObject<HTMLVideoElement>;
-
-    const handleMouseOver = () => {
-      setIsHovered(true);
-      if (videoRef.current) {
-        videoRef.current.play();
-      }
-    };
-
-    const handleMouseOut = () => {
-      setIsHovered(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
-        videoRef.current.currentTime = 0;
-      }
-    };
-
-    videoRef.current?.addEventListener("mouseover", handleMouseOver);
-    videoRef.current?.addEventListener("mouseout", handleMouseOut);
-
-    return () => {
-      videoRef.current?.removeEventListener("mouseover", handleMouseOver);
-      videoRef.current?.removeEventListener("mouseout", handleMouseOut);
-    };
-  }, [ref]);
+  const handleMouseOut = () => {
+    if (ref.current) {
+      ref.current.pause();
+      ref.current.currentTime = 0;
+    }
+  };
 
   return (
-    <>
-      <SubProjectContainer mt={mt} ml={ml}>
-        <ProjectVideo src={src} alt={alt} width={width} height={height} ref={ref} muted loop preload="" />
-        <ProjectTextWrap>
-          <ProjectName>{title}</ProjectName>
-          <ProjectDescription>{description}</ProjectDescription>
-        </ProjectTextWrap>
-      </SubProjectContainer>
-    </>
+    <SubProjectContainer onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut}>
+      <ProjectVideo src={src} alt={alt} ref={ref} muted loop preload="" />
+      <ProjectTextWrap>
+        <ProjectName>{title}</ProjectName>
+        <ProjectDescription>{description}</ProjectDescription>
+      </ProjectTextWrap>
+    </SubProjectContainer>
   );
-});
-
-ProjectCard.displayName = "ProjectCard";
+};
 
 export default ProjectCard;
 
 const SubProjectContainer = styled.div<SubProjectProps>`
-  margin-top: ${({ mt }) => mt}px;
-
   @media (min-width: 1200px) {
-    margin-top: 0px;
-    margin-left: ${(props) => (props.ml ? `${props.ml}px` : "0px")};
   }
 `;
 
@@ -75,14 +49,8 @@ const ProjectVideo = styled.video<SubProjectProps>`
 
   cursor: pointer;
 
-  /* 비디오 넣으면 삭제 */
-  border: 1px solid #ccc;
-
   @media (min-width: 1200px) {
-    width: ${({ width }) => width}px;
-    height: ${({ height }) => height}px;
-    transition: all 0.3s ease-in-out;
-
+    transition: transform 0.3s ease-in-out;
     &:hover {
       transform: scale(1.04);
     }
@@ -94,7 +62,6 @@ const ProjectTextWrap = styled.div`
 `;
 
 const ProjectName = styled.p`
-  /* margin-top: 14px; */
   font-size: 28px;
   font-weight: 500;
   color: #000;

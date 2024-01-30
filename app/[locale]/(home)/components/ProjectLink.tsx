@@ -20,12 +20,7 @@ const ProjectLink = ({ color }: ProjectLinkProps) => {
 
 export default ProjectLink;
 
-const LinkWrap = styled.div`
-  margin-top: 40px;
-  @media (min-width: 1200px) {
-    margin-top: 60px;
-  }
-`;
+const LinkWrap = styled.div``;
 
 const LinkText = styled.span<ProjectLinkProps>`
   font-size: 16px;
