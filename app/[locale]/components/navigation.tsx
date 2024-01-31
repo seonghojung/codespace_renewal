@@ -11,6 +11,7 @@ import hamburgerIcon from "../../../public/svgs/hamburger.svg";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import styled from "styled-components";
 import { fadeIn } from "../animations/fadeIn";
+import LineDecoration from "./LineDecoration";
 
 const ButtonWrap = styled.div`
   justify-content: space-between;
@@ -110,19 +111,25 @@ export default function Navigation() {
             </Link>
             <LinkItems>
               <LinkItem style={{ animationDelay: "0.1s" }}>
-                <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
-                  PROJECT
-                </Link>
+                <LineDecoration>
+                  <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
+                    PROJECT
+                  </Link>
+                </LineDecoration>
               </LinkItem>
               <LinkItem style={{ animationDelay: "0.15s" }}>
-                <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
-                  SERVICES
-                </Link>
+                <LineDecoration>
+                  <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
+                    SERVICES
+                  </Link>
+                </LineDecoration>
               </LinkItem>
               <LinkItem style={{ animationDelay: "0.2s" }}>
-                <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
-                  CONTACT
-                </Link>
+                <LineDecoration>
+                  <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
+                    CONTACT
+                  </Link>
+                </LineDecoration>
               </LinkItem>
             </LinkItems>
           </ButtonWrapPC>

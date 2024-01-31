@@ -3,6 +3,7 @@
 import { styled } from "styled-components";
 import Link from "next/link";
 import { ArrowIcon } from "../../components/icons";
+import LineTitle from "../../components/LineDecoration";
 
 interface ProjectLinkProps {
   color: string;
@@ -11,7 +12,9 @@ const ProjectLink = ({ color }: ProjectLinkProps) => {
   return (
     <LinkWrap>
       <Link href="/project">
-        <LinkText color={color}>More</LinkText>
+        <LinkText color={color}>
+          <LineTitle>More</LineTitle>
+        </LinkText>
         {color === "#fff" ? <LinkIcon color="white" /> : <LinkIcon />}
       </Link>
     </LinkWrap>
