@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 interface IUnderLineText {
   mbSize: number;
   pcSize: number;
+  text: string;
 }
 
 interface IAddressWrap {
@@ -11,12 +12,12 @@ interface IAddressWrap {
   $pcSize: number;
 }
 
-const UnderLineText = ({ mbSize, pcSize }: IUnderLineText) => {
+const UnderLineText = ({ mbSize, pcSize, text }: IUnderLineText) => {
   return (
-    <Link href="" passHref legacyBehavior>
+    <Link href="mailto:jake@codespace.im" target="_blank" rel="noreferrer noopener" passHref legacyBehavior>
       <AddressWrap $mbSize={mbSize} $pcSize={pcSize}>
         <Address>
-          <span>email@codespace.im</span>
+          <span>{text}</span>
         </Address>
       </AddressWrap>
     </Link>

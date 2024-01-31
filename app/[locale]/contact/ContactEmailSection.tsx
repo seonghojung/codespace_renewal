@@ -4,7 +4,7 @@ import styled from "styled-components";
 import UnderLineText from "../components/UnderLineText";
 
 const SectionWrap = styled.section`
-  padding: 60px 10px 0px;
+  padding: 60px 20px 0px;
   display: flex;
   flex-direction: column;
   @media (min-width: 1200px) {
@@ -69,16 +69,16 @@ export const ContactEmailSection = () => {
     <SectionWrap>
       <TitleWrap>
         <h1>프로젝트에 대한 문의나 의뢰가 있나요?</h1>
-        <UnderLineText mbSize={32} pcSize={42} />
+        <UnderLineText mbSize={32} pcSize={42} text={"email@codespace.im"} />
       </TitleWrap>
       <Wrapper>
         <SubTitleWrap>
           <h1>채용과 관련하여 궁금하신 점이 있나요?</h1>
-          <UnderLineText mbSize={22} pcSize={32} />
+          <UnderLineText mbSize={22} pcSize={32} text={"email@codespace.im"} />
         </SubTitleWrap>
         <SubTitleWrap>
           <h1>비즈니스 파트너 제휴가 필요하신가요?</h1>
-          <UnderLineText mbSize={22} pcSize={32} />
+          <UnderLineText mbSize={22} pcSize={32} text={"email@codespace.im"} />
         </SubTitleWrap>
       </Wrapper>
     </SectionWrap>
