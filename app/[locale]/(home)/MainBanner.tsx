@@ -1,8 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import ProjectLink from "./components/ProjectLink";
 import { Layout } from "../components/navigation";
+import Link from "next/link";
+import LineDecorationLink from "../components/LineDecorationLink";
 
 const MainBanner = () => {
   return (
@@ -19,12 +20,14 @@ const MainBanner = () => {
             <br /> 수 많은 문제들, 정확하지 않아서 답을 찾고자 노력하는 모든 고민은
             <br /> 코드스페이스에게 맡겨주세요.
           </BannerSubTitle>
-          <BannerSubTitle>
+          <BannerSubTitle style={{ marginBottom: "10px" }}>
             가장 쉬운 단어와 필요한 핵심 요소를 통해 오직 파트너의 상상력으로
             <br /> 만들어진 비즈니스 모델을 구현하고 시장에 선보이는 것에 집중하며
             <br /> 프로덕트 마켓 핏을 찾을 수 있도록 도와드리겠습니다.
           </BannerSubTitle>
-          <ProjectLink color={"#fff"} />
+          <LineDecorationLink color="white">
+            <Link href={"/contact"}>자세히 알아보기</Link>
+          </LineDecorationLink>
         </BannerSubTitleWrap>
       </Banner>
     </Layout>
@@ -69,6 +72,10 @@ const BannerSubTitleWrap = styled.div`
     position: absolute;
     top: 296px;
     right: 120px;
+  }
+
+  a {
+    color: white;
   }
 `;
 

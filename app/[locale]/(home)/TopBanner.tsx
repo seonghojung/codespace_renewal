@@ -3,7 +3,8 @@
 import styled, { css, keyframes } from "styled-components";
 import { Layout } from "../components/navigation";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
-import ProjectLink from "./components/ProjectLink";
+import LineDecorationLink from "../components/LineDecorationLink";
+import Link from "next/link";
 
 export interface IMainVisualProps {
   title: string;
@@ -51,19 +52,31 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   @media (min-width: 1920px) {
+    //@TODO: 여기 영역별로 폰트사이즈좀 잡아야겠네요
   }
   @media (min-width: 1280px) {
-    max-width: 750px;
   }
   @media (min-width: 768px) {
   }
+  max-width: 500px;
   word-break: keep-all;
+  margin-bottom: 10px;
   padding-top: 100px;
   font-size: 22px;
   font-weight: 300;
   line-height: 1.31;
   color: rgba(0, 0, 0, 0.8);
   ${fadeInAndUp}
+`;
+const MoreLink = styled(Link)`
+  @media (min-width: 1920px) {
+    //@TODO: 여기 영역별로 폰트사이즈좀 잡아야겠네요
+  }
+  @media (min-width: 1280px) {
+  }
+  @media (min-width: 768px) {
+  }
+  font-size: 20px;
 `;
 
 const VidoeContainer = styled.div`
@@ -82,11 +95,10 @@ const SectionTopBanner = () => {
         <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
       </VidoeContainer>
       <Layout>
-        <Subtitle>
-          파트너의 제품과 함께 성장하는 코드스페이스의 새로운 프로젝트를 확인해보세요. 명확한 솔루션을 통해 비즈니스 성장과 파트너의 아이디어를 현실로
-          구현하는 것을 통해 함께 성장하며 발전하는 것은 우리가 생각하는 가장 중요한 기본입니다.
-        </Subtitle>
-        <ProjectLink color="#000" />
+        <Subtitle>코드스페이스와 함께 놀라운 서비스를 만들어보세요. 준비된 전문가들이 기다리고 있습니다.</Subtitle>
+        <LineDecorationLink>
+          <MoreLink href={"/project"}>자세히 알아보기</MoreLink>
+        </LineDecorationLink>
       </Layout>
     </Section>
   );

@@ -1,13 +1,13 @@
 "use client";
 
 import { css, keyframes, styled } from "styled-components";
-import ProjectLink from "./components/ProjectLink";
 import { useInView } from "react-intersection-observer";
 import { Layout } from "../components/navigation";
-import { useEffect } from "react";
 import Image from "next/image";
 import bannerImage from "../../../public/images/main_banner-mb.png";
 import bestSvg from "../../../public/svgs/best.svg";
+import Link from "next/link";
+import LineDecorationLink from "../components/LineDecorationLink";
 
 const Section = styled.section`
   margin-top: 100px;
@@ -76,6 +76,7 @@ const BestIconStyle = styled(Image)<IStyleProps>`
 const SubTitleWrap = styled.div`
   position: relative;
   overflow: hidden;
+  margin-bottom: 10px;
 `;
 
 const SubTitle = styled.p<IStyleProps>`
@@ -158,7 +159,9 @@ const SectionMiddleBanner = () => {
                   디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는 것은 우리가 생각하는 가장 중요한 기본입니다.
                 </SubTitle>
               </SubTitleWrap>
-              <ProjectLink color="#000" />
+              <LineDecorationLink>
+                <Link href={"/project"}>자세히 알아보기</Link>
+              </LineDecorationLink>
             </TextWrap>
           </ContentWrap>
         </Container>

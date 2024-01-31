@@ -31,11 +31,11 @@ const Container = styled.div`
   }
 `;
 
-const LineDecoration = ({ children }: { children: React.ReactNode }) => {
+const LineDecoration = ({ children, color = "black" }: { children: React.ReactNode; color?: string }) => {
   return (
     <Container>
       {children}
-      <DecorationLine />
+      <DecorationLine style={{ backgroundColor: `${color}` }} />
     </Container>
   );
 };
