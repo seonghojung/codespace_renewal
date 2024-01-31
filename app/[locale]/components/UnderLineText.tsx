@@ -14,8 +14,8 @@ interface IAddressWrap {
 
 const UnderLineText = ({ mbSize, pcSize, text }: IUnderLineText) => {
   return (
-    <Link href="mailto:jake@codespace.im" target="_blank" rel="noreferrer noopener" passHref legacyBehavior>
-      <AddressWrap $mbSize={mbSize} $pcSize={pcSize}>
+    <Link href="mailto:jake@codespace.im" passHref legacyBehavior>
+      <AddressWrap $mbSize={mbSize} $pcSize={pcSize} rel="noopener noreferrer" target="_blank">
         <Address>
           <span>{text}</span>
         </Address>
