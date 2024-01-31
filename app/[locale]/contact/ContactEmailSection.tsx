@@ -2,11 +2,15 @@
 
 import styled from "styled-components";
 import UnderLineText from "../components/UnderLineText";
+import { fadeInAndUp } from "../animations/fadeInAndUp";
+import { fadeInAndUpTwoSec } from "../animations/fadeInAndUpTwoSec";
+import { fadeInAndUp3Sec } from "../animations/fadeInAndup3Sec";
 
 const SectionWrap = styled.section`
   padding: 60px 20px 0px;
   display: flex;
   flex-direction: column;
+
   @media (min-width: 1200px) {
     padding: 40px 120px 0px;
   }
@@ -22,6 +26,7 @@ const TitleWrap = styled.div`
   }
 
   @media (min-width: 1200px) {
+    ${fadeInAndUp}
     h1 {
       width: 100%;
     }
@@ -41,6 +46,32 @@ const SubTitleWrap = styled.div`
     font-weight: 600;
   }
   @media (min-width: 1200px) {
+    ${fadeInAndUpTwoSec}
+    opacity: 0;
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 32px;
+    }
+  }
+`;
+const SubdTitleWrap = styled.div`
+  h1 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  p {
+    margin-top: 10px;
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  @media (min-width: 1200px) {
+    ${fadeInAndUp3Sec}
+    opacity: 0;
+
     h1 {
       font-size: 24px;
     }
@@ -76,10 +107,10 @@ export const ContactEmailSection = () => {
           <h1>채용과 관련하여 궁금하신 점이 있나요?</h1>
           <UnderLineText mbSize={22} pcSize={32} text={"email@codespace.im"} />
         </SubTitleWrap>
-        <SubTitleWrap>
+        <SubdTitleWrap>
           <h1>비즈니스 파트너 제휴가 필요하신가요?</h1>
           <UnderLineText mbSize={22} pcSize={32} text={"email@codespace.im"} />
-        </SubTitleWrap>
+        </SubdTitleWrap>
       </Wrapper>
     </SectionWrap>
   );
