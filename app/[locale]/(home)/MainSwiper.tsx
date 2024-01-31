@@ -2,13 +2,14 @@
 
 import styled from "styled-components";
 import CarouselSwiper from "../components/Swiper";
+import { Layout } from "../components/navigation";
 
 // @Fixme. 이미지 경로 및 대체 텍스트 수정 */
 const swiperImgs = ["a", "b", "c", "d"];
 
-const MainSwiper = ({ slideImgs }: any) => {
+const MainSwiper = () => {
   return (
-    <>
+    <Layout>
       <SwiperTitleWrap>
         <SwiperTitle>
           CODESPACE
@@ -17,7 +18,7 @@ const MainSwiper = ({ slideImgs }: any) => {
         </SwiperTitle>
       </SwiperTitleWrap>
       <CarouselSwiper items={swiperImgs} />
-    </>
+    </Layout>
   );
 };
 
