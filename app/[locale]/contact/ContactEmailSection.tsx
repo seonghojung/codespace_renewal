@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import styled from "styled-components";
 import UnderLineText from "../components/UnderLineText";
 
@@ -40,7 +39,6 @@ const SubTitleWrap = styled.div`
     color: #000;
     font-size: 22px;
     font-weight: 600;
-    /* text-decoration-line: underline; */
   }
   @media (min-width: 1200px) {
     h1 {
@@ -71,13 +69,6 @@ export const ContactEmailSection = () => {
     <SectionWrap>
       <TitleWrap>
         <h1>프로젝트에 대한 문의나 의뢰가 있나요?</h1>
-        {/* <Link href="" passHref legacyBehavior>
-          <AddressWrap>
-            <Address>
-              <span>email@codespace.im</span>
-            </Address>
-          </AddressWrap>
-        </Link> */}
         <UnderLineText mbSize={32} pcSize={42} />
       </TitleWrap>
       <Wrapper>
