@@ -1,10 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import { useRef } from "react";
-import { useInView } from "react-intersection-observer";
-import ProjectCard from "@/app/[locale]/components/ProjectCard";
 import { Layout } from "../components/navigation";
+import Projects, { ProjectProps } from "../components/Projects";
 
 export interface IMainProject {
   subTitle: string;
@@ -15,43 +13,48 @@ const Section = styled.section`
   margin-top: 160px;
 `;
 
-const SubContentBox = styled.div`
-  margin-top: 160px;
-`;
-
-const SubProjectsWrap = styled.div`
-  @media (min-width: 1200px) {
-    display: flex;
-    &:not(:first-child) {
-      margin-top: 100px;
-    }
-  }
-`;
-// Web Design Enterprise Development
-const videos = [
+const videos: ProjectProps[] = [
   {
     src: "/images/nineArk.mp4",
-    title: "PROJECT NAME",
-    description: "부동산 데이터 소팅 및 사용자 인터페이스 설계",
-    cateogries: ["Web Design", "Enterprise", "Development"],
+    title: "테더맥스 [TetherMax]",
+    description: "코인 선물 거래수수료 페이백 서비스",
+    categories: ["Web", "CMS", "Fintech"],
+    date: "Dec, 2023",
   },
   {
     src: "/images/nineArk.mp4",
-    title: "PROJECT NAME",
-    description: "부동산 데이터 소팅 및 사용자 인터페이스 설계",
-    cateogries: ["Web Design", "Enterprise", "Development"],
+    title: "플립 [Fuelaf]",
+    description: "식물 도감 및 큐레이션 서비스",
+    categories: ["UI/UX", "Web", "CMS", "Startup"],
+    date: "Dec, 2021",
   },
   {
     src: "/images/nineArk.mp4",
-    title: "PROJECT NAME",
-    description: "부동산 데이터 소팅 및 사용자 인터페이스 설계",
-    cateogries: ["Web Design", "Enterprise", "Development"],
+    title: "플립 [Fuelaf]",
+    description: "식물 도감 및 큐레이션 서비스",
+    categories: ["UI/UX", "Web", "CMS", "Startup"],
+    date: "Dec, 2021",
   },
   {
     src: "/images/nineArk.mp4",
-    title: "PROJECT NAME",
-    description: "부동산 데이터 소팅 및 사용자 인터페이스 설계",
-    cateogries: ["Web Design", "Enterprise", "Development"],
+    title: "플립 [Fuelaf]",
+    description: "식물 도감 및 큐레이션 서비스",
+    categories: ["UI/UX", "Web", "CMS", "Startup"],
+    date: "Dec, 2021",
+  },
+  {
+    src: "/images/nineArk.mp4",
+    title: "플립 [Fuelaf]",
+    description: "식물 도감 및 큐레이션 서비스",
+    categories: ["UI/UX", "Web", "CMS", "Startup"],
+    date: "Dec, 2021",
+  },
+  {
+    src: "/images/nineArk.mp4",
+    title: "플립 [Fuelaf]",
+    description: "식물 도감 및 큐레이션 서비스",
+    categories: ["UI/UX", "Web", "CMS", "Startup"],
+    date: "Dec, 2021",
   },
 ];
 
@@ -59,34 +62,7 @@ const SectionProjects = () => {
   return (
     <Section>
       <Layout>
-        <SubContentBox>
-          <SubProjectsWrap style={{ gap: 100 }}>
-            <div style={{ flex: 1, paddingTop: 100 }}>
-              <ProjectCard src={videos[0]} />
-            </div>
-            <div style={{ flex: 1.5 }}>
-              <ProjectCard src={videos[1]} />
-            </div>
-          </SubProjectsWrap>
-          <SubProjectsWrap>
-            <div style={{ flex: 0.8 }}>
-              <ProjectCard src={videos[2]} />
-            </div>
-          </SubProjectsWrap>
-          <SubProjectsWrap style={{ gap: 100 }}>
-            <div style={{ flex: 1.5 }}>
-              <ProjectCard src={videos[3]} />
-            </div>
-            <div style={{ flex: 1, paddingTop: 100 }}>
-              <ProjectCard src={videos[3]} />
-            </div>
-          </SubProjectsWrap>
-          <SubProjectsWrap style={{ justifyContent: "end" }}>
-            <div style={{ flex: 0.9 }}>
-              <ProjectCard src={videos[2]} />
-            </div>
-          </SubProjectsWrap>
-        </SubContentBox>
+        <Projects projects={videos} />
       </Layout>
     </Section>
   );

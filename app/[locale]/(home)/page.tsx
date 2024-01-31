@@ -16,9 +16,9 @@ export default function Home() {
       <TopBanner />
       <MiddleBanner />
       <Projects />
-      {/* <MainBanner />
+      <MainBanner />
       <MainSwiper />
-      <FAQ /> */}
+      <FAQ />
     </>
   );
 }

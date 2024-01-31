@@ -110,7 +110,7 @@ const FloatingContent = styled.h2<IStyleProps>`
   }
 `;
 
-const floatingUp = css`
+export const floatingUp = css`
   transform: translate(0px, 150%);
   animation: ${fadeIn} 1s ease forwards;
 `;
@@ -125,7 +125,7 @@ const FloatingText = ({ children, delay, $isView }: { children: React.ReactNode;
 
 const SectionMiddleBanner = () => {
   const [ref, inView] = useInView({
-    threshold: 0.35, // 가시성이 15% 이상일 때 트리거
+    threshold: 0.35,
     triggerOnce: true,
   });
 

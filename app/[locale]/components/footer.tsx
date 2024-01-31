@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import logoIconPC from "../../../public/images/logo.png";
 import Image from "next/image";
+import { Layout } from "./navigation";
 
 const FooterWrap = styled.footer`
   background-color: #f4f5f8;
@@ -80,45 +81,47 @@ const FooterWrap = styled.footer`
 export default function Footer() {
   return (
     <FooterWrap>
-      <div className="rspWrap">
-        <header>
-          <Link href="/">
-            <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
-          </Link>
-        </header>
-        <ul>
-          <li>
-            <h2 className="title">MAIN</h2>
-          </li>
-          <li>
-            <h2 className="title">PROJECT</h2>
-            <div className="content">
-              <Link href="#">Project</Link>
-            </div>
-          </li>
-          <li>
-            <h2 className="title">SERVICES</h2>
-            <div className="content">
-              <Link href="#">Websites</Link>
-              <Link href="#">Application</Link>
-              <Link href="#">Management</Link>
-              <Link href="#">UI/UX</Link>
-              <Link href="#">CMS Solution</Link>
-              <Link href="#">SEO</Link>
-            </div>
-          </li>
-          <li>
-            <h2 className="title">CONTACT</h2>
-            <div className="content">
-              <Link href="#"> Contact</Link>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <footer>
-        <span>©2023 Code Space co. ltd.</span>
-        <span style={{ display: "none" }}>언어 : 한국어</span>
-      </footer>
+      <Layout>
+        <div className="rspWrap">
+          <header>
+            <Link href="/">
+              <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
+            </Link>
+          </header>
+          <ul>
+            <li>
+              <h2 className="title">MAIN</h2>
+            </li>
+            <li>
+              <h2 className="title">PROJECT</h2>
+              <div className="content">
+                <Link href="#">Project</Link>
+              </div>
+            </li>
+            <li>
+              <h2 className="title">SERVICES</h2>
+              <div className="content">
+                <Link href="#">Websites</Link>
+                <Link href="#">Application</Link>
+                <Link href="#">Management</Link>
+                <Link href="#">UI/UX</Link>
+                <Link href="#">CMS Solution</Link>
+                <Link href="#">SEO</Link>
+              </div>
+            </li>
+            <li>
+              <h2 className="title">CONTACT</h2>
+              <div className="content">
+                <Link href="#"> Contact</Link>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <footer>
+          <span>©2023 Code Space co. ltd.</span>
+          <span style={{ display: "none" }}>언어 : 한국어</span>
+        </footer>
+      </Layout>
     </FooterWrap>
   );
 }
