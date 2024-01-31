@@ -1,8 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import ProjectLink from "./components/ProjectLink";
 import { Layout } from "../components/navigation";
+import Link from "next/link";
+import LineDecorationLink from "../components/LineDecorationLink";
 
 const MainBanner = () => {
   return (
@@ -24,7 +25,9 @@ const MainBanner = () => {
             <br /> 만들어진 비즈니스 모델을 구현하고 시장에 선보이는 것에 집중하며
             <br /> 프로덕트 마켓 핏을 찾을 수 있도록 도와드리겠습니다.
           </BannerSubTitle>
-          <ProjectLink color={"#fff"} />
+          <LineDecorationLink color="white">
+            <Link href={"/project"}>자세히 알아보기</Link>
+          </LineDecorationLink>
         </BannerSubTitleWrap>
       </Banner>
     </Layout>
@@ -69,6 +72,10 @@ const BannerSubTitleWrap = styled.div`
     position: absolute;
     top: 296px;
     right: 120px;
+  }
+
+  a {
+    color: white;
   }
 `;
 
