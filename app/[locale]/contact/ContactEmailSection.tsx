@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import styled from "styled-components";
+import UnderLineText from "../components/UnderLineText";
 
 const SectionWrap = styled.section`
   padding: 60px 10px 0px;
@@ -19,23 +21,16 @@ const TitleWrap = styled.div`
     font-style: normal;
     font-weight: 600;
   }
-  p {
-    color: #000;
-    font-size: 32px;
-    font-weight: 600;
-    text-decoration-line: underline;
-  }
+
   @media (min-width: 1200px) {
     h1 {
       width: 100%;
     }
-    p {
-      font-size: 42px;
-    }
   }
 `;
+
 const SubTitleWrap = styled.div`
-  h2 {
+  h1 {
     color: #000;
     font-size: 20px;
     font-weight: 500;
@@ -45,10 +40,10 @@ const SubTitleWrap = styled.div`
     color: #000;
     font-size: 22px;
     font-weight: 600;
-    text-decoration-line: underline;
+    /* text-decoration-line: underline; */
   }
   @media (min-width: 1200px) {
-    h2 {
+    h1 {
       font-size: 24px;
     }
     p {
@@ -76,16 +71,23 @@ export const ContactEmailSection = () => {
     <SectionWrap>
       <TitleWrap>
         <h1>프로젝트에 대한 문의나 의뢰가 있나요?</h1>
-        <h2>email@codespace.im</h2>
+        {/* <Link href="" passHref legacyBehavior>
+          <AddressWrap>
+            <Address>
+              <span>email@codespace.im</span>
+            </Address>
+          </AddressWrap>
+        </Link> */}
+        <UnderLineText mbSize={32} pcSize={42} />
       </TitleWrap>
       <Wrapper>
         <SubTitleWrap>
           <h1>채용과 관련하여 궁금하신 점이 있나요?</h1>
-          <h2>email@codespace.im</h2>
+          <UnderLineText mbSize={22} pcSize={32} />
         </SubTitleWrap>
         <SubTitleWrap>
           <h1>비즈니스 파트너 제휴가 필요하신가요?</h1>
-          <h2>email@codespace.im</h2>
+          <UnderLineText mbSize={22} pcSize={32} />
         </SubTitleWrap>
       </Wrapper>
     </SectionWrap>
