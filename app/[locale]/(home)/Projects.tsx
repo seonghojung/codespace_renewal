@@ -15,10 +15,6 @@ const Section = styled.section`
   margin-top: 160px;
 `;
 
-// 소개 및 메인 프로젝트 영역
-
-// 나머지 프로젝트 영역
-
 const SubContentBox = styled.div`
   margin-top: 160px;
 `;
