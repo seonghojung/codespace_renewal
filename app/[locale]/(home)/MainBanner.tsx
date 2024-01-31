@@ -26,7 +26,7 @@ const MainBanner = () => {
             <br /> 프로덕트 마켓 핏을 찾을 수 있도록 도와드리겠습니다.
           </BannerSubTitle>
           <LineDecorationLink color="white">
-            <Link href={"/project"}>자세히 알아보기</Link>
+            <Link href={"/contact"}>자세히 알아보기</Link>
           </LineDecorationLink>
         </BannerSubTitleWrap>
       </Banner>
