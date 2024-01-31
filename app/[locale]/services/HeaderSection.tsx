@@ -2,43 +2,47 @@
 
 import { BlueDotIcon } from "@/app/[locale]/components/icons";
 import { styled } from "styled-components";
-import { titleFadeIn } from "../animations/titleFadeIn";
+import { enTitleFadeIn, koSubTitleFadeIn, koTitleFadeIn } from "../animations/titleFadeIn";
 
 const SectionWrap = styled.section`
   padding: 41px 26px 160px 10px;
-  h1 {
-    opacity: 0;
-    ${titleFadeIn}
-    width: 339px;
-    position: relative;
-    color: #000;
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 44px;
-    text-transform: uppercase;
-    svg {
-      width: 12px;
-      height: 12px;
-      position: absolute;
-      right: -2px;
-      bottom: 4px;
-    }
-  }
+
   @media (min-width: 1200px) {
     padding: 41px 0px 160px 40px;
-    h1 {
-      width: 1084px;
-      font-size: 160px;
-      line-height: 140px;
-      svg {
-        width: 32px;
-        height: 32px;
-        right: 19px;
-        bottom: 11px;
-      }
+  }
+`;
+
+const EnTitle = styled.h1`
+  width: 339px;
+  position: relative;
+  color: #000;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 44px;
+  text-transform: uppercase;
+  svg {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    right: -2px;
+    bottom: 4px;
+  }
+
+  @media (min-width: 1200px) {
+    opacity: 0;
+    ${enTitleFadeIn}
+    width: 1084px;
+    font-size: 160px;
+    line-height: 140px;
+    svg {
+      width: 32px;
+      height: 32px;
+      right: 19px;
+      bottom: 11px;
     }
   }
 `;
+
 const SubHeaderWrap = styled.div`
   padding-top: 60px;
   padding-left: 22px;
@@ -66,6 +70,8 @@ const SubHeaderWrap = styled.div`
     padding-top: 80px;
     padding-left: 80px;
     h1 {
+      opacity: 0;
+      ${koTitleFadeIn}
       width: 730px;
       font-size: 42px;
       font-weight: 600;
@@ -75,6 +81,8 @@ const SubHeaderWrap = styled.div`
       }
     }
     h2 {
+      opacity: 0;
+      ${koSubTitleFadeIn}
       width: 752px;
       br {
         display: none;
@@ -85,10 +93,10 @@ const SubHeaderWrap = styled.div`
 const HeaderSection = () => {
   return (
     <SectionWrap>
-      <h1>
+      <EnTitle>
         Bring imagination to PRODUCT
         <BlueDotIcon />
-      </h1>
+      </EnTitle>
       <SubHeaderWrap>
         <h1>
           순간을 해결하는 솔루션이 아닌

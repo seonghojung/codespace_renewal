@@ -2,9 +2,9 @@
 
 import styled from "styled-components";
 import UnderLineText from "../components/UnderLineText";
-import { fadeInAndUp } from "../animations/fadeInAndUp";
-import { fadeInAndUpTwoSec } from "../animations/fadeInAndUpTwoSec";
-import { fadeInAndUp3Sec } from "../animations/fadeInAndup3Sec";
+import { fadeInAndUp, fadeInAndUp2Sec, fadeInAndUp3Sec } from "../animations/fadeInAndUp";
+// import { fadeInAndUpTwoSec } from "../animations/fadeInAndUpTwoSec";
+// import { fadeInAndUp3Sec } from "../animations/fadeInAndup3Sec";
 
 const SectionWrap = styled.section`
   padding: 60px 20px 0px;
@@ -26,6 +26,7 @@ const TitleWrap = styled.div`
   }
 
   @media (min-width: 1200px) {
+    opacity: 0;
     ${fadeInAndUp}
     h1 {
       width: 100%;
@@ -46,7 +47,7 @@ const SubTitleWrap = styled.div`
     font-weight: 600;
   }
   @media (min-width: 1200px) {
-    ${fadeInAndUpTwoSec}
+    ${fadeInAndUp2Sec}
     opacity: 0;
     h1 {
       font-size: 24px;
