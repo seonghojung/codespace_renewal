@@ -60,12 +60,23 @@ const Subtitle = styled.h2`
   }
   max-width: 500px;
   word-break: keep-all;
+  margin-bottom: 10px;
   padding-top: 100px;
   font-size: 22px;
   font-weight: 300;
   line-height: 1.31;
   color: rgba(0, 0, 0, 0.8);
   ${fadeInAndUp}
+`;
+const MoreLink = styled(Link)`
+  @media (min-width: 1920px) {
+    //@TODO: 여기 영역별로 폰트사이즈좀 잡아야겠네요
+  }
+  @media (min-width: 1280px) {
+  }
+  @media (min-width: 768px) {
+  }
+  font-size: 20px;
 `;
 
 const VidoeContainer = styled.div`
@@ -86,9 +97,7 @@ const SectionTopBanner = () => {
       <Layout>
         <Subtitle>코드스페이스와 함께 놀라운 서비스를 만들어보세요. 준비된 전문가들이 기다리고 있습니다.</Subtitle>
         <LineDecorationLink>
-          <Link style={{ fontSize: 30 }} href={"/project"}>
-            자세히 알아보기
-          </Link>
+          <MoreLink href={"/project"}>자세히 알아보기</MoreLink>
         </LineDecorationLink>
       </Layout>
     </Section>
