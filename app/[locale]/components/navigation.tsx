@@ -60,17 +60,23 @@ const LinkItem = styled.li`
 `;
 
 export const Layout = styled.div`
-  @media (min-width: 1920px) {
+  @media (min-width: 768px) {
+    margin-left: 40px;
+    margin-right: 40px;
   }
   @media (min-width: 1280px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     max-width: 1130px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1920px) {
+    max-width: 1536px;
   }
-
-  width: 100%;
-  margin: 0 auto;
+  margin-left: 24px;
+  margin-right: 24px;
 `;
+
 const LogoContainer = styled.div`
   ${fadeIn}
 `;

@@ -19,14 +19,22 @@ const Section = styled.section`
 
 const MainVideo = styled.video`
   width: 100%;
-  height: 420px;
   object-fit: cover;
   cursor: pointer;
 
-  @media (min-width: 1200px) {
-    width: 1240px;
-    height: 600px;
-    overflow: hidden;
+  @media (min-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 80px);
+    will-change: transform;
+  }
+  @media (min-width: 1280px) {
+    width: 1130px;
+  }
+  @media (min-width: 1920px) {
+    width: 81%;
+    min-width: 1130px;
+    max-width: 1620px;
   }
 `;
 
@@ -71,7 +79,7 @@ const SectionTopBanner = () => {
         <Title>상상하는 서비스를 현실로 만들어드립니다</Title>
       </Layout>
       <VidoeContainer>
-        <MainVideo src="/images/kia.mp4" autoPlay muted loop />
+        <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
       </VidoeContainer>
       <Layout>
         <Subtitle>
