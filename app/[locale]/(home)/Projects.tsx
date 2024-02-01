@@ -44,14 +44,14 @@ const videos: ProjectProps[] = [
     date: "Oct, 2020",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "테더맥스 [TetherMax]",
     description: "코인 선물 거래수수료 페이백 서비스",
     categories: ["Web", "CMS", "Fintech"],
     date: "Dec, 2023",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "플립 [Fuelaf]",
     description: "식물 도감 및 큐레이션 서비스",
     categories: ["UI/UX", "Web", "CMS", "Startup"],
@@ -65,7 +65,7 @@ const videos: ProjectProps[] = [
     date: "Apr. 2020",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "킥오프",
     description: "글로벌 외주 매칭 플랫폼",
     categories: ["UI/UX", "Web", "CMS", "Startup"],
@@ -79,7 +79,7 @@ const videos: ProjectProps[] = [
     date: "Feb, 2022",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "마크홀리",
     description: "제품의 상세 내용을 확인할 수 있는 CTA 중심 반응형 웹",
     categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
@@ -93,7 +93,7 @@ const videos: ProjectProps[] = [
     date: "Dec, 2022",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "AIRKID",
     description: "어린이용 머리 보호 헬맷, 에어키드 소개 반응형 웹 ",
     categories: ["UI/UX", "Web", "3D", "Enterprise"],
@@ -107,14 +107,14 @@ const videos: ProjectProps[] = [
     date: "Aug, 2022",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "시티호퍼스",
     description: "여행 매거진 및 커뮤니티 플랫폼",
     categories: ["Web", "CMS", "Magazine", "O2O"],
     date: "Jun, 2022",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "3.3 DESIGN SPACE",
     description: "인테리어 회사 소개 및 견적 반응형 웹",
     categories: ["UI/UX", "Web", "Publishing", "Enterprise"],
@@ -135,7 +135,7 @@ const videos: ProjectProps[] = [
     date: "Apr, 2023",
   },
   {
-    src: "/videos/thumbnail_kia.mp4",
+    src: "/videos/thumbnail_chartin.mp4",
     title: "세컨드 화이트",
     description: "프로덕트 디자인 에이전시 회사 소개 반응형 웹",
     categories: ["Web", "CMS", "Enterprise"],

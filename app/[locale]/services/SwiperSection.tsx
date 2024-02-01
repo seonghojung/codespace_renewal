@@ -2,7 +2,7 @@
 
 import { styled } from "styled-components";
 import "swiper/css";
-import CarouselSwiper from "../components/Swiper";
+import CarouselSwiper, { HorizontalImage, VerticalImage } from "../components/Swiper";
 
 const SectionWrap = styled.section`
   padding-bottom: 160px;
@@ -21,8 +21,14 @@ const SectionWrap = styled.section`
   }
 `;
 
-const SwiperItems = ["A", "B", "C", "D"];
-
+// const images = [
+//   <HorizontalImage alt="swiper0" src={swiper0} key={0} />,
+//   <VerticalImage alt="swiper1" src={swiper1} key={1} />,
+//   <HorizontalImage alt="swiper2" src={swiper2} key={2} />,
+//   <VerticalImage alt="swiper3" src={swiper3} key={3} />,
+//   <HorizontalImage alt="swiper4" src={swiper4} key={4} />,
+//   <VerticalImage alt="swiper5" src={swiper5} key={5} />,
+// ];
 const SwiperSection = () => {
   return (
     <SectionWrap>
@@ -30,7 +36,7 @@ const SwiperSection = () => {
         플랫폼 비즈니스의 시작 <br />
         코드스페이스와 함께하세요
       </h2>
-      <CarouselSwiper items={SwiperItems} />
+      {/* <CarouselSwiper items={images} /> */}
     </SectionWrap>
   );
 };

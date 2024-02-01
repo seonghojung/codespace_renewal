@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import Projects, { ProjectProps } from "../components/Projects";
 import { Layout } from "../components/navigation";
+import { VideoLayout } from "../(home)/MainBanner";
 
 const allProjects: ProjectProps[] = [
   {
@@ -176,7 +177,9 @@ const Project = () => {
           </CategoryListWrap>
         </NavWrap>
       </Layout>
-      <Projects projects={sortedProjects} />
+      <VideoLayout>
+        <Projects projects={sortedProjects} />
+      </VideoLayout>
     </ProjectWrap>
   );
 };
