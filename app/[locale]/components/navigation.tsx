@@ -20,20 +20,20 @@ const ButtonWrap = styled.div`
 `;
 const ButtonWrapMobile = styled(ButtonWrap)`
   height: 108px;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     display: none;
   }
 `;
 const ButtonWrapPC = styled(ButtonWrap)`
   display: none;
   height: 110px;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     display: flex;
   }
 `;
 
 const HeaderWrap = styled.header`
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     img {
       object-fit: cover;
       display: block;

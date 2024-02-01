@@ -8,8 +8,8 @@ function Services() {
     <>
       <Layout>
         <HeaderSection />
-        <ContentsSection />
       </Layout>
+      <ContentsSection />
       <SwiperSection />
     </>
   );
