@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { ProjectProps } from "../components/Projects";
+import { Layout } from "../components/navigation";
 
 const allProjects: ProjectProps[] = [
   {
@@ -134,42 +135,49 @@ const allProjects: ProjectProps[] = [
 ];
 
 const Project = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>("");
-
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortedProjects, setSortedProjects] = useState<ProjectProps[]>(allProjects);
   const filterByCategory = (category: string) => {
     setSelectedCategory(category);
+    setSortedProjects(allProjects.filter((project) => project.categories.includes(category)));
   };
+
+  useEffect(() => {
+    console.log(sortedProjects);
+  }, [sortedProjects]);
 
   return (
     <ProjectWrap>
-      <NavWrap>
-        <ProjectTitle>
-          프로덕트 마켓 핏을
-          <br />
-          코드스페이스에서 만들어보세요
-        </ProjectTitle>
-        <CategoryListWrap>
-          <CategoryList onClick={() => filterByCategory("")} selected={selectedCategory === ""}>
-            <h2>ALL</h2>
-          </CategoryList>
-          <CategoryList onClick={() => filterByCategory("Management")} selected={selectedCategory === "Management"}>
-            <h2>MANAGEMENT</h2>
-          </CategoryList>
-          <CategoryList onClick={() => filterByCategory("Websites")} selected={selectedCategory === "Websites"}>
-            <h2>WEBSITES</h2>
-          </CategoryList>
-          <CategoryList onClick={() => filterByCategory("UIUX")} selected={selectedCategory === "UIUX"}>
-            <h2>UI/UX</h2>
-          </CategoryList>
-          <CategoryList onClick={() => filterByCategory("Application")} selected={selectedCategory === "Application"}>
-            <h2>APPLICATION</h2>
-          </CategoryList>
-          <CategoryList onClick={() => filterByCategory("CMSSolution")} selected={selectedCategory === "CMSSolution"}>
-            <h2>CMS SOLUTION</h2>
-          </CategoryList>
-        </CategoryListWrap>
-      </NavWrap>
-      <CardBox></CardBox>
+      <Layout>
+        <NavWrap>
+          <ProjectTitle>
+            프로덕트 마켓 핏을
+            <br />
+            코드스페이스에서 만들어보세요
+          </ProjectTitle>
+          <CategoryListWrap>
+            <CategoryList onClick={() => filterByCategory("")} selected={selectedCategory === ""}>
+              <h2>ALL</h2>
+            </CategoryList>
+            <CategoryList onClick={() => filterByCategory("Management")} selected={selectedCategory === "Management"}>
+              <h2>MANAGEMENT</h2>
+            </CategoryList>
+            <CategoryList onClick={() => filterByCategory("Web")} selected={selectedCategory === "Web"}>
+              <h2>WEBSITES</h2>
+            </CategoryList>
+            <CategoryList onClick={() => filterByCategory("UI/UX")} selected={selectedCategory === "UI/UX"}>
+              <h2>UI/UX</h2>
+            </CategoryList>
+            <CategoryList onClick={() => filterByCategory("App")} selected={selectedCategory === "App"}>
+              <h2>APPLICATION</h2>
+            </CategoryList>
+            <CategoryList onClick={() => filterByCategory("CMS")} selected={selectedCategory === "CMS"}>
+              <h2>CMS SOLUTION</h2>
+            </CategoryList>
+          </CategoryListWrap>
+        </NavWrap>
+        <CardBox></CardBox>
+      </Layout>
     </ProjectWrap>
   );
 };

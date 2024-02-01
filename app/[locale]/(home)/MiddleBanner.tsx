@@ -107,7 +107,6 @@ const FloatingContent = styled.h2<IStyleProps>`
     font-size: 62px;
     line-height: 0.87;
     ${({ $isView }) => $isView && floatingUp}
-    animation-delay: 0.3s;
   }
 `;
 

@@ -15,7 +15,7 @@ const fadeInKeyframe = keyframes`
 //   animation: ${fadeInKeyframe} 1s ease;
 // `;
 
-const createFadeInAndUpAnimation = (duration: number, delay: number) => css`
+export const createFadeInAndUpAnimation = (duration: number, delay: number) => css`
   animation: ${duration}s ${fadeInKeyframe} ${delay}s ease forwards;
 `;
 
