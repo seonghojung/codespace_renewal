@@ -22,33 +22,23 @@ const MainVideo = styled.video`
   width: 100%;
   object-fit: cover;
   cursor: pointer;
-
-  @media (min-width: 768px) {
-    margin-left: auto;
-    margin-right: auto;
-    width: calc(100% - 80px);
-    will-change: transform;
-  }
-  @media (min-width: 1280px) {
-    width: 1130px;
-  }
-  @media (min-width: 1920px) {
-    width: 81%;
-    min-width: 1130px;
-    max-width: 1620px;
-  }
+  display: block;
 `;
 
 const Title = styled.h1`
   opacity: 0;
   position: relative;
-  font-size: 72px;
-  font-weight: 400;
-  line-height: 1.36;
-  color: #000;
-  max-width: 680px;
+  font-size: 86px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #050411;
   word-break: keep-all;
   ${fadeInAndUp}
+  @media (min-width: 768px) {
+    font-size: 86px;
+    line-height: 1.14;
+  }
 `;
 
 const Subtitle = styled.h2`
@@ -90,11 +80,14 @@ const SectionTopBanner = () => {
   return (
     <Section>
       <Layout>
-        <Title>상상하는 서비스를 현실로 만들어드립니다</Title>
+        <Title>
+          상상하는 서비스를
+          <br /> 현실로 만들어드립니다
+        </Title>
+        <VidoeContainer>
+          <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
+        </VidoeContainer>
       </Layout>
-      <VidoeContainer>
-        <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
-      </VidoeContainer>
       <Layout>
         <Subtitle>코드스페이스와 함께 놀라운 서비스를 만들어보세요. 준비된 전문가들이 기다리고 있습니다.</Subtitle>
         <LineDecorationLink>

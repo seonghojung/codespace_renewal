@@ -31,6 +31,11 @@ const Container = styled.div<IProps>`
   opacity: 0;
   ${({ $isView }) => $isView && floatingUp}
 `;
+const Content = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+`;
 const FAQAccordion = ({ header, body, eventKey, isView }: FAQAccordionProps) => {
   return (
     <Container $isView={isView} style={{ animationDelay: `0.${+eventKey + 1}s` }}>
@@ -40,7 +45,7 @@ const FAQAccordion = ({ header, body, eventKey, isView }: FAQAccordionProps) => 
             <Title>{header}</Title>
           </AccordionHeader>
           <AccordionBody>
-            <p>{body}</p>
+            <Content>{body}</Content>
           </AccordionBody>
         </AccordionItem>
       </AccordionWrap>
@@ -70,7 +75,7 @@ const Title = styled.span`
   }
 `;
 
-export const AccordionWrap = styled(Accordion)`
+const AccordionWrap = styled(Accordion)`
   --bs-accordion-border-width: 0;
   --bs-accordion-inner-border-radius: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -89,7 +94,8 @@ const AccordionHeader = styled(Accordion.Header)`
     }
   }
   .accordion-button {
-    padding: 36px 0 15px;
+    margin-top: 26px;
+    padding: 0px 0 26px;
   }
 
   .accordion-button:focus {
@@ -104,18 +110,6 @@ const AccordionHeader = styled(Accordion.Header)`
   }
 `;
 const AccordionBody = styled(Accordion.Body)`
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
   background-color: #1a1f27;
-  padding: 21px 28px 35px 20px;
-
-  @media (min-width: 1200px) {
-    padding: 34px 11px 35px 10px;
-  }
-  @media (min-width: 1920px) {
-    p {
-      max-width: 780px;
-    }
-  }
+  padding: 19px 75px 35px 0px;
 `;

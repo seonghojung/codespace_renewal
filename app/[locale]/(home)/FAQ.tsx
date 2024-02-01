@@ -36,6 +36,34 @@ const questions = [
   },
 ];
 
+const FAQSection = styled.section`
+  background-color: #1a1f27;
+  margin-top: 140px;
+  padding-top: 60px;
+  padding-bottom: 140px;
+
+  @media (min-width: 768px) {
+    padding-top: 80px;
+    margin-top: 120px;
+  }
+`;
+
+const FAQTitle = styled.p`
+  font-weight: 600;
+  line-height: 1.14;
+  color: #fff;
+  font-size: 42px;
+
+  @media (min-width: 768px) {
+    padding-left: 10px;
+    font-size: 40px;
+  }
+`;
+
+const FAQAccordionWrap = styled.div`
+  margin-top: 55px;
+`;
+
 const FAQ = () => {
   const [ref, inView] = useInView({
     threshold: 0.35,
@@ -56,40 +84,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-
-const FAQSection = styled.section`
-  background-color: #1a1f27;
-  margin-top: 160px;
-  padding: 0 10px 140px 10px;
-
-  @media (min-width: 1200px) {
-    padding: 0 120px 160px 120px;
-  }
-`;
-
-const FAQTitle = styled.p`
-  padding-top: 60px;
-
-  font-weight: 600;
-  line-height: 1.14;
-  color: #fff;
-  font-size: 30px;
-
-  @media (min-width: 768px) {
-    font-size: 40px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 52px;
-  }
-  @media (min-width: 1920px) {
-    font-size: 64px;
-  }
-`;
-
-const FAQAccordionWrap = styled.div`
-  margin-top: 65px;
-
-  @media (min-width: 1200px) {
-    margin-top: 61px;
-  }
-`;

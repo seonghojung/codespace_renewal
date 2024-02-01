@@ -1,12 +1,12 @@
-import MainVisual from "./TopBanner";
-import MainProject from "./Projects";
 import MainBanner from "./MainBanner";
-import MainSwiper from "./MainSwiper";
+import Swiper from "./Swiper";
 import FAQ from "./FAQ";
 import { useTranslations } from "next-intl";
 import TopBanner from "./TopBanner";
 import MiddleBanner from "./MiddleBanner";
 import Projects from "./Projects";
+import LogoMetaIcon from "./icon/LogoMetaIcon";
+import Logo from "./Logo";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -14,10 +14,11 @@ export default function Home() {
   return (
     <>
       <TopBanner />
+      <Logo />
       <MiddleBanner />
       <Projects />
       <MainBanner />
-      <MainSwiper />
+      <Swiper />
       <FAQ />
     </>
   );
