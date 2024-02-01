@@ -28,47 +28,53 @@ const fadeIn = keyframes`
 `;
 const Container = styled.div<IStyleProps>`
   opacity: 1;
-  @media (min-width: 1200px) {
+  display: block;
+  @media (min-width: 768px) {
+    height: 480px;
     opacity: ${(props) => (props.$isView ? 1 : 0)};
-    transition: opacity 0.25s ease-in-out; // 부드러운 효과를 위한 트랜지션 추가
+    transition: opacity 0.25s ease-in-out;
     display: flex;
+    gap: 140px;
   }
 `;
 const ProjectImage = styled(Image)`
   width: 100%;
   height: 420px;
+  display: block;
   object-fit: cover;
-
-  @media (min-width: 1200px) {
-    width: 580px;
-    height: 760px;
+  @media (min-width: 768px) {
+    flex: 1;
   }
 `;
 const ContentWrap = styled.div`
-  margin-top: 40px;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
+    padding-top: 68px;
+    flex: 0.9;
     position: relative;
-    margin-top: 175px;
-    margin-left: 161px;
   }
 `;
 
 const TextWrap = styled.div`
   margin-top: 6px;
   margin-left: 10px;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     margin-top: 0;
     margin-left: 0;
+  }
+
+  a {
+    font-size: 18px;
+    color: #8f99aa;
   }
 `;
 const BestIconStyle = styled(Image)<IStyleProps>`
   width: 106px;
   height: 106px;
   z-index: 9999;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     position: absolute;
-    top: -65px;
-    left: -80px;
+    top: 0px;
+    left: 0px;
     ${({ $isView }) => $isView && floatingUp}
   }
 `;
@@ -76,17 +82,17 @@ const BestIconStyle = styled(Image)<IStyleProps>`
 const SubTitleWrap = styled.div`
   position: relative;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const SubTitle = styled.p<IStyleProps>`
   margin-top: 40px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.31;
   color: rgba(0, 0, 0, 0.8);
-
-  @media (min-width: 1200px) {
+  word-break: keep-all;
+  @media (min-width: 768px) {
     margin-top: 40px;
     ${({ $isView }) => $isView && floatingUp}
   }
@@ -99,13 +105,14 @@ const FloatingWrap = styled.div`
 
 const FloatingContent = styled.h2<IStyleProps>`
   font-size: 42px;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1;
   color: #000;
 
-  @media (min-width: 1200px) {
-    font-size: 62px;
+  @media (min-width: 768px) {
+    font-size: 46px;
     line-height: 0.87;
+
     ${({ $isView }) => $isView && floatingUp}
   }
 `;
@@ -158,7 +165,7 @@ const SectionMiddleBanner = () => {
                   디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는 것은 우리가 생각하는 가장 중요한 기본입니다.
                 </SubTitle>
               </SubTitleWrap>
-              <LineDecorationLink>
+              <LineDecorationLink color="#8f99aa">
                 <Link href={"/project"}>자세히 알아보기</Link>
               </LineDecorationLink>
             </TextWrap>

@@ -227,20 +227,3 @@ const CategoryList = styled.li<{ selected: boolean }>`
   font-weight: 500;
   color: ${(props) => (props.selected ? "#000" : "rgba(0, 0, 0, 0.4)")};
 `;
-
-const CardBox = styled.div`
-  margin-top: 100px;
-  @media (min-width: 1200px) {
-    margin-top: 120px;
-  }
-`;
-
-const CardWrap = styled.div`
-  @media (min-width: 1200px) {
-    display: flex;
-    margin-left: 20px;
-    &:not(:first-child) {
-      margin-top: 100px;
-    }
-  }
-`;

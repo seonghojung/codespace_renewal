@@ -71,7 +71,7 @@ const LogoItem = styled.li`
   }
   &:nth-child(4),
   &:nth-child(8) {
-    animation-delay: 18.5s;
+    animation-delay: 5;
   }
   &:nth-child(7) {
     animation-delay: 13s;

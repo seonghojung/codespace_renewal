@@ -28,14 +28,6 @@ const Container = styled.li`
     padding: 40px 0;
     margin: 0 35.5px;
   }
-  @media (min-width: 1280px) {
-    margin: 0 57px;
-    padding: 48px 0;
-  }
-  @media (min-width: 1920px) {
-    margin: 0 63px;
-    padding: 60px 0;
-  }
   padding-top: 24px;
   padding-bottom: 40px;
 `;
@@ -43,17 +35,8 @@ const ContainerA = styled(Container)`
   @media (min-width: 768px) {
     width: calc(50% - 71px);
   }
-  @media (min-width: 1280px) {
-    width: calc(50% - 114px);
-  }
-  @media (min-width: 1920px) {
-    width: calc(50% - 126px);
-  }
 `;
 const ContainerB = styled(ContainerA)`
-  @media (min-width: 1920px) {
-    padding-top: 200px;
-  }
   @media (min-width: 768px) {
     padding-top: 160px;
   }
@@ -61,9 +44,6 @@ const ContainerB = styled(ContainerA)`
 const ContainerC = styled(Container)`
   @media (min-width: 768px) {
     width: 80.1%;
-  }
-  @media (min-width: 1920px) {
-    width: 81.4%;
   }
 `;
 
@@ -98,7 +78,7 @@ const CategoryItem = styled.li`
     height: 3px;
     border-radius: 50%;
     background-color: #637695;
-    @media (min-width: 1280px) {
+    @media (min-width: 768px) {
       right: 16px;
       top: 8.5px;
       width: 4px;
@@ -107,19 +87,7 @@ const CategoryItem = styled.li`
   }
 `;
 const SubProjectContainer = styled.div<StyleProp>`
-  ${CategoryContainer} {
-    opacity: 1;
-    @media (min-width: 768px) {
-      opacity: 0;
-    }
-  }
-  &:hover {
-    @media (min-width: 768px) {
-      ${CategoryContainer} {
-        opacity: 1;
-      }
-    }
-  }
+  opacity: 0;
   ${({ $isView }) => $isView && floatingUp}
 `;
 const VideoWrap = styled.div`
@@ -134,8 +102,7 @@ const ProjectVideo = styled.video`
   height: 420px;
   object-fit: cover;
   cursor: pointer;
-
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     &:hover {
       transform: scale(1.02);
@@ -146,7 +113,7 @@ const ProjectVideo = styled.video`
 const InfoWrap = styled.div`
   margin-top: 20px;
   padding-left: 15px;
-  @media (min-width: 780px) {
+  @media (min-width: 768px) {
     padding-left: 0px;
   }
 `;
@@ -169,26 +136,11 @@ const ProjectItems = styled.ul`
     flex-wrap: wrap;
     margin: 0 -35.5px;
   }
-  @media (min-width: 1280px) {
-    margin: 0 -57px;
-  }
-  @media (min-width: 1920px) {
-    margin: 0 -63px;
-  }
 `;
 const ProjectLayout = styled.div`
   @media (min-width: 768px) {
     margin-left: 40px;
     margin-right: 40px;
-  }
-  @media (min-width: 1280px) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1130px;
-  }
-  @media (min-width: 1920px) {
-    max-width: 1536px;
   }
   margin-left: 0px;
   margin-right: 0px;

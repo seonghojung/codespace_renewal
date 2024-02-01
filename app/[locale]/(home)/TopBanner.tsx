@@ -76,6 +76,7 @@ const VidoeContainer = styled.div`
 const DescriptionWrap = styled.div``;
 
 const VideoLayout = styled.div`
+  width: 100%;
   @media (min-width: 768px) {
     width: 95%;
     max-width: 1536px;
