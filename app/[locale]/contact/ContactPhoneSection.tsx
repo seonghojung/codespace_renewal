@@ -2,24 +2,27 @@
 
 import { styled } from "styled-components";
 import UnderLineText from "../components/UnderLineText";
+import { fadeInAndUp2Sec } from "../animations/fadeInAndUp";
 
 const SectionWrap = styled.section`
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 12px 120px 20px;
+  padding: 60px 2px 120px 10px;
   gap: 10px;
 
   @media (min-width: 1200px) {
-    padding: 0px 100px 120px 100px;
+    padding: 60px 0px 120px;
   }
 `;
 
 const TitleWrap = styled.div`
-  padding-top: 60px;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
   width: 100%;
   @media (min-width: 1200px) {
+    opacity: 0;
+    ${fadeInAndUp2Sec}
     display: flex;
     flex-direction: row;
     justify-content: space-between;
