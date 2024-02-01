@@ -4,7 +4,9 @@ import styled from "styled-components";
 
 const SectionWrap = styled.section`
   @media (min-width: 1200px) {
-    padding: 0px 100px;
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
     display: flex;
     gap: 40px;
   }

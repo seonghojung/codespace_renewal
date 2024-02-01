@@ -5,12 +5,12 @@ import UnderLineText from "../components/UnderLineText";
 import { fadeInAndUp, fadeInAndUp2Sec, fadeInAndUp3Sec } from "../animations/fadeInAndUp";
 
 const SectionWrap = styled.section`
-  padding: 60px 20px 60px;
+  padding: 60px 10px 60px;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 1200px) {
-    padding: 40px 100px 60px;
+    padding: 40px 0px 60px;
   }
 `;
 
