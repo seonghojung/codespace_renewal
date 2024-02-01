@@ -99,15 +99,14 @@ const SubHeaderWrap = styled.div`
 `;
 
 const HeaderSection = () => {
-  const [isMobile, setIsMobile] = useState(0);
-
+  const [isRspPc, setIsRspPc] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth);
+      const bodyWidth = document.body.clientWidth;
+      setIsRspPc(bodyWidth > 768);
     };
-
+    handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -117,8 +116,7 @@ const HeaderSection = () => {
     <SectionWrap>
       <EnTitle>
         Bring imagination to PRODUCT
-        {isMobile > 768 ? <BlueDotIcon /> : <BlueDotIconMb />}
-        {/* <BlueDotIcon /> */}
+        {isRspPc ? <BlueDotIcon /> : <BlueDotIconMb />}
       </EnTitle>
       <SubHeaderWrap>
         <h1>순간을 해결하는 솔루션이 아닌 오랜시간 함께 성장하는 솔루션을 제공합니다</h1>
