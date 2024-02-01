@@ -126,6 +126,7 @@ const VideoWrap = styled.div`
   }
 `;
 const ProjectVideo = styled.video`
+  display: block;
   width: 100%;
   height: 420px;
   object-fit: cover;

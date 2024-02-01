@@ -1,126 +1,104 @@
 "use client";
 
-import Link from "next/link";
 import styled from "styled-components";
 import logoIconPC from "../../../public/images/logo.png";
 import Image from "next/image";
+import Link from "next/link";
 import { Layout } from "./navigation";
+import downDelta from "../../../public/svgs/down_delta.svg";
 
 const FooterWrap = styled.footer`
   background-color: #f4f5f8;
-  padding: 60px 10px 20px;
-  height: 520px;
+`;
+const Container = styled.div`
+  padding-top: 60px;
+  padding-bottom: 40px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .rspWrap {
-    header {
-      img {
-        width: 193px;
-        height: 28px;
-      }
-    }
-    ul {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 80px;
-      li {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        h2 {
-          color: rgba(0, 0, 0, 0.6);
-          font-size: 16px;
-          font-weight: 500;
-        }
-        div.content {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          a {
-            color: rgba(0, 0, 0, 0.4);
-            font-size: 12px;
-            font-weight: 400;
-            &:hover {
-              color: rgba(0, 0, 0, 0.6);
-            }
-          }
-        }
-      }
-    }
-  }
-  footer {
-    display: flex;
-    justify-content: space-between;
-    span {
-      color: rgba(0, 0, 0, 0.4);
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 24px;
-    }
-  }
+`;
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
 
-  @media (min-width: 1200px) {
-    padding: 80px 120px 26px;
-    .rspWrap {
-      justify-content: space-between;
-      display: flex;
-      ul {
-        width: 489px;
-        margin-top: 0px;
-        li {
-          gap: 12px;
-          h2 {
-            font-size: 18px;
-          }
-        }
-      }
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+  }
+`;
+
+const NavItems = styled.ul`
+  margin-top: 60px;
+  @media (min-width: 768px) {
+    margin-top: 0px;
+  }
+  display: flex;
+`;
+const NavItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 40px;
+    @media (min-width: 768px) {
+      margin-right: 70px;
     }
   }
 `;
+const Title = styled(Link)`
+  font-size: 20px;
+  color: #666;
+  &:hover {
+    color: #1a1a1a;
+  }
+`;
+const InfoWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const Name = styled.span`
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 2;
+`;
+
+const LanguageSwitchBtn = styled.button`
+  text-decoration: underline;
+  font-size: 12px;
+  line-height: 2;
+  span {
+    margin-right: 6px;
+  }
+`;
+
 export default function Footer() {
   return (
     <FooterWrap>
       <Layout>
-        <div className="rspWrap">
-          <header>
+        <Container>
+          <Nav>
             <Link href="/">
               <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
             </Link>
-          </header>
-          <ul>
-            <li>
-              <h2 className="title">MAIN</h2>
-            </li>
-            <li>
-              <h2 className="title">PROJECT</h2>
-              <div className="content">
-                <Link href="#">Project</Link>
-              </div>
-            </li>
-            <li>
-              <h2 className="title">SERVICES</h2>
-              <div className="content">
-                <Link href="#">Websites</Link>
-                <Link href="#">Application</Link>
-                <Link href="#">Management</Link>
-                <Link href="#">UI/UX</Link>
-                <Link href="#">CMS Solution</Link>
-                <Link href="#">SEO</Link>
-              </div>
-            </li>
-            <li>
-              <h2 className="title">CONTACT</h2>
-              <div className="content">
-                <Link href="#"> Contact</Link>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <footer>
-          <span>©2023 Code Space co. ltd.</span>
-          <span style={{ display: "none" }}>언어 : 한국어</span>
-        </footer>
+            <NavItems>
+              <NavItem>
+                <Title href={"/project"}>PROJECT</Title>
+              </NavItem>
+              <NavItem>
+                <Title href={"/services"}>SERVICES</Title>
+              </NavItem>
+              <NavItem>
+                <Title href={"/contact"}>CONTACT</Title>
+              </NavItem>
+            </NavItems>
+          </Nav>
+          <InfoWrap>
+            <Name>©2023 Code Space co. ltd.</Name>
+            <LanguageSwitchBtn>
+              <span>언어 : 한국어</span>
+              <Image src={downDelta} alt={"아래쪽 화살표"} />
+            </LanguageSwitchBtn>
+          </InfoWrap>
+        </Container>
       </Layout>
     </FooterWrap>
   );
