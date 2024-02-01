@@ -19,14 +19,14 @@ const ButtonWrap = styled.div`
   display: flex;
 `;
 const ButtonWrapMobile = styled(ButtonWrap)`
-  height: 110px;
+  height: 108px;
   @media (min-width: 1200px) {
     display: none;
   }
 `;
 const ButtonWrapPC = styled(ButtonWrap)`
   display: none;
-  height: 100px;
+  height: 110px;
   @media (min-width: 1200px) {
     display: flex;
   }
