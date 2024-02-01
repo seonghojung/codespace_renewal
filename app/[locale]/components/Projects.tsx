@@ -23,14 +23,29 @@ const fadeIn = keyframes`
       transform: translate(0px, 0px)  scale(1);
     }
   `;
-
+const CategoryContainer = styled.ul`
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  margin-top: 10px;
+`;
 const Container = styled.li`
+  padding-top: 24px;
+  padding-bottom: 40px;
+  ${CategoryContainer} {
+    opacity: 1;
+  }
   @media (min-width: 768px) {
     padding: 40px 0;
     margin: 0 35.5px;
+    ${CategoryContainer} {
+      opacity: 0;
+    }
+    &:hover {
+      ${CategoryContainer} {
+        opacity: 1;
+      }
+    }
   }
-  padding-top: 24px;
-  padding-bottom: 40px;
 `;
 const ContainerA = styled(Container)`
   @media (min-width: 768px) {
@@ -51,11 +66,7 @@ const ContainerC = styled(Container)`
 const floatingUp = css`
   animation: ${fadeIn} 0.6s ease forwards;
 `;
-const CategoryContainer = styled.ul`
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  margin-top: 10px;
-`;
+
 const CategoryItem = styled.li`
   font-size: 16px;
   display: inline;
@@ -66,7 +77,7 @@ const CategoryItem = styled.li`
   &:not(:last-child) {
     position: relative;
     padding-right: 15px;
-    @media (min-width: 1280px) {
+    @media (min-width: 768px) {
       padding-right: 36px;
     }
   }
