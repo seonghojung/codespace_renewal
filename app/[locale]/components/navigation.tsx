@@ -19,7 +19,7 @@ const ButtonWrap = styled.div`
   display: flex;
 `;
 const ButtonWrapMobile = styled(ButtonWrap)`
-  height: 108px;
+  height: 110px;
   @media (min-width: 1200px) {
     display: none;
   }
