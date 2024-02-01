@@ -175,31 +175,29 @@ const Project = () => {
             </CategoryList>
           </CategoryListWrap>
         </NavWrap>
-        <Projects projects={sortedProjects} />
       </Layout>
+      <Projects projects={sortedProjects} />
     </ProjectWrap>
   );
 };
 
 export default Project;
 
-const ProjectWrap = styled.section`
-  margin: 20px 0 170px;
-  @media (min-width: 1200px) {
-    margin: 40px 120px 160px 120px;
-  }
-`;
+const ProjectWrap = styled.section``;
 const NavWrap = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 0 19px 0 10px;
 
   @media (min-width: 1200px) {
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin: 0;
   }
 `;
 
 const ProjectTitle = styled.h1`
+  width: auto;
   font-size: 28px;
   font-weight: 600;
   line-height: 1.36;
@@ -212,48 +210,22 @@ const ProjectTitle = styled.h1`
 `;
 
 const CategoryListWrap = styled.ul`
-  margin-top: 34px;
   display: flex;
-  flex-flow: row wrap;
-  @media (min-width: 1200px) {
-    margin-top: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 157px;
+  padding-top: 8px;
+  text-transform: capitalize;
+  @media (min-width: 768px) {
+    padding-top: 0;
   }
 `;
 
 const CategoryList = styled.li<{ selected: boolean }>`
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   color: ${(props) => (props.selected ? "#000" : "rgba(0, 0, 0, 0.4)")};
-  &:not(:first-child, :nth-child(5)) {
-    margin-left: 16px;
-  }
-
-  &:nth-child(5),
-  &:nth-child(6) {
-    margin-top: 20px;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 28px;
-
-    &:not(:nth-child(5)) {
-      margin-left: 0;
-    }
-    &:not(:first-child) {
-      margin-left: 0;
-    }
-
-    &:nth-child(5),
-    &:nth-child(6) {
-      margin-top: 0;
-    }
-  }
 `;
 
 const CardBox = styled.div`

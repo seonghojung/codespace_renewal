@@ -2,9 +2,6 @@
 
 import styled, { css, keyframes } from "styled-components";
 import Accordion from "react-bootstrap/Accordion";
-import { fadeInAndUp, fadeInAndUp2Sec, fadeInAndUp3Sec } from "../../animations/fadeInAndUp";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
 
 interface FAQAccordionProps {
   eventKey: string;
@@ -31,7 +28,7 @@ const floatingUp = css`
 `;
 
 const Container = styled.div<IProps>`
-  ${({ $isView }) => ($isView ? { opacity: 0 } : { opacity: 1 })}
+  opacity: 0;
   ${({ $isView }) => $isView && floatingUp}
 `;
 const FAQAccordion = ({ header, body, eventKey, isView }: FAQAccordionProps) => {

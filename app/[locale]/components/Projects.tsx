@@ -81,25 +81,37 @@ const CategoryItem = styled.li`
   list-style: none outside none;
   position: relative;
   color: #637695;
-  @media (min-width: 1280px) {
-    &:not(:last-child) {
+
+  &:not(:last-child) {
+    position: relative;
+    padding-right: 15px;
+    @media (min-width: 1280px) {
       padding-right: 36px;
     }
-    &:not(:last-child)::before {
-      content: "";
-      position: absolute;
-
+  }
+  &:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 8.5px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #637695;
+    @media (min-width: 1280px) {
       right: 16px;
       top: 8.5px;
       width: 4px;
       height: 4px;
-      border-radius: 50%;
-      background-color: #637695;
     }
   }
 `;
 const SubProjectContainer = styled.div<StyleProp>`
-  @media (min-width: 1200px) {
+  ${CategoryContainer} {
+    opacity: 1;
+    @media (min-width: 1280px) {
+      opacity: 0;
+    }
   }
   &:hover {
     ${CategoryContainer} {
@@ -130,6 +142,10 @@ const ProjectVideo = styled.video`
 `;
 const InfoWrap = styled.div`
   margin-top: 20px;
+  padding-left: 15px;
+  @media (min-width: 780px) {
+    padding-left: 0px;
+  }
 `;
 const Title = styled.p`
   font-size: 30px;
@@ -157,6 +173,24 @@ const ProjectItems = styled.ul`
     margin: 0 -63px;
   }
 `;
+const ProjectLayout = styled.div`
+  @media (min-width: 768px) {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  @media (min-width: 1280px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1130px;
+  }
+  @media (min-width: 1920px) {
+    max-width: 1536px;
+  }
+  margin-left: 0px;
+  margin-right: 0px;
+`;
+
 const CategoryItems = ({ categories }: { categories: string[] }) => {
   return (
     <CategoryContainer>
@@ -225,13 +259,15 @@ const ProjectCard = ({ src: { src, title, description, categories } }: { src: Pr
 
 const Projects = ({ projects }: { projects: ProjectProps[] }) => {
   return (
-    <ProjectItems>
-      {projects.map((project, index) => (
-        <ProjectItem key={index} index={index}>
-          <ProjectCard src={project} />
-        </ProjectItem>
-      ))}
-    </ProjectItems>
+    <ProjectLayout>
+      <ProjectItems>
+        {projects.map((project, index) => (
+          <ProjectItem key={index} index={index}>
+            <ProjectCard src={project} />
+          </ProjectItem>
+        ))}
+      </ProjectItems>
+    </ProjectLayout>
   );
 };
 
