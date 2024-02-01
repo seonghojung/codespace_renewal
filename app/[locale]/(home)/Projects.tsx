@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { Layout } from "../components/navigation";
 import Projects, { ProjectProps } from "../components/Projects";
+import { VideoLayout } from "./MainBanner";
 
 export interface IMainProject {
   subTitle: string;
@@ -145,9 +146,9 @@ const videos: ProjectProps[] = [
 const SectionProjects = () => {
   return (
     <Section>
-      <Layout>
+      <VideoLayout>
         <Projects projects={videos} />
-      </Layout>
+      </VideoLayout>
     </Section>
   );
 };

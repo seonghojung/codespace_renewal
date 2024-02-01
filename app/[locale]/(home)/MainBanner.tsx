@@ -17,6 +17,7 @@ const Container = styled.div`
 const InfoWrap = styled.div`
   position: absolute;
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding-top: 167px;
   width: 100%;
@@ -25,28 +26,30 @@ const InfoWrap = styled.div`
   }
 `;
 const Title = styled.h2`
+  text-align: center;
   color: #fff;
   text-transform: uppercase;
-  font-size: 62px;
+  font-size: 46px;
   font-weight: bold;
   letter-spacing: normal;
-  line-height: 0.75;
-  margin-bottom: 75px;
-
+  margin-bottom: 40px;
+  max-width: 315px;
   @media (min-width: 768px) {
     font-size: 74px;
+    max-width: none;
   }
 `;
 const Description = styled.h3`
+  width: 90%;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.28;
   color: #fff;
   text-align: center;
+  word-break: keep-all;
 `;
 const LinkWrap = styled.div`
-  margin-top: 60px;
-
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   a {
@@ -61,7 +64,8 @@ const BannerImage = styled(Image)`
     max-width: 1536px;
   }
 `;
-const VideoLayout = styled.div`
+export const VideoLayout = styled.div`
+  width: 100%;
   @media (min-width: 768px) {
     width: 95%;
     max-width: 1536px;

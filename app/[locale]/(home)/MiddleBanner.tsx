@@ -47,10 +47,11 @@ const ProjectImage = styled(Image)`
   }
 `;
 const ContentWrap = styled.div`
+  position: relative;
+  padding-top: 80px;
   @media (min-width: 768px) {
     padding-top: 68px;
     flex: 0.9;
-    position: relative;
   }
 `;
 
@@ -68,13 +69,15 @@ const TextWrap = styled.div`
   }
 `;
 const BestIconStyle = styled(Image)<IStyleProps>`
+  position: absolute;
+  top: 6px;
+  left: 5px;
   width: 106px;
   height: 106px;
   z-index: 9999;
   @media (min-width: 768px) {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 26px;
+    left: -80px;
     ${({ $isView }) => $isView && floatingUp}
   }
 `;

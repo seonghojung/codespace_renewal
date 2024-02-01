@@ -37,7 +37,7 @@ const Title = styled.h1`
   word-break: keep-all;
   ${fadeInAndUp}
   @media (min-width: 768px) {
-    font-size: 86px;
+    font-size: clamp(74px, 9.6354166666667vw, 86px);
     line-height: 1.14;
   }
 `;
@@ -51,7 +51,7 @@ const Subtitle = styled.h2`
   ${fadeInAndUp}
   @media (min-width: 768px) {
     font-weight: 500;
-    font-size: 32px;
+    font-size: clamp(22px, 2.8645833333333vw, 32px);
     max-width: 680px;
     line-height: 1.41;
   }

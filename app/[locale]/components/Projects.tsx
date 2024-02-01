@@ -130,6 +130,7 @@ const Description = styled.p`
   color: rgba(0, 0, 0, 0.8);
 `;
 const ProjectItems = styled.ul`
+  width: 100%;
   @media (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
