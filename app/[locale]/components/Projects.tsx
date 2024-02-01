@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { css, keyframes, styled } from "styled-components";
@@ -178,7 +179,9 @@ const ProjectItem = ({ index, children }: { index: number; children: React.React
     return <ContainerC style={{ marginLeft: "auto" }}>{children}</ContainerC>;
   }
 };
-const ProjectCard = ({ src: { src, title, description, categories } }: { src: ProjectProps }) => {
+
+//@TODO: href 조치 @Thor
+const ProjectCard = ({ src: { src, title, description, categories }, href = "airkid" }: { src: ProjectProps; href?: string }) => {
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -200,16 +203,18 @@ const ProjectCard = ({ src: { src, title, description, categories } }: { src: Pr
   };
 
   return (
-    <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
-      <VideoWrap>
-        <ProjectVideo src={src} ref={ref} muted loop preload="" />
-      </VideoWrap>
-      <InfoWrap>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-        <CategoryItems categories={categories} />
-      </InfoWrap>
-    </SubProjectContainer>
+    <Link href={`/project/${href}`}>
+      <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
+        <VideoWrap>
+          <ProjectVideo src={src} ref={ref} muted loop preload="" />
+        </VideoWrap>
+        <InfoWrap>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+          <CategoryItems categories={categories} />
+        </InfoWrap>
+      </SubProjectContainer>
+    </Link>
   );
 };
 
