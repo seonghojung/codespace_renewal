@@ -3,11 +3,18 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
+
+import bannerImage from "../../../public/images/main_banner-mb.png";
+
 const SectionWrap = styled.section`
   @media (min-width: 768px) {
-    padding-left: 120px;
+    /* padding-left: 120px;
     padding-right: 120px;
-    padding-bottom: 271px;
+    padding-bottom: 271px; */
+
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
   }
 `;
 const ContentItems = styled.ul``;
@@ -21,7 +28,7 @@ interface IContent {
 }
 const contents: IContent[] = [
   {
-    image: "/",
+    image: "/images/service/web.png",
     subtitle: "WEB",
     h3: "어떤 환경에서나 유연한 웹사이트",
     description: `다양한 디바이스, 브라우저에서도 유연한 웹사이트를
@@ -32,7 +39,7 @@ const contents: IContent[] = [
     techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
-    image: "/",
+    image: "/images/service/app.png",
     subtitle: "APP",
     h3: "핵심 기능이 담긴 애플리케이션",
     description: `비즈니스에 필요한 핵심 기능만 올바르게 담긴 애플리케
@@ -42,7 +49,7 @@ const contents: IContent[] = [
     techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
-    image: "/",
+    image: "/images/service/uiux.png",
     subtitle: "UI/UX",
     h3: `감각적인 UX을 통해
 만들어지는 매력적인 UI`,
@@ -53,7 +60,7 @@ const contents: IContent[] = [
     techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
-    image: "/",
+    image: "/images/service/cms.png",
     subtitle: "CMS SOLUTION",
     h3: "어떤 환경에서나 유연한 웹사이트",
     description: `모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루
@@ -63,7 +70,7 @@ const contents: IContent[] = [
     techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
-    image: "/",
+    image: "/images/service/seo.png",
     subtitle: "SEO",
     h3: `핵심적인 키워드로 만나는
 핵심 서비스 고객`,
@@ -93,23 +100,20 @@ const ContentImg = styled(Image)<IContentImg>`
   height: 100%;
   background: #d9d9d9;
   @media (min-width: 768px) {
-    width: 580px;
+    width: 730px;
     height: 460px;
-    border-radius: 20px;
-
+    border-radius: 10px;
     will-change: transform;
     /* transform: translateY(${(props) => props.$scrollY}px); translateY에 스크롤 값 적용 */
     /* transform: translateY(${(props) => Math.min(Math.max(props.$scrollY))}px); */
-    transform: translateY(clamp(${(props) => props.$minValue}px, ${(props) => props.$scrollY}px, ${(props) => props.$maxValue}px));
+    /* transform: translateY(clamp(${(props) => props.$minValue}px, ${(props) => props.$scrollY}px, ${(props) => props.$maxValue}px)); */
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); // 부드러운 애니메이션을 위한 트랜지션
   }
 `;
 
 const Wrapper = styled.div`
   @media (min-width: 768px) {
-    &:not(:first-child) {
-      margin-top: 160px;
-    }
+    margin-top: 100px;
     display: flex;
   }
 `;
@@ -148,7 +152,7 @@ const ContentWrap = styled.div`
 `;
 const ContentWrapLeft = styled(ContentWrap)`
   @media (min-width: 768px) {
-    padding: 56px 0px 57px 160px;
+    padding: 0;
   }
 `;
 const ContentWrapRight = styled(ContentWrap)`
@@ -227,7 +231,7 @@ const ContentItem = ({ content, isLeftImage, idx }: Prop) => {
   if (isLeftImage) {
     return (
       <Wrapper>
-        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.image} alt={""} width={100} height={100} data-imgid={`img-${idx}`} />
+        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.image} alt={""} width={740} height={460} data-imgid={`img-${idx}`} />
         <ContentWrapLeft>
           <h2>{content.subtitle}</h2>
           <h3>{content.h3}</h3>
@@ -263,7 +267,7 @@ const ContentItem = ({ content, isLeftImage, idx }: Prop) => {
             })}
           </TechDescItems>
         </ContentWrapRight>
-        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.image} alt={""} width={100} height={100} data-imgid={`img-${idx}`} />
+        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.image} alt={""} width={740} height={460} data-imgid={`img-${idx}`} />
       </Wrapper>
     );
   }
@@ -274,7 +278,7 @@ const ContentsSection = () => {
   useEffect(() => {
     const handleResize = () => {
       const bodyWidth = document.body.clientWidth;
-      setIsRspPc(bodyWidth > 1200);
+      setIsRspPc(bodyWidth > 768);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
