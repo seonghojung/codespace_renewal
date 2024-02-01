@@ -13,14 +13,14 @@ const SectionWrap = styled.section`
   padding: 60px 2px 120px 10px;
   gap: 10px;
 
-  @media (min-width: 1200px) {
-    padding: 60px 0px 120px;
+  @media (min-width: 768px) {
+    padding: 60px 16px 120px;
   }
 `;
 
 const TitleWrap = styled.div`
   width: 100%;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     opacity: 0;
     ${fadeInAndUp2Sec}
     display: flex;
@@ -35,7 +35,7 @@ const Title = styled.h2`
   font-size: 28px;
   line-height: 44px;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     line-height: 48px;
     font-weight: 500;
   }

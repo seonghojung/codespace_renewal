@@ -9,8 +9,8 @@ const SectionWrap = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 1200px) {
-    padding: 40px 0px 60px;
+  @media (min-width: 768px) {
+    padding: 40px 16px 60px;
   }
 `;
 
@@ -22,7 +22,7 @@ const TitleWrap = styled.div`
     word-break: keep-all;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     opacity: 0;
     ${fadeInAndUp}
     h1 {
