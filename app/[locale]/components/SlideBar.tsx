@@ -7,6 +7,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import closeIcon from "../../../public/svgs/close_white.svg";
 import logoIcon from "../../../public/svgs/logo_white.svg";
+import LineDecoration from "./LineDecoration";
+import LineDecorationLink from "./LineDecorationLink";
 
 interface SlideBarProps {
   openSlideBarHandler: (isOpened: boolean) => void;
@@ -36,24 +38,30 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
       window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
     };
   }, [open]);
-
+  // TODO: className={path.endsWith("/project") ? "" : ""} 부분 active 색상 정해지면 true 조건에 active 추가
   const slideMenu = (
     <SideMenu>
       <MenuList>
         <li>
-          <Link href="/project" className={path.endsWith("/project") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
-            PROJECT
-          </Link>
+          <LineDecoration color={"white"}>
+            <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+              PROJECT
+            </Link>
+          </LineDecoration>
         </li>
         <li>
-          <Link href="/services" className={path.endsWith("/services") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
-            SERVICES
-          </Link>
+          <LineDecoration color={"white"}>
+            <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+              SERVICES
+            </Link>
+          </LineDecoration>
         </li>
         <li>
-          <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
-            CONTACT
-          </Link>
+          <LineDecoration color={"white"}>
+            <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+              CONTACT
+            </Link>
+          </LineDecoration>
         </li>
       </MenuList>
     </SideMenu>
@@ -77,6 +85,17 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
 };
 
 export default SlideBar;
+
+const DecorationLine = styled.span`
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background-color: #fff;
+  opacity: 1;
+`;
 
 const SlideBarWrap = styled.div`
   position: fixed;
@@ -128,7 +147,7 @@ const SlideBarWrap = styled.div`
 
     a {
       &:hover {
-        color: #000;
+        color: #fff;
       }
       &.active {
         animation: paintText 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
@@ -147,7 +166,7 @@ const SlideBarWrap = styled.div`
 `;
 
 const SlideHeader = styled.header`
-  padding: 0 24px 0 20px;
+  padding: 0 20px 0 20px;
 `;
 
 const HeaderList = styled.div`
