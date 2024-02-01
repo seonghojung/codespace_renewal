@@ -145,9 +145,7 @@ const videos: ProjectProps[] = [
 const SectionProjects = () => {
   return (
     <Section>
-      <Layout>
-        <Projects projects={videos} />
-      </Layout>
+      <Projects projects={videos} />
     </Section>
   );
 };
