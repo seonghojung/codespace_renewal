@@ -16,6 +16,7 @@ const ImgWrap = styled.div`
     display: flex;
     gap: 37px;
     max-width: 1244px;
+    padding-top: 80px;
   }
 `;
 const FirstImg = styled.img`
