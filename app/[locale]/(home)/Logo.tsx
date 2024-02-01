@@ -23,11 +23,11 @@ const blurKeyframe = keyframes`
     opacity: 1;
     filter: blur(0px);
   }
-  10% {
+  5% {
     opacity: 0.5;
     filter: blur(10px);
   }
-  20% {
+  10% {
     opacity: 1;
     filter: blur(0px);
   }
@@ -38,7 +38,7 @@ const blurKeyframe = keyframes`
 `;
 
 export const blur = css`
-  animation: ${blurKeyframe} 5s ease infinite;
+  animation: ${blurKeyframe} 10s ease infinite;
 `;
 
 const LogoItems = styled.ul`
@@ -59,22 +59,22 @@ const LogoItem = styled.li`
   filter: blur(0px);
   &:nth-child(1),
   &:nth-child(5) {
-    animation-delay: 8s;
+    animation-delay: 3s;
   }
   &:nth-child(3),
   &:nth-child(9) {
-    animation-delay: 10s;
+    animation-delay: 21s;
   }
   &:nth-child(2),
   &:nth-child(6) {
-    animation-delay: 12s;
+    animation-delay: 8s;
   }
   &:nth-child(4),
   &:nth-child(8) {
-    animation-delay: 10.5s;
+    animation-delay: 18.5s;
   }
   &:nth-child(7) {
-    animation-delay: 11s;
+    animation-delay: 13s;
   }
   ${blur}
 `;
