@@ -13,11 +13,9 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
     <html lang={locale}>
       <body>
         <StyledComponentsRegistry>
-          {/* <div style={{ minHeight: "calc(100vh)" }}> */}
           <Navigation />
           {children}
           <Footer />
-          {/* </div> */}
         </StyledComponentsRegistry>
       </body>
     </html>
