@@ -74,7 +74,15 @@ export const Layout = styled.div`
 const LogoContainer = styled.div`
   ${fadeIn}
 `;
-
+const HeaderLayout = styled.div`
+  margin-left: 20px;
+  margin-right: 20px;
+  @media (min-width: 768px) {
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+`;
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
@@ -87,7 +95,7 @@ export default function Navigation() {
     <>
       <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
       <HeaderWrap>
-        <Layout>
+        <HeaderLayout>
           <ButtonWrapMobile>
             <Link href="/">
               <LogoIconMobile />
@@ -126,7 +134,7 @@ export default function Navigation() {
               </LinkItem>
             </LinkItems>
           </ButtonWrapPC>
-        </Layout>
+        </HeaderLayout>
       </HeaderWrap>
     </>
   );
