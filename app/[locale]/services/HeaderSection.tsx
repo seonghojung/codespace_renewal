@@ -32,7 +32,7 @@ const EnTitle = styled.h1`
     opacity: 0;
     ${enTitleFadeIn}
     width: 1084px;
-    font-size: 160px;
+    font-size: clamp(108px, 14.0625vw, 160px);
     line-height: 0.875;
     color: #000;
 
@@ -74,19 +74,17 @@ const SubHeaderWrap = styled.div`
     h1 {
       opacity: 0;
       ${koTitleFadeIn}
-      width: 668px;
+      /* width: 668px; */
       font-size: 42px;
       font-weight: 600;
       line-height: 48px;
       br {
-        display: inline;
+        display: block;
       }
     }
     h2 {
       opacity: 0;
       ${koSubTitleFadeIn}
-      width: 983px;
-      height: 96px;
       font-size: 20px;
       line-height: 1.6;
       color: #050411;
@@ -102,8 +100,8 @@ const HeaderSection = () => {
   const [isRspPc, setIsRspPc] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      const bodyWidth = document.body.clientWidth;
-      setIsRspPc(bodyWidth > 768);
+      const bodyWidth = window.innerWidth;
+      setIsRspPc(bodyWidth > 767);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -115,14 +113,17 @@ const HeaderSection = () => {
   return (
     <SectionWrap>
       <EnTitle>
-        Bring imagination to PRODUCT
+        Bring
+        <br /> imagination <br />
+        to PRODUCT
         {isRspPc ? <BlueDotIcon /> : <BlueDotIconMb />}
       </EnTitle>
       <SubHeaderWrap>
         <h1>순간을 해결하는 솔루션이 아닌 오랜시간 함께 성장하는 솔루션을 제공합니다</h1>
         <h2>
-          우리는 끊임없이 발전하는 디지털 환경 속에서 파트너의 생각이 올바르게 담길 수 있는 플랫폼 개발 솔루션을 제공하고 있습니다. 사용자 경험과 그에 따른 디자인, 개발 환경 구축 등 다양한 환경에서도
-          일관되게 보여질 수 있는 개발 방식을 표현하며
+          우리는 끊임없이 발전하는 디지털 환경 속에서 파트너의 생각이 올바르게 담길 수 있는 플랫폼 개발 솔루션을 제공하고 있습니다.
+          <br />
+          사용자 경험과 그에 따른 디자인, 개발 환경 구축 등 다양한 환경에서도 일관되게 보여질 수 있는 개발 방식을 표현하며
           <br />더 나은 성장과 이윤을 만드는 비즈니스를 성장시키고 있습니다.
         </h2>
       </SubHeaderWrap>
