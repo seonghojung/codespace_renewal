@@ -6,7 +6,7 @@ import { ContactPhoneSection } from "./ContactPhoneSection";
 function Contact() {
   return (
     <>
-      <div style={{ minHeight: "calc(100vh-510px)" }}>
+      <div style={{ minHeight: "calc(100vh - 510px)" }}>
         <BannerSection />
         <Layout>
           <ContactEmailSection />

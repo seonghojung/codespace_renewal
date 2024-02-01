@@ -4,11 +4,18 @@ import styled from "styled-components";
 
 const SectionWrap = styled.section`
   @media (min-width: 768px) {
+    display: flex;
+    gap: 37px;
     width: 95%;
     max-width: 1536px;
     margin: 0 auto;
+  }
+`;
+const ImgWrap = styled.div`
+  @media (min-width: 768px) {
     display: flex;
     gap: 37px;
+    max-width: 1244px;
   }
 `;
 const FirstImg = styled.img`
@@ -38,8 +45,10 @@ const SecondImg = styled.img`
 export const BannerSection = () => {
   return (
     <SectionWrap>
-      <FirstImg src="/images/contact/first_image.png" />
-      <SecondImg src="/images/contact/second_image.png" />
+      <ImgWrap>
+        <FirstImg src="/images/contact/first_image.png" />
+        <SecondImg src="/images/contact/second_image.png" />
+      </ImgWrap>
     </SectionWrap>
   );
 };
