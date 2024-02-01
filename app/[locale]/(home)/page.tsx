@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import TopBanner from "./TopBanner";
 import MiddleBanner from "./MiddleBanner";
 import Projects from "./Projects";
-import LogoMetaIcon from "./icon/LogoMetaIcon";
 import Logo from "./Logo";
 
 export default function Home() {
