@@ -108,10 +108,7 @@ const CategoryItem = styled.li`
 `;
 const SubProjectContainer = styled.div<StyleProp>`
   ${CategoryContainer} {
-    opacity: 1;
-    @media (min-width: 1280px) {
-      opacity: 0;
-    }
+    opacity: 0;
   }
   &:hover {
     ${CategoryContainer} {

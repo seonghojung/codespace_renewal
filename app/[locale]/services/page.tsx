@@ -1,3 +1,4 @@
+import { Layout } from "../components/navigation";
 import ContentsSection from "./ContentsSection";
 import HeaderSection from "./HeaderSection";
 import SwiperSection from "./SwiperSection";
@@ -5,8 +6,10 @@ import SwiperSection from "./SwiperSection";
 function Services() {
   return (
     <>
-      <HeaderSection />
-      <ContentsSection />
+      <Layout>
+        <HeaderSection />
+        <ContentsSection />
+      </Layout>
       <SwiperSection />
     </>
   );
