@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import closeIcon from "../../../public/svgs/close.svg";
+import closeIcon from "../../../public/svgs/close_white.svg";
+import logoIcon from "../../../public/svgs/logo_white.svg";
 
 interface SlideBarProps {
   openSlideBarHandler: (isOpened: boolean) => void;
@@ -36,34 +37,41 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
     };
   }, [open]);
 
+  const slideMenu = (
+    <SideMenu>
+      <MenuList>
+        <li>
+          <Link href="/project" className={path.endsWith("/project") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
+            PROJECT
+          </Link>
+        </li>
+        <li>
+          <Link href="/services" className={path.endsWith("/services") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
+            SERVICES
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
+            CONTACT
+          </Link>
+        </li>
+      </MenuList>
+    </SideMenu>
+  );
+
   return (
     <SlideBarWrap className={open ? "open" : ""}>
       <SlideHeader>
-        <div className="mobile">
+        <HeaderList>
+          <Link href="/" onClick={() => openSlideBarHandler(false)}>
+            <Image src={logoIcon} alt="logo" />
+          </Link>
           <button type="button" onClick={() => openSlideBarHandler(false)}>
-            <Image src={closeIcon} alt="닫기 아이콘" />
+            <Image src={closeIcon} alt="close" />
           </button>
-        </div>
+        </HeaderList>
       </SlideHeader>
-      <SideMenu>
-        <MenuList>
-          <li>
-            <Link href="/project" className={path.endsWith("/project") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
-              PROJECT
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className={path.endsWith("/services") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
-              SERVICES
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""} onClick={() => openSlideBarHandler(false)}>
-              CONTACT
-            </Link>
-          </li>
-        </MenuList>
-      </SideMenu>
+      {open && slideMenu}
     </SlideBarWrap>
   );
 };
@@ -76,7 +84,7 @@ const SlideBarWrap = styled.div`
   width: 100%;
   opacity: 0;
   visibility: hidden;
-  background-color: #ccc;
+  background-color: #000;
   animation: fadeOut 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   transition: all 0.5s ease-in-out 0.5s;
 
@@ -106,12 +114,18 @@ const SlideBarWrap = styled.div`
   }
 
   li {
-    margin-top: 57px;
-    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 28px;
-    font-weight: 600;
     line-height: 1.36;
-    color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    margin-top: 57px;
+
+    &:not(:first-child) {
+      margin-top: 28px;
+    }
+
     a {
       &:hover {
         color: #000;
@@ -133,13 +147,14 @@ const SlideBarWrap = styled.div`
 `;
 
 const SlideHeader = styled.header`
-  padding: 0 20px;
-  div {
-    justify-content: flex-end;
-    align-items: center;
-    height: 108px;
-    display: flex;
-  }
+  padding: 0 24px 0 20px;
+`;
+
+const HeaderList = styled.div`
+  display: flex;
+  height: 108px;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const SideMenu = styled.div`
