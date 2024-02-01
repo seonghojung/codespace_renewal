@@ -1,11 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import FAQAccordion, { AccordionWrap } from "./components/FAQAccordion";
+import FAQAccordion from "./components/FAQAccordion";
 import { Layout } from "../components/navigation";
 import { useInView } from "react-intersection-observer";
-import { fadeInAndUp, fadeInAndUp3Sec } from "../animations/fadeInAndUp";
-import { useEffect } from "react";
 
 const questions = [
   {
@@ -43,9 +41,6 @@ const FAQ = () => {
     threshold: 0.35,
     triggerOnce: true,
   });
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
   return (
     <FAQSection ref={ref}>
       <Layout>

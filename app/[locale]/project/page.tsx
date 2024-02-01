@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
-import { ProjectProps } from "../components/Projects";
+import Projects, { ProjectProps } from "../components/Projects";
 import { Layout } from "../components/navigation";
 
 const allProjects: ProjectProps[] = [
@@ -139,12 +139,11 @@ const Project = () => {
   const [sortedProjects, setSortedProjects] = useState<ProjectProps[]>(allProjects);
   const filterByCategory = (category: string) => {
     setSelectedCategory(category);
+    if (category === "" || category === "Management") {
+      return setSortedProjects(allProjects);
+    }
     setSortedProjects(allProjects.filter((project) => project.categories.includes(category)));
   };
-
-  useEffect(() => {
-    console.log(sortedProjects);
-  }, [sortedProjects]);
 
   return (
     <ProjectWrap>
@@ -176,7 +175,7 @@ const Project = () => {
             </CategoryList>
           </CategoryListWrap>
         </NavWrap>
-        <CardBox></CardBox>
+        <Projects projects={sortedProjects} />
       </Layout>
     </ProjectWrap>
   );

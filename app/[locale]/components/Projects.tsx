@@ -11,6 +11,18 @@ export interface ProjectProps {
   categories: string[];
   date: string;
 }
+const fadeIn = keyframes`
+    from {
+      opacity: 30%;
+      transform: translate(0px, 10%) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate(0px, 0px)  scale(1);
+    }
+  `;
+
 const Container = styled.li`
   @media (min-width: 768px) {
     padding: 40px 0;
@@ -54,17 +66,7 @@ const ContainerC = styled(Container)`
     width: 81.4%;
   }
 `;
-const fadeIn = keyframes`
-    from {
-      opacity: 30%;
-      transform: translate(0px, 10%) scale(0.98);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translate(0px, 0px)  scale(1);
-    }
-  `;
+
 const floatingUp = css`
   animation: ${fadeIn} 0.6s ease forwards;
 `;
