@@ -310,7 +310,7 @@ const ContentItem = ({ content, isLeftImage, idx, isRspPc }: Prop) => {
             })}
           </TechDescItems>
         </ContentWrapRight>
-        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.thumbnail} alt={""} width={740} height={460} data-imgid={`img-${idx}`} muted autoPlay loop />
+        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.thumbnail} width={740} height={460} data-imgid={`img-${idx}`} muted autoPlay loop />
       </Wrapper>
     );
   }
