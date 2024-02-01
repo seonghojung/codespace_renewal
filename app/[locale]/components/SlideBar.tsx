@@ -147,7 +147,7 @@ const SlideBarWrap = styled.div`
 `;
 
 const SlideHeader = styled.header`
-  padding: 0 24px 0 20px;
+  padding: 0 20px 0 20px;
 `;
 
 const HeaderList = styled.div`

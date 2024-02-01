@@ -74,8 +74,8 @@ export const Layout = styled.div`
   @media (min-width: 1920px) {
     max-width: 1536px;
   }
-  margin-left: 24px;
-  margin-right: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 
 const LogoContainer = styled.div`
