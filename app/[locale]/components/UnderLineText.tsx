@@ -27,12 +27,15 @@ const UnderLineText = ({ mbSize, pcSize, text }: IUnderLineText) => {
 export default UnderLineText;
 
 const AddressWrap = styled.a<IAddressWrap>`
+  margin-top: 10px;
   position: relative;
   font-size: ${(props) => props.$mbSize}px;
   color: #000;
   font-weight: 600;
   display: inline-block;
   transition: color 0.15s;
+  line-height: 1.5;
+
   &::before {
     content: "";
     position: absolute;
@@ -53,6 +56,7 @@ const AddressWrap = styled.a<IAddressWrap>`
 
   @media (min-width: 1200px) {
     font-size: ${(props) => props.$pcSize}px;
+    line-height: 1.14;
   }
 `;
 
