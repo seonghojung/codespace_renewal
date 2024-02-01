@@ -54,6 +54,7 @@ const LinkItems = styled.ul`
   gap: 47px;
 `;
 const LinkItem = styled.li`
+  opacity: 0;
   color: rgba(0, 0, 0, 0.4);
   font-size: 18px;
   font-weight: 500;
@@ -61,21 +62,13 @@ const LinkItem = styled.li`
 `;
 
 export const Layout = styled.div`
+  margin-left: 10px;
+  margin-right: 10px;
   @media (min-width: 768px) {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-  @media (min-width: 1280px) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1130px;
-  }
-  @media (min-width: 1920px) {
+    width: 95%;
     max-width: 1536px;
+    margin: 0 auto;
   }
-  margin-left: 24px;
-  margin-right: 24px;
 `;
 
 const LogoContainer = styled.div`
