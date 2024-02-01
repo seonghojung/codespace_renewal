@@ -183,12 +183,7 @@ const Project = () => {
 
 export default Project;
 
-const ProjectWrap = styled.section`
-  margin: 20px 0 170px;
-  @media (min-width: 1200px) {
-    margin: 40px 120px 160px 120px;
-  }
-`;
+const ProjectWrap = styled.section``;
 const NavWrap = styled.div`
   display: flex;
   flex-direction: column;

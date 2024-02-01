@@ -40,6 +40,7 @@ const MainVideo = styled.video`
 `;
 
 const Title = styled.h1`
+  opacity: 0;
   position: relative;
   font-size: 72px;
   font-weight: 400;
