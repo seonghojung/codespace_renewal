@@ -192,7 +192,7 @@ const NavWrap = styled.div`
   flex-direction: column;
   margin: 0 19px 0 10px;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
@@ -206,7 +206,7 @@ const ProjectTitle = styled.h1`
   line-height: 1.36;
   color: #000;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     font-size: 42px;
     line-height: 1.14;
   }
