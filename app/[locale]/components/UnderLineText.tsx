@@ -54,7 +54,7 @@ const AddressWrap = styled.a<IAddressWrap>`
     transform: scaleX(1);
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     font-size: ${(props) => props.$pcSize}px;
     line-height: 1.14;
   }
