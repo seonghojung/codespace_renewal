@@ -100,7 +100,7 @@ const FloatingWrap = styled.div`
 const FloatingContent = styled.h2<IStyleProps>`
   font-size: 42px;
   font-weight: bold;
-  line-height: 0.81;
+  line-height: 1;
   color: #000;
 
   @media (min-width: 1200px) {
