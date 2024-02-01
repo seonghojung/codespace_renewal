@@ -77,7 +77,8 @@ const SubHeaderWrap = styled.div`
       /* width: 668px; */
       font-size: 42px;
       font-weight: 600;
-      line-height: 48px;
+      line-height: 1.2;
+      font-size: clamp(42px, 5.46875vw, 86px);
       br {
         display: block;
       }
@@ -119,7 +120,10 @@ const HeaderSection = () => {
         {isRspPc ? <BlueDotIcon /> : <BlueDotIconMb />}
       </EnTitle>
       <SubHeaderWrap>
-        <h1>순간을 해결하는 솔루션이 아닌 오랜시간 함께 성장하는 솔루션을 제공합니다</h1>
+        <h1>
+          순간을 해결하는 솔루션이 아닌 오랜시간
+          <br /> 함께 성장하는 솔루션을 제공합니다
+        </h1>
         <h2>
           우리는 끊임없이 발전하는 디지털 환경 속에서 파트너의 생각이 올바르게 담길 수 있는 플랫폼 개발 솔루션을 제공하고 있습니다.
           <br />
