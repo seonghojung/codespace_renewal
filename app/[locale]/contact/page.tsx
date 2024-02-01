@@ -9,8 +9,10 @@ function Contact() {
       <div style={{ minHeight: "calc(100vh - 510px)" }}>
         <BannerSection />
         <Layout>
-          <ContactEmailSection />
-          <ContactPhoneSection />
+          <div style={{ maxWidth: "1244px" }}>
+            <ContactEmailSection />
+            <ContactPhoneSection />
+          </div>
         </Layout>
       </div>
     </>

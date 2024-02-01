@@ -12,7 +12,7 @@ const SectionWrap = styled.section`
   gap: 10px;
 
   @media (min-width: 768px) {
-    padding: 0px 26px 120px;
+    padding: 0px 0px 120px 26px;
   }
 `;
 

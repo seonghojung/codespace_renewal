@@ -10,7 +10,7 @@ const SectionWrap = styled.section`
   flex-direction: column;
 
   @media (min-width: 768px) {
-    padding: 40px 26px 60px;
+    padding: 40px 0px 60px 26px;
   }
 `;
 
@@ -39,7 +39,6 @@ export const ContactEmailSection = () => {
         <h1>프로젝트에 대한 문의나 의뢰가 있나요?</h1>
         <UnderLineText mbSize={32} pcSize={42} text={"email@codespace.im"} />
       </TitleWrap>
-      {/* <Wrapper /> */}
     </SectionWrap>
   );
 };
