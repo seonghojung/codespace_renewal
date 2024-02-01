@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 const SectionWrap = styled.section`
@@ -22,46 +23,31 @@ interface IContent {
 }
 const contents: IContent[] = [
   {
-    image: "#",
+    image: "/",
     subtitle: "WEBSITES",
     h3: "어디서든 다양한 경험의 확장이 가능하도록",
     description:
       "웹사이트 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
   {
-    image: "#",
+    image: "/",
     subtitle: "APPLICATION",
     h3: "고객의 손에 우리의 서비스가 구현 되는 것을 도와주는",
     description:
       "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
   {
-    image: "#",
+    image: "/",
     subtitle: "MANAGEMENT",
     h3: "올바른 서비스로 발전할 수 있도록 함께 노력하는",
     description:
       "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
   {
-    image: "#",
+    image: "/",
     subtitle: "APPLICATION",
     h3: "고객의 행동을 예측하고 비주얼 시스템을 통해 이끌어내는",
     description:
@@ -69,25 +55,34 @@ const contents: IContent[] = [
     techDescription: ["UI/UX Market Research", "Product Iconography", "UX Stretegy", "User Interface", "Product Launcher Icon", "SNS Design"],
   },
   {
-    image: "#",
+    image: "/",
     subtitle: "CMS SOLUTION",
     h3: "자체적으로 제품의 고도화를 이어갈 수 있도록 도와주는",
     description:
       "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: [
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-      "기술에 대해 설명이 들어가는 위치",
-    ],
+    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
   },
 ];
 
 interface Prop {
   content: IContent;
   isLeftImage: boolean;
+  idx: number;
 }
-const ContentImg = styled.img`
+
+interface IContentImg {
+  $scrollY: number;
+  $minValue?: number;
+  $maxValue?: number;
+}
+
+const ContentImg = styled(Image)<IContentImg>`
+  will-change: transform;
+  /* transform: translateY(${(props) => props.$scrollY}px); translateY에 스크롤 값 적용 */
+  /* transform: translateY(${(props) => Math.min(Math.max(props.$scrollY))}px); */
+
+  transform: translateY(clamp(${(props) => props.$minValue}px, ${(props) => props.$scrollY}px, ${(props) => props.$maxValue}px));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); // 부드러운 애니메이션을 위한 트랜지션
   display: block;
   width: 100%;
   height: 400px;
@@ -174,11 +169,53 @@ const TechDescItem = styled.li`
     font-weight: 600;
   }
 `;
-const ContentItem = ({ content, isLeftImage }: Prop) => {
+const ContentItem = ({ content, isLeftImage, idx }: Prop) => {
+  const [scrollY, setScrollY] = useState(85.91);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const minValue = -66; // 최소값
+  const maxValue = 85.91; // 최대값
+
+  console.log(scrollY);
+  console.log(prevScrollY);
+
+  const handleScroll = () => {
+    // if (window.scrollY < 150) {
+    //   const newScrollY = Math.max(-66, 85.91 - window.scrollY);
+    //   setScrollY(newScrollY);
+    // }
+    let currentScrollY = window.scrollY;
+
+    // 이전 스크롤 위치와 현재 스크롤 위치의 차이 계산
+    let deltaY = currentScrollY - prevScrollY;
+
+    // 이동한 거리를 콘솔에 출력
+    console.log("이동한 거리:", deltaY);
+
+    // 새로운 스크롤 위치 계산 및 적용
+    let newScrollY = Math.max(-66, Math.min(85.91, scrollY - deltaY));
+    setScrollY(newScrollY);
+
+    // 이전 스크롤 위치 업데이트
+    setPrevScrollY(currentScrollY);
+
+    // const newScrollY = Math.max(minValue, Math.min(maxValue, scrollY - currentScrollY));
+    // setScrollY(newScrollY);
+  };
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되면 스크롤 이벤트를 추가
+    window.addEventListener("scroll", handleScroll);
+
+    // 컴포넌트가 언마운트되면 이벤트를 제거하여 메모리 누수 방지
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   if (isLeftImage) {
     return (
       <Wrapper>
-        <ContentImg />
+        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.image} alt={""} width={100} height={100} data-imgid={`img-${idx}`} />
         <ContentWrapLeft>
           <h2>{content.subtitle}</h2>
           <h3>{content.h3}</h3>
@@ -214,7 +251,7 @@ const ContentItem = ({ content, isLeftImage }: Prop) => {
             })}
           </TechDescItems>
         </ContentWrapRight>
-        <ContentImg />
+        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.image} alt={""} width={100} height={100} data-imgid={`img-${idx}`} />
       </Wrapper>
     );
   }
@@ -238,7 +275,7 @@ const ContentsSection = () => {
     <SectionWrap>
       <ContentItems>
         {contents.map((content, index) => {
-          return <ContentItem content={content} isLeftImage={isRspPc ? (index + 1) % 2 !== 0 : true} key={index} />;
+          return <ContentItem idx={index} content={content} isLeftImage={isRspPc ? (index + 1) % 2 !== 0 : true} key={index} />;
         })}
       </ContentItems>
     </SectionWrap>
