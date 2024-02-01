@@ -35,6 +35,9 @@ const ImageContainer = styled.div`
   border-radius: 8px;
   width: 100%;
   aspect-ratio: 1.3;
+  @media (min-width: 768px) {
+    max-height: 600px;
+  }
 `;
 
 const TopContent = ({ title, description }: { title: string; description: string }) => {
