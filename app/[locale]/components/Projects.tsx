@@ -96,6 +96,7 @@ const VideoWrap = styled.div`
   }
 `;
 const ProjectVideo = styled.video`
+  aspect-ratio: 1;
   display: block;
   width: 100%;
   height: 420px;

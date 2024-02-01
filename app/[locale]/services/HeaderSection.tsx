@@ -1,18 +1,19 @@
 "use client";
 
 import { BlueDotIcon } from "@/app/[locale]/components/icons";
+import { BlueDotIconMb } from "@/app/[locale]/components/icons";
 import { styled } from "styled-components";
 import { enTitleFadeIn, koSubTitleFadeIn, koTitleFadeIn } from "../animations/titleFadeIn";
+import { useEffect, useState } from "react";
 
 const SectionWrap = styled.section`
-  padding: 41px 26px 160px 10px;
+  padding: 20px 0px 100px;
 
-  @media (min-width: 1200px) {
-    padding: 41px 0px 160px 40px;
+  @media (min-width: 768px) {
+    padding: 81px 0 0 0;
   }
 `;
 const EnTitle = styled.h1`
-  width: 339px;
   position: relative;
   color: #000;
   font-size: 50px;
@@ -27,12 +28,14 @@ const EnTitle = styled.h1`
     bottom: 4px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     opacity: 0;
     ${enTitleFadeIn}
     width: 1084px;
     font-size: 160px;
-    line-height: 140px;
+    line-height: 0.875;
+    color: #000;
+
     svg {
       width: 32px;
       height: 32px;
@@ -43,12 +46,12 @@ const EnTitle = styled.h1`
 `;
 const SubHeaderWrap = styled.div`
   padding-top: 60px;
-  padding-left: 22px;
   h1 {
-    width: 272px;
+    min-width: 340px;
     color: #000;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
+    line-height: 1.2;
     line-height: 32px;
     word-break: keep-all;
     br {
@@ -57,20 +60,21 @@ const SubHeaderWrap = styled.div`
   }
   h2 {
     margin-top: 34px;
-    color: rgba(0, 0, 0, 0.8);
-    font-family: Pretendard;
+    font-weight: 500;
     font-size: 16px;
-    font-weight: 300;
-    line-height: 21px;
-    word-break: keep-all;
+    line-height: 1.625;
+    color: rgba(0, 0, 0, 0.8);
+
+    br {
+      display: none;
+    }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     padding-top: 80px;
-    padding-left: 80px;
     h1 {
       opacity: 0;
       ${koTitleFadeIn}
-      width: 730px;
+      width: 668px;
       font-size: 42px;
       font-weight: 600;
       line-height: 48px;
@@ -81,31 +85,47 @@ const SubHeaderWrap = styled.div`
     h2 {
       opacity: 0;
       ${koSubTitleFadeIn}
-      width: 752px;
+      width: 983px;
+      height: 96px;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #050411;
+
       br {
-        display: none;
+        display: block;
       }
     }
   }
 `;
 
 const HeaderSection = () => {
+  const [isMobile, setIsMobile] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <SectionWrap>
       <EnTitle>
         Bring imagination to PRODUCT
-        <BlueDotIcon />
+        {isMobile > 768 ? <BlueDotIcon /> : <BlueDotIconMb />}
+        {/* <BlueDotIcon /> */}
       </EnTitle>
       <SubHeaderWrap>
-        <h1>
-          순간을 해결하는 솔루션이 아닌
-          <br /> 오랜시간 함께 성장하는 솔루션을 제공합니다
-        </h1>
+        <h1>순간을 해결하는 솔루션이 아닌 오랜시간 함께 성장하는 솔루션을 제공합니다</h1>
         <h2>
-          파트너의 경험을 통해 만들어진 비즈니스 구조를 이해하고 사용자 관점의 설계와 디자인을 기반으로 꾸준히 발전할 수 있는 개발 솔루션을 제공하고
-          있습니다.
-          <br /> <br /> 코드스페이스는 당장의 제품 서비스를 만들고 싶은 목표를 해소하는 것이 아닌 다양한 오브젝트로 확장과 전개가 가능한 제품 서비스를
-          만들고자 하는 파트너를 위해 일하고 있습니다.
+          우리는 끊임없이 발전하는 디지털 환경 속에서 파트너의 생각이 올바르게 담길 수 있는 플랫폼 개발 솔루션을 제공하고 있습니다. 사용자 경험과 그에 따른 디자인, 개발 환경 구축 등 다양한 환경에서도
+          일관되게 보여질 수 있는 개발 방식을 표현하며
+          <br />더 나은 성장과 이윤을 만드는 비즈니스를 성장시키고 있습니다.
         </h2>
       </SubHeaderWrap>
     </SectionWrap>

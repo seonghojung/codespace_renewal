@@ -4,9 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 const SectionWrap = styled.section`
-  padding-bottom: 20px;
-
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     padding-left: 120px;
     padding-right: 120px;
     padding-bottom: 271px;
@@ -24,43 +22,56 @@ interface IContent {
 const contents: IContent[] = [
   {
     image: "/",
-    subtitle: "WEBSITES",
-    h3: "어디서든 다양한 경험의 확장이 가능하도록",
-    description:
-      "웹사이트 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
+    subtitle: "WEB",
+    h3: "어떤 환경에서나 유연한 웹사이트",
+    description: `다양한 디바이스, 브라우저에서도 유연한 웹사이트를
+통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성
+고려, SEO 최적화 콘텐츠 가독성 향상이 모바일과 PC 등
+다양한 환경에서 올바르게 보여질 수 있도록
+제공하고 있습니다.`,
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     image: "/",
-    subtitle: "APPLICATION",
-    h3: "고객의 손에 우리의 서비스가 구현 되는 것을 도와주는",
-    description:
-      "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
+    subtitle: "APP",
+    h3: "핵심 기능이 담긴 애플리케이션",
+    description: `비즈니스에 필요한 핵심 기능만 올바르게 담긴 애플리케
+이션을 개발하여 합리적인 가격으로 투자에 대한 최대 가
+치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에
+달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.`,
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     image: "/",
-    subtitle: "MANAGEMENT",
-    h3: "올바른 서비스로 발전할 수 있도록 함께 노력하는",
-    description:
-      "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
-  },
-  {
-    image: "/",
-    subtitle: "APPLICATION",
-    h3: "고객의 행동을 예측하고 비주얼 시스템을 통해 이끌어내는",
-    description:
-      "사용자 패턴을 기반으로 파트너가 바라보는 산업에 알맞는 사용자 경험 설계를 기반으로 한 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스의 확장을 고려한 전략을 제공하고 있습니다.",
-    techDescription: ["UI/UX Market Research", "Product Iconography", "UX Stretegy", "User Interface", "Product Launcher Icon", "SNS Design"],
+    subtitle: "UI/UX",
+    h3: `감각적인 UX을 통해
+만들어지는 매력적인 UI`,
+    description: `사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞
+는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것
+이 아닌  향후 전개될 비즈니스 확장을 고려하여 서비스를
+제공하고 있습니다.`,
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     image: "/",
     subtitle: "CMS SOLUTION",
-    h3: "자체적으로 제품의 고도화를 이어갈 수 있도록 도와주는",
-    description:
-      "앱 개발에 대한 기술적 내용을 넣어주세요. 이 부분은 벤틀리가 항목과 함께 간단한 설명이 들어갈 수 있는 위치로 본문 텍스트 역할을 하는 영역으로 봐주시면 됩니다. 최대 3줄 안에 들어갈 수 있는게 좋습니다.",
-    techDescription: ["기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치", "기술에 대해 설명이 들어가는 위치"],
+    h3: "어떤 환경에서나 유연한 웹사이트",
+    description: `모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루
+션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율
+성을 높일 수 있는 운영에 필요한 개발 서비스를 
+제공하고 있습니다.`,
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+  },
+  {
+    image: "/",
+    subtitle: "SEO",
+    h3: `핵심적인 키워드로 만나는
+핵심 서비스 고객`,
+    description: `플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트
+렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바
+르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공
+하고 있습니다.`,
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
 ];
 
@@ -77,25 +88,25 @@ interface IContentImg {
 }
 
 const ContentImg = styled(Image)<IContentImg>`
-  will-change: transform;
-  /* transform: translateY(${(props) => props.$scrollY}px); translateY에 스크롤 값 적용 */
-  /* transform: translateY(${(props) => Math.min(Math.max(props.$scrollY))}px); */
-
-  transform: translateY(clamp(${(props) => props.$minValue}px, ${(props) => props.$scrollY}px, ${(props) => props.$maxValue}px));
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); // 부드러운 애니메이션을 위한 트랜지션
   display: block;
   width: 100%;
-  height: 400px;
+  height: 100%;
   background: #d9d9d9;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     width: 580px;
     height: 460px;
     border-radius: 20px;
+
+    will-change: transform;
+    /* transform: translateY(${(props) => props.$scrollY}px); translateY에 스크롤 값 적용 */
+    /* transform: translateY(${(props) => Math.min(Math.max(props.$scrollY))}px); */
+    transform: translateY(clamp(${(props) => props.$minValue}px, ${(props) => props.$scrollY}px, ${(props) => props.$maxValue}px));
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); // 부드러운 애니메이션을 위한 트랜지션
   }
 `;
 
 const Wrapper = styled.div`
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     &:not(:first-child) {
       margin-top: 160px;
     }
@@ -104,39 +115,44 @@ const Wrapper = styled.div`
 `;
 
 const ContentWrap = styled.div`
-  padding: 40px 10px 140px;
-  span {
-    color: #000;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 24px;
-  }
+  padding: 60px 10px 140px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h2 {
-    margin-top: 12px;
-    color: #000;
     font-size: 32px;
-    font-weight: 700;
-    line-height: 42px;
-    word-break: keep-all;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #000;
+  }
+  h3 {
+    margin-top: 20px;
+    font-size: 26px;
+    line-height: 1.615;
+    font-weight: 500;
+    white-space: pre-wrap;
   }
   p {
-    margin-top: 22px;
-    color: rgba(0, 0, 0, 0.8);
+    margin-top: 40px;
+    /* width: 355px; */
     font-size: 16px;
-    font-weight: 400;
-    line-height: 21px;
+    line-height: 1.625;
+    color: rgba(0, 0, 0, 0.8);
+    white-space: pre-wrap;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     flex: 1;
   }
 `;
 const ContentWrapLeft = styled(ContentWrap)`
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     padding: 56px 0px 57px 160px;
   }
 `;
 const ContentWrapRight = styled(ContentWrap)`
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     padding: 56px 121px 57px 40px;
   }
 `;
@@ -148,14 +164,14 @@ const ItemWrap = styled.div`
   display: flex;
   align-items: center;
   &:not(:first-child) {
-    margin-top: 10px;
+    margin-top: 6px;
   }
 `;
 
 const Line = styled.span`
-  margin-right: 14px;
+  margin-right: 10px;
   display: block;
-  width: 26px;
+  width: 13px;
   height: 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `;
@@ -164,7 +180,7 @@ const TechDescItem = styled.li`
   line-height: 21px;
   font-size: 14px;
   font-weight: 500;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     font-size: 16px;
     font-weight: 600;
   }
@@ -174,9 +190,6 @@ const ContentItem = ({ content, isLeftImage, idx }: Prop) => {
   const [prevScrollY, setPrevScrollY] = useState(0);
   const minValue = -66; // 최소값
   const maxValue = 85.91; // 최대값
-
-  console.log(scrollY);
-  console.log(prevScrollY);
 
   const handleScroll = () => {
     // if (window.scrollY < 150) {
@@ -189,14 +202,13 @@ const ContentItem = ({ content, isLeftImage, idx }: Prop) => {
     let deltaY = currentScrollY - prevScrollY;
 
     // 이동한 거리를 콘솔에 출력
-    console.log("이동한 거리:", deltaY);
 
     // 새로운 스크롤 위치 계산 및 적용
-    let newScrollY = Math.max(-66, Math.min(85.91, scrollY - deltaY));
-    setScrollY(newScrollY);
+    // let newScrollY = Math.max(-66, Math.min(85.91, scrollY - deltaY));
+    // setScrollY(newScrollY);
 
     // 이전 스크롤 위치 업데이트
-    setPrevScrollY(currentScrollY);
+    // setPrevScrollY(currentScrollY);
 
     // const newScrollY = Math.max(minValue, Math.min(maxValue, scrollY - currentScrollY));
     // setScrollY(newScrollY);
