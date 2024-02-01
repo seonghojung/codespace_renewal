@@ -37,14 +37,7 @@ const contents: IContent[] = [
 고려, SEO 최적화 콘텐츠 가독성 향상이 모바일과 PC 등
 다양한 환경에서 올바르게 보여질 수 있도록
 제공하고 있습니다.`,
-    techDescription: [
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-    ],
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     thumbnail: "/videos/service/app.mp4",
@@ -57,76 +50,45 @@ const contents: IContent[] = [
 애플리케이션을 개발하여 합리적인 가격으로 투자에 대한
 최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에
 달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.`,
-    techDescription: [
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-    ],
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     thumbnail: "/videos/service/ui.mp4",
     subtitle: "UI/UX",
     h3: `감각적인 UX을 통해
 만들어지는 매력적인 UI`,
-    description:
-      "사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스 확장을 고려하여 서비스를 제공하고 있습니다.",
+    description: "사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스 확장을 고려하여 서비스를 제공하고 있습니다.",
 
     descriptionMb: `사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞
     는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것
     이 아닌  향후 전개될 비즈니스 확장을 고려하여 서비스를
     제공하고 있습니다.`,
-    techDescription: [
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-    ],
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     thumbnail: "/videos/service/cms.mp4",
     subtitle: "CMS SOLUTION",
     h3: `사용자 친화적인 
 CMS 솔루션`,
-    description:
-      "모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율성을 높일 수 있는 운영에 필요한 개발 서비스를 제공하고 있습니다.",
+    description: "모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율성을 높일 수 있는 운영에 필요한 개발 서비스를 제공하고 있습니다.",
     descriptionMb: `모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루
 션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율
 성을 높일 수 있는 운영에 필요한 개발 서비스를 
 제공하고 있습니다.`,
-    techDescription: [
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-    ],
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
   {
     thumbnail: "/videos/service/seo.mp4",
     subtitle: "SEO",
-    h3: `핵심적인 키워드로 만나는
-핵심 서비스 고객`,
-    description:
-      "플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공하고 있습니다.",
+    h3: `핵심적인 키워드로 
+만나는 핵심 서비스 고객`,
+    description: "플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공하고 있습니다.",
 
     descriptionMb: `플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트
     렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바
     르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공
     하고 있습니다.`,
-    techDescription: [
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-      "UI/UX Market Research",
-      "UX Stretegy",
-      "Product Launcher Icon",
-    ],
+    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
   },
 ];
 
@@ -348,18 +310,7 @@ const ContentItem = ({ content, isLeftImage, idx, isRspPc }: Prop) => {
             })}
           </TechDescItems>
         </ContentWrapRight>
-        <ContentImg
-          $scrollY={scrollY}
-          $minValue={minValue}
-          $maxValue={maxValue}
-          src={content.thumbnail}
-          width={740}
-          height={460}
-          data-imgid={`img-${idx}`}
-          muted
-          autoPlay
-          loop
-        />
+        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.thumbnail} width={740} height={460} data-imgid={`img-${idx}`} muted autoPlay loop />
       </Wrapper>
     );
   }
