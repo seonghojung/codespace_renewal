@@ -108,11 +108,16 @@ const CategoryItem = styled.li`
 `;
 const SubProjectContainer = styled.div<StyleProp>`
   ${CategoryContainer} {
-    opacity: 0;
+    opacity: 1;
+    @media (min-width: 768px) {
+      opacity: 0;
+    }
   }
   &:hover {
-    ${CategoryContainer} {
-      opacity: 1;
+    @media (min-width: 768px) {
+      ${CategoryContainer} {
+        opacity: 1;
+      }
     }
   }
   ${({ $isView }) => $isView && floatingUp}
