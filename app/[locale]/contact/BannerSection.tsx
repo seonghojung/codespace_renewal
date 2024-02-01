@@ -12,7 +12,6 @@ const SectionWrap = styled.section`
   }
 `;
 const FirstImg = styled.img`
-  object-fit: cover;
   display: block;
   width: 100%;
   height: 400px;
@@ -24,7 +23,6 @@ const FirstImg = styled.img`
   }
 `;
 const SecondImg = styled.img`
-  object-fit: cover;
   display: block;
   margin-top: 10px;
   width: 100%;

@@ -5,8 +5,6 @@ import UnderLineText from "../components/UnderLineText";
 import { fadeInAndUp2Sec } from "../animations/fadeInAndUp";
 
 const SectionWrap = styled.section`
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -14,11 +12,13 @@ const SectionWrap = styled.section`
   gap: 10px;
 
   @media (min-width: 768px) {
-    padding: 60px 16px 120px;
+    padding: 0px 26px 120px;
   }
 `;
 
 const TitleWrap = styled.div`
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 60px;
   width: 100%;
   @media (min-width: 768px) {
     opacity: 0;

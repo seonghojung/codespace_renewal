@@ -6,11 +6,13 @@ import { ContactPhoneSection } from "./ContactPhoneSection";
 function Contact() {
   return (
     <>
-      <BannerSection />
-      <Layout>
-        <ContactEmailSection />
-        <ContactPhoneSection />
-      </Layout>
+      <div style={{ minHeight: "calc(100vh-510px)" }}>
+        <BannerSection />
+        <Layout>
+          <ContactEmailSection />
+          <ContactPhoneSection />
+        </Layout>
+      </div>
     </>
   );
 }

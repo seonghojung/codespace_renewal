@@ -177,7 +177,6 @@ body {
   font-size: 14px;
   line-height: 1.2;
   scroll-behavior: smooth;
-  min-height: 100vh;
 }
 
 @media (min-width: 1920px) {

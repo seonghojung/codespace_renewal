@@ -10,7 +10,7 @@ const SectionWrap = styled.section`
   flex-direction: column;
 
   @media (min-width: 768px) {
-    padding: 40px 16px 60px;
+    padding: 40px 26px 60px;
   }
 `;
 
