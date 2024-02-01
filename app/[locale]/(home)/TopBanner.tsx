@@ -13,8 +13,9 @@ export interface IMainVisualProps {
 }
 
 const Section = styled.section`
-  @media (min-width: 1200px) {
-    padding-top: 100px;
+  padding-top: 30px;
+  @media (min-width: 768px) {
+    padding-top: 60px;
   }
 `;
 
@@ -42,38 +43,44 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-  @media (min-width: 1920px) {
-    //@TODO: 여기 영역별로 폰트사이즈좀 잡아야겠네요
-  }
-  @media (min-width: 1280px) {
-  }
-  @media (min-width: 768px) {
-  }
-  max-width: 500px;
   word-break: keep-all;
-  margin-bottom: 10px;
-  padding-top: 100px;
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1.31;
-  color: rgba(0, 0, 0, 0.8);
+  color: #050411;
+  line-height: 1.5;
+  font-size: 20px;
+  margin-top: 30px;
   ${fadeInAndUp}
+  @media (min-width: 768px) {
+    font-weight: 500;
+    font-size: 32px;
+    max-width: 680px;
+    line-height: 1.41;
+  }
 `;
 const MoreLink = styled(Link)`
-  @media (min-width: 1920px) {
-    //@TODO: 여기 영역별로 폰트사이즈좀 잡아야겠네요
-  }
-  @media (min-width: 1280px) {
-  }
   @media (min-width: 768px) {
   }
-  font-size: 20px;
+  font-size: 18px;
+`;
+const LinkWrap = styled.div`
+  margin-top: 20px;
+  a {
+    color: #8f99aa;
+  }
 `;
 
 const VidoeContainer = styled.div`
   margin-top: 100px;
   display: flex;
   justify-content: center;
+`;
+const DescriptionWrap = styled.div``;
+
+const VideoLayout = styled.div`
+  @media (min-width: 768px) {
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
 `;
 
 const SectionTopBanner = () => {
@@ -84,15 +91,21 @@ const SectionTopBanner = () => {
           상상하는 서비스를
           <br /> 현실로 만들어드립니다
         </Title>
+      </Layout>
+      <VideoLayout>
         <VidoeContainer>
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
         </VidoeContainer>
-      </Layout>
+      </VideoLayout>
       <Layout>
-        <Subtitle>코드스페이스와 함께 놀라운 서비스를 만들어보세요. 준비된 전문가들이 기다리고 있습니다.</Subtitle>
-        <LineDecorationLink>
-          <MoreLink href={"/project"}>자세히 알아보기</MoreLink>
-        </LineDecorationLink>
+        <DescriptionWrap>
+          <Subtitle>코드스페이스와 함께 놀라운 서비스를 만들어보세요 준비된 전문가들이 기다리고 있습니다</Subtitle>
+          <LinkWrap>
+            <LineDecorationLink color="#8f99aa">
+              <MoreLink href={"/project"}>자세히 알아보기</MoreLink>
+            </LineDecorationLink>
+          </LinkWrap>
+        </DescriptionWrap>
       </Layout>
     </Section>
   );

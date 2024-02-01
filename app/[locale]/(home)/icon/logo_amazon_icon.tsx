@@ -1,7 +1,7 @@
-const LogoAmazonIcon = ({ fill = "#BBC4D2" }) => {
+const Amazone = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="290" height="192" viewBox="0 0 290 192" fill="none">
-      <g clip-path="url(#clip0_5467_41271)">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 192" fill="none">
+      <g clipPath="url(#clip0_5467_41271)">
         <path
           d="M167.01 117.021C157.651 123.919 144.087 127.599 132.407 127.599C116.031 127.599 101.289 121.542 90.1356 111.469C89.2593 110.677 90.0444 109.597 91.096 110.214C103.133 117.217 118.015 121.43 133.389 121.43C143.757 121.43 155.163 119.285 165.65 114.834C167.234 114.161 168.559 115.871 167.01 117.021Z"
           fill="#BBC4D2"
@@ -43,4 +43,5 @@ const LogoAmazonIcon = ({ fill = "#BBC4D2" }) => {
     </svg>
   );
 };
-export default LogoAmazonIcon;
+
+export default Amazone;
