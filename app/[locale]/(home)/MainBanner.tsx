@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import LineDecorationLink from "../components/LineDecorationLink";
-import mainbanner from "../../../public/images/main_banner_mb.png";
+import mainBannerMb from "../../../public/images/main_banner_mb.png";
+import mainBanner from "../../../public/images/main_banner.png";
 
 const Container = styled.div`
   position: relative;
@@ -14,6 +15,7 @@ const Container = styled.div`
 `;
 
 const InfoWrap = styled.div`
+  padding-top: 108px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -21,11 +23,9 @@ const InfoWrap = styled.div`
   width: 100%;
   @media (min-width: 768px) {
     padding-top: 167px;
-    max-width: 1536px;
   }
 `;
 const Title = styled.h2`
-  opacity: 0;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
@@ -35,13 +35,11 @@ const Title = styled.h2`
   margin-bottom: 40px;
   max-width: 315px;
   @media (min-width: 768px) {
-    opacity: 1;
     font-size: 74px;
     max-width: none;
   }
 `;
 const Description = styled.h3`
-  opacity: 0;
   width: 90%;
   font-size: 20px;
   font-weight: 500;
@@ -50,7 +48,6 @@ const Description = styled.h3`
   text-align: center;
   word-break: keep-all;
   @media (min-width: 768px) {
-    opacity: 1;
   }
 `;
 const LinkWrap = styled.div`
@@ -66,23 +63,21 @@ const LinkWrap = styled.div`
 const BannerImage = styled(Image)`
   width: 100%;
   @media (min-width: 768px) {
-    max-width: 1536px;
   }
 `;
 export const VideoLayout = styled.div`
   width: 100%;
   @media (min-width: 768px) {
-    width: 95%;
-    max-width: 1536px;
-    margin: 0 auto;
   }
 `;
 
 const MainBanner = () => {
+  const bodyWidth = window.innerWidth;
+
   return (
     <VideoLayout>
       <Container>
-        <BannerImage src={mainbanner} alt={"배너 이미지"} />
+        <BannerImage src={bodyWidth > 767 ? mainBanner : mainBannerMb} alt={"배너 이미지"} />
         <InfoWrap>
           <Title>Imagination into Reality</Title>
           <Description>
@@ -94,7 +89,7 @@ const MainBanner = () => {
           </Description>
           <LinkWrap>
             <LineDecorationLink color="white">
-              <Link href={"/contact"}>자세히 알아보기</Link>
+              <Link href={"/contact"}>프로젝트 문의하기</Link>
             </LineDecorationLink>
           </LinkWrap>
         </InfoWrap>

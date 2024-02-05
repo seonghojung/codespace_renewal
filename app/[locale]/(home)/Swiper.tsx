@@ -49,16 +49,14 @@ const images = [
 
 const MainSwiper = () => {
   return (
-    <Layout>
-      <Container>
-        <TitleWrap>
-          <Title>
-            CODESPACE IS <br /> LOCATED IN SEOUL
-          </Title>
-        </TitleWrap>
-        <CarouselSwiper items={images} />
-      </Container>
-    </Layout>
+    <Container>
+      <TitleWrap>
+        <Title>
+          CODESPACE IS <br /> LOCATED IN SEOUL
+        </Title>
+      </TitleWrap>
+      <CarouselSwiper items={images} />
+    </Container>
   );
 };
 
