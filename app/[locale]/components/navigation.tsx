@@ -101,20 +101,14 @@ const HeaderLayout = styled.div`
 export default function Navigation() {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  // const [portalElement, setPortalElement] = useState<Element | null>(null);
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
-
-  // useEffect(() => {
-  //   setPortalElement(document.getElementById("portal"));
-  // }, [SlideBar]);
 
   const scrollDirection = useScrollDirection();
 
   return (
     <>
-      {/* {isOpen && portalElement ? createPortal(<SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />, portalElement) : null} */}
       {isOpen && <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />}
       <HeaderWrap $scrollDirection={scrollDirection}>
         <HeaderLayout>

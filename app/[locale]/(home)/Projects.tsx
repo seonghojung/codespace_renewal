@@ -282,7 +282,6 @@ const getVideos = (locale: string): ProjectProps[] => {
   return videos.en;
 };
 const SectionProjects = ({ locale }: { locale: ILocale }) => {
-  console.log(locale);
   return (
     <Section>
       <VideoLayout>

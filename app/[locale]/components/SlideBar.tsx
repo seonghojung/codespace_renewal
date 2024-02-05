@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import closeIcon from "../../../public/svgs/close_white.svg";
 import logoIcon from "../../../public/svgs/logo_white.svg";
 import LineDecoration from "./LineDecoration";
-import LineDecorationLink from "./LineDecorationLink";
 
 interface SlideBarProps {
   openSlideBarHandler: (isOpened: boolean) => void;
@@ -17,55 +16,6 @@ interface SlideBarProps {
 
 const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
   const path = usePathname();
-  useEffect(() => {
-    if (open) {
-      document.body.style.cssText = `
-        position: fixed; 
-        left: 50%;
-        transform: translate(-50%);
-        top: -${window.scrollY}px;
-        overflow-y: scroll;
-        width: 100%;`;
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
-    }
-
-    return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
-    };
-  }, [open]);
-  // TODO: className={path.endsWith("/project") ? "" : ""} 부분 active 색상 정해지면 true 조건에 active 추가
-  const slideMenu = (
-    <SideMenu>
-      <MenuList>
-        <li>
-          <LineDecoration color={"white"}>
-            <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-              PROJECT
-            </Link>
-          </LineDecoration>
-        </li>
-        <li>
-          <LineDecoration color={"white"}>
-            <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-              SERVICES
-            </Link>
-          </LineDecoration>
-        </li>
-        <li>
-          <LineDecoration color={"white"}>
-            <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-              CONTACT
-            </Link>
-          </LineDecoration>
-        </li>
-      </MenuList>
-    </SideMenu>
-  );
 
   return (
     <SlideBarWrap className={open ? "open" : ""}>
@@ -79,23 +29,36 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
           </button>
         </HeaderList>
       </SlideHeader>
-      {open && slideMenu}
+      <SideMenu>
+        <MenuList>
+          <li>
+            <LineDecoration color={"white"}>
+              <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                PROJECT
+              </Link>
+            </LineDecoration>
+          </li>
+          <li>
+            <LineDecoration color={"white"}>
+              <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                SERVICES
+              </Link>
+            </LineDecoration>
+          </li>
+          <li>
+            <LineDecoration color={"white"}>
+              <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                CONTACT
+              </Link>
+            </LineDecoration>
+          </li>
+        </MenuList>
+      </SideMenu>
     </SlideBarWrap>
   );
 };
 
 export default SlideBar;
-
-const DecorationLine = styled.span`
-  position: absolute;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background-color: #fff;
-  opacity: 1;
-`;
 
 const SlideBarWrap = styled.div`
   position: fixed;
