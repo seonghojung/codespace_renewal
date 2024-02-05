@@ -1,7 +1,6 @@
 "use client";
 
 import styled from "styled-components";
-import { Layout } from "../components/navigation";
 import Link from "next/link";
 import Image from "next/image";
 

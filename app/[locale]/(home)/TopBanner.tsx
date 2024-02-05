@@ -21,9 +21,13 @@ const Section = styled.section`
 
 const MainVideo = styled.video`
   width: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
   cursor: pointer;
   display: block;
+  @media (min-width: 768px) {
+    aspect-ratio: auto;
+  }
 `;
 
 const Title = styled.h1`
@@ -69,9 +73,12 @@ const LinkWrap = styled.div`
 `;
 
 const VidoeContainer = styled.div`
-  margin-top: 100px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
+  @media (min-width: 768px) {
+    margin-top: 100px;
+  }
 `;
 const DescriptionWrap = styled.div``;
 
