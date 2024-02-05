@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import SlideBar from "./SlideBar";
 import { LogoIconMobile } from "./icons";
-import logoIconPC from "../../../public/images/logo.png";
+import logoIconPC from "../../../public/images/logo_black.png";
 import hamburgerIcon from "../../../public/svgs/hamburger.svg";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import styled from "styled-components";
@@ -62,8 +62,8 @@ const LinkItem = styled.li`
 `;
 
 export const Layout = styled.div`
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 24px;
+  margin-right: 24px;
   @media (min-width: 768px) {
     width: 95%;
     max-width: 1536px;
@@ -75,8 +75,8 @@ const LogoContainer = styled.div`
   ${fadeIn}
 `;
 const HeaderLayout = styled.div`
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
   @media (min-width: 768px) {
     width: 95%;
     max-width: 1536px;

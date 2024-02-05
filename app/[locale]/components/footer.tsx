@@ -8,7 +8,7 @@ import { Layout } from "./navigation";
 import downDelta from "../../../public/svgs/down_delta.svg";
 
 const FooterWrap = styled.footer`
-  background-color: #f4f5f8;
+  background-color: #1a1f27;
 `;
 const Container = styled.div`
   padding-top: 60px;
@@ -29,26 +29,36 @@ const Nav = styled.nav`
   }
 `;
 
+const LinkWrap = styled(Link)`
+  width: 193px;
+  height: 28px;
+`;
+
 const NavItems = styled.ul`
   margin-top: 60px;
+  display: flex;
   @media (min-width: 768px) {
     margin-top: 0px;
   }
-  display: flex;
 `;
 const NavItem = styled.li`
   &:not(:last-child) {
-    margin-right: 40px;
+    margin-right: 30.6px;
     @media (min-width: 768px) {
       margin-right: 70px;
     }
   }
 `;
 const Title = styled(Link)`
-  font-size: 20px;
-  color: #666;
+  font-size: 16px;
+
+  color: #fff;
   &:hover {
-    color: #1a1a1a;
+    /* color: #1a1a1a; */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
   }
 `;
 const InfoWrap = styled.div`
@@ -57,7 +67,7 @@ const InfoWrap = styled.div`
 `;
 const Name = styled.span`
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.4);
+  color: #fff;
   line-height: 2;
 `;
 
@@ -67,6 +77,7 @@ const LanguageSwitchBtn = styled.button`
   line-height: 2;
   span {
     margin-right: 6px;
+    color: #fff;
   }
 `;
 
@@ -76,9 +87,9 @@ export default function Footer() {
       <Layout>
         <Container>
           <Nav>
-            <Link href="/">
+            <LinkWrap href="/">
               <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
-            </Link>
+            </LinkWrap>
             <NavItems>
               <NavItem>
                 <Title href={"/project"}>PROJECT</Title>
@@ -92,7 +103,7 @@ export default function Footer() {
             </NavItems>
           </Nav>
           <InfoWrap>
-            <Name>©2023 Code Space co. ltd.</Name>
+            <Name>©2019 - 2023 Code Space co. ltd.</Name>
             <LanguageSwitchBtn>
               <span>언어 : 한국어</span>
               <Image src={downDelta} alt={"아래쪽 화살표"} />
