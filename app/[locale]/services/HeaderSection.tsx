@@ -18,7 +18,7 @@ const EnTitle = styled.h1`
   color: #000;
   font-size: 50px;
   font-weight: 700;
-  line-height: 44px;
+  line-height: 0.88;
   text-transform: uppercase;
   svg {
     width: 12px;
@@ -52,7 +52,6 @@ const SubHeaderWrap = styled.div`
     font-size: 30px;
     font-weight: 600;
     line-height: 1.2;
-    line-height: 32px;
     word-break: keep-all;
     br {
       display: none;

@@ -7,6 +7,13 @@ import Image from "next/image";
 import LineDecorationLink from "../components/LineDecorationLink";
 import mainBannerMb from "../../../public/images/main_banner_mb.png";
 import mainBanner from "../../../public/images/main_banner.png";
+import { useEffect, useState } from "react";
+
+export const VideoLayout = styled.div`
+  width: 100%;
+  @media (min-width: 768px) {
+  }
+`;
 
 const Container = styled.div`
   position: relative;
@@ -62,22 +69,24 @@ const LinkWrap = styled.div`
 
 const BannerImage = styled(Image)`
   width: 100%;
-  @media (min-width: 768px) {
-  }
-`;
-export const VideoLayout = styled.div`
-  width: 100%;
+  /* aspect-ratio: 0.599; */
   @media (min-width: 768px) {
   }
 `;
 
 const MainBanner = () => {
-  const bodyWidth = window.innerWidth;
+  const [innerWidth, setInnerWidth] = useState(0);
+
+  useEffect(() => {
+    const bodyWidth = window.innerWidth;
+
+    setInnerWidth(bodyWidth);
+  }, []);
 
   return (
     <VideoLayout>
       <Container>
-        <BannerImage src={bodyWidth > 767 ? mainBanner : mainBannerMb} alt={"배너 이미지"} />
+        <BannerImage src={innerWidth > 767 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
         <InfoWrap>
           <Title>Imagination into Reality</Title>
           <Description>
