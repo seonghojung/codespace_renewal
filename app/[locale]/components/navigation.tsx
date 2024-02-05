@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SlideBar from "./SlideBar";
 import { LogoIconMobile } from "./icons";
 import logoIconPC from "../../../public/images/logo_black.png";
@@ -12,6 +12,7 @@ import { fadeInAndUp } from "../animations/fadeInAndUp";
 import styled from "styled-components";
 import { fadeIn } from "../animations/fadeIn";
 import LineDecoration from "./LineDecoration";
+import { createPortal } from "react-dom";
 
 const ButtonWrap = styled.div`
   justify-content: space-between;
@@ -32,7 +33,21 @@ const ButtonWrapPC = styled(ButtonWrap)`
   }
 `;
 
-const HeaderWrap = styled.header`
+interface IHeaderWrap {
+  $scrollDirection: string;
+}
+
+const HeaderWrap = styled.header<IHeaderWrap>`
+  opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)};
+  transform: translateY(${(props) => (props.$scrollDirection === "down" ? "-20px" : 0)});
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+  transition-property: opacity, transform;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
   @media (min-width: 768px) {
     img {
       object-fit: cover;
@@ -84,17 +99,24 @@ const HeaderLayout = styled.div`
   }
 `;
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
-
+  const [isOpen, setIsOpen] = useState(false);
+  // const [portalElement, setPortalElement] = useState<Element | null>(null);
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
 
+  // useEffect(() => {
+  //   setPortalElement(document.getElementById("portal"));
+  // }, [SlideBar]);
+
+  const scrollDirection = useScrollDirection();
+
   return (
     <>
-      <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
-      <HeaderWrap>
+      {/* {isOpen && portalElement ? createPortal(<SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />, portalElement) : null} */}
+      {isOpen && <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />}
+      <HeaderWrap $scrollDirection={scrollDirection}>
         <HeaderLayout>
           <ButtonWrapMobile>
             <Link href="/">
@@ -138,4 +160,27 @@ export default function Navigation() {
       </HeaderWrap>
     </>
   );
+}
+
+export function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = useState("");
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+    window.addEventListener("scroll", updateScrollDirection);
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection);
+    };
+  }, [scrollDirection]);
+
+  return scrollDirection;
 }
