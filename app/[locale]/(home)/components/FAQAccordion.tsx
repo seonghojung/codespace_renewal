@@ -62,13 +62,7 @@ const Title = styled.span`
   color: #fff;
 
   @media (min-width: 768px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1280px) {
     font-size: 28px;
-  }
-  @media (min-width: 1920px) {
-    font-size: 32px;
   }
   &:hover {
     opacity: 0.8;
@@ -87,12 +81,7 @@ const AccordionHeader = styled(Accordion.Header)`
     background-color: #1a1f27;
     color: #fff;
   }
-  &:hover {
-    .accordion-button:after {
-      opacity: 0.3;
-      transform: translateY(5px);
-    }
-  }
+
   .accordion-button {
     margin-top: 26px;
     padding: 0px 0 26px;

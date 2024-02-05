@@ -44,6 +44,8 @@ export const blur = css`
 const LogoItems = styled.ul`
   display: grid;
 
+  padding-left: 0px;
+
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 18px;
   grid-row-gap: 14px;

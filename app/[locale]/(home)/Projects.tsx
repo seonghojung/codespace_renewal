@@ -11,7 +11,7 @@ export interface IMainProject {
 }
 
 const Section = styled.section`
-  margin-top: 160px;
+  margin-top: 120px;
 `;
 
 const videos: ProjectProps[] = [

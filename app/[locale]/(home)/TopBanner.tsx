@@ -32,6 +32,7 @@ const MainVideo = styled.video`
 
 const Title = styled.h1`
   opacity: 0;
+  margin-left: -10px;
   position: relative;
   font-size: 86px;
   font-size: 30px;
@@ -73,7 +74,6 @@ const LinkWrap = styled.div`
 `;
 
 const VidoeContainer = styled.div`
-  margin-top: 40px;
   display: flex;
   justify-content: center;
   @media (min-width: 768px) {
@@ -83,6 +83,7 @@ const VidoeContainer = styled.div`
 const DescriptionWrap = styled.div``;
 
 const VideoLayout = styled.div`
+  margin-top: 40px;
   width: 100%;
   @media (min-width: 768px) {
     width: 95%;

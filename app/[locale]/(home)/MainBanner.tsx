@@ -15,6 +15,13 @@ export const VideoLayout = styled.div`
   }
 `;
 
+const Section = styled.section`
+  margin-top: 60px;
+  width: 100%;
+  @media (min-width: 768px) {
+  }
+`;
+
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -84,7 +91,7 @@ const MainBanner = () => {
   }, []);
 
   return (
-    <VideoLayout>
+    <Section>
       <Container>
         <BannerImage src={innerWidth > 767 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
         <InfoWrap>
@@ -103,7 +110,7 @@ const MainBanner = () => {
           </LinkWrap>
         </InfoWrap>
       </Container>
-    </VideoLayout>
+    </Section>
   );
 };
 

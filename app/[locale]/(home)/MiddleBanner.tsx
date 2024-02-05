@@ -108,9 +108,9 @@ const FloatingWrap = styled.div`
 `;
 
 const FloatingContent = styled.h2<IStyleProps>`
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 0.95;
   color: #000;
 
   @media (min-width: 768px) {
@@ -149,7 +149,7 @@ const SectionMiddleBanner = () => {
             <BestIconStyle src={bestSvg} alt="" $isView={inView} />
             <TextWrap>
               <FloatingText delay="0.3s" $isView={inView}>
-                WE GROW
+                WE DEVELOP
               </FloatingText>
               <FloatingText delay="0.6s" $isView={inView}>
                 PRODUCT.
@@ -165,8 +165,9 @@ const SectionMiddleBanner = () => {
               </FloatingText>
               <SubTitleWrap>
                 <SubTitle $isView={inView}>
-                  파트너의 제품과 함께 성장하는 코드스페이스의 새로운 프로젝트를 확인해보세요. 명확한 솔루션을 통해 비즈니스 성장과 파트너의 아이디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는
-                  것은 우리가 생각하는 가장 중요한 기본입니다.
+                  파트너의 제품과 함께 성장하는 코드스페이스의 새로운 프로젝트를 확인해보세요.
+                  <br /> 명확한 솔루션을 통해 비즈니스 성장과 파트너의 아이디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는 것은 우리가
+                  생각하는 가장 중요한 기본입니다.
                 </SubTitle>
               </SubTitleWrap>
               <LineDecorationLink color="#8f99aa">

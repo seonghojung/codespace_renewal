@@ -26,11 +26,10 @@ const fadeIn = keyframes`
 const CategoryContainer = styled.ul`
   opacity: 0;
   transition: opacity 0.5s ease;
-  margin-top: 10px;
+  margin-top: 6px;
 `;
 const Container = styled.li`
-  padding-top: 24px;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   ${CategoryContainer} {
     opacity: 1;
   }
@@ -72,7 +71,7 @@ const CategoryItem = styled.li`
   display: inline;
   list-style: none outside none;
   position: relative;
-  color: #637695;
+  color: #8f99aa;
 
   &:not(:last-child) {
     position: relative;
@@ -123,8 +122,8 @@ const ProjectVideo = styled.video`
   }
 `;
 const InfoWrap = styled.div`
-  margin-top: 20px;
-  padding-left: 15px;
+  margin-top: 12px;
+  padding-left: 10px;
   @media (min-width: 768px) {
     padding-left: 0px;
   }
@@ -136,7 +135,7 @@ const Title = styled.p`
 `;
 
 const Description = styled.p`
-  margin-top: 10px;
+  margin-top: 9px;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.31;
@@ -191,7 +190,7 @@ const ProjectItem = ({ index, children }: { index: number; children: React.React
   }
 };
 
-//@TODO: href 조치 @Thor
+//@TODO: 상세페이지들 워딩 다 나오면 href 조치 @Thor
 const ProjectCard = ({ src: { src, title, description, categories }, href = "airkid" }: { src: ProjectProps; href?: string }) => {
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
