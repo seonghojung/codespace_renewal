@@ -64,9 +64,6 @@ const Title = styled.span`
   @media (min-width: 768px) {
     font-size: 28px;
   }
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 const AccordionWrap = styled(Accordion)`
@@ -97,8 +94,16 @@ const AccordionHeader = styled(Accordion.Header)`
     background-image: url(images/arrow_bottom.png);
     background-size: auto;
   }
+  &:hover {
+    ${Title} {
+      opacity: 0.8;
+    }
+    .accordion-button:after {
+      opacity: 0.8;
+    }
+  }
 `;
 const AccordionBody = styled(Accordion.Body)`
   background-color: #1a1f27;
-  padding: 19px 75px 35px 0px;
+  padding: 5px 18px 18px 10px;
 `;

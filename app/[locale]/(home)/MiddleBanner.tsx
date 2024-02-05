@@ -9,9 +9,7 @@ import bestSvg from "../../../public/svgs/best.svg";
 import Link from "next/link";
 import LineDecorationLink from "../components/LineDecorationLink";
 
-const Section = styled.section`
-  margin-top: 100px;
-`;
+const Section = styled.section``;
 
 interface IStyleProps {
   $isView: boolean;
@@ -98,6 +96,7 @@ const SubTitle = styled.p<IStyleProps>`
   word-break: keep-all;
   @media (min-width: 768px) {
     margin-top: 40px;
+    max-width: 520px;
     ${({ $isView }) => $isView && floatingUp}
   }
 `;

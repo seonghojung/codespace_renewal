@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { css, keyframes, styled } from "styled-components";
+import { Layout } from "./navigation";
 interface StyleProp {
   $isView: boolean;
 }
@@ -146,7 +147,6 @@ const ProjectItems = styled.ul`
   @media (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -35.5px;
   }
 `;
 const ProjectLayout = styled.div`
@@ -230,7 +230,7 @@ const ProjectCard = ({ src: { src, title, description, categories }, href = "air
 
 const Projects = ({ projects }: { projects: ProjectProps[] }) => {
   return (
-    <ProjectLayout>
+    <Layout>
       <ProjectItems>
         {projects.map((project, index) => (
           <ProjectItem key={index} index={index}>
@@ -238,7 +238,7 @@ const Projects = ({ projects }: { projects: ProjectProps[] }) => {
           </ProjectItem>
         ))}
       </ProjectItems>
-    </ProjectLayout>
+    </Layout>
   );
 };
 
