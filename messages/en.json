@@ -15,10 +15,13 @@
       "moreBtn": "Find out more"
     }
   },
+  "Projects": {
+    "title": "Create a product fit for<br></br> Your market at Codespace"
+  },
   "Services": {
     "HeaderSection": {
-      "title": "We provide solutions for long-term growth, not just for immediate problem-solving.",
-      "description": "We provide platform development solutions where partners' ideas can be accurately reflected in the ever-evolving digital environment. Our development approach showcases consistency across various environments, including user experience, design, and development infrastructure, fostering businesses for better growth and profitability."
+      "title": "We provide solutions for long-term growth,<br></br> not just for immediate problem-solving.",
+      "description": "We provide platform development solutions where partners' ideas can be accurately reflected in the ever-evolving digital environment.<br></br> Our development approach showcases consistency across various environments, including user experience, design, and development infrastructure, fostering businesses for better growth and profitability."
     },
     "ContentsSection": {
       "WEB": {
@@ -38,12 +41,16 @@
         "description": "We provide development service for operations using a powerful CMS solution designed for easy creation, enabling innovative content management and increasing efficiency in customer management."
       },
       "SEO": {
-        "title": "translate needed",
-        "description": "translate needed"
+        "title": "Meeting Customers through Right Keyword",
+        "description": "We provide search traffic optimization by maximizing search visibility of the platform and leveraging evolving technologies and trends. This ensures that our partner's services are correctly presented customers."
       }
     },
     "SwiperSection": {
-      "title": "translate needed"
+      "title": "Start your Platform with<br></br> Codespace"
     }
+  },
+  "Contact": {
+    "title": "Any questions?",
+    "description": "Contact us"
   }
 }

@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import UnderLineText from "../components/UnderLineText";
 import { fadeInAndUp, fadeInAndUp2Sec, fadeInAndUp3Sec } from "../animations/fadeInAndUp";
+import { ITranslation } from "../(home)/page";
 
 const SectionWrap = styled.section`
   padding: 60px 10px 60px;
@@ -32,11 +33,11 @@ const TitleWrap = styled.div`
   }
 `;
 
-export const ContactEmailSection = () => {
+export const ContactEmailSection = ({ translation }: { translation: ITranslation }) => {
   return (
     <SectionWrap>
       <TitleWrap>
-        <h1>프로젝트에 대한 문의나 의뢰가 있나요?</h1>
+        <h1>{translation.title}</h1>
         <UnderLineText mbSize={32} pcSize={42} text={"email@codespace.im"} />
       </TitleWrap>
     </SectionWrap>

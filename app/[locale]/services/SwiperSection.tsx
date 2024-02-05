@@ -9,6 +9,7 @@ import swiper2 from "../../../public/images/home/swiper_2.png";
 import swiper3 from "../../../public/images/home/swiper_3.png";
 import swiper4 from "../../../public/images/home/swiper_4.png";
 import swiper5 from "../../../public/images/home/swiper_5.png";
+import { ITranslation } from "../(home)/page";
 
 const SectionWrap = styled.section`
   padding-bottom: 160px;
@@ -35,13 +36,10 @@ const images = [
   <HorizontalImage alt="swiper4" src={swiper4} key={4} />,
   <VerticalImage alt="swiper5" src={swiper5} key={5} />,
 ];
-const SwiperSection = () => {
+const SwiperSection = ({ translation }: { translation: ITranslation }) => {
   return (
     <SectionWrap>
-      <h2>
-        플랫폼 비즈니스의 시작 <br />
-        코드스페이스와 함께하세요
-      </h2>
+      <h2>{translation.title}</h2>
       <CarouselSwiper items={images} />
     </SectionWrap>
   );

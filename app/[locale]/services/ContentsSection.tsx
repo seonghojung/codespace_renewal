@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
+import { ILocale } from "../(home)/page";
 
 const SectionWrap = styled.section`
   @media (min-width: 768px) {
@@ -24,74 +25,221 @@ interface IContent {
   descriptionMb: string;
   techDescription: string[];
 }
-const contents: IContent[] = [
-  {
-    thumbnail: "/videos/service/web.mp4",
-    subtitle: "WEB",
-    h3: `어떤 환경에서나 
+interface IContents {
+  ko: IContent[];
+  en: IContent[];
+}
+
+const contents: IContents = {
+  ko: [
+    {
+      thumbnail: "/videos/service/web.mp4",
+      subtitle: "WEB",
+      h3: `어떤 환경에서나 
 유연한 웹사이트`,
-    description:
-      "다양한 디바이스, 브라우저에서도 유연한 웹사이트를 통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성 고려, SEO 최적화 텐츠 가독성 향상이 모바일과 PC 등 다양한 환경에서 올바르게 보여질 수 있도록 제공하고 있습니다.",
-    descriptionMb: `다양한 디바이스, 브라우저에서도 유연한 웹사이트를
+      description:
+        "다양한 디바이스, 브라우저에서도 유연한 웹사이트를 통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성 고려, SEO 최적화 텐츠 가독성 향상이 모바일과 PC 등 다양한 환경에서 올바르게 보여질 수 있도록 제공하고 있습니다.",
+      descriptionMb: `다양한 디바이스, 브라우저에서도 유연한 웹사이트를
 통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성
 고려, SEO 최적화 콘텐츠 가독성 향상이 모바일과 PC 등
 다양한 환경에서 올바르게 보여질 수 있도록
 제공하고 있습니다.`,
-    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
-  },
-  {
-    thumbnail: "/videos/service/app.mp4",
-    subtitle: "APP",
-    h3: "핵심 기능이 담긴 애플리케이션",
-    description:
-      "비즈니스에 필요한 핵심 기능만 올바르게 담긴 애플리케이션을 개발하여 합리적인 가격으로 투자에 대한 최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에 달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.",
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/app.mp4",
+      subtitle: "APP",
+      h3: "핵심 기능이 담긴 애플리케이션",
+      description:
+        "비즈니스에 필요한 핵심 기능만 올바르게 담긴 애플리케이션을 개발하여 합리적인 가격으로 투자에 대한 최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에 달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.",
 
-    descriptionMb: `비즈니스에 필요한 핵심 기능만 올바르게 담긴
+      descriptionMb: `비즈니스에 필요한 핵심 기능만 올바르게 담긴
 애플리케이션을 개발하여 합리적인 가격으로 투자에 대한
 최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에
 달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.`,
-    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
-  },
-  {
-    thumbnail: "/videos/service/ui.mp4",
-    subtitle: "UI/UX",
-    h3: `감각적인 UX을 통해
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/ui.mp4",
+      subtitle: "UI/UX",
+      h3: `감각적인 UX을 통해
 만들어지는 매력적인 UI`,
-    description: "사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스 확장을 고려하여 서비스를 제공하고 있습니다.",
+      description:
+        "사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스 확장을 고려하여 서비스를 제공하고 있습니다.",
 
-    descriptionMb: `사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞
+      descriptionMb: `사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞
     는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것
     이 아닌  향후 전개될 비즈니스 확장을 고려하여 서비스를
     제공하고 있습니다.`,
-    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
-  },
-  {
-    thumbnail: "/videos/service/cms.mp4",
-    subtitle: "CMS SOLUTION",
-    h3: `사용자 친화적인 
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/cms.mp4",
+      subtitle: "CMS SOLUTION",
+      h3: `사용자 친화적인 
 CMS 솔루션`,
-    description: "모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율성을 높일 수 있는 운영에 필요한 개발 서비스를 제공하고 있습니다.",
-    descriptionMb: `모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루
+      description:
+        "모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율성을 높일 수 있는 운영에 필요한 개발 서비스를 제공하고 있습니다.",
+      descriptionMb: `모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루
 션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율
 성을 높일 수 있는 운영에 필요한 개발 서비스를 
 제공하고 있습니다.`,
-    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
-  },
-  {
-    thumbnail: "/videos/service/seo.mp4",
-    subtitle: "SEO",
-    h3: `핵심적인 키워드로 
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/seo.mp4",
+      subtitle: "SEO",
+      h3: `핵심적인 키워드로 
 만나는 핵심 서비스 고객`,
-    description: "플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공하고 있습니다.",
+      description:
+        "플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공하고 있습니다.",
 
-    descriptionMb: `플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트
+      descriptionMb: `플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트
     렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바
     르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공
     하고 있습니다.`,
-    techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
-  },
-];
-
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+  ],
+  en: [
+    {
+      thumbnail: "/videos/service/web.mp4",
+      subtitle: "WEB",
+      h3: `Compatible Website in all OS environment`,
+      description:
+        "We provide an optimal user experience through a website that is accessible on various devices and browsers. This includes considerations for responsive design, cross-browser compatibility, accessibility, SEO optimization, and improved content readability to ensure proper display across diverse environments such as mobile and PC.",
+      descriptionMb: `다양한 디바이스, 브라우저에서도 유연한 웹사이트를
+통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성
+고려, SEO 최적화 콘텐츠 가독성 향상이 모바일과 PC 등
+다양한 환경에서 올바르게 보여질 수 있도록
+제공하고 있습니다.`,
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/app.mp4",
+      subtitle: "APP",
+      h3: "Application focused on core features",
+      description:
+        "We develop applications that accurately captures the essential features needed for business, providing maximum value for investment at a reasonable price. Launch an app development with Codespace, achieving both the quality of service and your goals.",
+      descriptionMb: `비즈니스에 필요한 핵심 기능만 올바르게 담긴
+애플리케이션을 개발하여 합리적인 가격으로 투자에 대한
+최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에
+달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.`,
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/ui.mp4",
+      subtitle: "UI/UX",
+      h3: `Attractive UI through sensuous UX `,
+      description:
+        "We create a visual system tailored to the industry as perceived by the partner by analyzing user patterns. Rather than simply maintaining consistency, we provide services considering future business expansion.",
+      descriptionMb: `사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞
+    는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것
+    이 아닌  향후 전개될 비즈니스 확장을 고려하여 서비스를
+    제공하고 있습니다.`,
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/cms.mp4",
+      subtitle: "CMS SOLUTION",
+      h3: `User Friendly CMS Solution`,
+      description:
+        "We provide development service for operations using a powerful CMS solution designed for easy creation, enabling innovative content management and increasing efficiency in customer management.",
+      descriptionMb: `모두가 쉽게 제작할 수 있도록 제작 된 강력한 CMS 솔루
+션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율
+성을 높일 수 있는 운영에 필요한 개발 서비스를 
+제공하고 있습니다.`,
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+    {
+      thumbnail: "/videos/service/seo.mp4",
+      subtitle: "SEO",
+      h3: `Meeting Customers through Right Keyword`,
+      description:
+        "We provide search traffic optimization by maximizing search visibility of the platform and leveraging evolving technologies and trends. This ensures that our partner's services are correctly presented customers.",
+      descriptionMb: `플랫폼의 검색 가시성을 극대화하고 발전하는 기술과 트
+    렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바
+    르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공
+    하고 있습니다.`,
+      techDescription: [
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+        "UI/UX Market Research",
+        "UX Stretegy",
+        "Product Launcher Icon",
+      ],
+    },
+  ],
+};
+const getContents = (locale: string): IContent[] => {
+  if (locale === "en") return contents.en;
+  if (locale === "ko") return contents.ko;
+  return contents.en;
+};
 interface Prop {
   content: IContent;
   isLeftImage: boolean;
@@ -310,13 +458,24 @@ const ContentItem = ({ content, isLeftImage, idx, isRspPc }: Prop) => {
             })}
           </TechDescItems>
         </ContentWrapRight>
-        <ContentImg $scrollY={scrollY} $minValue={minValue} $maxValue={maxValue} src={content.thumbnail} width={740} height={460} data-imgid={`img-${idx}`} muted autoPlay loop />
+        <ContentImg
+          $scrollY={scrollY}
+          $minValue={minValue}
+          $maxValue={maxValue}
+          src={content.thumbnail}
+          width={740}
+          height={460}
+          data-imgid={`img-${idx}`}
+          muted
+          autoPlay
+          loop
+        />
       </Wrapper>
     );
   }
 };
 
-const ContentsSection = () => {
+const ContentsSection = ({ locale }: { locale: ILocale }) => {
   const [isRspPc, setIsRspPc] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -333,7 +492,7 @@ const ContentsSection = () => {
   return (
     <SectionWrap>
       <ContentItems>
-        {contents.map((content, index) => {
+        {getContents(locale).map((content, index) => {
           return <ContentItem isRspPc={isRspPc} idx={index} content={content} isLeftImage={isRspPc ? (index + 1) % 2 !== 0 : true} key={index} />;
         })}
       </ContentItems>

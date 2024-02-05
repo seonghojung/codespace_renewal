@@ -3,6 +3,7 @@
 import { styled } from "styled-components";
 import UnderLineText from "../components/UnderLineText";
 import { fadeInAndUp2Sec } from "../animations/fadeInAndUp";
+import { ITranslation } from "../(home)/page";
 
 const SectionWrap = styled.section`
   display: flex;
@@ -41,13 +42,11 @@ const Title = styled.h2`
   }
 `;
 
-export const ContactPhoneSection = () => {
+export const ContactPhoneSection = ({ translation }: { translation: ITranslation }) => {
   return (
     <SectionWrap>
       <TitleWrap>
-        <Title>
-          메일로 확인이 어려우시면 <br /> 아래 전화로 문의 부탁드립니다.
-        </Title>
+        <Title>{translation.description}</Title>
         <UnderLineText mbSize={32} pcSize={36} text={"010-0000-0000"} />
       </TitleWrap>
     </SectionWrap>

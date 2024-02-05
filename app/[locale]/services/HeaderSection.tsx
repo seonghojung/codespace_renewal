@@ -5,6 +5,7 @@ import { BlueDotIconMb } from "@/app/[locale]/components/icons";
 import { styled } from "styled-components";
 import { enTitleFadeIn, koSubTitleFadeIn, koTitleFadeIn } from "../animations/titleFadeIn";
 import { useEffect, useState } from "react";
+import { ITranslation } from "../(home)/page";
 
 const SectionWrap = styled.section`
   padding: 20px 0px 100px;
@@ -96,7 +97,7 @@ const SubHeaderWrap = styled.div`
   }
 `;
 
-const HeaderSection = () => {
+const HeaderSection = ({ translation }: { translation: ITranslation }) => {
   const [isRspPc, setIsRspPc] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -119,16 +120,8 @@ const HeaderSection = () => {
         {isRspPc ? <BlueDotIcon /> : <BlueDotIconMb />}
       </EnTitle>
       <SubHeaderWrap>
-        <h1>
-          순간을 해결하는 솔루션이 아닌 오랜시간
-          <br /> 함께 성장하는 솔루션을 제공합니다
-        </h1>
-        <h2>
-          우리는 끊임없이 발전하는 디지털 환경 속에서 파트너의 생각이 올바르게 담길 수 있는 플랫폼 개발 솔루션을 제공하고 있습니다.
-          <br />
-          사용자 경험과 그에 따른 디자인, 개발 환경 구축 등 다양한 환경에서도 일관되게 보여질 수 있는 개발 방식을 표현하며
-          <br />더 나은 성장과 이윤을 만드는 비즈니스를 성장시키고 있습니다.
-        </h2>
+        <h1>{translation.title}</h1>
+        <h2>{translation.description}</h2>
       </SubHeaderWrap>
     </SectionWrap>
   );
