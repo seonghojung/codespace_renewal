@@ -4,7 +4,7 @@ import { css, keyframes, styled } from "styled-components";
 import { useInView } from "react-intersection-observer";
 import { Layout } from "../components/navigation";
 import Image from "next/image";
-import bannerImage from "../../../public/images/main_banner-mb.png";
+import bannerImage from "../../../public/images/middle_banner.png";
 import bestSvg from "../../../public/svgs/best.svg";
 import Link from "next/link";
 import LineDecorationLink from "../components/LineDecorationLink";
@@ -35,6 +35,9 @@ const Container = styled.div<IStyleProps>`
     transition: opacity 0.25s ease-in-out;
     display: flex;
     gap: 140px;
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
   }
 `;
 const ProjectImage = styled(Image)`
@@ -43,7 +46,6 @@ const ProjectImage = styled(Image)`
   display: block;
   object-fit: cover;
   @media (min-width: 768px) {
-    flex: 1;
   }
 `;
 const ContentWrap = styled.div`
@@ -57,7 +59,6 @@ const ContentWrap = styled.div`
 
 const TextWrap = styled.div`
   margin-top: 6px;
-  margin-left: 10px;
   @media (min-width: 768px) {
     margin-top: 0;
     margin-left: 0;
@@ -141,9 +142,9 @@ const SectionMiddleBanner = () => {
 
   return (
     <Section>
-      <Layout>
-        <Container ref={ref} $isView={inView}>
-          <ProjectImage src={bannerImage} alt="배너 이미지" />
+      <Container ref={ref} $isView={inView}>
+        <ProjectImage src={bannerImage} alt="배너 이미지" />
+        <Layout>
           <ContentWrap>
             <BestIconStyle src={bestSvg} alt="" $isView={inView} />
             <TextWrap>
@@ -164,8 +165,8 @@ const SectionMiddleBanner = () => {
               </FloatingText>
               <SubTitleWrap>
                 <SubTitle $isView={inView}>
-                  파트너의 제품과 함께 성장하는 코드스페이스의 새로운 프로젝트를 확인해보세요. 명확한 솔루션을 통해 비즈니스 성장과 파트너의 아이
-                  디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는 것은 우리가 생각하는 가장 중요한 기본입니다.
+                  파트너의 제품과 함께 성장하는 코드스페이스의 새로운 프로젝트를 확인해보세요. 명확한 솔루션을 통해 비즈니스 성장과 파트너의 아이디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는
+                  것은 우리가 생각하는 가장 중요한 기본입니다.
                 </SubTitle>
               </SubTitleWrap>
               <LineDecorationLink color="#8f99aa">
@@ -173,8 +174,8 @@ const SectionMiddleBanner = () => {
               </LineDecorationLink>
             </TextWrap>
           </ContentWrap>
-        </Container>
-      </Layout>
+        </Layout>
+      </Container>
     </Section>
   );
 };

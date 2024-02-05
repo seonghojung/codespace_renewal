@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import LineDecorationLink from "../components/LineDecorationLink";
-import mainbanner from "../../../public/images/main_banner.png";
+import mainbanner from "../../../public/images/main_banner_mb.png";
 
 const Container = styled.div`
   position: relative;
@@ -19,13 +19,14 @@ const InfoWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 167px;
   width: 100%;
   @media (min-width: 768px) {
+    padding-top: 167px;
     max-width: 1536px;
   }
 `;
 const Title = styled.h2`
+  opacity: 0;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
@@ -35,11 +36,13 @@ const Title = styled.h2`
   margin-bottom: 40px;
   max-width: 315px;
   @media (min-width: 768px) {
+    opacity: 1;
     font-size: 74px;
     max-width: none;
   }
 `;
 const Description = styled.h3`
+  opacity: 0;
   width: 90%;
   font-size: 20px;
   font-weight: 500;
@@ -47,6 +50,9 @@ const Description = styled.h3`
   color: #fff;
   text-align: center;
   word-break: keep-all;
+  @media (min-width: 768px) {
+    opacity: 1;
+  }
 `;
 const LinkWrap = styled.div`
   margin-top: 40px;

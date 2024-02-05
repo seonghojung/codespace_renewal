@@ -12,13 +12,21 @@ import swiper5 from "../../../public/images/home/swiper_5.png";
 
 const Title = styled.p`
   max-width: 450px;
-  font-size: 46px;
+  font-size: 28px;
   font-weight: 600;
-  line-height: 1.14;
-  color: #050411;
+  line-height: 1.36;
   text-align: center;
+  color: #050411;
+
   @media (min-width: 768px) {
     max-width: none;
+    height: 48px;
+    font-size: 46px;
+    line-height: 1.04;
+    text-align: left;
+    br {
+      display: none;
+    }
   }
 `;
 
@@ -44,7 +52,9 @@ const MainSwiper = () => {
     <Layout>
       <Container>
         <TitleWrap>
-          <Title>CODESPACE IS LOCATED IN SEOUL</Title>
+          <Title>
+            CODESPACE IS <br /> LOCATED IN SEOUL
+          </Title>
         </TitleWrap>
         <CarouselSwiper items={images} />
       </Container>
