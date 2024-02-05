@@ -74,7 +74,7 @@ const BestIconStyle = styled(Image)<IStyleProps>`
   left: 5px;
   width: 106px;
   height: 106px;
-  z-index: 9999;
+  z-index: 2;
   @media (min-width: 768px) {
     top: 26px;
     left: -80px;
