@@ -4,6 +4,7 @@ import styled from "styled-components";
 import FAQAccordion from "./components/FAQAccordion";
 import { Layout } from "../components/navigation";
 import { useInView } from "react-intersection-observer";
+import { ILocale } from "./page";
 
 const questions = [
   {
@@ -64,7 +65,7 @@ const FAQAccordionWrap = styled.div`
   margin-top: 55px;
 `;
 
-const FAQ = () => {
+const FAQ = ({ locale }: { locale: ILocale }) => {
   const [ref, inView] = useInView({
     threshold: 0.35,
     triggerOnce: true,

@@ -8,6 +8,7 @@ import bannerImage from "../../../public/images/middle_banner.png";
 import bestSvg from "../../../public/svgs/best.svg";
 import Link from "next/link";
 import LineDecorationLink from "../components/LineDecorationLink";
+import { ITranslation } from "./page";
 
 const Section = styled.section``;
 
@@ -133,7 +134,7 @@ const FloatingText = ({ children, delay, $isView }: { children: React.ReactNode;
   </FloatingWrap>
 );
 
-const SectionMiddleBanner = () => {
+const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => {
   const [ref, inView] = useInView({
     threshold: 0.35,
     triggerOnce: true,
@@ -163,14 +164,10 @@ const SectionMiddleBanner = () => {
                 PROJECT.
               </FloatingText>
               <SubTitleWrap>
-                <SubTitle $isView={inView}>
-                  파트너의 제품과 함께 성장하는 코드스페이스의 새로운 프로젝트를 확인해보세요.
-                  <br /> 명확한 솔루션을 통해 비즈니스 성장과 파트너의 아이디어를 현실로 구현하는 것을 통해 함께 성장하며 발전하는 것은 우리가
-                  생각하는 가장 중요한 기본입니다.
-                </SubTitle>
+                <SubTitle $isView={inView}>{translation.description}</SubTitle>
               </SubTitleWrap>
               <LineDecorationLink color="#8f99aa">
-                <Link href={"/project"}>자세히 알아보기</Link>
+                <Link href={"/project"}>{translation.moreBtn}</Link>
               </LineDecorationLink>
             </TextWrap>
           </ContentWrap>

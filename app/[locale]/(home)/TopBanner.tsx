@@ -1,16 +1,11 @@
 "use client";
 
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import { Layout } from "../components/navigation";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import LineDecorationLink from "../components/LineDecorationLink";
 import Link from "next/link";
-
-export interface IMainVisualProps {
-  title: string;
-  subTitle: string;
-  moreBtn: string;
-}
+import { ITranslation } from "./page";
 
 const Section = styled.section`
   padding-top: 30px;
@@ -57,7 +52,6 @@ const Subtitle = styled.h2`
   @media (min-width: 768px) {
     font-weight: 500;
     font-size: clamp(22px, 2.8645833333333vw, 32px);
-    max-width: 680px;
     line-height: 1.41;
   }
 `;
@@ -92,14 +86,11 @@ const VideoLayout = styled.div`
   }
 `;
 
-const SectionTopBanner = () => {
+const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
   return (
     <Section>
       <Layout>
-        <Title>
-          상상하는 서비스를
-          <br /> 현실로 만들어드립니다
-        </Title>
+        <Title>{translation.title}</Title>
       </Layout>
       <VideoLayout>
         <VidoeContainer>
@@ -108,10 +99,10 @@ const SectionTopBanner = () => {
       </VideoLayout>
       <Layout>
         <DescriptionWrap>
-          <Subtitle>코드스페이스와 함께 놀라운 서비스를 만들어보세요 준비된 전문가들이 기다리고 있습니다</Subtitle>
+          <Subtitle>{translation.subTitle}</Subtitle>
           <LinkWrap>
             <LineDecorationLink color="#8f99aa">
-              <MoreLink href={"/project"}>자세히 알아보기</MoreLink>
+              <MoreLink href={"/project"}>{translation.moreBtn}</MoreLink>
             </LineDecorationLink>
           </LinkWrap>
         </DescriptionWrap>

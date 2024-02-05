@@ -1,15 +1,14 @@
 {
   "Home": {
-    "MainVisual": {
-      "title": "We transform your imagination into reality",
-      "subTitle": "Make your dreams come true at Codespace. Explore our expertise. You won’t be disappointed."
+    "TopBanner": {
+      "title": "We transform your<br></br> imagination into reality",
+      "subTitle": "Make your dreams come true at Codespace.<br></br> Explore our expertise. You won’t be disappointed."
     },
-    "MainProject": {
-      "description": "Check out our new project at Codespace.Fundamental principle of Codespace is growing together by implementing our partner's ideas into reality through clear solutions for business growth."
+    "MiddleBanner": {
+      "description": "Check out our new project at Codespace.<br></br> Fundamental principle of Codespace is growing together by implementing our partner's ideas into reality through clear solutions for business growth."
     },
     "MainBanner": {
-      "descriptionSegment1": "Difficult technical terms, hesitation about necessity, and all the efforts to find answers due to uncertainty - Codespace will be a sloution.",
-      "descriptionSegment2": "We will focus on implementing a business model created solely from partner's imagination, using the simplest words and essential elements. We will assist you in bringing it to the market, helping you find the product-market fit",
+      "description": "Difficult technical terms, hesitation about necessity, and all the efforts to find answers due to uncertainty - Codespace will be a sloution. We will focus on implementing a business model created solely from partner's imagination, using the simplest words and essential elements. We will assist you in bringing it to the market, helping you find the product-market fit",
       "requestBtn": "REQUEST A QUOTE"
     },
     "Component": {
