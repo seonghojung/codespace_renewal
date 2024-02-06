@@ -94,7 +94,9 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
     const handleScroll = () => {
       if (bannerRef.current) {
         const bannerTopDistance = bannerRef.current.getBoundingClientRect().top;
-        const scale = Math.min(1.1, 1 + (100 - bannerTopDistance) / 1000);
+        console.log(bannerTopDistance);
+
+        const scale = Math.min(1.1, Math.max(1, 1 + (380 - bannerTopDistance) / 1000));
         setBannerScale(scale);
       }
     };
