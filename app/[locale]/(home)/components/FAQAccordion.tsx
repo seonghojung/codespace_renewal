@@ -96,7 +96,7 @@ const AccordionHeader = styled(Accordion.Header)`
   .accordion-button:after {
     width: 14px;
     height: 8px;
-    background-image: url(images/arrow_bottom.png);
+    background-image: url("/images/arrow_bottom.png");
     background-size: auto;
   }
   &:hover {
