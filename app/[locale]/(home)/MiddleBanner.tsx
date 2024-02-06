@@ -4,7 +4,8 @@ import { css, keyframes, styled } from "styled-components";
 import { useInView } from "react-intersection-observer";
 import { Layout } from "../components/navigation";
 import Image from "next/image";
-import bannerImage from "../../../public/images/middle_banner.png";
+import bannerImageMb from "../../../public/images/middle_banner.png";
+import bannerImage from "../../../public/images/main_banner.png";
 import bestSvg from "../../../public/svgs/best.svg";
 import Link from "next/link";
 import LineDecorationLink from "../components/LineDecorationLink";
@@ -31,30 +32,79 @@ const Container = styled.div<IStyleProps>`
   display: block;
   @media (min-width: 768px) {
     padding-top: 120px;
-    height: 480px;
+  }
+  @media (min-width: 1680px) {
+    padding-top: 120px;
+    /* height: 480px; */
     opacity: ${(props) => (props.$isView ? 1 : 0)};
     transition: opacity 0.25s ease-in-out;
     display: flex;
-    gap: 140px;
+    /* gap: 140px; */
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+const ProjectImageWrap = styled.div`
+  @media (min-width: 768px) {
     width: 95%;
     max-width: 1536px;
     margin: 0 auto;
   }
+  @media (min-width: 1680px) {
+    width: auto;
+    max-width: initial;
+    margin: initial;
+  }
 `;
+
 const ProjectImage = styled(Image)`
   width: 100%;
   height: 420px;
   display: block;
   object-fit: cover;
   @media (min-width: 768px) {
+    border-radius: 12px;
+  }
+
+  @media (min-width: 1680px) {
+    aspect-ratio: 1.208333333333333;
+    height: auto;
+    width: 740px;
+    max-height: 480px;
   }
 `;
+
+const FakeLayout = styled.div`
+  margin-left: 24px;
+  margin-right: 24px;
+  @media (min-width: 768px) {
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1680px) {
+    width: auto;
+    max-width: initial;
+    margin: initial;
+  }
+`;
+
 const ContentWrap = styled.div`
   position: relative;
   padding-top: 80px;
   @media (min-width: 768px) {
-    padding: 0;
+    display: flex;
+    /* padding: 0; */
     flex: 0.9;
+  }
+  @media (min-width: 1680px) {
+    display: block;
+    padding-top: 0;
+    /* flex: 0.9; */
   }
 `;
 
@@ -63,6 +113,15 @@ const TextWrap = styled.div`
   @media (min-width: 768px) {
     margin-top: 0;
     margin-left: 0;
+    width: 355px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 500px;
+  }
+
+  @media (min-width: 1680px) {
+    width: 100%;
   }
 
   a {
@@ -78,9 +137,25 @@ const BestIconStyle = styled(Image)<IStyleProps>`
   height: 106px;
   z-index: 2;
   @media (min-width: 768px) {
-    top: 26px;
-    left: -80px;
+    top: 6px;
+    left: 5px;
+    /* top: 26px;
+    left: -80px; */
     ${({ $isView }) => $isView && floatingUp}
+  }
+  @media (min-width: 1680px) {
+    top: -44px;
+    left: -86px;
+  }
+`;
+
+const RightWrap = styled.div`
+  @media (min-width: 768px) {
+    width: calc(100% - 355px);
+  }
+
+  @media (min-width: 1680px) {
+    width: 100%;
   }
 `;
 
@@ -88,20 +163,47 @@ const SubTitleWrap = styled.div`
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
+  @media (min-width: 768px) {
+    margin-bottom: 0px;
+  }
+  @media (min-width: 1680px) {
+    margin-top: 40px;
+    br {
+      display: none;
+    }
+  }
 `;
 
 const SubTitle = styled.p<IStyleProps>`
   margin-top: 40px;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.31;
   color: rgba(0, 0, 0, 0.8);
   word-break: keep-all;
   @media (min-width: 768px) {
-    margin-top: 40px;
-    max-width: 520px;
+    margin-top: 0px;
+    /* max-width: 450px; */
+    line-height: 1.6;
     ${({ $isView }) => $isView && floatingUp}
   }
+
+  @media (min-width: 1680px) {
+    max-width: 520px;
+    word-break: initial;
+  }
+`;
+
+const MoreWrap = styled.div`
+  @media (min-width: 1680px) {
+    margin-top: 20px;
+  }
+`;
+
+const More = styled(Link)`
+  /* fontSize: "18px", color: "#8F99AA" */
+  font-size: 18px;
+  color: #8f99aa;
 `;
 
 const FloatingWrap = styled.div`
@@ -117,7 +219,7 @@ const FloatingContent = styled.h2<IStyleProps>`
 
   @media (min-width: 768px) {
     font-size: 46px;
-    line-height: 0.87;
+    /* line-height: 0.87; */
 
     ${({ $isView }) => $isView && floatingUp}
   }
@@ -143,13 +245,17 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
   });
 
   const [isPC, setIsPC] = useState(false);
+  // const [isPcFloationgText, setIsPcFloationgText] = useState(false);
 
   useEffect(() => {
     const bodyWidth = window.innerWidth;
 
     if (bodyWidth > 767) {
-      return setIsPC(true);
+      setIsPC(true);
     }
+    // if (bodyWidth > 1024) {
+    //   setIsPcFloationgText(true);
+    // }
   }, []);
 
   const mbFloationgText = (
@@ -172,8 +278,10 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
   return (
     <Section>
       <Container ref={ref} $isView={inView}>
-        <ProjectImage src={bannerImage} alt="배너 이미지" />
-        <Layout>
+        <ProjectImageWrap>
+          <ProjectImage src={isPC ? bannerImage : bannerImageMb} width={isPC ? 2220 : 740} height={isPC ? 1440 : 480} alt="배너 이미지" />
+        </ProjectImageWrap>
+        <FakeLayout>
           <ContentWrap>
             <BestIconStyle src={bestSvg} alt="" $isView={inView} />
             <TextWrap>
@@ -187,15 +295,19 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
                 INTRODUCE
               </FloatingText>
               {isPC ? pcFloationgText : mbFloationgText}
+            </TextWrap>
+            <RightWrap>
               <SubTitleWrap>
                 <SubTitle $isView={inView}>{translation.description}</SubTitle>
               </SubTitleWrap>
-              <LineDecorationLink color="#8f99aa">
-                <Link href={"/project"}>{translation.moreBtn}</Link>
-              </LineDecorationLink>
-            </TextWrap>
+              <MoreWrap>
+                <LineDecorationLink color="#8f99aa">
+                  <More href={"/project"}>{translation.moreBtn}</More>
+                </LineDecorationLink>
+              </MoreWrap>
+            </RightWrap>
           </ContentWrap>
-        </Layout>
+        </FakeLayout>
       </Container>
     </Section>
   );

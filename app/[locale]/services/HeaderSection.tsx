@@ -17,7 +17,9 @@ const SectionWrap = styled.section`
 const EnTitle = styled.h1`
   position: relative;
   color: #000;
-  font-size: 50px;
+  /* font-size: 50px; */
+  font-size: clamp(50px, 7.5vw, 74px);
+  letter-spacing: -0.4px;
   font-weight: 700;
   line-height: 0.88;
   text-transform: uppercase;
