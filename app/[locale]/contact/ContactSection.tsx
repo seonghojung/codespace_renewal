@@ -50,6 +50,12 @@ const PhoneTitleWrap = styled.div`
   margin-top: 80px;
   opacity: 0;
   ${fadeInAndUp2Sec}
+
+  @media (min-width: 1680px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 export const ContactSection = ({ translation }: { translation: ITranslation }) => {

@@ -4,6 +4,8 @@ const Container = styled.div`
   position: relative;
   color: #000;
   display: inline-block;
+  width: auto;
+  height: auto;
   cursor: pointer;
 `;
 
