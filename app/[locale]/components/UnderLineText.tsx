@@ -1,41 +1,15 @@
-import Link from "next/link";
 import { styled } from "styled-components";
 
-interface IUnderLineText {
-  mbSize: number;
-  pcSize: number;
-  text: string;
-}
-
-interface IAddressWrap {
-  $mbSize: number;
-  $pcSize: number;
-}
-
-const UnderLineText = ({ mbSize, pcSize, text }: IUnderLineText) => {
-  return (
-    <Link href="mailto:jake@codespace.im" passHref legacyBehavior>
-      <AddressWrap $mbSize={mbSize} $pcSize={pcSize} rel="noopener noreferrer" target="_blank">
-        <Address>
-          <span>{text}</span>
-        </Address>
-      </AddressWrap>
-    </Link>
-  );
-};
-
-export default UnderLineText;
-
-const AddressWrap = styled.a<IAddressWrap>`
-  margin-top: 10px;
+const Container = styled.div`
   position: relative;
-  font-size: ${(props) => props.$mbSize}px;
   color: #000;
-  font-weight: 600;
   display: inline-block;
-  transition: color 0.15s;
-  line-height: 1.5;
+  cursor: pointer;
+`;
 
+const Address = styled.div`
+  align-items: center;
+  text-decoration-line: none;
   &::before {
     content: "";
     position: absolute;
@@ -49,26 +23,6 @@ const AddressWrap = styled.a<IAddressWrap>`
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: 0 50%;
   }
-
-  &:hover:before {
-    transform: scaleX(1);
-  }
-
-  @media (min-width: 768px) {
-    font-size: ${(props) => props.$pcSize}px;
-    line-height: 1.14;
-  }
-`;
-
-const Address = styled.h2`
-  display: inline-flex;
-  align-items: center;
-  text-decoration-line: none;
-  span {
-    position: relative;
-    z-index: 1;
-  }
-
   &::after {
     content: "";
     position: absolute;
@@ -82,4 +36,17 @@ const Address = styled.h2`
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: 0 50%;
   }
+  &:hover:before {
+    transform: scaleX(1);
+  }
 `;
+
+const UnderLineText = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Container>
+      <Address>{children}</Address>
+    </Container>
+  );
+};
+
+export default UnderLineText;

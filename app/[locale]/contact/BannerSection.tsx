@@ -1,54 +1,40 @@
 "use client";
 
 import styled from "styled-components";
-
+import firstImg from "../../../public/images/contact/first_image.png";
+import secondImg from "../../../public/images/contact/second_image.png";
+import Image from "next/image";
 const SectionWrap = styled.section`
-  @media (min-width: 768px) {
-    display: flex;
-    gap: 37px;
-    width: 95%;
-    max-width: 1536px;
-    margin: 0 auto;
-  }
+  display: flex;
+  width: 100%;
 `;
 const ImgWrap = styled.div`
-  @media (min-width: 768px) {
-    display: flex;
-    gap: 37px;
-    max-width: 1244px;
-    padding-top: 80px;
-  }
-`;
-const FirstImg = styled.img`
-  display: block;
+  display: flex;
   width: 100%;
-  height: 400px;
   @media (min-width: 768px) {
-    width: 65.5%;
-    padding-left: 0px;
-    height: 400px;
-    flex: 2.1;
   }
 `;
-const SecondImg = styled.img`
-  display: block;
-  margin-top: 10px;
+
+const FirstImg = styled(Image)`
+  aspect-ratio: 0.89;
   width: 100%;
-  height: 242px;
-  @media (min-width: 768px) {
-    width: 31.5%;
-    padding-left: 0px;
-    margin-top: 0px;
-    height: 400px;
-    flex: 1;
-  }
+  display: block;
+  object-fit: cover;
+  margin-right: 10px;
 `;
+const SecondImg = styled(Image)`
+  aspect-ratio: 0.61;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+`;
+
 export const BannerSection = () => {
   return (
     <SectionWrap>
       <ImgWrap>
-        <FirstImg src="/images/contact/first_image.png" />
-        <SecondImg src="/images/contact/second_image.png" />
+        <FirstImg src={firstImg} width={217} height={242} alt="" />
+        <SecondImg src={secondImg} width={148} height={242} alt="" />
       </ImgWrap>
     </SectionWrap>
   );

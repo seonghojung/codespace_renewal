@@ -1,9 +1,8 @@
 import { useTranslations } from "next-intl";
 import { Layout } from "../components/navigation";
 import { BannerSection } from "./BannerSection";
-import { ContactEmailSection } from "./ContactEmailSection";
-import { ContactPhoneSection } from "./ContactPhoneSection";
 import { Metadata } from "next";
+import { ContactSection } from "./ContactSection";
 
 export const metadata: Metadata = {
   title: "성장하는 서비스를위한 기획부터 웹, 앱, 로고, 브랜드, UI, UX 디자인과 개발까지",
@@ -15,20 +14,15 @@ function Contact() {
   const t = useTranslations("Contact");
   const QustionTranslation = {
     title: t.rich("title", { br: () => <br /> }),
-  };
-  const ContactTranslation = {
     description: t.rich("description", { br: () => <br /> }),
   };
 
   return (
     <>
-      <div style={{ minHeight: "70vh" }}>
-        <BannerSection />
-        <Layout>
-          <ContactEmailSection translation={QustionTranslation} />
-          <ContactPhoneSection translation={ContactTranslation} />
-        </Layout>
-      </div>
+      <BannerSection />
+      <Layout>
+        <ContactSection translation={QustionTranslation} />
+      </Layout>
     </>
   );
 }
