@@ -29,6 +29,7 @@ const Container = styled.div<IStyleProps>`
   opacity: 1;
   display: block;
   @media (min-width: 768px) {
+    padding-top: 120px;
     height: 480px;
     opacity: ${(props) => (props.$isView ? 1 : 0)};
     transition: opacity 0.25s ease-in-out;
@@ -51,7 +52,6 @@ const ContentWrap = styled.div`
   position: relative;
   padding-top: 80px;
   @media (min-width: 768px) {
-    padding-top: 68px;
     flex: 0.9;
   }
 `;
