@@ -9,6 +9,7 @@ import bestSvg from "../../../public/svgs/best.svg";
 import Link from "next/link";
 import LineDecorationLink from "../components/LineDecorationLink";
 import { ITranslation } from "./page";
+import { useEffect, useState } from "react";
 
 const Section = styled.section``;
 
@@ -140,6 +141,33 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
     triggerOnce: true,
   });
 
+  const [isPC, setIsPC] = useState(false);
+
+  useEffect(() => {
+    const bodyWidth = window.innerWidth;
+
+    if (bodyWidth > 767) {
+      return setIsPC(true);
+    }
+  }, []);
+
+  const mbFloationgText = (
+    <>
+      <FloatingText delay="1.2s" $isView={inView}>
+        A NEW
+      </FloatingText>
+      <FloatingText delay="1.5s" $isView={inView}>
+        PROJECT.
+      </FloatingText>
+    </>
+  );
+
+  const pcFloationgText = (
+    <FloatingText delay="1.2s" $isView={inView}>
+      A NEW PROJECT
+    </FloatingText>
+  );
+
   return (
     <Section>
       <Container ref={ref} $isView={inView}>
@@ -157,12 +185,7 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
               <FloatingText delay="0.9s" $isView={inView}>
                 INTRODUCE
               </FloatingText>
-              <FloatingText delay="1.2s" $isView={inView}>
-                A NEW
-              </FloatingText>
-              <FloatingText delay="1.5s" $isView={inView}>
-                PROJECT.
-              </FloatingText>
+              {isPC ? pcFloationgText : mbFloationgText}
               <SubTitleWrap>
                 <SubTitle $isView={inView}>{translation.description}</SubTitle>
               </SubTitleWrap>
