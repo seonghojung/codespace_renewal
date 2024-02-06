@@ -25,6 +25,7 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
           <Navigation />
           {children}
           <Footer locale={locale} localeOptions={localeOptions} localeLable={localeLable} />
+          <div id="portal"></div>
         </StyledComponentsRegistry>
       </body>
     </html>
