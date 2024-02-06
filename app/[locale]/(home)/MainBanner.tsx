@@ -31,13 +31,17 @@ const Container = styled.div`
 
 const InfoWrap = styled.div`
   padding-top: 108px;
+  padding-bottom: 108px;
   position: absolute;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 100%;
   @media (min-width: 768px) {
     padding-top: 167px;
+    padding-bottom: 167px;
   }
 `;
 const Title = styled.h2`
@@ -56,6 +60,7 @@ const Title = styled.h2`
 `;
 const Description = styled.h3`
   width: 90%;
+  display: none;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.28;
@@ -63,6 +68,8 @@ const Description = styled.h3`
   text-align: center;
   word-break: keep-all;
   @media (min-width: 768px) {
+    display: block;
+    max-width: 840px;
   }
 `;
 const LinkWrap = styled.div`
@@ -77,24 +84,20 @@ const LinkWrap = styled.div`
 
 const BannerImage = styled(Image)`
   width: 100%;
-  /* aspect-ratio: 0.599; */
+  object-fit: cover;
+  margin: 0 auto;
+  aspect-ratio: 0.6;
+  content: url("/images/main_banner_mb.png");
   @media (min-width: 768px) {
+    content: url("/images/main_banner.png");
   }
 `;
 
 const MainBanner = ({ translation }: { translation: ITranslation }) => {
-  const [innerWidth, setInnerWidth] = useState(0);
-
-  useEffect(() => {
-    const bodyWidth = window.innerWidth;
-
-    setInnerWidth(bodyWidth);
-  }, []);
-
   return (
     <Section>
       <Container>
-        <BannerImage src={innerWidth > 767 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
+        <BannerImage src={window.innerWidth > 768 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
         <InfoWrap>
           <Title>Imagination into Reality</Title>
           <Description>{translation.description}</Description>
