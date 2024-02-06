@@ -113,7 +113,7 @@ const ProjectVideo = styled.video`
   width: 100%;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 12px;
+
   @media (min-width: 768px) {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     &:hover {
