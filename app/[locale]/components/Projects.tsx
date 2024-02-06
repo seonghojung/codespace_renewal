@@ -36,7 +36,7 @@ const Container = styled.li`
   }
   @media (min-width: 768px) {
     padding: 40px 0;
-    margin: 0 35.5px;
+    /* margin: 0 35.5px; */
     ${CategoryContainer} {
       opacity: 0;
     }
@@ -49,7 +49,7 @@ const Container = styled.li`
 `;
 const ContainerA = styled(Container)`
   @media (min-width: 768px) {
-    width: calc(50% - 71px);
+    width: calc(50% - 25px);
   }
 `;
 const ContainerB = styled(ContainerA)`
@@ -108,11 +108,12 @@ const VideoWrap = styled.div`
   }
 `;
 const ProjectVideo = styled.video`
-  aspect-ratio: 1;
+  aspect-ratio: 1.777777777778;
   display: block;
   width: 100%;
   object-fit: cover;
   cursor: pointer;
+  border-radius: 12px;
   @media (min-width: 768px) {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     &:hover {
@@ -140,13 +141,17 @@ const Description = styled.p`
   font-weight: 500;
   line-height: 1.31;
   color: rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.2px;
 `;
 const ProjectItems = styled.ul`
   width: 100%;
   @media (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -35.5px;
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
+    justify-content: space-between;
   }
 `;
 const ProjectLayout = styled.div`
