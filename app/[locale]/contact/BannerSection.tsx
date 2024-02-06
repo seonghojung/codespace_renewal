@@ -21,10 +21,10 @@ const FirstImg = styled(Image)`
   aspect-ratio: 0.896694214876033;
   display: block;
   object-fit: cover;
-  margin-right: 10px;
   max-height: 400px;
   @media (min-width: 768px) {
     max-height: 400px;
+    content: url("/images/contact/first_image.png");
   }
 `;
 
@@ -35,8 +35,10 @@ const SecondImg = styled(Image)`
   display: block;
   object-fit: cover;
   max-height: 400px;
+
   @media (min-width: 768px) {
     max-height: 400px;
+    content: url("/images/contact/second_image.png");
   }
 `;
 
