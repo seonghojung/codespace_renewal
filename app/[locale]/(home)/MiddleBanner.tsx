@@ -53,6 +53,7 @@ const ContentWrap = styled.div`
   position: relative;
   padding-top: 80px;
   @media (min-width: 768px) {
+    padding: 0;
     flex: 0.9;
   }
 `;
