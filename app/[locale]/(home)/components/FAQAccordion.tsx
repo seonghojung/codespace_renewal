@@ -35,6 +35,11 @@ const Content = styled.p`
   font-size: 16px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
+  line-height: 1.15;
+
+  @media (min-width: 768px) {
+    max-width: 1169px;
+  }
 `;
 const FAQAccordion = ({ header, body, eventKey, isView }: FAQAccordionProps) => {
   return (
