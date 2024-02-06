@@ -1,19 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+
 import SlideBar from "./SlideBar";
+import LineDecoration from "./LineDecoration";
 import { LogoIconMobile } from "./icons";
+
 import logoIconPC from "../../../public/images/logo_black.png";
 import hamburgerIcon from "../../../public/svgs/hamburger.svg";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
-import styled from "styled-components";
 import { fadeIn } from "../animations/fadeIn";
-import LineDecoration from "./LineDecoration";
-import { createPortal } from "react-dom";
 
+//interface
+interface IHeaderWrap {
+  $scrollDirection: string;
+}
+
+//styled-components
 const ButtonWrap = styled.div`
   justify-content: space-between;
   align-items: center;
@@ -32,10 +39,6 @@ const ButtonWrapPC = styled(ButtonWrap)`
     display: flex;
   }
 `;
-
-interface IHeaderWrap {
-  $scrollDirection: string;
-}
 
 const HeaderWrap = styled.header<IHeaderWrap>`
   opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)};
@@ -98,14 +101,28 @@ const HeaderLayout = styled.div`
     margin: 0 auto;
   }
 `;
+
+// component
+
 export default function Navigation() {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
-
   const scrollDirection = useScrollDirection();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -156,6 +173,7 @@ export default function Navigation() {
   );
 }
 
+// custom hook for scroll direction
 export function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("");
 
