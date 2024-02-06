@@ -6,6 +6,7 @@ import { fadeInAndUp } from "../animations/fadeInAndUp";
 import LineDecorationLink from "../components/LineDecorationLink";
 import Link from "next/link";
 import { ITranslation } from "./page";
+import { useEffect, useRef, useState } from "react";
 
 const Section = styled.section`
   padding-top: 30px;
@@ -87,13 +88,29 @@ const VideoLayout = styled.div`
 `;
 
 const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
+  const [bannerScale, setBannerScale] = useState(1);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (bannerRef.current) {
+        const bannerTopDistance = bannerRef.current.getBoundingClientRect().top;
+        const scale = Math.min(1.1, 1 + (100 - bannerTopDistance) / 1000);
+        setBannerScale(scale);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Section>
       <Layout>
         <Title>{translation.title}</Title>
       </Layout>
       <VideoLayout>
-        <VidoeContainer>
+        <VidoeContainer ref={bannerRef} style={{ transform: `scale(${bannerScale})` }}>
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
         </VidoeContainer>
       </VideoLayout>

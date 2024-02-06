@@ -221,7 +221,7 @@ const ProjectCard = ({ src: { src, title, description, categories }, href = "air
     <Link href={`/project/${href}`}>
       <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
         <VideoWrap>
-          <ProjectVideo src={`/videos/${src}.mp4`} ref={ref} muted loop preload="" poster={`/images/thumbnail/thumbnail_test.png`} />
+          <ProjectVideo src={`/videos/${src}.mp4`} ref={ref} muted loop preload="" poster={`/images/thumbnail/${src}.png`} />
         </VideoWrap>
         <InfoWrap>
           <Title>{title}</Title>
