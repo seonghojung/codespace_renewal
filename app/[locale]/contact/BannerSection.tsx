@@ -6,6 +6,7 @@ import secondImg from "../../../public/images/contact/second_image@768.png";
 import Image from "next/image";
 const SectionWrap = styled.section`
   display: flex;
+  justify-content: space-between;
   width: 100%;
   @media (min-width: 768px) {
     width: 95%;
@@ -15,25 +16,25 @@ const SectionWrap = styled.section`
 `;
 
 const FirstImg = styled(Image)`
-  width: 100%;
+  width: 57.8666666%;
   height: 100%;
   aspect-ratio: 0.896694214876033;
   display: block;
   object-fit: cover;
   margin-right: 10px;
-  max-height: 242px;
+  max-height: 400px;
   @media (min-width: 768px) {
     max-height: 400px;
   }
 `;
 
 const SecondImg = styled(Image)`
-  width: 100%;
+  width: 39.4666666%;
   height: 100%;
   aspect-ratio: 0.611570247933884;
   display: block;
   object-fit: cover;
-  max-height: 242px;
+  max-height: 400px;
   @media (min-width: 768px) {
     max-height: 400px;
   }
