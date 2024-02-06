@@ -110,8 +110,19 @@ export default function Navigation() {
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
-
   const scrollDirection = useScrollDirection();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
