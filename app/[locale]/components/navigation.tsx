@@ -116,7 +116,6 @@ export default function Navigation() {
     const handleResize = () => {
       setIsOpen(false);
     };
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -126,7 +125,7 @@ export default function Navigation() {
 
   return (
     <>
-      {isOpen && <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />}
+      <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
       <HeaderWrap $scrollDirection={scrollDirection}>
         <HeaderLayout>
           <ButtonWrapMobile>

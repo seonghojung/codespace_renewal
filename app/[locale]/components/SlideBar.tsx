@@ -126,43 +126,45 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
   }, [open]);
 
   return (
-    <SlideBarWrap className={open ? "open" : ""}>
-      <SlideHeader>
-        <HeaderList>
-          <Link href="/" onClick={() => openSlideBarHandler(false)}>
-            <Image src={logoIcon} alt="logo" />
-          </Link>
-          <button type="button" onClick={() => openSlideBarHandler(false)}>
-            <Image src={closeIcon} alt="close" />
-          </button>
-        </HeaderList>
-      </SlideHeader>
-      <SideMenu>
-        <MenuList>
-          <li>
-            <LineDecoration color={"white"}>
-              <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                PROJECT
-              </Link>
-            </LineDecoration>
-          </li>
-          <li>
-            <LineDecoration color={"white"}>
-              <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                SERVICES
-              </Link>
-            </LineDecoration>
-          </li>
-          <li>
-            <LineDecoration color={"white"}>
-              <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                CONTACT
-              </Link>
-            </LineDecoration>
-          </li>
-        </MenuList>
-      </SideMenu>
-    </SlideBarWrap>
+    <header>
+      <SlideBarWrap className={open ? "open" : ""}>
+        <SlideHeader>
+          <HeaderList>
+            <Link href="/" onClick={() => openSlideBarHandler(false)}>
+              <Image src={logoIcon} alt="logo" />
+            </Link>
+            <button type="button" onClick={() => openSlideBarHandler(false)}>
+              <Image src={closeIcon} alt="close" />
+            </button>
+          </HeaderList>
+        </SlideHeader>
+        <SideMenu>
+          <MenuList>
+            <li>
+              <LineDecoration color={"white"}>
+                <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                  PROJECT
+                </Link>
+              </LineDecoration>
+            </li>
+            <li>
+              <LineDecoration color={"white"}>
+                <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                  SERVICES
+                </Link>
+              </LineDecoration>
+            </li>
+            <li>
+              <LineDecoration color={"white"}>
+                <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                  CONTACT
+                </Link>
+              </LineDecoration>
+            </li>
+          </MenuList>
+        </SideMenu>
+      </SlideBarWrap>
+    </header>
   );
 };
 
