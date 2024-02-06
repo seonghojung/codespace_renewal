@@ -1,66 +1,28 @@
 "use client";
 
+import { useEffect } from "react";
 import styled from "styled-components";
+
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import closeIcon from "../../../public/svgs/close_white.svg";
-import logoIcon from "../../../public/svgs/logo_white.svg";
+
 import LineDecoration from "./LineDecoration";
 
+import closeIcon from "../../../public/svgs/close_white.svg";
+import logoIcon from "../../../public/svgs/logo_white.svg";
+
+// interface
 interface SlideBarProps {
   openSlideBarHandler: (isOpened: boolean) => void;
   open: boolean;
 }
 
-const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
-  const path = usePathname();
-
-  return (
-    <SlideBarWrap className={open ? "open" : ""}>
-      <SlideHeader>
-        <HeaderList>
-          <Link href="/" onClick={() => openSlideBarHandler(false)}>
-            <Image src={logoIcon} alt="logo" />
-          </Link>
-          <button type="button" onClick={() => openSlideBarHandler(false)}>
-            <Image src={closeIcon} alt="close" />
-          </button>
-        </HeaderList>
-      </SlideHeader>
-      <SideMenu>
-        <MenuList>
-          <li>
-            <LineDecoration color={"white"}>
-              <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                PROJECT
-              </Link>
-            </LineDecoration>
-          </li>
-          <li>
-            <LineDecoration color={"white"}>
-              <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                SERVICES
-              </Link>
-            </LineDecoration>
-          </li>
-          <li>
-            <LineDecoration color={"white"}>
-              <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                CONTACT
-              </Link>
-            </LineDecoration>
-          </li>
-        </MenuList>
-      </SideMenu>
-    </SlideBarWrap>
-  );
-};
-
-export default SlideBar;
+//styled-components
 
 const SlideBarWrap = styled.div`
   position: fixed;
+  top: 0;
   z-index: 100;
   width: 100%;
   opacity: 0;
@@ -149,3 +111,59 @@ const MenuList = styled.ul`
   flex-direction: column;
   list-style-type: none;
 `;
+
+// component
+const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
+  const path = usePathname();
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.cssText = "";
+    };
+  }, [open]);
+
+  return (
+    <SlideBarWrap className={open ? "open" : ""}>
+      <SlideHeader>
+        <HeaderList>
+          <Link href="/" onClick={() => openSlideBarHandler(false)}>
+            <Image src={logoIcon} alt="logo" />
+          </Link>
+          <button type="button" onClick={() => openSlideBarHandler(false)}>
+            <Image src={closeIcon} alt="close" />
+          </button>
+        </HeaderList>
+      </SlideHeader>
+      <SideMenu>
+        <MenuList>
+          <li>
+            <LineDecoration color={"white"}>
+              <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                PROJECT
+              </Link>
+            </LineDecoration>
+          </li>
+          <li>
+            <LineDecoration color={"white"}>
+              <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                SERVICES
+              </Link>
+            </LineDecoration>
+          </li>
+          <li>
+            <LineDecoration color={"white"}>
+              <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                CONTACT
+              </Link>
+            </LineDecoration>
+          </li>
+        </MenuList>
+      </SideMenu>
+    </SlideBarWrap>
+  );
+};
+
+export default SlideBar;
