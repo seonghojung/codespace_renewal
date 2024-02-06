@@ -94,10 +94,16 @@ const BannerImage = styled(Image)`
 `;
 
 const MainBanner = ({ translation }: { translation: ITranslation }) => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
   return (
     <Section>
       <Container>
-        <BannerImage src={window.innerWidth > 768 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
+        <BannerImage src={windowWidth > 768 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
         <InfoWrap>
           <Title>Imagination into Reality</Title>
           <Description>{translation.description}</Description>
