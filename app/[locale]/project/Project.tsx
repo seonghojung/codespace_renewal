@@ -659,16 +659,21 @@ const Project = ({ locale, translation }: { locale: ILocale; translation: ITrans
 
 export default Project;
 
-const ProjectWrap = styled.section``;
+const ProjectWrap = styled.section`
+  padding-top: 20px;
+  padding-bottom: 60px;
+  @media (min-width: 768px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+`;
 const NavWrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 19px 0 10px;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    margin: 0;
   }
 `;
 
