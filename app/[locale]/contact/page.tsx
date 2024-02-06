@@ -18,12 +18,12 @@ function Contact() {
   };
 
   return (
-    <>
+    <div style={{ minHeight: "70vh" }}>
       <BannerSection />
       <Layout>
         <ContactSection translation={QustionTranslation} />
       </Layout>
-    </>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 import UnderLineText from "../components/UnderLineText";
-import { fadeInAndUp, fadeInAndUp2Sec, fadeInAndUp3Sec } from "../animations/fadeInAndUp";
+import { fadeInAndUp, fadeInAndUp2Sec } from "../animations/fadeInAndUp";
 import { ITranslation } from "../(home)/page";
 import Link from "next/link";
 
@@ -50,6 +50,12 @@ const PhoneTitleWrap = styled.div`
   margin-top: 80px;
   opacity: 0;
   ${fadeInAndUp2Sec}
+
+  @media (min-width: 1680px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 export const ContactSection = ({ translation }: { translation: ITranslation }) => {
