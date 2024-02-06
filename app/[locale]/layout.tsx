@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Navigation from "@/app/[locale]/components/navigation";
 import Footer from "@/app/[locale]/components/footer";
 import StyledComponentsRegistry from "@/lib/registry";
+import { useTranslations } from "next-intl";
+import { locales } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,13 +11,20 @@ export const metadata: Metadata = {
 };
 
 export default function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
+  const t = useTranslations("LocaleSwitcher");
+  const localeOptions = locales.map((cur) => (
+    <option key={cur} value={cur}>
+      {t("locale", { locale: cur })}
+    </option>
+  ));
+  const localeLable = t("label");
   return (
     <html lang={locale}>
       <body>
         <StyledComponentsRegistry>
           <Navigation />
           {children}
-          <Footer />
+          <Footer locale={locale} localeOptions={localeOptions} localeLable={localeLable} />
         </StyledComponentsRegistry>
       </body>
     </html>

@@ -5,7 +5,7 @@ import logoIconPC from "../../../public/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Layout } from "./navigation";
-import downDelta from "../../../public/svgs/down_delta.svg";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const FooterWrap = styled.footer`
   background-color: #1a1f27;
@@ -81,7 +81,7 @@ const LanguageSwitchBtn = styled.button`
   }
 `;
 
-export default function Footer() {
+export default function Footer({ locale, localeOptions, localeLable }: { locale: string; localeOptions: JSX.Element[]; localeLable: string }) {
   return (
     <FooterWrap>
       <Layout>
@@ -105,8 +105,9 @@ export default function Footer() {
           <InfoWrap>
             <Name>©2019 - 2023 Code Space co. ltd.</Name>
             <LanguageSwitchBtn>
-              <span>언어 : 한국어</span>
-              <Image src={downDelta} alt={"아래쪽 화살표"} />
+              <LocaleSwitcher defaultValue={locale} label={localeLable}>
+                {localeOptions}
+              </LocaleSwitcher>
             </LanguageSwitchBtn>
           </InfoWrap>
         </Container>

@@ -52,5 +52,9 @@
   "Contact": {
     "title": "Any questions?",
     "description": "Contact us"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ko {🇰🇷 Korean} en {🇺🇸 English} other {Unknown}}"
   }
 }
