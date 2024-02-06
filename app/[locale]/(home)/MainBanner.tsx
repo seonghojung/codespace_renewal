@@ -69,6 +69,7 @@ const Description = styled.h3`
   word-break: keep-all;
   @media (min-width: 768px) {
     display: block;
+    max-width: 840px;
   }
 `;
 const LinkWrap = styled.div`
