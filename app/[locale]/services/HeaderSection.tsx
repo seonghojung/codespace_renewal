@@ -18,8 +18,8 @@ const EnTitle = styled.h1`
   position: relative;
   color: #000;
   /* font-size: 50px; */
-  font-size: clamp(50px, 7.5vw, 74px);
-  letter-spacing: -0.4px;
+  font-size: clamp(50px, 13.5vw, 74px);
+  letter-spacing: -2.4px;
   font-weight: 700;
   line-height: 0.88;
   text-transform: uppercase;
@@ -34,7 +34,6 @@ const EnTitle = styled.h1`
   @media (min-width: 768px) {
     opacity: 0;
     ${enTitleFadeIn}
-    width: 1084px;
     font-size: clamp(108px, 14.0625vw, 160px);
     line-height: 0.875;
     color: #000;
@@ -50,12 +49,12 @@ const EnTitle = styled.h1`
 const SubHeaderWrap = styled.div`
   padding-top: 60px;
   h1 {
-    min-width: 340px;
+    /* min-width: 340px; */
     color: #000;
     font-size: 30px;
     font-weight: 600;
     line-height: 1.2;
-    word-break: keep-all;
+    /* word-break: keep-all; */
     br {
       display: none;
     }

@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 import SlideBar from "./SlideBar";
 import LineDecoration from "./LineDecoration";
-import { LogoIconMobile } from "./icons";
+import { LogoIconMobile, LogoIconWhiteMobile } from "./icons";
 
 import logoIconPC from "../../../public/images/logo_black.png";
 import hamburgerIcon from "../../../public/svgs/hamburger.svg";
@@ -18,6 +18,8 @@ import { fadeIn } from "../animations/fadeIn";
 //interface
 interface IHeaderWrap {
   $scrollDirection: string;
+  $open: boolean;
+  $hasScrollbar: boolean;
 }
 
 //styled-components
@@ -27,7 +29,7 @@ const ButtonWrap = styled.div`
   display: flex;
 `;
 const ButtonWrapMobile = styled(ButtonWrap)`
-  height: 108px;
+  height: 64px;
   @media (min-width: 768px) {
     display: none;
   }
@@ -39,17 +41,18 @@ const ButtonWrapPC = styled(ButtonWrap)`
     display: flex;
   }
 `;
-
+// TODO. 스크롤을 내려서 헤더의 위치가 0이 아닐 떄 부터, background-color를 흰색으로 변경
 const HeaderWrap = styled.header<IHeaderWrap>`
   opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)};
   transform: translateY(${(props) => (props.$scrollDirection === "down" ? "-20px" : 0)});
   position: sticky;
   top: 0;
-  z-index: 10;
-  background-color: #fff;
+  z-index: 11;
+  background-color: transparent;
   transition-property: opacity, transform;
   transition-duration: 0.4s;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  padding-right: ${(props) => (props.$open ? (props.$hasScrollbar ? "15px" : "0") : "0")};
 
   @media (min-width: 768px) {
     img {
@@ -101,12 +104,62 @@ const HeaderLayout = styled.div`
     margin: 0 auto;
   }
 `;
+const HeaderMenu = styled.button`
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  transform: translateX(8px);
+`;
+
+const HeaderBurger = styled.div`
+  position: relative;
+  width: 40px;
+  height: 40px;
+`;
+const BurgerTop = styled.div`
+  position: absolute;
+  z-index: 0;
+  background-color: #000;
+  left: 8px;
+  width: 24px;
+  height: 2px;
+  top: 15px;
+  transition-delay: 0s, 0.2s, 0s;
+  transition-property: background-color, top, transform;
+  transition-duration: 0.2s, 0.2s, 0.2s;
+  &.open {
+    background-color: #fff;
+    transform: rotate(45deg);
+    top: 19px;
+    transition-delay: 0s, 0s, 0.22s;
+  }
+`;
+const BurgerBottom = styled.div`
+  position: absolute;
+  z-index: 0;
+  background-color: #000;
+  left: 8px;
+  width: 24px;
+  height: 2px;
+  top: 25px;
+  transition-delay: 0s, 0.2s, 0s;
+  transition-property: background-color, top, transform;
+  transition-duration: 0.2s, 0.2s, 0.2s;
+
+  &.open {
+    background-color: #fff;
+    transform: rotate(-45deg);
+    top: 19px;
+    transition-delay: 0s, 0s, 0.22s;
+  }
+`;
 
 // component
 
 export default function Navigation() {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [hasScrollbar, setHasScrollbar] = useState(false);
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
@@ -123,18 +176,44 @@ export default function Navigation() {
     };
   }, []);
 
+  // 테스트 코드
+  useEffect(() => {
+    const checkScrollbar = () => {
+      const hasScroll = window.innerWidth > document.documentElement.clientWidth;
+
+      console.log(window.innerWidth, "window.innerWidth");
+      console.log(document.documentElement.clientWidth, "clientWidth");
+
+      if (hasScroll) {
+        setHasScrollbar(true);
+      } else {
+        setHasScrollbar(false);
+      }
+    };
+    checkScrollbar();
+    // 컴포넌트가 마운트되었을 때와 창 크기가 변경될 때마다 스크롤바를 확인합니다.
+    window.addEventListener("resize", checkScrollbar);
+
+    return () => {
+      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
+      window.removeEventListener("resize", checkScrollbar);
+    };
+  }, []);
+
   return (
     <>
       <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
-      <HeaderWrap $scrollDirection={scrollDirection}>
+      <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen} $hasScrollbar={hasScrollbar}>
         <HeaderLayout>
           <ButtonWrapMobile>
-            <Link href="/">
-              <LogoIconMobile />
-            </Link>
-            <button>
-              <Image src={hamburgerIcon} alt="햄버거 아이콘" onClick={() => openSlideBarHandler(true)} />
-            </button>
+            <Link href="/">{isOpen ? <LogoIconWhiteMobile /> : <LogoIconMobile />}</Link>
+            <HeaderMenu>
+              {/* <Image src={hamburgerIcon} alt="햄버거 아이콘" onClick={() => openSlideBarHandler(true)} /> */}
+              <HeaderBurger onClick={() => openSlideBarHandler(!isOpen)}>
+                <BurgerTop className={isOpen ? "open" : ""} />
+                <BurgerBottom className={isOpen ? "open" : ""} />
+              </HeaderBurger>
+            </HeaderMenu>
           </ButtonWrapMobile>
           <ButtonWrapPC>
             <Link href="/">

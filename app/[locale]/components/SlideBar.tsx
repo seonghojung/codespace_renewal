@@ -22,13 +22,8 @@ interface SlideBarProps {
 //styled-components
 
 const Test = styled.div`
-  /* width: 100%; */
-  /* height: 100vh; */
-  /* margin: 0; */
-  /* padding: 0; */
-  /* overflow-y: scroll; */
   position: relative;
-  z-index: 2000;
+  z-index: 10;
 `;
 
 const SlideBarWrap = styled.div`
@@ -43,11 +38,14 @@ const SlideBarWrap = styled.div`
   animation: fadeOut 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   transition: all 0.5s ease-in-out 0.5s;
   &.open {
-    padding-right: 15px;
     visibility: visible;
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     animation: fadeIn 0.7s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+
+  &.hasScrollbar {
+    padding-right: 15px;
   }
 
   @keyframes fadeIn {
@@ -70,12 +68,13 @@ const SlideBarWrap = styled.div`
 
   li {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-size: 28px;
     line-height: 1.36;
     color: #fff;
-    margin-top: 57px;
+    /* margin-top: 57px; */
+    margin-left: 24px;
 
     &:not(:first-child) {
       margin-top: 28px;
@@ -113,16 +112,19 @@ const HeaderList = styled.div`
 
 interface ICloseButton {
   $open: boolean;
+  $hasScrollbar: boolean;
 }
 
 const CloseButton = styled.button<ICloseButton>`
   position: relative;
-  right: ${(props) => (props.$open ? "0" : "-15px")};
+  /* right: ${(props) => (props.$open ? "" : props.$hasScrollbar ? "-15px" : "-20px")}; */
+  right: ${(props) => (props.$open ? "" : props.$hasScrollbar ? "-15px" : "")};
 `;
 
 const SideMenu = styled.div`
   position: relative;
   z-index: 100;
+  padding-top: 108px;
 `;
 
 const MenuList = styled.ul`
@@ -134,7 +136,9 @@ const MenuList = styled.ul`
 // component
 const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
   const path = usePathname();
-  const testRef = useRef<HTMLDivElement>(null);
+  const [hasScrollbar, setHasScrollbar] = useState(false);
+
+  console.log(hasScrollbar);
 
   useEffect(() => {
     if (open) {
@@ -145,20 +149,44 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
     };
   }, [open]);
 
+  // 테스트 코드
+  useEffect(() => {
+    const checkScrollbar = () => {
+      const hasScroll = window.innerWidth > document.documentElement.clientWidth;
+
+      console.log(window.innerWidth, "window.innerWidth");
+      console.log(document.documentElement.clientWidth, "clientWidth");
+
+      if (hasScroll) {
+        setHasScrollbar(true);
+      } else {
+        setHasScrollbar(false);
+      }
+    };
+    checkScrollbar();
+    // 컴포넌트가 마운트되었을 때와 창 크기가 변경될 때마다 스크롤바를 확인합니다.
+    window.addEventListener("resize", checkScrollbar);
+
+    return () => {
+      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
+      window.removeEventListener("resize", checkScrollbar);
+    };
+  }, []);
+
   return (
     <Portal>
       <Test>
-        <SlideBarWrap className={open ? "open" : ""}>
-          <SlideHeader>
-            <HeaderList ref={testRef}>
-              <Link href="/" onClick={() => openSlideBarHandler(false)} style={{ position: "relative", display: "block", width: "40px", marginRight: "auto" }}>
-                <Image src={logoIcon} alt="logo" />
-              </Link>
-              <CloseButton type="button" onClick={() => openSlideBarHandler(false)} $open={open}>
-                <Image src={closeIcon} alt="close" />
-              </CloseButton>
-            </HeaderList>
-          </SlideHeader>
+        <SlideBarWrap className={open ? (hasScrollbar ? "open hasScrollbar" : "open") : ""}>
+          {/* <SlideHeader> */}
+          {/* <HeaderList ref={testRef}> */}
+          {/* <Link href="/" onClick={() => openSlideBarHandler(false)} style={{ position: "relative", display: "block", width: "40px", marginRight: "auto" }}> */}
+          {/* <Image src={logoIcon} alt="logo" /> */}
+          {/* </Link> */}
+          {/* <CloseButton type="button" onClick={() => openSlideBarHandler(false)} $open={open} $hasScrollbar={hasScrollbar}> */}
+          {/* <Image src={closeIcon} alt="close" /> */}
+          {/* </CloseButton> */}
+          {/* </HeaderList> */}
+          {/* </SlideHeader> */}
           <SideMenu>
             <MenuList>
               <li>

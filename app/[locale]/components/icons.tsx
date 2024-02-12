@@ -1,5 +1,6 @@
 import Image from "next/image";
 import logoIconMobile from "../../../public/svgs/logo_icon.svg";
+import logoWhiteIconMobile from "../../../public/svgs/logo_white.svg";
 import logoIconPC from "../../../public/images/logo.png";
 import arrowIcon from "../../../public/svgs/arrow_icon.svg";
 import arrowIconWhite from "../../../public/svgs/arrow_icon-white.svg";
@@ -10,6 +11,7 @@ import closeIcon from "../../../public/svgs/close.svg";
 import hamburgerIcon from "../../../public/svgs/hamburger.svg";
 
 export const LogoIconMobile = () => <Image src={logoIconMobile} alt="모바일 코드스페이스 로고 아이콘" />;
+export const LogoIconWhiteMobile = () => <Image src={logoWhiteIconMobile} alt="모바일 코드스페이스 로고 아이콘" />;
 export const LogoIconPC = () => <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" />;
 export const ArrowIcon = ({ color }: { color?: string }) =>
   color === "white" || color === "#fff" || color === "#FFF" ? <Image src={arrowIconWhite} alt={"화살표 아이콘"} /> : <Image src={arrowIcon} alt={"화살표 아이콘"} />;
