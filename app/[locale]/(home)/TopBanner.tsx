@@ -68,11 +68,16 @@ const LinkWrap = styled.div`
   }
 `;
 
-const VidoeContainer = styled.div`
+interface IVideoContainer {
+  $scale: number;
+}
+
+const VideoContainer = styled.div<IVideoContainer>`
   display: flex;
   justify-content: center;
   @media (min-width: 768px) {
     margin-top: 100px;
+    transform: scale(${(props) => props.$scale});
   }
 `;
 const DescriptionWrap = styled.div``;
@@ -88,13 +93,13 @@ const VideoLayout = styled.div`
 `;
 
 const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
-  const [bannerScale, setBannerScale] = useState(1);
   const bannerRef = useRef<HTMLDivElement>(null);
+  const [bannerScale, setBannerScale] = useState(1);
+
   useEffect(() => {
     const handleScroll = () => {
       if (bannerRef.current) {
         const bannerTopDistance = bannerRef.current.getBoundingClientRect().top;
-        console.log(bannerTopDistance);
 
         const scale = Math.min(1.1, Math.max(1, 1 + (380 - bannerTopDistance) / 1000));
         setBannerScale(scale);
@@ -112,9 +117,9 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
         <Title>{translation.title}</Title>
       </Layout>
       <VideoLayout>
-        <VidoeContainer ref={bannerRef} style={{ transform: `scale(${bannerScale})` }}>
+        <VideoContainer ref={bannerRef} $scale={bannerScale}>
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
-        </VidoeContainer>
+        </VideoContainer>
       </VideoLayout>
       <Layout>
         <DescriptionWrap>
