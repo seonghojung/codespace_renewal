@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,7 +12,6 @@ import LineDecoration from "./LineDecoration";
 import { LogoIconMobile, LogoIconWhiteMobile } from "./icons";
 
 import logoIconPC from "../../../public/images/logo_black.png";
-import hamburgerIcon from "../../../public/svgs/hamburger.svg";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import { fadeIn } from "../animations/fadeIn";
 
@@ -20,7 +20,19 @@ interface IHeaderWrap {
   $scrollDirection: string;
   $open: boolean;
   $hasScrollbar: boolean;
+  $backgroundColor: string;
 }
+
+// export styled-components
+export const Layout = styled.div`
+  margin-left: 24px;
+  margin-right: 24px;
+  @media (min-width: 768px) {
+    width: 95%;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+`;
 
 //styled-components
 const ButtonWrap = styled.div`
@@ -33,6 +45,10 @@ const ButtonWrapMobile = styled(ButtonWrap)`
   @media (min-width: 768px) {
     display: none;
   }
+  /* 왜 line-height가 16.8px 먹혀있는건지 이유를 찾을수가 없음*/
+  /* a {
+    line-height: 0;
+  } */
 `;
 const ButtonWrapPC = styled(ButtonWrap)`
   display: none;
@@ -41,18 +57,18 @@ const ButtonWrapPC = styled(ButtonWrap)`
     display: flex;
   }
 `;
-// TODO. 스크롤을 내려서 헤더의 위치가 0이 아닐 떄 부터, background-color를 흰색으로 변경
+
 const HeaderWrap = styled.header<IHeaderWrap>`
-  opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)};
-  transform: translateY(${(props) => (props.$scrollDirection === "down" ? "-20px" : 0)});
   position: sticky;
   top: 0;
   z-index: 11;
-  background-color: transparent;
-  transition-property: opacity, transform;
+  opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)};
+  transform: ${(props) => (props.$scrollDirection === "down" ? "translateY(-20px)" : "none")};
+  background-color: ${(props) => (props.$open ? "transparent" : props.$backgroundColor)};
+  padding-right: ${(props) => (props.$open ? (props.$hasScrollbar ? "15px" : "0") : "0")};
+  transition-property: opacity, transform, background-color;
   transition-duration: 0.4s;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  padding-right: ${(props) => (props.$open ? (props.$hasScrollbar ? "15px" : "0") : "0")};
 
   @media (min-width: 768px) {
     img {
@@ -80,16 +96,6 @@ const LinkItem = styled.li`
   font-size: 18px;
   font-weight: 500;
   ${fadeInAndUp}
-`;
-
-export const Layout = styled.div`
-  margin-left: 24px;
-  margin-right: 24px;
-  @media (min-width: 768px) {
-    width: 95%;
-    max-width: 1536px;
-    margin: 0 auto;
-  }
 `;
 
 const LogoContainer = styled.div`
@@ -159,12 +165,18 @@ const BurgerBottom = styled.div`
 export default function Navigation() {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [hasScrollbar, setHasScrollbar] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState("transparent");
+
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
-  const scrollDirection = useScrollDirection();
 
+  // 스크롤 방향 감지
+  const scrollDirection = useScrollDirection();
+  // 스크롤바 유무 감지
+  const hasScrollbar = useDetectScrollbar();
+
+  // 브라우저의 크기를 조절 할 때마다 햄버거 메뉴 열린상태 초기화
   useEffect(() => {
     const handleResize = () => {
       setIsOpen(false);
@@ -176,39 +188,38 @@ export default function Navigation() {
     };
   }, []);
 
-  // 테스트 코드
+  // 최상단을 기준으로 헤더의 배경색이 변경됨
   useEffect(() => {
-    const checkScrollbar = () => {
-      const hasScroll = window.innerWidth > document.documentElement.clientWidth;
-
-      console.log(window.innerWidth, "window.innerWidth");
-      console.log(document.documentElement.clientWidth, "clientWidth");
-
-      if (hasScroll) {
-        setHasScrollbar(true);
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setBackgroundColor("transparent");
       } else {
-        setHasScrollbar(false);
+        setBackgroundColor("#fff");
       }
     };
-    checkScrollbar();
-    // 컴포넌트가 마운트되었을 때와 창 크기가 변경될 때마다 스크롤바를 확인합니다.
-    window.addEventListener("resize", checkScrollbar);
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
-      window.removeEventListener("resize", checkScrollbar);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <>
       <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
-      <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen} $hasScrollbar={hasScrollbar}>
+      <HeaderWrap
+        $scrollDirection={scrollDirection}
+        $open={isOpen}
+        $hasScrollbar={hasScrollbar}
+        $backgroundColor={backgroundColor}
+      >
         <HeaderLayout>
           <ButtonWrapMobile>
-            <Link href="/">{isOpen ? <LogoIconWhiteMobile /> : <LogoIconMobile />}</Link>
+            <Link href="/" onClick={() => openSlideBarHandler(false)}>
+              {isOpen ? <LogoIconWhiteMobile /> : <LogoIconMobile />}
+            </Link>
             <HeaderMenu>
-              {/* <Image src={hamburgerIcon} alt="햄버거 아이콘" onClick={() => openSlideBarHandler(true)} /> */}
               <HeaderBurger onClick={() => openSlideBarHandler(!isOpen)}>
                 <BurgerTop className={isOpen ? "open" : ""} />
                 <BurgerBottom className={isOpen ? "open" : ""} />
@@ -273,4 +284,29 @@ export function useScrollDirection() {
   }, [scrollDirection]);
 
   return scrollDirection;
+}
+
+export function useDetectScrollbar() {
+  const [hasScrollbar, setHasScrollbar] = useState(false);
+
+  useEffect(() => {
+    const checkScrollbar = () => {
+      const hasScroll = window.innerWidth > document.documentElement.clientWidth;
+
+      if (hasScroll) {
+        setHasScrollbar(true);
+      } else {
+        setHasScrollbar(false);
+      }
+    };
+    // 컴포넌트가 마운트되었을 때와 창 크기가 변경될 때마다 스크롤바를 확인
+    checkScrollbar();
+    window.addEventListener("resize", checkScrollbar);
+
+    return () => {
+      window.removeEventListener("resize", checkScrollbar);
+    };
+  }, []);
+
+  return hasScrollbar;
 }

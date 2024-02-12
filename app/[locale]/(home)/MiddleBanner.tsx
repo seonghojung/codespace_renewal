@@ -2,7 +2,6 @@
 
 import { css, keyframes, styled } from "styled-components";
 import { useInView } from "react-intersection-observer";
-import { Layout } from "../components/navigation";
 import Image from "next/image";
 import bannerImageMb from "../../../public/images/middle_banner.png";
 import bannerImage from "../../../public/images/main_banner.png";
@@ -230,7 +229,15 @@ export const floatingUp = css`
   animation: ${fadeIn} 1s ease forwards;
 `;
 
-const FloatingText = ({ children, delay, $isView }: { children: React.ReactNode; delay?: string; $isView: boolean }) => (
+const FloatingText = ({
+  children,
+  delay,
+  $isView,
+}: {
+  children: React.ReactNode;
+  delay?: string;
+  $isView: boolean;
+}) => (
   <FloatingWrap>
     <FloatingContent $isView={$isView} style={{ animationDelay: delay }}>
       {children}
@@ -245,7 +252,6 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
   });
 
   const [isPC, setIsPC] = useState(false);
-  // const [isPcFloationgText, setIsPcFloationgText] = useState(false);
 
   useEffect(() => {
     const bodyWidth = window.innerWidth;
@@ -253,9 +259,6 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
     if (bodyWidth > 767) {
       setIsPC(true);
     }
-    // if (bodyWidth > 1024) {
-    //   setIsPcFloationgText(true);
-    // }
   }, []);
 
   const mbFloationgText = (
@@ -279,7 +282,12 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
     <Section>
       <Container ref={ref} $isView={inView}>
         <ProjectImageWrap>
-          <ProjectImage src={isPC ? bannerImage : bannerImageMb} width={isPC ? 2220 : 740} height={isPC ? 1440 : 480} alt="배너 이미지" />
+          <ProjectImage
+            src={isPC ? bannerImage : bannerImageMb}
+            width={isPC ? 2220 : 740}
+            height={isPC ? 1440 : 480}
+            alt="배너 이미지"
+          />
         </ProjectImageWrap>
         <FakeLayout>
           <ContentWrap>

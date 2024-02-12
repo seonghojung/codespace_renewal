@@ -1,17 +1,14 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import LineDecoration from "./LineDecoration";
-
-import closeIcon from "../../../public/svgs/close_white.svg";
-import logoIcon from "../../../public/svgs/logo_white.svg";
-import { createPortal } from "react-dom";
+import { useDetectScrollbar } from "./navigation";
 
 // interface
 interface SlideBarProps {
@@ -21,7 +18,7 @@ interface SlideBarProps {
 
 //styled-components
 
-const Test = styled.div`
+const Section = styled.div`
   position: relative;
   z-index: 10;
 `;
@@ -100,28 +97,7 @@ const SlideBarWrap = styled.div`
   }
 `;
 
-const SlideHeader = styled.header`
-  margin: 0 24px;
-`;
-
-const HeaderList = styled.div`
-  display: flex;
-  height: 108px;
-  align-items: center;
-`;
-
-interface ICloseButton {
-  $open: boolean;
-  $hasScrollbar: boolean;
-}
-
-const CloseButton = styled.button<ICloseButton>`
-  position: relative;
-  /* right: ${(props) => (props.$open ? "" : props.$hasScrollbar ? "-15px" : "-20px")}; */
-  right: ${(props) => (props.$open ? "" : props.$hasScrollbar ? "-15px" : "")};
-`;
-
-const SideMenu = styled.div`
+const SlideMenu = styled.div`
   position: relative;
   z-index: 100;
   padding-top: 108px;
@@ -136,9 +112,7 @@ const MenuList = styled.ul`
 // component
 const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
   const path = usePathname();
-  const [hasScrollbar, setHasScrollbar] = useState(false);
-
-  console.log(hasScrollbar);
+  const hasScrollbar = useDetectScrollbar();
 
   useEffect(() => {
     if (open) {
@@ -149,71 +123,49 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
     };
   }, [open]);
 
-  // 테스트 코드
-  useEffect(() => {
-    const checkScrollbar = () => {
-      const hasScroll = window.innerWidth > document.documentElement.clientWidth;
-
-      console.log(window.innerWidth, "window.innerWidth");
-      console.log(document.documentElement.clientWidth, "clientWidth");
-
-      if (hasScroll) {
-        setHasScrollbar(true);
-      } else {
-        setHasScrollbar(false);
-      }
-    };
-    checkScrollbar();
-    // 컴포넌트가 마운트되었을 때와 창 크기가 변경될 때마다 스크롤바를 확인합니다.
-    window.addEventListener("resize", checkScrollbar);
-
-    return () => {
-      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
-      window.removeEventListener("resize", checkScrollbar);
-    };
-  }, []);
-
   return (
     <Portal>
-      <Test>
+      <Section>
         <SlideBarWrap className={open ? (hasScrollbar ? "open hasScrollbar" : "open") : ""}>
-          {/* <SlideHeader> */}
-          {/* <HeaderList ref={testRef}> */}
-          {/* <Link href="/" onClick={() => openSlideBarHandler(false)} style={{ position: "relative", display: "block", width: "40px", marginRight: "auto" }}> */}
-          {/* <Image src={logoIcon} alt="logo" /> */}
-          {/* </Link> */}
-          {/* <CloseButton type="button" onClick={() => openSlideBarHandler(false)} $open={open} $hasScrollbar={hasScrollbar}> */}
-          {/* <Image src={closeIcon} alt="close" /> */}
-          {/* </CloseButton> */}
-          {/* </HeaderList> */}
-          {/* </SlideHeader> */}
-          <SideMenu>
+          <SlideMenu>
             <MenuList>
               <li>
                 <LineDecoration color={"white"}>
-                  <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                  <Link
+                    href="/project"
+                    className={path.endsWith("/project") ? "" : ""}
+                    onClick={() => openSlideBarHandler(false)}
+                  >
                     PROJECT
                   </Link>
                 </LineDecoration>
               </li>
               <li>
                 <LineDecoration color={"white"}>
-                  <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                  <Link
+                    href="/services"
+                    className={path.endsWith("/services") ? "" : ""}
+                    onClick={() => openSlideBarHandler(false)}
+                  >
                     SERVICES
                   </Link>
                 </LineDecoration>
               </li>
               <li>
                 <LineDecoration color={"white"}>
-                  <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
+                  <Link
+                    href="/contact"
+                    className={path.endsWith("/contact") ? "" : ""}
+                    onClick={() => openSlideBarHandler(false)}
+                  >
                     CONTACT
                   </Link>
                 </LineDecoration>
               </li>
             </MenuList>
-          </SideMenu>
+          </SlideMenu>
         </SlideBarWrap>
-      </Test>
+      </Section>
     </Portal>
   );
 };
