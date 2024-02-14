@@ -254,21 +254,21 @@ export default function Navigation() {
                 <LinkItem style={{ animationDelay: "0.1s" }}>
                   <LineDecoration active={path.endsWith("/project")}>
                     <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
-                      ProJect
+                      PROJECT
                     </Link>
                   </LineDecoration>
                 </LinkItem>
                 <LinkItem style={{ animationDelay: "0.15s" }}>
                   <LineDecoration active={path.endsWith("/services")}>
                     <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
-                      Services
+                      SERVICES
                     </Link>
                   </LineDecoration>
                 </LinkItem>
                 <LinkItem style={{ animationDelay: "0.2s" }}>
                   <LineDecoration active={path.endsWith("/contact")}>
                     <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
-                      Contact
+                      CONTACT
                     </Link>
                   </LineDecoration>
                 </LinkItem>
