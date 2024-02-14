@@ -29,6 +29,16 @@
   font-style: normal;
 }
 
+/* 폰트적용 주석, 추후 삭제 예정 */
+/* @import url("https://fonts.cdnfonts.com/css/helvetica-neue-5"); */
+
+/* @font-face {
+  font-family: "Helvetica Neue";
+  src: url("https://fonts.cdnfonts.com/css/helvetica-neue-5");
+  font-weight: 400;
+  font-style: normal;
+} */
+
 html,
 body,
 div,
@@ -172,11 +182,11 @@ button {
 }
 
 body {
+  font-family: "Helvetica Neue", "Pretendard", sans-serif;
   margin: 0 auto;
-  font-family: "Pretendard", sans-serif;
   font-size: 14px;
   line-height: 1.2;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 @media (min-width: 1920px) {
