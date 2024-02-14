@@ -19,8 +19,6 @@ import { fadeIn } from "../animations/fadeIn";
 interface IHeaderWrap {
   $scrollDirection: string;
   $open: boolean;
-  $hasScrollbar: boolean;
-  $hold: string;
 }
 
 // export styled-components
@@ -42,25 +40,27 @@ export const Layout = styled.div`
 
 //styled-components
 const ButtonWrap = styled.div`
-  justify-content: space-between;
   align-items: center;
   display: flex;
 `;
 const ButtonWrapMobile = styled(ButtonWrap)`
-  height: 64px;
   @media (min-width: 768px) {
     display: none;
   }
-  /* 왜 line-height가 16.8px 먹혀있는건지 이유를 찾을수가 없음*/
-  /* a {
-    line-height: 0;
-  } */
 `;
 const ButtonWrapPC = styled(ButtonWrap)`
   display: none;
-  height: 110px;
   @media (min-width: 768px) {
     display: flex;
+  }
+`;
+
+const MbLogoWrap = styled(Link)`
+  margin-right: auto;
+  @media (min-width: 768px) {
+    position: relative;
+    left: -26px;
+    display: block;
   }
 `;
 
@@ -68,42 +68,55 @@ const HeaderWrap = styled.header<IHeaderWrap>`
   position: sticky;
   top: 0;
   z-index: 11;
-  /* opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)}; */
-  /* opacity: ${(props) => ((props.$scrollDirection === "up" && props.$hold !== "hold") || props.$open ? 1 : 0)}; */
   opacity: ${(props) => (props.$scrollDirection === "up" || props.$open ? 1 : 0)};
   transform: ${(props) => (props.$scrollDirection === "up" || props.$open ? "none" : "translateY(-64px)")};
   background-color: ${(props) => (props.$open ? "transparent" : "#fff")};
-  padding-right: ${(props) => (props.$open ? (props.$hasScrollbar ? "0" : "0") : "0")};
   transition-property: opacity, transform, background-color;
   transition-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 
+  img {
+    object-fit: cover;
+    display: block;
+  }
+
   @media (min-width: 768px) {
-    img {
-      object-fit: cover;
-      display: block;
-    }
-    a {
-      &:hover {
-        color: #000;
-      }
-      &.active {
-        color: #000;
-      }
-    }
   }
 `;
 
 const LinkItems = styled.ul`
   display: flex;
-  gap: 47px;
 `;
 const LinkItem = styled.li`
   opacity: 0;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 18px;
-  font-weight: 500;
+  color: rgb(5, 4, 17);
+  font-size: 15px;
+  line-height: 130%;
   ${fadeInAndUp}
+  padding: 5px 10px;
+
+  &:not(:first-child) {
+    margin-left: 18px;
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 6px 10px;
+    font-size: 20px;
+    &:not(:first-child) {
+      margin-left: 33px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    &:not(:first-child) {
+      margin-left: 47px;
+    }
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -112,10 +125,22 @@ const LogoContainer = styled.div`
 const HeaderLayout = styled.div`
   margin-left: 24px;
   margin-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   @media (min-width: 768px) {
-    width: 95%;
-    max-width: 1536px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 30.25px;
+    padding-bottom: 30.25px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1130px;
     margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  @media (min-width: 1920px) {
+    max-width: 1536px;
   }
 `;
 const HeaderMenu = styled.button`
@@ -173,55 +198,13 @@ const BurgerBottom = styled.div`
 export default function Navigation() {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [xClick, setXClick] = useState("");
 
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
 
-  const closeSlideBarHandler = () => {
-    xClick === "hold" ? setXClick("") : setXClick("hold");
-  };
-
   // 스크롤 방향 감지
-  // const scrollDirection = useScrollDirection();
-  const [scrollDirection, setScrollDirection] = useState("up");
-
-  console.log(xClick, "xClick");
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const updateScrollDirection = () => {
-      const scrollY = window.scrollY;
-      const direction = scrollY > lastScrollY ? "down" : "up";
-
-      if (xClick !== "hold") {
-        if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
-          setScrollDirection(direction);
-        }
-        lastScrollY = scrollY > 0 ? scrollY : 0;
-
-        // if (xClick !== "hold" && isOpen === false) {
-        //   setScrollDirection("up");
-        // }
-      }
-    };
-    const handleScroll = () => {
-      if (xClick !== "hold") {
-        updateScrollDirection();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollDirection]);
-
-  // 스크롤바 유무 감지
-  const hasScrollbar = useDetectScrollbar();
+  const scrollDirection = useScrollDirection();
 
   // 브라우저의 크기를 조절 할 때마다 햄버거 메뉴 열린상태 초기화
   useEffect(() => {
@@ -238,24 +221,21 @@ export default function Navigation() {
   return (
     <>
       <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
-      <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen} $hasScrollbar={hasScrollbar} $hold={xClick}>
+      <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen}>
         <HeaderLayout>
           <ButtonWrapMobile>
-            <Link
+            <MbLogoWrap
               href="/"
               onClick={() => {
                 openSlideBarHandler(false);
-                // closeSlideBarHandler();
               }}
             >
               {isOpen ? <LogoIconWhiteMobile /> : <LogoIconMobile />}
-            </Link>
+            </MbLogoWrap>
             <HeaderMenu>
-              {/* <HeaderBurger onClick={() => openSlideBarHandler() setXClick(!xClick)}> */}
               <HeaderBurger
                 onClick={() => {
                   openSlideBarHandler(!isOpen);
-                  closeSlideBarHandler();
                 }}
               >
                 <BurgerTop className={isOpen ? "open" : ""} />
@@ -264,34 +244,36 @@ export default function Navigation() {
             </HeaderMenu>
           </ButtonWrapMobile>
           <ButtonWrapPC>
-            <Link href="/">
+            <MbLogoWrap href="/">
               <LogoContainer>
                 <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
               </LogoContainer>
-            </Link>
-            <LinkItems>
-              <LinkItem style={{ animationDelay: "0.1s" }}>
-                <LineDecoration>
-                  <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
-                    PROJECT
-                  </Link>
-                </LineDecoration>
-              </LinkItem>
-              <LinkItem style={{ animationDelay: "0.15s" }}>
-                <LineDecoration>
-                  <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
-                    SERVICES
-                  </Link>
-                </LineDecoration>
-              </LinkItem>
-              <LinkItem style={{ animationDelay: "0.2s" }}>
-                <LineDecoration>
-                  <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
-                    CONTACT
-                  </Link>
-                </LineDecoration>
-              </LinkItem>
-            </LinkItems>
+            </MbLogoWrap>
+            <nav style={{ display: "block" }}>
+              <LinkItems>
+                <LinkItem style={{ animationDelay: "0.1s" }}>
+                  <LineDecoration active={path.endsWith("/project")}>
+                    <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
+                      ProJect
+                    </Link>
+                  </LineDecoration>
+                </LinkItem>
+                <LinkItem style={{ animationDelay: "0.15s" }}>
+                  <LineDecoration active={path.endsWith("/services")}>
+                    <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
+                      Services
+                    </Link>
+                  </LineDecoration>
+                </LinkItem>
+                <LinkItem style={{ animationDelay: "0.2s" }}>
+                  <LineDecoration active={path.endsWith("/contact")}>
+                    <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
+                      Contact
+                    </Link>
+                  </LineDecoration>
+                </LinkItem>
+              </LinkItems>
+            </nav>
           </ButtonWrapPC>
         </HeaderLayout>
       </HeaderWrap>
@@ -300,39 +282,38 @@ export default function Navigation() {
 }
 
 // custom hook for scroll direction
-// export function useScrollDirection() {
-// const [scrollDirection, setScrollDirection] = useState("up");
+export function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = useState("up");
 
-// useEffect(() => {
-//   let lastScrollY = window.scrollY;
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
 
-//   const updateScrollDirection = () => {
-//     const scrollY = window.scrollY;
-//     const direction = scrollY > lastScrollY ? "down" : "up";
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
 
-//     if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
-//       setScrollDirection(direction);
-//     }
-//     lastScrollY = scrollY > 0 ? scrollY : 0;
-//   };
+      if (scrollY !== 0) {
+        if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+          setScrollDirection(direction);
+        }
+        lastScrollY = scrollY > 0 ? scrollY : 0;
+      }
+    };
+    const handleScroll = () => {
+      updateScrollDirection();
+    };
 
-//   const handleScroll = () => {
-//     updateScrollDirection();
-//   };
-//   console.log(scrollY, "scrollY");
-//   console.log(lastScrollY, "lastScrollY");
-//   console.log(scrollDirection, "방향");
+    window.addEventListener("scroll", handleScroll);
 
-//   window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollDirection]);
 
-//   return () => {
-//     window.removeEventListener("scroll", handleScroll);
-//   };
-// }, [scrollDirection]);
+  return scrollDirection;
+}
 
-// return scrollDirection;
-// }
-
+// custom hook for Detacted scroll
 export function useDetectScrollbar() {
   const [hasScrollbar, setHasScrollbar] = useState(false);
 
