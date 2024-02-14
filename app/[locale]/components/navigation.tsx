@@ -28,9 +28,15 @@ export const Layout = styled.div`
   margin-left: 24px;
   margin-right: 24px;
   @media (min-width: 768px) {
-    width: 95%;
-    max-width: 1536px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1130px;
     margin: 0 auto;
+  }
+  @media (min-width: 1920px) {
+    max-width: 1536px;
   }
 `;
 
