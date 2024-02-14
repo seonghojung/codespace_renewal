@@ -7,7 +7,11 @@ import Link from "next/link";
 import { Layout } from "./navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
 import UnderLineLink from "./UnderLineLink";
-
+import { fadeInAndUp } from "../animations/fadeInAndUp";
+import { useInView } from "react-intersection-observer";
+interface StyleProps {
+  $isView: boolean;
+}
 const FooterLayout = styled(Layout)`
   @media (min-width: 768px) {
     display: flex;
@@ -66,15 +70,19 @@ const NavItems = styled.ul`
   width: 100%;
   display: grid;
 `;
-const NavItem = styled.li`
+
+const NavItem = styled.li<StyleProps>`
   padding-bottom: 16px;
+  opacity: 0;
+  ${({ $isView }) => $isView && fadeInAndUp}
 `;
 
-const LinkWrap = styled.div`
+const LinkWrap = styled.div<StyleProps>`
   display: block;
   margin-right: 17px;
   margin-bottom: 20px;
-
+  opacity: 0;
+  ${({ $isView }) => $isView && fadeInAndUp}
   a {
     display: inline-block;
     width: auto;
@@ -202,6 +210,10 @@ const CopyrightText = styled(LinkText)`
     width: 500px;
   }
 `;
+const MailWrap = styled.div<StyleProps>`
+  opacity: 0;
+  ${({ $isView }) => $isView && fadeInAndUp}
+`;
 
 export default function Footer({
   locale,
@@ -214,32 +226,38 @@ export default function Footer({
   localeLable: string;
   localeAddress: string;
 }) {
+  const [ref, isView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
   return (
-    <FooterWrap>
+    <FooterWrap ref={ref}>
       <FooterLayout>
         <ContentsWrap>
-          <LinkWrap>
+          <LinkWrap $isView={isView} style={{ animationDelay: "0.15s" }}>
             <Link href="/">
               <LogoImage src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" />
             </Link>
           </LinkWrap>
-          <UnderLineLink theme="white" href="mailto:bentley@codespace.im">
-            <MailLinkText>bentley@codespace.im</MailLinkText>
-          </UnderLineLink>
+          <MailWrap $isView={isView} style={{ animationDelay: "0.2s" }}>
+            <UnderLineLink theme="white" href="mailto:bentley@codespace.im">
+              <MailLinkText>bentley@codespace.im</MailLinkText>
+            </UnderLineLink>
+          </MailWrap>
         </ContentsWrap>
         <Nav>
           <NavItems>
-            <NavItem>
+            <NavItem $isView={isView} style={{ animationDelay: "0.4s" }}>
               <UnderLineLink theme="white" href="project">
                 <NavLinkText>PROJECT</NavLinkText>
               </UnderLineLink>
             </NavItem>
-            <NavItem>
+            <NavItem $isView={isView} style={{ animationDelay: "0.45s" }}>
               <UnderLineLink theme="white" href="services">
                 <NavLinkText>SERVICES</NavLinkText>
               </UnderLineLink>
             </NavItem>
-            <NavItem>
+            <NavItem $isView={isView} style={{ animationDelay: "0.5s" }}>
               <UnderLineLink theme="white" href="contact">
                 <NavLinkText>CONTACT</NavLinkText>
               </UnderLineLink>
