@@ -77,7 +77,7 @@ const allProjects: IVideos = {
       src: "thumbnail_txt",
       title: "+X+",
       description: "Regional Daily Chat-base Community Platform",
-      categories: ["UI/UX", "Web", "CMS", "Startup"],
+      categories: ["UI/UX", "App", "CMS", "Startup"],
       date: "Oct, 2020",
       // TODO: details
       details: {
@@ -145,7 +145,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "Kick-off",
       description: "Global Outsourcing Matching Platform",
-      categories: ["UI/UX", "Web", "CMS", "Startup"],
+      categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
       date: "Aug, 2021",
       // TODO: details
       details: {
@@ -172,8 +172,8 @@ const allProjects: IVideos = {
     {
       src: "thumbnail_chartin",
       title: "MarkHoly",
-      description: "CTA-centered Responsive Website with Detailed Product Information ",
-      categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
+      description: "CTA-centered Responsive Website with Detailed Product Information",
+      categories: ["UI/UX", "Web", "Product"],
       date: "Dec, 2023",
       // TODO: details
       details: {
@@ -187,7 +187,7 @@ const allProjects: IVideos = {
       src: "thumbnail_help",
       title: "Find Nomusa",
       description: "Labor Attorney Matching & Consulting Platform",
-      categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
+      categories: ["UI/UX", "Web", "CMS", "O2O"],
       date: "Dec, 2022",
       // TODO: details
       details: {
@@ -543,7 +543,7 @@ const allProjects: IVideos = {
       src: "thumbnail_txt",
       title: "+X+",
       description: "지역간 데일리 채팅 기반 커뮤니티 플랫폼",
-      categories: ["UI/UX", "Web", "CMS", "Startup"],
+      categories: ["UI/UX", "App", "CMS", "Startup"],
       date: "Oct, 2020",
       // TODO: details
       details: {
@@ -612,7 +612,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "킥오프",
       description: "글로벌 외주 매칭 플랫폼",
-      categories: ["UI/UX", "Web", "CMS", "Startup"],
+      categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
       date: "Aug, 2021",
       // TODO: images
       details: {
@@ -648,7 +648,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "마크홀리",
       description: "제품의 상세 내용을 확인할 수 있는 CTA 중심 반응형 웹",
-      categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
+      categories: ["UI/UX", "Web", "Product"],
       date: "Dec, 2023",
       // TODO: details
       details: {
@@ -657,11 +657,12 @@ const allProjects: IVideos = {
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
+    // 구해줘 노무사
     {
       src: "thumbnail_help",
       title: "구해줘 노무사",
       description: "노무사 매칭 및 상담 플랫폼",
-      categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
+      categories: ["UI/UX", "Web", "CMS", "O2O"],
       date: "Dec, 2022",
       // TODO: images
       details: {
@@ -682,7 +683,7 @@ const allProjects: IVideos = {
     {
       src: "thumbnail_chartin",
       title: "AIRKID",
-      description: "어린이용 머리 보호 헬맷, 에어키드 소개 반응형 웹 ",
+      description: "어린이용 머리 보호 헬맷, 에어키드 소개 반응형 웹",
       categories: ["UI/UX", "Web", "3D", "Enterprise"],
       date: "Jul, 2020",
       // TODO: details
@@ -743,6 +744,7 @@ const allProjects: IVideos = {
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
+    // 나인아크
     {
       src: "thumbnail_nineark",
       title: "나인아크",
@@ -793,7 +795,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "어웨어",
       categories: ["Web", "CMS", "Finance", "Magazine"],
-      description: "금융/투자 저널 매거진 반응형 웹",
+      description: "금융/투자 저널 매거진 반응형 웹사이트",
       date: "Nov, 2022",
     },
     // 디지털 갓생 살기
@@ -817,7 +819,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "유비오션",
       categories: ["UI/UX", "Web", "App", "CMS", "B2C"],
-      description: "구글맵 기반 수상 레저 업체 소개 반응형 웹",
+      description: "구글맵 기반 수상 레저 업체 소개 반응형 웹사이트",
       date: "Aug, 2022",
     },
     // 인벤컨
@@ -849,7 +851,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "그라데이션",
       categories: ["UI/UX", "Web", "CMS", "University"],
-      description: "대학교 시각디자인과 졸업 작품 전시 반응형 웹",
+      description: "대학교 시각디자인과 졸업 작품 전시 반응형 웹사이트",
       date: "Dec, 2021",
     },
     // 콘텐츠 가든
@@ -873,7 +875,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "애니브리띵",
       categories: ["Web", "CMS", "Archive", "Startup"],
-      description: "애니메이션 정보 공유 커뮤니티 반응형 웹",
+      description: "애니메이션 정보 공유 커뮤니티 반응형 웹사이트",
       date: "Feb, 2021",
     },
     // 코리아나 큐레이션
@@ -889,7 +891,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "HYID",
       categories: ["UI/UX", "Web", "CMS", "University"],
-      description: "대학교 산업디자인과 학생들의 졸업 작품 전시 반응형 웹 **[Jennifer 번역 필요]**",
+      description: "대학교 산업디자인과 학생들의 졸업 작품 전시 반응형 웹사이트",
       date: "Nov, 2020",
     },
     // 아이즈 유 비디오
@@ -897,7 +899,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "아이즈 유 비디오",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
-      description: "영상 제작 회사 소개 반응형 웹",
+      description: "영상 제작 회사 소개 반응형 웹사이트",
       date: "Oct, 2020",
     },
     // 엔잡스
@@ -913,7 +915,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "아하 에셋 자산운용",
       categories: ["Web", "CMS", "Enterprise"],
-      description: "자산운용사의 소개 반응형 웹",
+      description: "자산운용사의 소개 반응형 웹사이트",
       date: "Nov, 2019",
     },
     // 더 리드 법률사무소
@@ -921,7 +923,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "더 리드 법률사무소",
       categories: ["Web", "CMS", "Enterprise"],
-      description: "법무법인의 소개 반응형 웹",
+      description: "법무법인의 소개 반응형 웹사이트",
       date: "Sep, 2019",
     },
     // 숏터디
@@ -937,7 +939,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "뤼피드",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
-      description: "바이오 회사 소개 반응형 웹",
+      description: "바이오 회사 소개 반응형 웹사이트",
       date: "Jul, 2019",
     },
     // 숨
@@ -945,7 +947,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "숨",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
-      description: "의료기기 회사 소개 반응형 웹",
+      description: "의료기기 회사 소개 반응형 웹사이트",
       date: "Jul, 2019",
     },
     // 씨아이 그룹 자사몰
@@ -953,7 +955,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "씨아이 그룹 자사몰",
       categories: ["Web", "CMS", "Ecommerce"],
-      description: "기업 내부 복지를 위한 자사몰 반응형 웹",
+      description: "기업 내부 복지를 위한 자사몰 반응형 웹사이트",
       date: "Aug, 2019",
     },
     // 씨아이 그룹 자사웹
@@ -961,7 +963,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "씨아이 그룹 자사웹",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
-      description: "씨아이 그룹 소개 반응형 웹",
+      description: "씨아이 그룹 소개 반응형 웹사이트",
       date: "Jun, 2019",
     },
     // 넥스트 챌린지
@@ -969,7 +971,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "넥스트 챌린지",
       categories: ["Web", "CMS", "Enterprise", "Startup"],
-      description: "글로벌 액셀러레이터 소개 반응형 웹",
+      description: "글로벌 액셀러레이터 소개 반응형 웹사이트",
       date: "May, 2019",
     },
     // 미뗌바우하우스
@@ -977,7 +979,7 @@ const allProjects: IVideos = {
       src: "thumbnail_chartin",
       title: "미뗌바우하우스",
       categories: ["Web", "CMS", "Ecommerce", "B2B"],
-      description: "독일 직수입 조명 가구 소개 및 판매 반응형 웹",
+      description: "독일 직수입 조명 가구 소개 및 판매 반응형 웹사이트",
       date: "Apr, 2019",
     },
   ],
