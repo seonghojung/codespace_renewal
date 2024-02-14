@@ -20,7 +20,7 @@ interface IHeaderWrap {
   $scrollDirection: string;
   $open: boolean;
   $hasScrollbar: boolean;
-  $backgroundColor: string;
+  $hold: string;
 }
 
 // export styled-components
@@ -62,12 +62,14 @@ const HeaderWrap = styled.header<IHeaderWrap>`
   position: sticky;
   top: 0;
   z-index: 11;
-  opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)};
-  transform: ${(props) => (props.$scrollDirection === "down" ? "translateY(-20px)" : "none")};
-  background-color: ${(props) => (props.$open ? "transparent" : props.$backgroundColor)};
-  padding-right: ${(props) => (props.$open ? (props.$hasScrollbar ? "15px" : "0") : "0")};
+  /* opacity: ${(props) => (props.$scrollDirection === "down" ? 0 : 1)}; */
+  /* opacity: ${(props) => ((props.$scrollDirection === "up" && props.$hold !== "hold") || props.$open ? 1 : 0)}; */
+  opacity: ${(props) => (props.$scrollDirection === "up" || props.$open ? 1 : 0)};
+  transform: ${(props) => (props.$scrollDirection === "up" || props.$open ? "none" : "translateY(-64px)")};
+  background-color: ${(props) => (props.$open ? "transparent" : "#fff")};
+  padding-right: ${(props) => (props.$open ? (props.$hasScrollbar ? "0" : "0") : "0")};
   transition-property: opacity, transform, background-color;
-  transition-duration: 0.4s;
+  transition-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 
   @media (min-width: 768px) {
@@ -165,14 +167,53 @@ const BurgerBottom = styled.div`
 export default function Navigation() {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState("transparent");
+  const [xClick, setXClick] = useState("");
 
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
   };
 
+  const closeSlideBarHandler = () => {
+    xClick === "hold" ? setXClick("") : setXClick("hold");
+  };
+
   // 스크롤 방향 감지
-  const scrollDirection = useScrollDirection();
+  // const scrollDirection = useScrollDirection();
+  const [scrollDirection, setScrollDirection] = useState("up");
+
+  console.log(xClick, "xClick");
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+
+      if (xClick !== "hold") {
+        if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+          setScrollDirection(direction);
+        }
+        lastScrollY = scrollY > 0 ? scrollY : 0;
+
+        // if (xClick !== "hold" && isOpen === false) {
+        //   setScrollDirection("up");
+        // }
+      }
+    };
+    const handleScroll = () => {
+      if (xClick !== "hold") {
+        updateScrollDirection();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollDirection]);
+
   // 스크롤바 유무 감지
   const hasScrollbar = useDetectScrollbar();
 
@@ -188,39 +229,29 @@ export default function Navigation() {
     };
   }, []);
 
-  // 최상단을 기준으로 헤더의 배경색이 변경됨
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setBackgroundColor("transparent");
-      } else {
-        setBackgroundColor("#fff");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
-      <HeaderWrap
-        $scrollDirection={scrollDirection}
-        $open={isOpen}
-        $hasScrollbar={hasScrollbar}
-        $backgroundColor={backgroundColor}
-      >
+      <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen} $hasScrollbar={hasScrollbar} $hold={xClick}>
         <HeaderLayout>
           <ButtonWrapMobile>
-            <Link href="/" onClick={() => openSlideBarHandler(false)}>
+            <Link
+              href="/"
+              onClick={() => {
+                openSlideBarHandler(false);
+                // closeSlideBarHandler();
+              }}
+            >
               {isOpen ? <LogoIconWhiteMobile /> : <LogoIconMobile />}
             </Link>
             <HeaderMenu>
-              <HeaderBurger onClick={() => openSlideBarHandler(!isOpen)}>
+              {/* <HeaderBurger onClick={() => openSlideBarHandler() setXClick(!xClick)}> */}
+              <HeaderBurger
+                onClick={() => {
+                  openSlideBarHandler(!isOpen);
+                  closeSlideBarHandler();
+                }}
+              >
                 <BurgerTop className={isOpen ? "open" : ""} />
                 <BurgerBottom className={isOpen ? "open" : ""} />
               </HeaderBurger>
@@ -263,28 +294,38 @@ export default function Navigation() {
 }
 
 // custom hook for scroll direction
-export function useScrollDirection() {
-  const [scrollDirection, setScrollDirection] = useState("");
+// export function useScrollDirection() {
+// const [scrollDirection, setScrollDirection] = useState("up");
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
+// useEffect(() => {
+//   let lastScrollY = window.scrollY;
 
-    const updateScrollDirection = () => {
-      const scrollY = window.scrollY;
-      const direction = scrollY > lastScrollY ? "down" : "up";
-      if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
-        setScrollDirection(direction);
-      }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-    };
-    window.addEventListener("scroll", updateScrollDirection);
-    return () => {
-      window.removeEventListener("scroll", updateScrollDirection);
-    };
-  }, [scrollDirection]);
+//   const updateScrollDirection = () => {
+//     const scrollY = window.scrollY;
+//     const direction = scrollY > lastScrollY ? "down" : "up";
 
-  return scrollDirection;
-}
+//     if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+//       setScrollDirection(direction);
+//     }
+//     lastScrollY = scrollY > 0 ? scrollY : 0;
+//   };
+
+//   const handleScroll = () => {
+//     updateScrollDirection();
+//   };
+//   console.log(scrollY, "scrollY");
+//   console.log(lastScrollY, "lastScrollY");
+//   console.log(scrollDirection, "방향");
+
+//   window.addEventListener("scroll", handleScroll);
+
+//   return () => {
+//     window.removeEventListener("scroll", handleScroll);
+//   };
+// }, [scrollDirection]);
+
+// return scrollDirection;
+// }
 
 export function useDetectScrollbar() {
   const [hasScrollbar, setHasScrollbar] = useState(false);

@@ -99,7 +99,7 @@ const SlideBarWrap = styled.div`
 
 const SlideMenu = styled.div`
   position: relative;
-  z-index: 100;
+  z-index: 10;
   padding-top: 108px;
 `;
 
@@ -111,15 +111,51 @@ const MenuList = styled.ul`
 
 // component
 const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
+  const [scrollY, setScrollY] = useState(0);
   const path = usePathname();
   const hasScrollbar = useDetectScrollbar();
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (!open) {
+        setScrollY(window.scrollY);
+      }
+    };
+
+    if (!open) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    // 컴포넌트가 언마운트되면 이벤트 리스너를 제거합니다.
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [open]); // 이펙트를 단 한 번만 실행합니다.
+
+  useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.left = "0";
+      document.body.style.right = hasScrollbar ? "15px" : "0";
+      document.body.style.top = `-${scrollY}px`;
+      localStorage.setItem("scrollPosition", scrollY.toString());
+      // setScrollY(-scrollY);
     }
     return () => {
       document.body.style.cssText = "";
+      // window.scrollTo({
+      //   top: scrollY,
+      //   behavior: "instant",
+      // });
+      const storedScrollPosition = localStorage.getItem("scrollPosition");
+      if (storedScrollPosition !== null) {
+        window.scrollTo({
+          top: parseInt(storedScrollPosition),
+          behavior: "instant",
+        });
+      }
+      // localStorage.removeItem("scrollPosition");
     };
   }, [open]);
 
@@ -131,33 +167,21 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
             <MenuList>
               <li>
                 <LineDecoration color={"white"}>
-                  <Link
-                    href="/project"
-                    className={path.endsWith("/project") ? "" : ""}
-                    onClick={() => openSlideBarHandler(false)}
-                  >
+                  <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
                     PROJECT
                   </Link>
                 </LineDecoration>
               </li>
               <li>
                 <LineDecoration color={"white"}>
-                  <Link
-                    href="/services"
-                    className={path.endsWith("/services") ? "" : ""}
-                    onClick={() => openSlideBarHandler(false)}
-                  >
+                  <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
                     SERVICES
                   </Link>
                 </LineDecoration>
               </li>
               <li>
                 <LineDecoration color={"white"}>
-                  <Link
-                    href="/contact"
-                    className={path.endsWith("/contact") ? "" : ""}
-                    onClick={() => openSlideBarHandler(false)}
-                  >
+                  <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
                     CONTACT
                   </Link>
                 </LineDecoration>
