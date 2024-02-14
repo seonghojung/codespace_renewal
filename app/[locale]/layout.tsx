@@ -4,15 +4,14 @@ import Footer from "@/app/[locale]/components/footer";
 import StyledComponentsRegistry from "@/lib/registry";
 import { useTranslations } from "next-intl";
 import { locales } from "@/i18n";
-import Head from "next/head";
-// import { Head } from "next/document";
 
 export const metadata: Metadata = {
   title: {
     template: "코드스페이스 | %s ",
     default: "코드스페이스 | 상상하는 서비스를 현실로 만들어내는 혁신적인 기술 파트너",
   },
-  description: "코드스페이스 - 세상을 바꾸는 당신의 아이디어를 놀라운 수준으로 끌어올립니다. 현실적이고 효과적이며 대중적인 서비스를 제작하고 성장하세요",
+  description:
+    "코드스페이스 - 세상을 바꾸는 당신의 아이디어를 놀라운 수준으로 끌어올립니다. 현실적이고 효과적이며 대중적인 서비스를 제작하고 성장하세요",
 };
 
 export default function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
@@ -26,9 +25,6 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
 
   return (
     <html lang={locale}>
-      <head>
-        <link href="https://fonts.cdnfonts.com/css/helvetica-neue-5" rel="stylesheet" />
-      </head>
       <body>
         <StyledComponentsRegistry>
           <Navigation />

@@ -29,15 +29,102 @@
   font-style: normal;
 }
 
-/* 폰트적용 주석, 추후 삭제 예정 */
-/* @import url("https://fonts.cdnfonts.com/css/helvetica-neue-5"); */
-
-/* @font-face {
-  font-family: "Helvetica Neue";
-  src: url("https://fonts.cdnfonts.com/css/helvetica-neue-5");
-  font-weight: 400;
+@font-face {
+  font-family: "helvetica neue";
   font-style: normal;
-} */
+  font-weight: 400;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueRoman.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 400;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 100;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueUltraLight.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 100;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueUltraLightItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 200;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueThin.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 200;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueThinItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 300;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueLight.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 300;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueLightItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueMedium.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 500;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueMediumItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueBold.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 700;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueBoldItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 800;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueHeavy.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 800;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueHeavyItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: normal;
+  font-weight: 900;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueBlack.woff") format("woff");
+}
+@font-face {
+  font-family: "helvetica neue";
+  font-style: italic;
+  font-weight: 900;
+  src: url("https://fonts.cdnfonts.com/s/62895/HelveticaNeueBlackItalic.woff") format("woff");
+}
 
 html,
 body,
