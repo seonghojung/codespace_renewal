@@ -4,8 +4,6 @@ import Footer from "@/app/[locale]/components/footer";
 import StyledComponentsRegistry from "@/lib/registry";
 import { useTranslations } from "next-intl";
 import { locales } from "@/i18n";
-import Head from "next/head";
-// import { Head } from "next/document";
 
 export const metadata: Metadata = {
   title: {
