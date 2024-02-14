@@ -113,6 +113,8 @@ const MenuList = styled.ul`
 const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
   const [scrollY, setScrollY] = useState(0);
   const path = usePathname();
+
+  // 스크롤바 유무 감지
   const hasScrollbar = useDetectScrollbar();
 
   useEffect(() => {

@@ -12,6 +12,11 @@ export interface ProjectProps {
   description: string;
   categories: string[];
   date: string;
+  details?: {
+    titles: string[];
+    descriptions: string[];
+    images: string[];
+  };
 }
 const fadeIn = keyframes`
     from {
