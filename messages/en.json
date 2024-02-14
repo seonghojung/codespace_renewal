@@ -53,8 +53,11 @@
     "title": "Any questions?",
     "description": "Contact us"
   },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, ko {🇰🇷 Korean} en {🇺🇸 English} other {Unknown}}"
+  "Footer": {
+    "LocaleSwitcher": {
+      "label": "Change language",
+      "locale": "{locale, select, ko {🇰🇷 Korean} en {🇺🇸 English} other {Unknown}}"
+    },
+    "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854, Republic of Korea"
   }
 }

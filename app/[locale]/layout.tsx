@@ -15,21 +15,21 @@ export const metadata: Metadata = {
 };
 
 export default function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
-  const t = useTranslations("LocaleSwitcher");
+  const t = useTranslations("Footer");
   const localeOptions = locales.map((cur) => (
     <option key={cur} value={cur}>
-      {t("locale", { locale: cur })}
+      {t("LocaleSwitcher.locale", { locale: cur })}
     </option>
   ));
-  const localeLable = t("label");
-
+  const localeLable = t("LocaleSwitcher.label");
+  const localeAddress = t("Address");
   return (
     <html lang={locale}>
       <body>
         <StyledComponentsRegistry>
           <Navigation />
           {children}
-          <Footer locale={locale} localeOptions={localeOptions} localeLable={localeLable} />
+          <Footer locale={locale} localeOptions={localeOptions} localeLable={localeLable} localeAddress={localeAddress} />
           <div id="portal"></div>
         </StyledComponentsRegistry>
       </body>

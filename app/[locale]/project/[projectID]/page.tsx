@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Banner from "./Banner";
 import TopContent from "./TopContent";
 import MiddleContent from "./MiddleContent";
-import styled from "styled-components";
 import BottomContent from "./BottomContent";
 const data = {
   src: "/videos/thumbnail_chartin.mp4",

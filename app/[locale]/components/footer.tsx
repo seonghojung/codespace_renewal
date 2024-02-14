@@ -6,116 +6,265 @@ import Image from "next/image";
 import Link from "next/link";
 import { Layout } from "./navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
-import UnderLineText from "./UnderLineLink";
-import LineDecoration from "./LineDecoration";
+import UnderLineLink from "./UnderLineLink";
+
+const FooterLayout = styled(Layout)`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
 
 const FooterWrap = styled.footer`
   background-color: #1a1f27;
-`;
-const Container = styled.div`
   padding-top: 60px;
-  padding-bottom: 40px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding-bottom: 38px;
+  @media (min-width: 768px) {
+    padding-top: 57px;
+    padding-bottom: 32px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 93px;
+    padding-bottom: 37px;
+  }
+  @media (min-width: 1920px) {
+    padding-top: 93px;
+    padding-bottom: 49px;
+  }
+`;
+const ContentsWrap = styled.div`
+  margin-bottom: 53px;
+  @media (min-width: 768px) {
+    width: 50%;
+    margin-bottom: 0px;
+  }
+  @media (min-width: 1280px) {
+  }
+  @media (min-width: 1920px) {
+  }
 `;
 const Nav = styled.nav`
-  display: flex;
-  flex-direction: column;
-
+  width: 100%;
+  margin-bottom: 51px;
   @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: end;
-    justify-content: space-between;
+    width: 275px;
+    padding-top: 11px;
+    margin-left: auto;
+    margin-bottom: 100px;
+  }
+  @media (min-width: 1280px) {
+    margin-bottom: 82px;
+    width: 368px;
+  }
+  @media (min-width: 1920px) {
+    padding-top: 15px;
+    margin-bottom: 74px;
+    width: 500px;
   }
 `;
-
-const LinkWrap = styled(Link)`
-  width: 193px;
-  height: 28px;
-`;
-
 const NavItems = styled.ul`
-  margin-top: 60px;
-  display: flex;
-  @media (min-width: 768px) {
-    margin-top: 0px;
-  }
+  width: 100%;
+  display: grid;
 `;
 const NavItem = styled.li`
-  &:not(:last-child) {
-    margin-right: 30.6px;
-    @media (min-width: 768px) {
-      margin-right: 70px;
-    }
+  padding-bottom: 16px;
+`;
+
+const LinkWrap = styled.div`
+  display: block;
+  margin-right: 17px;
+  margin-bottom: 20px;
+
+  a {
+    display: inline-block;
+    width: auto;
   }
 `;
-const Title = styled(Link)`
-  font-size: 16px;
-
-  color: #fff;
-  &:hover {
-    color: #1a1a1a;
-  }
-
+const LogoImage = styled(Image)`
+  display: block;
+  width: auto;
+  height: 44px;
+  object-fit: cover;
   @media (min-width: 768px) {
-    font-size: 20px;
+    height: 44px;
+  }
+  @media (min-width: 1280px) {
+    height: 48px;
+  }
+  @media (min-width: 1920px) {
+    height: 57px;
   }
 `;
-const InfoWrap = styled.div`
+
+const BottomWrap = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media (min-width: 1280px) {
+    align-items: flex-end;
+  }
 `;
+const BottomWrapSecond = styled(BottomWrap)`
+  margin-top: 30px;
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 56px;
+  }
+`;
+
 const Name = styled.span`
   font-size: 14px;
   color: #fff;
+
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 120%;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+  }
 `;
 
 const LanguageSwitchBtn = styled.button`
   text-decoration: underline;
-  font-size: 12px;
   line-height: 2;
+  font-size: 14px;
   span {
     margin-right: 6px;
     color: #fff;
   }
+  @media (min-width: 768px) {
+    margin-left: auto;
+    width: 275px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 120%;
+    width: 368px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+    width: 500px;
+  }
+`;
+const LinkText = styled.span`
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 140%;
+  color: #fff;
+`;
+const MailLinkText = styled(LinkText)`
+  font-size: 18px;
+  line-height: 140%;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 28px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 32px;
+  }
+`;
+const NavLinkText = styled(LinkText)`
+  font-size: 14px;
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 120%;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+  }
+`;
+const CopyrightText = styled(LinkText)`
+  font-size: 14px;
+  color: #858e97;
+  margin-top: 37px;
+  @media (min-width: 768px) {
+    margin-top: 0;
+    margin-left: auto;
+    width: 275px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 120%;
+    width: 368px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+    width: 500px;
+  }
 `;
 
-export default function Footer({ locale, localeOptions, localeLable }: { locale: string; localeOptions: JSX.Element[]; localeLable: string }) {
+export default function Footer({
+  locale,
+  localeOptions,
+  localeLable,
+  localeAddress,
+}: {
+  locale: string;
+  localeOptions: JSX.Element[];
+  localeLable: string;
+  localeAddress: string;
+}) {
   return (
     <FooterWrap>
-      <Layout>
-        <Container>
-          <Nav>
-            <LinkWrap href="/">
-              <Image src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" width={193} height={28} />
-            </LinkWrap>
-            <NavItems>
-              <NavItem>
-                <Title href={"/project"}>PROJECT</Title>
-              </NavItem>
-              <NavItem>
-                <Title href={"/services"}>SERVICES</Title>
-              </NavItem>
-              <NavItem>
-                <Title href={"/contact"}>CONTACT</Title>
-              </NavItem>
-            </NavItems>
-          </Nav>
-          <InfoWrap>
-            <UnderLineText theme="white" href={"#"}>
-              <Name>©2019 - 2023 Code Space co. ltd.</Name>
-            </UnderLineText>
-            <LanguageSwitchBtn>
-              <LocaleSwitcher defaultValue={locale} label={localeLable}>
-                {localeOptions}
-              </LocaleSwitcher>
-            </LanguageSwitchBtn>
-          </InfoWrap>
-        </Container>
-      </Layout>
+      <FooterLayout>
+        <ContentsWrap>
+          <LinkWrap>
+            <Link href="/">
+              <LogoImage src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" />
+            </Link>
+          </LinkWrap>
+          <UnderLineLink theme="white" href="mailto:bentley@codespace.im">
+            <MailLinkText>bentley@codespace.im</MailLinkText>
+          </UnderLineLink>
+        </ContentsWrap>
+        <Nav>
+          <NavItems>
+            <NavItem>
+              <UnderLineLink theme="white" href="project">
+                <NavLinkText>PROJECT</NavLinkText>
+              </UnderLineLink>
+            </NavItem>
+            <NavItem>
+              <UnderLineLink theme="white" href="services">
+                <NavLinkText>SERVICES</NavLinkText>
+              </UnderLineLink>
+            </NavItem>
+            <NavItem>
+              <UnderLineLink theme="white" href="contact">
+                <NavLinkText>CONTACT</NavLinkText>
+              </UnderLineLink>
+            </NavItem>
+          </NavItems>
+        </Nav>
+        <BottomWrap>
+          <LanguageSwitchBtn>
+            <LocaleSwitcher defaultValue={locale} label={localeLable}>
+              {localeOptions}
+            </LocaleSwitcher>
+          </LanguageSwitchBtn>
+        </BottomWrap>
+        <BottomWrapSecond>
+          <UnderLineLink
+            theme="white"
+            href={
+              "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128/address/14150979.9785491,4507188.389424,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128,new?searchType=address&isCorrectAnswer=true&c=15.00,0,0,0,dh"
+            }
+          >
+            <Name>{localeAddress}</Name>
+          </UnderLineLink>
+          <CopyrightText>©2019 - 2023 Code Space co. ltd.</CopyrightText>
+        </BottomWrapSecond>
+      </FooterLayout>
     </FooterWrap>
   );
 }

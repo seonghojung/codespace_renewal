@@ -85,7 +85,7 @@ const allProjects: IVideos = {
       date: "Dec, 2023",
     },
     {
-      src: "thumbnail_help",
+      src: "thumbnail_chartin",
       title: "Find Nomusa",
       description: "Labor Attorney Matching & Consulting Platform",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
@@ -381,7 +381,7 @@ const allProjects: IVideos = {
       date: "Dec, 2023",
     },
     {
-      src: "thumbnail_help",
+      src: "thumbnail_chartin",
       title: "구해줘 노무사",
       description: "노무사 매칭 및 상담 플랫폼",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
