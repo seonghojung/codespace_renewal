@@ -1,17 +1,18 @@
+import Link from "next/link";
 import { styled } from "styled-components";
 
-const Container = styled.div`
-  position: relative;
-  color: #000;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-`;
-
-const Address = styled.div`
+interface IStyle {
+  theme: string;
+}
+const Address = styled.span<IStyle>`
+  display: inline-flex;
   align-items: center;
   text-decoration-line: none;
+  position: relative;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+
   &::before {
     content: "";
     position: absolute;
@@ -20,7 +21,7 @@ const Address = styled.div`
     width: 100%;
     height: 1px;
     z-index: 1;
-    background: currentColor;
+    background: ${(props) => (props.theme === "white" ? "#bbc4d2" : "currentColor")};
     transform: scaleX(0);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: 0 50%;
@@ -33,7 +34,7 @@ const Address = styled.div`
     width: 100%;
     height: 1px;
     z-index: 0;
-    background-color: #bbc4d2;
+    background-color: ${(props) => (props.theme === "white" ? "#56616a" : "#bbc4d2")};
     transform: scaleX(1);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: 0 50%;
@@ -43,12 +44,12 @@ const Address = styled.div`
   }
 `;
 
-const UnderLineText = ({ children }: { children: React.ReactNode }) => {
+const UnderLineLink = ({ children, theme = "dark", href }: { href: string; theme?: "dark" | "white" | undefined; children: React.ReactNode }) => {
   return (
-    <Container>
-      <Address>{children}</Address>
-    </Container>
+    <Link href={href}>
+      <Address theme={theme}>{children}</Address>
+    </Link>
   );
 };
 
-export default UnderLineText;
+export default UnderLineLink;

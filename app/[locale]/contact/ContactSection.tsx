@@ -1,10 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import UnderLineText from "../components/UnderLineText";
+import UnderLineText from "../components/UnderLineLink";
 import { fadeInAndUp, fadeInAndUp2Sec } from "../animations/fadeInAndUp";
 import { ITranslation } from "../(home)/page";
-import Link from "next/link";
 
 const SectionWrap = styled.section`
   padding: 40px 0 120px 0;
@@ -63,15 +62,13 @@ export const ContactSection = ({ translation }: { translation: ITranslation }) =
     <SectionWrap>
       <EmailTitleWrap>
         <TopTitle>{translation.title}</TopTitle>
-        <Link href="mailto:bentley@codespace.im">
-          <UnderLineText>
-            <Header>bentley@codespace.im</Header>
-          </UnderLineText>
-        </Link>
+        <UnderLineText href="mailto:bentley@codespace.im">
+          <Header>bentley@codespace.im</Header>
+        </UnderLineText>
       </EmailTitleWrap>
       <PhoneTitleWrap>
         <Title>{translation.description}</Title>
-        <UnderLineText>
+        <UnderLineText href="#">
           <Header>010-0000-0000</Header>
         </UnderLineText>
       </PhoneTitleWrap>

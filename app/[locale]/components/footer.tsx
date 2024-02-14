@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Layout } from "./navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
+import UnderLineText from "./UnderLineLink";
+import LineDecoration from "./LineDecoration";
 
 const FooterWrap = styled.footer`
   background-color: #1a1f27;
@@ -54,7 +56,7 @@ const Title = styled(Link)`
 
   color: #fff;
   &:hover {
-    /* color: #1a1a1a; */
+    color: #1a1a1a;
   }
 
   @media (min-width: 768px) {
@@ -64,11 +66,11 @@ const Title = styled(Link)`
 const InfoWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 const Name = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   color: #fff;
-  line-height: 2;
 `;
 
 const LanguageSwitchBtn = styled.button`
@@ -103,7 +105,9 @@ export default function Footer({ locale, localeOptions, localeLable }: { locale:
             </NavItems>
           </Nav>
           <InfoWrap>
-            <Name>©2019 - 2023 Code Space co. ltd.</Name>
+            <UnderLineText theme="white" href={"#"}>
+              <Name>©2019 - 2023 Code Space co. ltd.</Name>
+            </UnderLineText>
             <LanguageSwitchBtn>
               <LocaleSwitcher defaultValue={locale} label={localeLable}>
                 {localeOptions}
