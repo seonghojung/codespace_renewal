@@ -59,5 +59,8 @@
       "locale": "{locale, select, ko {🇰🇷 한국어} en {🇺🇸 English} other {Unknown}}"
     },
     "Address": "서울특별시 송파구 법원로 128"
+  },
+  "Header": {
+    "Address": "서울특별시 송파구 법원로 128"
   }
 }

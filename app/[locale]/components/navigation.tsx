@@ -195,7 +195,7 @@ const BurgerBottom = styled.div`
 
 // component
 
-export default function Navigation() {
+export default function Navigation({ localeAddress }: { localeAddress: string }) {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -203,10 +203,8 @@ export default function Navigation() {
     setIsOpen(isOpened);
   };
 
-  // 스크롤 방향 감지
   const scrollDirection = useScrollDirection();
 
-  // 브라우저의 크기를 조절 할 때마다 햄버거 메뉴 열린상태 초기화
   useEffect(() => {
     const handleResize = () => {
       setIsOpen(false);
@@ -220,7 +218,7 @@ export default function Navigation() {
 
   return (
     <>
-      <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} />
+      <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} localeAddress={localeAddress} />
       <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen}>
         <HeaderLayout>
           <ButtonWrapMobile>
@@ -254,21 +252,21 @@ export default function Navigation() {
                 <LinkItem style={{ animationDelay: "0.1s" }}>
                   <LineDecoration active={path.endsWith("/project")}>
                     <Link href="/project" className={path.endsWith("/project") ? "active" : ""}>
-                      PROJECT
+                      Project
                     </Link>
                   </LineDecoration>
                 </LinkItem>
                 <LinkItem style={{ animationDelay: "0.15s" }}>
                   <LineDecoration active={path.endsWith("/services")}>
                     <Link href="/services" className={path.endsWith("/services") ? "active" : ""}>
-                      SERVICES
+                      Services
                     </Link>
                   </LineDecoration>
                 </LinkItem>
                 <LinkItem style={{ animationDelay: "0.2s" }}>
                   <LineDecoration active={path.endsWith("/contact")}>
                     <Link href="/contact" className={path.endsWith("/contact") ? "active" : ""}>
-                      CONTACT
+                      Contact
                     </Link>
                   </LineDecoration>
                 </LinkItem>
@@ -327,7 +325,6 @@ export function useDetectScrollbar() {
         setHasScrollbar(false);
       }
     };
-    // 컴포넌트가 마운트되었을 때와 창 크기가 변경될 때마다 스크롤바를 확인
     checkScrollbar();
     window.addEventListener("resize", checkScrollbar);
 

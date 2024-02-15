@@ -59,5 +59,8 @@
       "locale": "{locale, select, ko {🇰🇷 Korean} en {🇺🇸 English} other {Unknown}}"
     },
     "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854, Republic of Korea"
+  },
+  "Header": {
+    "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854"
   }
 }
