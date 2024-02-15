@@ -220,11 +220,13 @@ export default function Footer({
   localeOptions,
   localeLable,
   localeAddress,
+  localeAddressURL,
 }: {
   locale: string;
   localeOptions: JSX.Element[];
   localeLable: string;
   localeAddress: string;
+  localeAddressURL: string;
 }) {
   const [ref, isView] = useInView({
     threshold: 0.2,
@@ -272,12 +274,7 @@ export default function Footer({
           </LanguageSwitchBtn>
         </BottomWrap>
         <BottomWrapSecond>
-          <UnderLineLink
-            theme="white"
-            href={
-              "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128/address/14150979.9785491,4507188.389424,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128,new?searchType=address&isCorrectAnswer=true&c=15.00,0,0,0,dh"
-            }
-          >
+          <UnderLineLink theme="white" href={localeAddressURL}>
             <Name>{localeAddress}</Name>
           </UnderLineLink>
           <CopyrightText>©2019 - {new Date().getFullYear()} CODESPACE co. ltd.</CopyrightText>

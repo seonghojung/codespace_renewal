@@ -10,13 +10,7 @@ import { usePathname } from "next/navigation";
 import LineDecoration from "./LineDecoration";
 import { useDetectScrollbar } from "./navigation";
 import UnderLineLink from "./UnderLineLink";
-
-// interface
-interface SlideBarProps {
-  openSlideBarHandler: (isOpened: boolean) => void;
-  open: boolean;
-  localeAddress: string;
-}
+import LocaleSwitcher from "./LocaleSwitcher";
 
 //styled-components
 
@@ -24,7 +18,28 @@ const Section = styled.div`
   position: relative;
   z-index: 10;
 `;
-
+const LanguageSwitchBtn = styled.button`
+  text-decoration: underline;
+  line-height: 2;
+  font-size: 14px;
+  span {
+    margin-right: 6px;
+    color: #fff;
+  }
+  @media (min-width: 768px) {
+    margin-left: auto;
+    width: 275px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 120%;
+    width: 368px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+    width: 500px;
+  }
+`;
 const SlideBarWrap = styled.div`
   overflow: auto;
   position: fixed;
@@ -112,7 +127,6 @@ const SlideWrap = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 1;
-  margin-bottom: 45px;
 `;
 
 const SlideMenu = styled.div`
@@ -124,10 +138,6 @@ const MenuList = styled.ul`
   display: flex;
   flex-direction: column;
   list-style-type: none;
-`;
-
-const MailWrap = styled.div`
-  margin-bottom: 65px;
 `;
 
 const Title = styled.p`
@@ -148,9 +158,25 @@ const Name = styled.span`
   font-size: 14px;
   color: #fff;
 `;
+const MailWrap = styled.div`
+  margin-bottom: 40px;
+`;
+const AddressLinkWrap = styled.div`
+  margin-bottom: 40px;
+`;
+// interface
+interface SlideBarProps {
+  openSlideBarHandler: (isOpened: boolean) => void;
+  open: boolean;
+  locale: string;
+  localeAddress: string;
+  localeAddressURL: string;
+  localeOptions: JSX.Element[];
+  localeLable: string;
+}
 
 // component
-const SlideBar = ({ openSlideBarHandler, open, localeAddress }: SlideBarProps) => {
+const SlideBar = ({ openSlideBarHandler, open, localeAddress, localeAddressURL, localeOptions, locale, localeLable }: SlideBarProps) => {
   const [scrollY, setScrollY] = useState(0);
   const hasScrollbar = useDetectScrollbar();
   const path = usePathname();
@@ -230,15 +256,17 @@ const SlideBar = ({ openSlideBarHandler, open, localeAddress }: SlideBarProps) =
                   <MailLinkText>contact@codespace.im</MailLinkText>
                 </UnderLineLink>
               </MailWrap>
+              <AddressLinkWrap>
+                <UnderLineLink theme="white" href={localeAddressURL}>
+                  <Name>{localeAddress}</Name>
+                </UnderLineLink>
+              </AddressLinkWrap>
+              <LanguageSwitchBtn>
+                <LocaleSwitcher defaultValue={locale} label={localeLable}>
+                  {localeOptions}
+                </LocaleSwitcher>
+              </LanguageSwitchBtn>
             </SlideWrap>
-            <UnderLineLink
-              theme="white"
-              href={
-                "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128/address/14150979.9785491,4507188.389424,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128,new?searchType=address&isCorrectAnswer=true&c=15.00,0,0,0,dh"
-              }
-            >
-              <Name>{localeAddress}</Name>
-            </UnderLineLink>
           </SlideSection>
         </SlideBarWrap>
       </Section>

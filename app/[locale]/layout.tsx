@@ -10,12 +10,14 @@ export const metadata: Metadata = {
     template: "코드스페이스 | %s ",
     default: "코드스페이스 | 상상하는 서비스를 현실로 만들어내는 혁신적인 기술 파트너",
   },
-  description: "코드스페이스 - 세상을 바꾸는 당신의 아이디어를 놀라운 수준으로 끌어올립니다. 현실적이고 효과적이며 대중적인 서비스를 제작하고 성장하세요",
+  description:
+    "코드스페이스 - 세상을 바꾸는 당신의 아이디어를 놀라운 수준으로 끌어올립니다. 현실적이고 효과적이며 대중적인 서비스를 제작하고 성장하세요",
 };
 
 export default function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
   // i18n footer
   const t = useTranslations("Footer");
+  const commonT = useTranslations("Common");
   const localeOptions = locales.map((cur) => (
     <option key={cur} value={cur}>
       {t("LocaleSwitcher.locale", { locale: cur })}
@@ -27,14 +29,26 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
   // i18n header
   const h = useTranslations("Header");
   const localeHeaderAddress = h("Address");
-
+  const localeAddressURL = commonT("AddressURL");
   return (
     <html lang={locale}>
       <body>
         <StyledComponentsRegistry>
-          <Navigation localeAddress={localeHeaderAddress} />
+          <Navigation
+            localeAddress={localeHeaderAddress}
+            localeAddressURL={localeAddressURL}
+            localeOptions={localeOptions}
+            locale={locale}
+            localeLable={localeLable}
+          />
           {children}
-          <Footer locale={locale} localeOptions={localeOptions} localeLable={localeLable} localeAddress={localeAddress} />
+          <Footer
+            locale={locale}
+            localeOptions={localeOptions}
+            localeLable={localeLable}
+            localeAddress={localeAddress}
+            localeAddressURL={localeAddressURL}
+          />
           <div id="portal"></div>
         </StyledComponentsRegistry>
       </body>

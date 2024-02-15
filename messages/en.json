@@ -58,9 +58,12 @@
       "label": "Change language",
       "locale": "{locale, select, ko {🇰🇷 Korean} en {🇺🇸 English} other {Unknown}}"
     },
-    "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854, Republic of Korea"
+    "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854"
   },
   "Header": {
     "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854"
+  },
+  "Common": {
+    "AddressURL": "https://www.google.co.kr/maps/search/128+Beobwon-ro,+Songpa-gu,+Seoul,+05854,+Republic+of+Korea?hl=ko&entry=ttu"
   }
 }

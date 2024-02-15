@@ -195,7 +195,19 @@ const BurgerBottom = styled.div`
 
 // component
 
-export default function Navigation({ localeAddress }: { localeAddress: string }) {
+export default function Navigation({
+  locale,
+  localeAddress,
+  localeAddressURL,
+  localeOptions,
+  localeLable,
+}: {
+  locale: string;
+  localeAddress: string;
+  localeAddressURL: string;
+  localeOptions: JSX.Element[];
+  localeLable: string;
+}) {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -218,7 +230,15 @@ export default function Navigation({ localeAddress }: { localeAddress: string })
 
   return (
     <>
-      <SlideBar openSlideBarHandler={openSlideBarHandler} open={isOpen} localeAddress={localeAddress} />
+      <SlideBar
+        openSlideBarHandler={openSlideBarHandler}
+        open={isOpen}
+        localeAddress={localeAddress}
+        localeAddressURL={localeAddressURL}
+        localeOptions={localeOptions}
+        locale={locale}
+        localeLable={localeLable}
+      />
       <HeaderWrap $scrollDirection={scrollDirection} $open={isOpen}>
         <HeaderLayout>
           <ButtonWrapMobile>
