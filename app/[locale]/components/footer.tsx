@@ -240,8 +240,8 @@ export default function Footer({
             </Link>
           </LinkWrap>
           <MailWrap $isView={isView} style={{ animationDelay: "0.2s" }}>
-            <UnderLineLink theme="white" href="mailto:bentley@codespace.im">
-              <MailLinkText>bentley@codespace.im</MailLinkText>
+            <UnderLineLink theme="white" href="mailto:contact@codespace.im">
+              <MailLinkText>contact@codespace.im</MailLinkText>
             </UnderLineLink>
           </MailWrap>
         </ContentsWrap>
@@ -280,7 +280,7 @@ export default function Footer({
           >
             <Name>{localeAddress}</Name>
           </UnderLineLink>
-          <CopyrightText>©2019 - {new Date().getFullYear()} Code Space co. ltd.</CopyrightText>
+          <CopyrightText>©2019 - {new Date().getFullYear()} CODESPACE co. ltd.</CopyrightText>
         </BottomWrapSecond>
       </FooterLayout>
     </FooterWrap>
