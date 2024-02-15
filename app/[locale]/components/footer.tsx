@@ -249,17 +249,17 @@ export default function Footer({
           <NavItems>
             <NavItem $isView={isView} style={{ animationDelay: "0.4s" }}>
               <UnderLineLink theme="white" href="project">
-                <NavLinkText>PROJECT</NavLinkText>
+                <NavLinkText>Project</NavLinkText>
               </UnderLineLink>
             </NavItem>
             <NavItem $isView={isView} style={{ animationDelay: "0.45s" }}>
               <UnderLineLink theme="white" href="services">
-                <NavLinkText>SERVICES</NavLinkText>
+                <NavLinkText>Services</NavLinkText>
               </UnderLineLink>
             </NavItem>
             <NavItem $isView={isView} style={{ animationDelay: "0.5s" }}>
               <UnderLineLink theme="white" href="contact">
-                <NavLinkText>CONTACT</NavLinkText>
+                <NavLinkText>Contact</NavLinkText>
               </UnderLineLink>
             </NavItem>
           </NavItems>
@@ -280,7 +280,7 @@ export default function Footer({
           >
             <Name>{localeAddress}</Name>
           </UnderLineLink>
-          <CopyrightText>©2019 - 2023 Code Space co. ltd.</CopyrightText>
+          <CopyrightText>©2019 - {new Date().getFullYear()} Code Space co. ltd.</CopyrightText>
         </BottomWrapSecond>
       </FooterLayout>
     </FooterWrap>

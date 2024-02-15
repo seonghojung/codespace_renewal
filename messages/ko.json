@@ -58,6 +58,6 @@
       "label": "언어 선택",
       "locale": "{locale, select, ko {🇰🇷 한국어} en {🇺🇸 English} other {Unknown}}"
     },
-    "Address": "서울특별시 송파구 법원로 128 SKV1 1504호"
+    "Address": "서울특별시 송파구 법원로 128"
   }
 }
