@@ -9,12 +9,8 @@ import { usePathname } from "next/navigation";
 
 import LineDecoration from "./LineDecoration";
 import { useDetectScrollbar } from "./navigation";
-
-// interface
-interface SlideBarProps {
-  openSlideBarHandler: (isOpened: boolean) => void;
-  open: boolean;
-}
+import UnderLineLink from "./UnderLineLink";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 //styled-components
 
@@ -22,8 +18,30 @@ const Section = styled.div`
   position: relative;
   z-index: 10;
 `;
-
+const LanguageSwitchBtn = styled.button`
+  text-decoration: underline;
+  line-height: 2;
+  font-size: 14px;
+  span {
+    margin-right: 6px;
+    color: #fff;
+  }
+  @media (min-width: 768px) {
+    margin-left: auto;
+    width: 275px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 120%;
+    width: 368px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+    width: 500px;
+  }
+`;
 const SlideBarWrap = styled.div`
+  overflow: auto;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -31,7 +49,7 @@ const SlideBarWrap = styled.div`
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  background-color: #000;
+  background-color: #17191f;
   animation: fadeOut 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   transition: all 0.5s ease-in-out 0.5s;
   &.open {
@@ -65,16 +83,13 @@ const SlideBarWrap = styled.div`
 
   li {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
-    font-size: 28px;
+    font-size: 30px;
     line-height: 1.36;
     color: #fff;
-    /* margin-top: 57px; */
-    margin-left: 24px;
 
     &:not(:first-child) {
-      margin-top: 28px;
+      margin-top: 20px;
     }
 
     a {
@@ -97,10 +112,26 @@ const SlideBarWrap = styled.div`
   }
 `;
 
+const SlideSection = styled.div`
+  padding-top: calc(64px + 40px);
+  padding-bottom: 40px;
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100vh;
+`;
+
+const SlideWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+`;
+
 const SlideMenu = styled.div`
-  position: relative;
-  z-index: 10;
-  padding-top: 108px;
+  margin-bottom: 110px;
+  flex: 1 1;
 `;
 
 const MenuList = styled.ul`
@@ -109,13 +140,46 @@ const MenuList = styled.ul`
   list-style-type: none;
 `;
 
-// component
-const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
-  const [scrollY, setScrollY] = useState(0);
-  const path = usePathname();
+const Title = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 5px;
+  color: #858e97;
+`;
 
-  // 스크롤바 유무 감지
+const MailLinkText = styled.span`
+  font-size: 24px;
+  line-height: 135%;
+  color: #fff;
+`;
+
+const Name = styled.span`
+  font-size: 14px;
+  color: #fff;
+`;
+const MailWrap = styled.div`
+  margin-bottom: 40px;
+`;
+const AddressLinkWrap = styled.div`
+  margin-bottom: 40px;
+`;
+// interface
+interface SlideBarProps {
+  openSlideBarHandler: (isOpened: boolean) => void;
+  open: boolean;
+  locale: string;
+  localeAddress: string;
+  localeAddressURL: string;
+  localeOptions: JSX.Element[];
+  localeLable: string;
+}
+
+// component
+const SlideBar = ({ openSlideBarHandler, open, localeAddress, localeAddressURL, localeOptions, locale, localeLable }: SlideBarProps) => {
+  const [scrollY, setScrollY] = useState(0);
   const hasScrollbar = useDetectScrollbar();
+  const path = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,11 +192,10 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
       window.addEventListener("scroll", handleScroll);
     }
 
-    // 컴포넌트가 언마운트되면 이벤트 리스너를 제거합니다.
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [open]); // 이펙트를 단 한 번만 실행합니다.
+  }, [open]);
 
   useEffect(() => {
     if (open) {
@@ -142,14 +205,9 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
       document.body.style.right = hasScrollbar ? "15px" : "0";
       document.body.style.top = `-${scrollY}px`;
       localStorage.setItem("scrollPosition", scrollY.toString());
-      // setScrollY(-scrollY);
     }
     return () => {
       document.body.style.cssText = "";
-      // window.scrollTo({
-      //   top: scrollY,
-      //   behavior: "instant",
-      // });
       const storedScrollPosition = localStorage.getItem("scrollPosition");
       if (storedScrollPosition !== null) {
         window.scrollTo({
@@ -157,7 +215,7 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
           behavior: "instant",
         });
       }
-      // localStorage.removeItem("scrollPosition");
+      localStorage.removeItem("scrollPosition");
     };
   }, [open]);
 
@@ -165,31 +223,51 @@ const SlideBar = ({ openSlideBarHandler, open }: SlideBarProps) => {
     <Portal>
       <Section>
         <SlideBarWrap className={open ? (hasScrollbar ? "open hasScrollbar" : "open") : ""}>
-          <SlideMenu>
-            <MenuList>
-              <li>
-                <LineDecoration color={"white"}>
-                  <Link href="/project" className={path.endsWith("/project") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                    PROJECT
-                  </Link>
-                </LineDecoration>
-              </li>
-              <li>
-                <LineDecoration color={"white"}>
-                  <Link href="/services" className={path.endsWith("/services") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                    SERVICES
-                  </Link>
-                </LineDecoration>
-              </li>
-              <li>
-                <LineDecoration color={"white"}>
-                  <Link href="/contact" className={path.endsWith("/contact") ? "" : ""} onClick={() => openSlideBarHandler(false)}>
-                    CONTACT
-                  </Link>
-                </LineDecoration>
-              </li>
-            </MenuList>
-          </SlideMenu>
+          <SlideSection>
+            <SlideWrap>
+              <SlideMenu>
+                <MenuList>
+                  <li>
+                    <LineDecoration color={"white"}>
+                      <Link href="/project" onClick={() => openSlideBarHandler(false)}>
+                        Project
+                      </Link>
+                    </LineDecoration>
+                  </li>
+                  <li>
+                    <LineDecoration color={"white"}>
+                      <Link href="/services" onClick={() => openSlideBarHandler(false)}>
+                        Services
+                      </Link>
+                    </LineDecoration>
+                  </li>
+                  <li>
+                    <LineDecoration color={"white"}>
+                      <Link href="/contact" onClick={() => openSlideBarHandler(false)}>
+                        Contact
+                      </Link>
+                    </LineDecoration>
+                  </li>
+                </MenuList>
+              </SlideMenu>
+              <MailWrap>
+                <Title>Get in touch</Title>
+                <UnderLineLink theme="white" href="mailto:contact@codespace.im">
+                  <MailLinkText>contact@codespace.im</MailLinkText>
+                </UnderLineLink>
+              </MailWrap>
+              <AddressLinkWrap>
+                <UnderLineLink theme="white" href={localeAddressURL}>
+                  <Name>{localeAddress}</Name>
+                </UnderLineLink>
+              </AddressLinkWrap>
+              <LanguageSwitchBtn>
+                <LocaleSwitcher defaultValue={locale} label={localeLable}>
+                  {localeOptions}
+                </LocaleSwitcher>
+              </LanguageSwitchBtn>
+            </SlideWrap>
+          </SlideSection>
         </SlideBarWrap>
       </Section>
     </Portal>

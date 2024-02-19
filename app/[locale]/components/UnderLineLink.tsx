@@ -46,7 +46,7 @@ const Address = styled.span<IStyle>`
 
 const UnderLineLink = ({ children, theme = "dark", href }: { href: string; theme?: "dark" | "white" | undefined; children: React.ReactNode }) => {
   return (
-    <Link href={href}>
+    <Link href={href} target="_blank">
       <Address theme={theme}>{children}</Address>
     </Link>
   );

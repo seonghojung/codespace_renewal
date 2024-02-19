@@ -15,7 +15,9 @@ export const metadata: Metadata = {
 };
 
 export default function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
+  // i18n footer
   const t = useTranslations("Footer");
+  const commonT = useTranslations("Common");
   const localeOptions = locales.map((cur) => (
     <option key={cur} value={cur}>
       {t("LocaleSwitcher.locale", { locale: cur })}
@@ -23,13 +25,30 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
   ));
   const localeLable = t("LocaleSwitcher.label");
   const localeAddress = t("Address");
+
+  // i18n header
+  const h = useTranslations("Header");
+  const localeHeaderAddress = h("Address");
+  const localeAddressURL = commonT("AddressURL");
   return (
     <html lang={locale}>
       <body>
         <StyledComponentsRegistry>
-          <Navigation />
+          <Navigation
+            localeAddress={localeHeaderAddress}
+            localeAddressURL={localeAddressURL}
+            localeOptions={localeOptions}
+            locale={locale}
+            localeLable={localeLable}
+          />
           {children}
-          <Footer locale={locale} localeOptions={localeOptions} localeLable={localeLable} localeAddress={localeAddress} />
+          <Footer
+            locale={locale}
+            localeOptions={localeOptions}
+            localeLable={localeLable}
+            localeAddress={localeAddress}
+            localeAddressURL={localeAddressURL}
+          />
           <div id="portal"></div>
         </StyledComponentsRegistry>
       </body>

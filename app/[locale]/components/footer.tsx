@@ -7,7 +7,11 @@ import Link from "next/link";
 import { Layout } from "./navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
 import UnderLineLink from "./UnderLineLink";
-
+import { fadeInAndUp } from "../animations/fadeInAndUp";
+import { useInView } from "react-intersection-observer";
+interface StyleProps {
+  $isView: boolean;
+}
 const FooterLayout = styled(Layout)`
   @media (min-width: 768px) {
     display: flex;
@@ -66,15 +70,19 @@ const NavItems = styled.ul`
   width: 100%;
   display: grid;
 `;
-const NavItem = styled.li`
+
+const NavItem = styled.li<StyleProps>`
   padding-bottom: 16px;
+  opacity: 0;
+  ${({ $isView }) => $isView && fadeInAndUp}
 `;
 
-const LinkWrap = styled.div`
+const LinkWrap = styled.div<StyleProps>`
   display: block;
   margin-right: 17px;
   margin-bottom: 20px;
-
+  opacity: 0;
+  ${({ $isView }) => $isView && fadeInAndUp}
   a {
     display: inline-block;
     width: auto;
@@ -202,46 +210,58 @@ const CopyrightText = styled(LinkText)`
     width: 500px;
   }
 `;
+const MailWrap = styled.div<StyleProps>`
+  opacity: 0;
+  ${({ $isView }) => $isView && fadeInAndUp}
+`;
 
 export default function Footer({
   locale,
   localeOptions,
   localeLable,
   localeAddress,
+  localeAddressURL,
 }: {
   locale: string;
   localeOptions: JSX.Element[];
   localeLable: string;
   localeAddress: string;
+  localeAddressURL: string;
 }) {
+  const [ref, isView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
   return (
-    <FooterWrap>
+    <FooterWrap ref={ref}>
       <FooterLayout>
         <ContentsWrap>
-          <LinkWrap>
+          <LinkWrap $isView={isView} style={{ animationDelay: "0.15s" }}>
             <Link href="/">
               <LogoImage src={logoIconPC} alt="피씨 코드스페이스 로고 아이콘" />
             </Link>
           </LinkWrap>
-          <UnderLineLink theme="white" href="mailto:bentley@codespace.im">
-            <MailLinkText>bentley@codespace.im</MailLinkText>
-          </UnderLineLink>
+          <MailWrap $isView={isView} style={{ animationDelay: "0.2s" }}>
+            <UnderLineLink theme="white" href="mailto:contact@codespace.im">
+              <MailLinkText>contact@codespace.im</MailLinkText>
+            </UnderLineLink>
+          </MailWrap>
         </ContentsWrap>
         <Nav>
           <NavItems>
-            <NavItem>
+            <NavItem $isView={isView} style={{ animationDelay: "0.4s" }}>
               <UnderLineLink theme="white" href="project">
-                <NavLinkText>PROJECT</NavLinkText>
+                <NavLinkText>Project</NavLinkText>
               </UnderLineLink>
             </NavItem>
-            <NavItem>
+            <NavItem $isView={isView} style={{ animationDelay: "0.45s" }}>
               <UnderLineLink theme="white" href="services">
-                <NavLinkText>SERVICES</NavLinkText>
+                <NavLinkText>Services</NavLinkText>
               </UnderLineLink>
             </NavItem>
-            <NavItem>
+            <NavItem $isView={isView} style={{ animationDelay: "0.5s" }}>
               <UnderLineLink theme="white" href="contact">
-                <NavLinkText>CONTACT</NavLinkText>
+                <NavLinkText>Contact</NavLinkText>
               </UnderLineLink>
             </NavItem>
           </NavItems>
@@ -254,15 +274,10 @@ export default function Footer({
           </LanguageSwitchBtn>
         </BottomWrap>
         <BottomWrapSecond>
-          <UnderLineLink
-            theme="white"
-            href={
-              "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128/address/14150979.9785491,4507188.389424,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128,new?searchType=address&isCorrectAnswer=true&c=15.00,0,0,0,dh"
-            }
-          >
+          <UnderLineLink theme="white" href={localeAddressURL}>
             <Name>{localeAddress}</Name>
           </UnderLineLink>
-          <CopyrightText>©2019 - 2023 Code Space co. ltd.</CopyrightText>
+          <CopyrightText>©2019 - {new Date().getFullYear()} CODESPACE co. ltd.</CopyrightText>
         </BottomWrapSecond>
       </FooterLayout>
     </FooterWrap>
