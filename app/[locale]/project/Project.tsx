@@ -65,10 +65,14 @@ const allProjects: IVideos = {
       description: "Coffee Roasting Brand Website with CMS design",
       categories: ["UI/UX", "Web", "CMS", "Ecommerce"],
       date: "Jul, 2023",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: ["Ways to enjoy coffee experience", "Website that offers various entertainment options", "A CMS that allows access to customer data"],
+        descriptions: [
+          "UFO Coffee is a B2B brand engaged in coffee bean roasting, but there was a need for web development to expand into the B2C sector for selling its own coffee beans. This website not only focuses on selling coffee beans but also incorporates various programs and content, providing a comprehensive web service.",
+          "As mentioned, UFO Coffee not only sells coffee beans but also offers various entertaining elements on its website, including comics, programs, friendships, cinema, and more. The goal was to create a layout where each element is displayed, and information is presented smoothly for an engaging user experience.",
+          "For a site with abundant content, it is crucial to understand what captures the customer's interest which leads to purchases. With UFO Coffee, data was built to track customer routes, including preferred content and purchased products across different age and gender demographics. Also, key management functions were developed for overall operations, such as reservations and necessary inquiries.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -79,10 +83,14 @@ const allProjects: IVideos = {
       description: "Regional Daily Chat-base Community Platform",
       categories: ["UI/UX", "App", "CMS", "Startup"],
       date: "Oct, 2020",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: ["+X+ aids in quick and simple chats with local users", "Enhancing visibility through various color choices", "Prioritizing on data protection even for the deleted messages"],
+        descriptions: [
+          "descripti+X+ is a social communication application where users can share information about their local area by simply entering messages when they have questions or desire to know the latest news. The unique element of this website is that all messages are text-based rather than image, and the all messages are deleted after 24 hours.on1",
+          "Since this service relies solely on messaging, we prioritized on accessibility and readability. All designs are based on message boxes, allowing customers to choose from various colors for better visibility and readability.",
+          "Although the service principle is to delete all messages after 24 hours, we designed the system to ensure that even if malicious messages or data exposing personal information were to be deleted, it would be done thoroughly without any leakage. Development efforts were made to improve accessibility, ensuring that all customers can access and engage with the service without any difficulty.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -133,10 +141,18 @@ const allProjects: IVideos = {
       description: "Real Estate Platform where Real Estate Information is updated in real time",
       categories: ["UI/UX", "App", "O2O"],
       date: "Apr. 2020",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: [
+          "Richgo, a platform that predicts future real estate price based on historical data",
+          "Planning and developing for both resident and investor perspectives",
+          "Simple presentation of diverse information for easy comprehension at a glance",
+        ],
+        descriptions: [
+          "Richgo is a comprehensive real estate platform that provides regional real estate information based information on actual residents, actual transactions, and commercial area analysis. It assists both customers aiming to invest in real estate and those targeting residential properties, enabling them to explore real estate tailored to their individual situations.",
+          "While many real estate platforms primarily focus on investment, Richgo places a stronger emphasis on the resident's perspective. It is designed to provide a comprehensive view of the surrounding environment, including nearby schools, amenities, medical facilities, and other practical factors that residents consider when living in a particular area.",
+          "Presenting data visually for readers to comprehend can be difficult. In this project, special attention was given to design elements and focal points on each page, utilizing infographics to make data more accessible and easily understandable for readers.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -147,10 +163,18 @@ const allProjects: IVideos = {
       description: "Global Outsourcing Matching Platform",
       categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
       date: "Aug, 2021",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: [
+          "Empowering users to freely discover projects and trust their partners ",
+          "Quickest MVP service created for fast-paced market",
+          "A visual identity design made with consideration for IP business",
+        ],
+        descriptions: [
+          "Kick-off is an outsourcing O2O platform that facilitates connections between experts bidding for projects and partners looking to entrust their work. It is designed to address the issues of excessive and false information present in traditional outsourcing platforms by providing access to partner information crafted with professionalism at reasonable prices.",
+          "Kick-off is a two-way O2O platform, requiring constant interaction between partners and experts. While many pages and processes are inherent to such services, this platform was designed with the majority of functions automated through CMS (Content Management System). This approach allowed for a quick product launch to the market, optimizing the development timeline.",
+          "As an O2O platform encompassing various experts, Kick-off caters to customers of diverse professions and preferences. To make the Kick-off service memorable for users and encourage return visits, a unified identity was established. Simultaneously, planning for a unique IP business was conducted, laying the foundation for a broad and impactful service.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -161,10 +185,14 @@ const allProjects: IVideos = {
       description: "Music Platform that Matches Musicians with Experts",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
       date: "Feb, 2022",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: ["Chart-in, Global music portfolio platform", "Focusing on core colors to achieve professionalism", "Developed with consideration of various scenarios and circumstances"],
+        descriptions: [
+          "Chart-in is a music community platform service for everyone who loves music and wants to discover new playlists. It features a community where individuals can promote themselves, listen to and evaluate trending music, and receive feedback from other users.",
+          "UI features core colors that reflects a dark background resembling the environment where music creators concentrate on their work. Through the overall atmosphere and visual balance, users are encouraged to engage more professionally on Chart-in, fostering a sense of expertise",
+          "Chart-in is a platform where users can upload their music, receive evaluations, and potentially lead to actual debut stages. It goes beyond just sharing one's work; it is a comprehensive platform where music is evaluated and made public. The development environment was built to facilitate smooth interaction throughout this process.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -175,10 +203,18 @@ const allProjects: IVideos = {
       description: "CTA-centered Responsive Website with Detailed Product Information",
       categories: ["UI/UX", "Web", "Product"],
       date: "Dec, 2023",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: [
+          "MarkHoly, Korean Traditional Drink (Makgeolli) for foreigners",
+          "Ensuring various posture of the character are captured in different resolutions",
+          "Energetic and dynamic layout composition",
+        ],
+        descriptions: [
+          "MarkHoly is a brand created by Mark Holy who has a high affection for Korean culture. The brand name also sounds similar to Makgeolli which greatly represents brand’s identity. Unlike traditional Makgeolli, the brand aims to showcase a trendy branding of Makgeolli on the web, effectively communicating with customers.",
+          "The essence of MarkHoly lies in the character's appearance and actions. Occasionally, there may be cases where the images are cropped or appears differently when exposed to different devices. In this development and design, efforts were made to ensure the entire landing page are presented uniformly across various device environments.",
+          "descriptMarkHoly aims beyond selling Makgeolli and envisions business expansion into the IP category. The look and feel composition, showcasing various postures and styles of the character, and presenting the products were crucial. In this web design, we emphasized the fine-tuning of the overall composition and section structure for each scroll to effectively capture the essence of the brand in the layout.ion3",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -189,10 +225,18 @@ const allProjects: IVideos = {
       description: "Labor Attorney Matching & Consulting Platform",
       categories: ["UI/UX", "Web", "CMS", "O2O"],
       date: "Dec, 2022",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: [
+          "A quick and accurate O2O platform for labor-related Q&A",
+          "Empowering labor attorneys to clearly present themselves and clients to clearly express themselves",
+          "Developed monitoring system to accurately track the progress of clients’ task",
+        ],
+        descriptions: [
+          "Find Nomusa is a comprehensive O2O platform where labor-related tasks can be carried out online by both labor attorneys and clients. Designed to handle various legal issues promptly, it ensures that the characteristics of labor-related tasks, which require quick checks and processing, can be efficiently executed online without any constraints.",
+          "Labor attorneys promptly showcase their portfolios and engage in client consultations, adding value to their business on Find Nomusa. Additionally, focusing on comprehensive planning, design, and consideration of the overall situation to allow clients to quickly seek advice from multiple labor attorneys based on their specific situations.",
+          "Find Nomusa requires a separate monitoring system for both labor attorneys and clients to track their progress and ongoing consultations. This platform ensures that every customer experiencing O2O is aware of their service situation accurately, enabling them to seamlessly transition to the next service through an optimized development environment.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -203,10 +247,18 @@ const allProjects: IVideos = {
       description: "Air Kid, Helmet Designed for Kids, Introduction Responsive Website",
       categories: ["UI/UX", "Web", "3D", "Enterprise"],
       date: "Jul, 2020",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: [
+          "A responsive PDP website where users can easily learn about the product",
+          "Showcasing different angles of the product with each scroll",
+          "The core of the brand identity is well integrated into the GUI",
+        ],
+        descriptions: [
+          "AIRKID is a brand specializing in helmets for toddlers, developed by Legit. The goal was to build a website that effectively communicates the unique features of toddler helmets, which were unfamiliar to customers at the time. Therefore, the website was designed to showcase the product from various angles, illustrating the incorporation of detailed technology in a way that is easily understandable to customers.",
+          "The high-resolution modeling images are optimized for smooth delivery to customers without any lag when scrolling. We developed optimization techniques for image data to ensure efficient file sizes while providing the correct frames for each scroll. This ensures a natural interaction for customers during the entire scrolling process, whether they are scrolling up or down.",
+          "Taking into account the situation where both the brand and the product are being introduced to the market for the first time, the graphic interface is designed considering the brand identity to help customers remember the brand well and facilitate the repurchase process through revisits. The emphasis is placed on creating a design direction where the key points, from characters to the overall brand color, are clearly highlighted.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -217,10 +269,14 @@ const allProjects: IVideos = {
       description: "Real Estate Interior Brokerage O2O Platform",
       categories: ["UI/UX", "Web", "App", "O2O"],
       date: "Aug, 2022",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: ["DOOSIL, the interior brokerage plaform to find your perfect home", "To make various tags appear simple and easy to understand", "From web browsers to mobile applications"],
+        descriptions: [
+          "DOOSIL is an interior O2O platform that helps you find the perfect home by providing diverse home interior information. Through various lifestyle tags, the platform identifies your consumer preferences and the brands you encounter. It then offers insights into how your living space should be designed and provides assistance in the actual implementation and execution of interior projects.",
+          "Existing interior platforms have commonly featured excessive white space or a UI environment similar to traditional shopping mall sites. DOOSIL aimed to differentiate itself by considering various aspects such as multi-directional scrolling and page depth in the planning and design, providing customers with a feeling of searching for and reading lifestyle tags akin to a life magazine.",
+          "DOOSIL regularly checks the interior and provides a service where partners, construction companies, and customers can visit freely without any constraints. In order to enhance convenience in such situations, we have made efforts to provide tailored development environments and guides on all devices to increase customer service convenience.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -261,8 +317,16 @@ const allProjects: IVideos = {
       date: "Apr, 2021",
       // TODO: details
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: [
+          "Clearly showcase the intentions and directions of the production company",
+          "Nine Ark, where diverse members with unique characteristics gather",
+          "To ensure real-time news is effectively communicated to the viewers",
+        ],
+        descriptions: [
+          "Nine Ark is a game development and publishing company under Kakao Games, releasing various games while also launching their own game assets. This website aims to create an environment where the identity of the ongoing games and the company's vision and beliefs are well showcased. Efforts have been made to build a platform where the identity of both the current games and the company can be clearly seen.",
+          "Nine Ark adopts a corporate structure with multiple game development members, showcasing the image of a unified development company while also highlighting the activities of various members. In building this web environment, emphasis was placed on designing and planning to ensure that all identities are well-displayed under one roof.",
+          "The most commonly used news layout on corporate introduction websites is designed with the goal of providing information at a glance. The layout is developed to allow administrators to quickly apply and display links and titles based on the situation, ensuring a fast and efficient environment for showcasing content.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -273,10 +337,14 @@ const allProjects: IVideos = {
       description: "Luxury Vehicle Export Company Introduction Responsive Website",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
       date: "Apr, 2023",
-      // TODO: details
+      // TODO: images
       details: {
-        titles: ["title1", "title2", "title3"],
-        descriptions: ["description1", "description2", "description3"],
+        titles: ["BTBG, a global mobility auction service", "Displaying variety of vehicles in simplified manner", "A system that consistently manages inquiries and services"],
+        descriptions: [
+          "BTBG is a website where both international and domestic buyers auction and introduce luxury vehicles. It is designed to showcase the vehicles that have been imported and are ready for auction, allowing customers to find vehicles that match their preferences through various tags.",
+          "Given that the images of various brands and colors are displayed in correlation with the number of vehicles being auctioned on BTBG, it was crucial to design the overall UI environment in a way that avoids complexity and appears concise. The design ensures that the continuous exposure of the service's brand does not make it look cluttered, allowing the clear visibility of various products.",
+          "Even for a service that primarily involves uploading vehicles and conducting auctions, we have developed a CMS from the perspective of administrators. This CMS allows administrators to manage reservations, track which vehicles have been listed, and operate efficiently with the ability to organize content based on different tags.",
+        ],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
