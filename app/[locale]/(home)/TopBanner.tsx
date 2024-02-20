@@ -26,12 +26,23 @@ const Title = styled.h1`
   letter-spacing: -1.04px;
   color: #050411;
   ${fadeInAndUp}
-  @media (min-width: 768px) {
-    font-size: clamp(74px, 9.6354166666667vw, 86px);
-    line-height: 1.14;
+  @media (min-width: 500px) {
     br:not(:first-child) {
       display: none;
     }
+  }
+  @media (min-width: 768px) {
+    font-size: 52px;
+    line-height: 1.1;
+    letter-spacing: -1.35px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 74px;
+    letter-spacing: -2.19px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 86px;
+    letter-spacing: -2.96px;
   }
 `;
 
@@ -70,13 +81,44 @@ const DescriptionWrap = styled.div`
 
 const Subtitle = styled.h2`
   word-break: keep-all;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.39;
+  letter-spacing: -0.04px;
   color: #050411;
-  line-height: 1.5;
-  font-size: 20px;
+
   ${fadeInAndUp}
-  br {
+  br:first-child {
     display: none;
   }
+
+  @media (min-width: 414px) {
+    br:first-child {
+      display: block;
+    }
+    br:not(:first-child) {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) {
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: -0.04px;
+    text-align: left;
+    color: #050411;
+  }
+  @media (min-width: 1280px) {
+    font-size: 28px;
+    letter-spacing: -0.14px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 32px;
+    line-height: 1.39;
+    letter-spacing: -0.16px;
+  }
+
   @media (min-width: 768px) {
     font-weight: 500;
     font-size: clamp(22px, 2.8645833333333vw, 32px);
