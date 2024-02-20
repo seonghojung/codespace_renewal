@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { Layout } from "../components/navigation";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import { ITranslation } from "./page";
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
+import { MotionValue, motion, motionValue, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
 const Section = styled.section`
   padding-top: 30px;
@@ -56,16 +57,11 @@ const Subtitle = styled.h2`
   }
 `;
 
-interface IVideoContainer {
-  $scale: number;
-}
-
-const VideoContainer = styled.div<IVideoContainer>`
+const VideoContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   @media (min-width: 768px) {
     margin-top: 100px;
-    transform: scale(${(props) => props.$scale});
   }
 `;
 const DescriptionWrap = styled.div``;
@@ -92,24 +88,11 @@ const LinkWrap = styled.div`
     margin-top: 41px;
   }
 `;
+
 const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
   const bannerRef = useRef<HTMLDivElement>(null);
-  const [bannerScale, setBannerScale] = useState(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (bannerRef.current) {
-        const bannerTopDistance = bannerRef.current.getBoundingClientRect().top;
-
-        const scale = Math.min(1.1, Math.max(1, 1 + (380 - bannerTopDistance) / 1000));
-        setBannerScale(scale);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { scrollY } = useScroll({});
+  const videoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
 
   return (
     <Section>
@@ -117,7 +100,7 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
         <Title>{translation.title}</Title>
       </Layout>
       <VideoLayout>
-        <VideoContainer ref={bannerRef} $scale={bannerScale}>
+        <VideoContainer ref={bannerRef} style={{ scale: videoScale }}>
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
         </VideoContainer>
       </VideoLayout>
