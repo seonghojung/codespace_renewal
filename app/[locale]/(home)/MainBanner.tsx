@@ -1,14 +1,10 @@
 "use client";
 
 import styled from "styled-components";
-import Link from "next/link";
-import Image from "next/image";
-
-import LineDecorationLink from "../components/LineDecorationLink";
-import mainBannerMb from "../../../public/images/main_banner_mb.png";
-import mainBanner from "../../../public/images/main_banner.png";
-import { useEffect, useState } from "react";
 import { ITranslation } from "./page";
+import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
+import { Layout } from "../components/navigation";
+import Swiper from "./Swiper";
 
 export const VideoLayout = styled.div`
   width: 100%;
@@ -17,101 +13,172 @@ export const VideoLayout = styled.div`
 `;
 
 const Section = styled.section`
-  margin-top: 60px;
-  width: 100%;
-  @media (min-width: 768px) {
+  margin-top: 80px;
+  @media (min-width: 1280px) {
+    margin-top: 140px;
   }
 `;
 
 const Container = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
+  background-color: #f4f5f8;
 `;
 
 const InfoWrap = styled.div`
-  padding-top: 108px;
-  padding-bottom: 108px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  padding-top: 80px;
+  padding-bottom: 100px;
   @media (min-width: 768px) {
-    padding-top: 167px;
-    padding-bottom: 167px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 176px;
+    padding-bottom: 120px;
+  }
+
+  @media (min-width: 1920px) {
+    padding-top: 160px;
+    padding-bottom: 140px;
   }
 `;
 const Title = styled.h2`
-  text-align: center;
-  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.36px;
+  color: #050411;
   text-transform: uppercase;
-  font-size: 46px;
-  font-weight: bold;
-  letter-spacing: normal;
-  margin-bottom: 40px;
-  max-width: 315px;
+
   @media (min-width: 768px) {
-    font-size: 74px;
-    max-width: none;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.48px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 52px;
+    letter-spacing: -0.81px;
   }
 `;
-const Description = styled.h3`
-  width: 90%;
-  display: none;
-  font-size: 20px;
+const TopDescription = styled.h3`
+  margin-top: 20px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 1.28;
-  color: #fff;
-  text-align: center;
-  word-break: keep-all;
-  @media (min-width: 768px) {
-    display: block;
-    max-width: 840px;
+  line-height: 1.39;
+  letter-spacing: -0.04px;
+  text-align: left;
+  color: #050411;
+  br {
+    display: none;
   }
-`;
-const LinkWrap = styled.div`
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  a {
-    font-size: 18px;
-    color: white;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.04px;
+
+    br {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 28px;
+    letter-spacing: -0.08px;
+  }
+
+  @media (min-width: 1920px) {
+    font-size: 32px;
+    letter-spacing: -0.1px;
   }
 `;
 
-const BannerImage = styled(Image)`
-  width: 100%;
-  object-fit: cover;
-  margin: 0 auto;
-  aspect-ratio: 0.6;
-  content: url("/images/main_banner_mb.png");
+const BottomDescription = styled.h3`
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.39;
+  letter-spacing: -0.04px;
+  color: #050411;
+  br {
+    display: none;
+  }
+
   @media (min-width: 768px) {
-    content: url("/images/main_banner.png");
+    margin-top: 80px;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.04px;
+
+    br {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 140px;
+    font-size: 28px;
+    letter-spacing: -0.08px;
+  }
+
+  @media (min-width: 1920px) {
+    margin-top: 180px;
+    font-size: 32px;
+    letter-spacing: -0.1px;
+  }
+`;
+
+const LinkWrap = styled.div`
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  a {
+    font-size: 16px;
+    line-height: 1.45;
+    letter-spacing: -0.03px;
+    color: #050411;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 40px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 60px;
+    a {
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: -0.1px;
+    }
+  }
+  @media (min-width: 1920px) {
+    margin-top: 40px;
+    a {
+      font-size: 26px;
+      line-height: 1.45;
+      letter-spacing: -0.14px;
+    }
   }
 `;
 
 const MainBanner = ({ translation }: { translation: ITranslation }) => {
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
   return (
     <Section>
       <Container>
-        <BannerImage src={windowWidth > 768 ? mainBanner : mainBannerMb} alt={"배너 이미지"} priority />
         <InfoWrap>
-          <Title>Imagination into Reality</Title>
-          <Description>{translation.description}</Description>
-          <LinkWrap>
-            <LineDecorationLink color="white">
-              <Link href={"/contact"}>{translation.requestBtn}</Link>
-            </LineDecorationLink>
-          </LinkWrap>
+          <Layout>
+            <Title>
+              Imagination
+              <br />
+              into Reality
+            </Title>
+            <TopDescription>{translation.topDescription}</TopDescription>
+          </Layout>
+          <Swiper />
+          <Layout>
+            <BottomDescription>{translation.bottomDescription}</BottomDescription>
+            <LinkWrap>
+              <UnderLineLinkArrow href="/contact">{translation.requestBtn}</UnderLineLinkArrow>
+            </LinkWrap>
+          </Layout>
         </InfoWrap>
       </Container>
     </Section>

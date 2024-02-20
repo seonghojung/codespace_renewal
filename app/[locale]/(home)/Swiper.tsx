@@ -2,7 +2,6 @@
 
 import styled from "styled-components";
 import CarouselSwiper, { HorizontalImage, VerticalImage } from "../components/Swiper";
-import { Layout } from "../components/navigation";
 import swiper0 from "../../../public/images/home/swiper_0.png";
 import swiper1 from "../../../public/images/home/swiper_1.png";
 import swiper2 from "../../../public/images/home/swiper_2.png";
@@ -35,7 +34,17 @@ const TitleWrap = styled.div`
   justify-content: center;
 `;
 const Container = styled.div`
-  margin-top: 120px;
+  margin-top: 40px;
+  @media (min-width: 768px) {
+    margin-top: 103px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 140px;
+  }
+  @media (min-width: 1920px) {
+    margin-top: 180px;
+  }
 `;
 
 const images = [
@@ -50,11 +59,6 @@ const images = [
 const MainSwiper = () => {
   return (
     <Container>
-      <TitleWrap>
-        <Title>
-          CODESPACE IS <br /> LOCATED IN SEOUL
-        </Title>
-      </TitleWrap>
       <CarouselSwiper items={images} />
     </Container>
   );

@@ -8,7 +8,8 @@
       "description": "Check out our new project at Codespace.<br></br> Fundamental principle of Codespace is growing together by implementing our partner's ideas into reality through clear solutions for business growth."
     },
     "MainBanner": {
-      "description": "Difficult technical terms, hesitation about necessity, and all the efforts to find answers due to uncertainty - Codespace will be a sloution. We will focus on implementing a business model created solely from partner's imagination, using the simplest words and essential elements. We will assist you in bringing it to the market, helping you find the product-market fit",
+      "topDescription": "Difficult technical terms, hesitation about necessity, and all the efforts to find answers due to uncertainty - Codespace will be a sloution.",
+      "bottomDescription": "We will focus on implementing a business model created solely from partner's imagination, using the simplest words and essential elements. We will assist you in bringing it to the market, helping you find the product-market fit",
       "requestBtn": "REQUEST A QUOTE"
     },
     "Component": {

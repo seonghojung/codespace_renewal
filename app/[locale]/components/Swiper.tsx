@@ -31,7 +31,7 @@ export const HorizontalImage = styled(DefaultImage)`
 `;
 
 const SwiperStyle = styled(Swiper)`
-  margin-top: 80px;
+  /* margin-top: 40px; */
   .swiper-wrapper {
     -webkit-transition-timing-function: linear !important;
     -o-transition-timing-function: linear !important;
@@ -46,17 +46,7 @@ const SwiperStyle = styled(Swiper)`
 
 const CarouselSwiper = ({ items }: { items: any[] }) => {
   return (
-    <SwiperStyle
-      slidesPerView={"auto"}
-      autoplay={{
-        delay: 0,
-        stopOnLastSlide: false,
-        disableOnInteraction: true,
-      }}
-      speed={6000}
-      loop
-      modules={[Autoplay]}
-    >
+    <SwiperStyle slidesPerView={"auto"} loop modules={[Autoplay]}>
       {items.map((item, index) => {
         return <SwiperSlide key={index}>{item}</SwiperSlide>;
       })}
