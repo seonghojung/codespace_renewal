@@ -81,6 +81,8 @@ const Address = styled.span<IStyle>`
   }
 `;
 
+// TODO. 메인페이지에서 자세히 알아보기 클릭 시 새창 이동하는 부분 수정
+
 const UnderLineLink = ({ children, theme = "dark", href }: { href: string; theme?: "dark" | "white" | undefined; children: React.ReactNode }) => {
   return (
     <Link href={href} target="_blank">
