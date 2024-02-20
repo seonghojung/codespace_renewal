@@ -10,6 +10,7 @@ import Link from "next/link";
 import LineDecorationLink from "../components/LineDecorationLink";
 import { ITranslation } from "./page";
 import { useEffect, useState } from "react";
+import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
 
 const Section = styled.section``;
 
@@ -229,15 +230,7 @@ export const floatingUp = css`
   animation: ${fadeIn} 1s ease forwards;
 `;
 
-const FloatingText = ({
-  children,
-  delay,
-  $isView,
-}: {
-  children: React.ReactNode;
-  delay?: string;
-  $isView: boolean;
-}) => (
+const FloatingText = ({ children, delay, $isView }: { children: React.ReactNode; delay?: string; $isView: boolean }) => (
   <FloatingWrap>
     <FloatingContent $isView={$isView} style={{ animationDelay: delay }}>
       {children}
@@ -282,12 +275,7 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
     <Section>
       <Container ref={ref} $isView={inView}>
         <ProjectImageWrap>
-          <ProjectImage
-            src={isPC ? bannerImage : bannerImageMb}
-            width={isPC ? 2220 : 740}
-            height={isPC ? 1440 : 480}
-            alt="배너 이미지"
-          />
+          <ProjectImage src={isPC ? bannerImage : bannerImageMb} width={isPC ? 2220 : 740} height={isPC ? 1440 : 480} alt="배너 이미지" />
         </ProjectImageWrap>
         <FakeLayout>
           <ContentWrap>
@@ -309,9 +297,7 @@ const SectionMiddleBanner = ({ translation }: { translation: ITranslation }) => 
                 <SubTitle $isView={inView}>{translation.description}</SubTitle>
               </SubTitleWrap>
               <MoreWrap>
-                <LineDecorationLink color="#8f99aa">
-                  <More href={"/project"}>{translation.moreBtn}</More>
-                </LineDecorationLink>
+                <UnderLineLinkArrow href="/project">{translation.moreBtn}</UnderLineLinkArrow>
               </MoreWrap>
             </RightWrap>
           </ContentWrap>

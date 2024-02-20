@@ -3,10 +3,9 @@
 import styled from "styled-components";
 import { Layout } from "../components/navigation";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
-import LineDecorationLink from "../components/LineDecorationLink";
-import Link from "next/link";
 import { ITranslation } from "./page";
 import { useEffect, useRef, useState } from "react";
+import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
 
 const Section = styled.section`
   padding-top: 30px;
@@ -56,17 +55,6 @@ const Subtitle = styled.h2`
     line-height: 1.41;
   }
 `;
-const MoreLink = styled(Link)`
-  @media (min-width: 768px) {
-  }
-  font-size: 18px;
-`;
-const LinkWrap = styled.div`
-  margin-top: 20px;
-  a {
-    color: #8f99aa;
-  }
-`;
 
 interface IVideoContainer {
   $scale: number;
@@ -92,6 +80,18 @@ const VideoLayout = styled.div`
   }
 `;
 
+const LinkWrap = styled.div`
+  margin-top: 27px;
+  @media (min-width: 768px) {
+    margin-top: 40px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 68px;
+  }
+  @media (min-width: 1920px) {
+    margin-top: 41px;
+  }
+`;
 const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
   const bannerRef = useRef<HTMLDivElement>(null);
   const [bannerScale, setBannerScale] = useState(1);
@@ -125,9 +125,7 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
         <DescriptionWrap>
           <Subtitle>{translation.subTitle}</Subtitle>
           <LinkWrap>
-            <LineDecorationLink color="#8f99aa">
-              <MoreLink href={"/project"}>{translation.moreBtn}</MoreLink>
-            </LineDecorationLink>
+            <UnderLineLinkArrow href="/project">{translation.moreBtn}</UnderLineLinkArrow>
           </LinkWrap>
         </DescriptionWrap>
       </Layout>

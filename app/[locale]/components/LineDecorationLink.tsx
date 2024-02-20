@@ -20,7 +20,7 @@ const LineDecorationLink = ({ children, color }: { children: React.ReactNode; co
   return (
     <LineDecoration color={color}>
       <LinkContainer>
-        {children} <RightArrowIcon fill={color} />
+        {children} <RightArrowIcon />
       </LinkContainer>
     </LineDecoration>
   );
