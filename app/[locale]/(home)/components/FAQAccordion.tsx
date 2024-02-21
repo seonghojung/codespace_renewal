@@ -32,13 +32,18 @@ const Container = styled.div<IProps>`
   ${({ $isView }) => $isView && floatingUp}
 `;
 const Content = styled.p`
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: -0.02px;
+  color: #858e97;
+  white-space: pre-wrap;
+  word-break: keep-all;
   @media (min-width: 768px) {
-    max-width: 1169px;
+    max-width: 509px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 20px;
+    max-width: 833px;
   }
 `;
 const FAQAccordion = ({ header, body, eventKey, isView }: FAQAccordionProps) => {
@@ -60,21 +65,40 @@ const FAQAccordion = ({ header, body, eventKey, isView }: FAQAccordionProps) => 
 
 export default FAQAccordion;
 
-const Title = styled.span`
+const Title = styled.div`
   font-size: 18px;
-  font-weight: 200;
-  line-height: 1.22;
-  color: #fff;
+  font-weight: 500;
+  line-height: 1.44;
+  letter-spacing: -0.04px;
+  color: #f4f5f8;
+  width: 77.98%;
+  word-break: keep-all;
+  span {
+  }
 
   @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  @media (min-width: 1280px) {
     font-size: 28px;
+    letter-spacing: -0.08px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 32px;
+    letter-spacing: -0.1px;
   }
 `;
 
 const AccordionWrap = styled(Accordion)`
   --bs-accordion-border-width: 0;
   --bs-accordion-inner-border-radius: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid #323946;
+
+  .accordion-item:last-of-type .accordion-collapse {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 `;
 const AccordionItem = styled(Accordion.Item)``;
 const AccordionHeader = styled(Accordion.Header)`
@@ -85,8 +109,14 @@ const AccordionHeader = styled(Accordion.Header)`
   }
 
   .accordion-button {
-    margin-top: 26px;
-    padding: 0px 0 26px;
+    padding: 19px 0 18px;
+
+    @media (min-width: 768px) {
+      padding: 24px 0 24px;
+    }
+    @media (min-width: 1280px) {
+      padding: 36px 0 36px;
+    }
   }
 
   .accordion-button:focus {
@@ -94,7 +124,7 @@ const AccordionHeader = styled(Accordion.Header)`
   }
 
   .accordion-button:after {
-    width: 14px;
+    width: 18px;
     height: 8px;
     background-image: url("/images/arrow_bottom.png");
     background-size: auto;
@@ -110,5 +140,11 @@ const AccordionHeader = styled(Accordion.Header)`
 `;
 const AccordionBody = styled(Accordion.Body)`
   background-color: #1a1f27;
-  padding: 5px 18px 18px 10px;
+  padding: 20px 0px 18px 0;
+  @media (min-width: 768px) {
+    padding: 0px 0px 24px 0;
+  }
+  @media (min-width: 1280px) {
+    padding: 0px 0px 36px 0;
+  }
 `;
