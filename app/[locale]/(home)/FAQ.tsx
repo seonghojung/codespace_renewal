@@ -58,19 +58,19 @@ const questions: IQuestions = {
   en: [
     {
       title: "Would you like to create your service as an MVP model",
-      body: `MVP model is a product developed at early stage with only core features to quickly assess market response and gather feedback. At Codespace, we offer a strategy that minimizes initial investment and quickly understands user requirements by creating an MVP model containing limited but necessary features.`,
+      body: `MVP model is a product developed at early stage with only core features to quickly assess market response and gather feedback.\n\nAt Codespace, we offer a strategy that minimizes initial investment and quickly understands user requirements by creating an MVP model containing limited but necessary features.`,
     },
     {
       title: "Is it difficult to proceed with a project without a project plan",
-      body: `Not at all. In the early stages, we share ideas and goals, engage in discussions, and collaboratively define the necessary features and requirements. Based on this communication, we design the project direction together, and develop features tailored to user needs.`,
+      body: `Not at all.\n\nIn the early stages, we share ideas and goals, engage in discussions, and collaboratively define the necessary features and requirements.\n\nBased on this communication, we design the project direction together, and develop features tailored to user needs.`,
     },
     {
       title: "How is maintenance carried out?",
-      body: `Maintenance is conducted collaboratively with our partners even after the project is completed. We handle important matters such as fixing bugs and updating security promptly to ensure a stable service. When the project is finished, we still maintain ongoing communication, accept user feedback, and continuously work on improving service performance and quality.`,
+      body: `Maintenance is conducted collaboratively with our partners even after the project is completed.\n\nWe handle important matters such as fixing bugs and updating security promptly to ensure a stable service.\n\nWhen the project is finished, we still maintain ongoing communication, accept user feedback, and continuously work on improving service performance and quality.`,
     },
     {
       title: "How is the project carried out",
-      body: `The project starts with an interview to learn about the partner's platform which is then followed by planning, UX strategy, design, design, development, testing, deployment, and maintenance stages, in listed orders. We respect set timeline for each stage of project and report accordingly to maintain quality of the project.`,
+      body: `The project starts with an interview to learn about the partner's platform which is then followed by planning, UX strategy, design, design, development, testing, deployment, and maintenance stages, in listed orders.\n\nWe respect set timeline for each stage of project and report accordingly to maintain quality of the project.`,
     },
     {
       title: "What differentiates Codespace from other agencies?",
@@ -78,7 +78,7 @@ const questions: IQuestions = {
     },
     {
       title: "What is the most important aspect in creating a platform?",
-      body: `When creating a platform, important aspects include the layout and design built through user experience, along with the development of security, performance, future business scalability, maintainability, and etc. Among above aspects, Codespace will propose the most suitable processes based on partners’ requirements and market conditions. After a prompt initial entry, our goal is continuous improvement of the platform by incorporating ongoing user feedback.`,
+      body: `When creating a platform, important aspects include the layout and design built through user experience, along with the development of security, performance, future business scalability, maintainability, and etc.\n\nAmong above aspects, Codespace will propose the most suitable processes based on partners’ requirements and market conditions.\n\nAfter a prompt initial entry, our goal is continuous improvement of the platform by incorporating ongoing user feedback.`,
     },
   ],
   ko: [
