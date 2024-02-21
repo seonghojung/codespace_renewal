@@ -8,6 +8,10 @@ import { use, useEffect, useRef, useState } from "react";
 import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
 import { MotionValue, motion, motionValue, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
+interface IVideoContainer {
+  $scale: number;
+}
+
 const Section = styled.section`
   padding-top: 30px;
   @media (min-width: 768px) {
@@ -100,15 +104,12 @@ const Subtitle = styled.h2`
     line-height: 1.41;
   }
 `;
-interface IProps {
-  $scale: number;
-}
-const VideoContainer = styled(motion.div)<IProps>`
+
+const VideoContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   @media (min-width: 768px) {
     margin-top: 100px;
-    transform: ${(props) => `scale(${props.$scale})`};
   }
 `;
 const DescriptionWrap = styled.div``;
@@ -143,17 +144,14 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
   const bannerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({});
   const videoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
-  const [Scale, setScale] = useState(0);
-  useMotionValueEvent(videoScale, "change", (lastest) => {
-    setScale(lastest);
-  });
+
   return (
     <Section>
       <Layout>
         <Title>{translation.title}</Title>
       </Layout>
       <VideoLayout>
-        <VideoContainer ref={bannerRef} $scale={Scale}>
+        <VideoContainer ref={bannerRef} style={{ scale: videoScale }}>
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
         </VideoContainer>
       </VideoLayout>
