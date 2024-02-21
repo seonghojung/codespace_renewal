@@ -73,7 +73,7 @@ const questions: IQuestions = {
       body: `The project starts with an interview to learn about the partner's platform which is then followed by planning, UX strategy, design, design, development, testing, deployment, and maintenance stages, in listed orders. We respect set timeline for each stage of project and report accordingly to maintain quality of the project.`,
     },
     {
-      title: "What aspects differentiate Codespace from other agencies?",
+      title: "What differentiates Codespace from other agencies?",
       body: `Codespace goes beyond being just an agency for development, design, and planning. We continuously contemplate the product-market fit. In fact, we test various services through side projects, allowing us to think in our soon-to-be partners shoes and understand their perspectives. Based on this knowledge, we propose the most essential steps and investments. Our commitment goes beyond publishing and design; we strive for a long-term partnership with our clients' services.`,
     },
     {
