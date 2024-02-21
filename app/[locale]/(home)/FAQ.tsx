@@ -74,7 +74,7 @@ const questions: IQuestions = {
     },
     {
       title: "What differentiates Codespace from other agencies?",
-      body: `Codespace goes beyond being just an agency for development, design, and planning. We continuously contemplate the product-market fit. In fact, we test various services through side projects, allowing us to think in our soon-to-be partners shoes and understand their perspectives. Based on this knowledge, we propose the most essential steps and investments. Our commitment goes beyond publishing and design; we strive for a long-term partnership with our clients' services.`,
+      body: `Codespace goes beyond being just an agency for development, design, and planning. We continuously contemplate the product-market fit. \n\nIn fact, we test various services through side projects, allowing us to think in our soon-to-be partners shoes and understand their perspectives.\n\nBased on this knowledge, we propose the most essential steps and investments.\nOur commitment goes beyond publishing and design; we strive for a long-term partnership with our clients' services.`,
     },
     {
       title: "What is the most important aspect in creating a platform?",
