@@ -3,21 +3,11 @@ import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { css, keyframes, styled } from "styled-components";
 import { Layout } from "./navigation";
+import { ProjectProps } from "@/app/projects";
 interface StyleProp {
   $isView: boolean;
 }
-export interface ProjectProps {
-  src: string;
-  title: string;
-  description: string;
-  categories: string[];
-  date: string;
-  details?: {
-    titles: string[];
-    descriptions: string[];
-    images: string[];
-  };
-}
+
 const fadeIn = keyframes`
     from {
       opacity: 30%;
@@ -158,14 +148,6 @@ const ProjectItems = styled.ul`
     margin: 0 auto;
     justify-content: space-between;
   }
-`;
-const ProjectLayout = styled.div`
-  @media (min-width: 768px) {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-  margin-left: 0px;
-  margin-right: 0px;
 `;
 
 const CategoryItems = ({ categories }: { categories: string[] }) => {
