@@ -3,7 +3,8 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 const DefaultImage = styled(Image)`
   display: block;
   object-fit: cover;
@@ -16,6 +17,14 @@ export const Slide1 = styled(DefaultImage)`
     width: 256px;
     height: 256px;
   }
+  @media (min-width: 1280px) {
+    width: 422px;
+    height: 422px;
+  }
+  @media (min-width: 1920px) {
+    width: 574px;
+    height: 574px;
+  }
 `;
 export const Slide2 = styled(DefaultImage)`
   width: 246px;
@@ -24,6 +33,14 @@ export const Slide2 = styled(DefaultImage)`
     width: 256px;
     height: 205px;
   }
+  @media (min-width: 1280px) {
+    width: 422px;
+    height: 338px;
+  }
+  @media (min-width: 1920px) {
+    width: 574px;
+    height: 460px;
+  }
 `;
 export const Slide3 = styled(DefaultImage)`
   width: 246px;
@@ -31,6 +48,15 @@ export const Slide3 = styled(DefaultImage)`
   @media (min-width: 768px) {
     width: 256px;
     height: 320px;
+  }
+  @media (min-width: 1280px) {
+    width: 422px;
+    height: 527px;
+  }
+
+  @media (min-width: 1920px) {
+    width: 574px;
+    height: 720px;
   }
 `;
 
@@ -70,6 +96,46 @@ const SwiperStyle = styled(Swiper)`
           margin-left: 60px;
         }
       }
+      @media (min-width: 1280px) {
+        &:first-child {
+          margin-left: 0px;
+        }
+        &:not(:first-child) {
+          margin-left: 0px;
+        }
+        padding: 0 32px;
+      }
+      @media (min-width: 1920px) {
+        padding: 0 40px;
+      }
+    }
+  }
+`;
+
+const PrevBtn = styled.button`
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  width: 30%;
+  height: 100%;
+
+  &&& {
+    @media (min-width: 1280px) {
+      cursor: url("/svgs/arrow-left.svg"), auto;
+    }
+  }
+`;
+const NextBtn = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  width: 30%;
+  height: 100%;
+
+  &&& {
+    @media (min-width: 1280px) {
+      cursor: url(/svgs/arrow-right.svg), auto;
     }
   }
 `;
@@ -81,7 +147,9 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
 
   // Prev 버튼에 대한 이벤트 처리
   const prevHoverHandler = () => {
-    setIsPrevHovering(true);
+    if (innerWidth > 1279) {
+      setIsPrevHovering(true);
+    }
   };
 
   const unPrevhoverHandler = () => {
@@ -103,9 +171,10 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
   }, [isPrevHovering]);
 
   // Next 버튼에 대한 이벤트 처리
-
   const nextHoverHandler = () => {
-    setIsNextHovering(true);
+    if (innerWidth > 1279) {
+      setIsNextHovering(true);
+    }
   };
 
   const unNexthoverHandler = () => {
@@ -126,13 +195,20 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
     return () => clearInterval(interval);
   }, [isNextHovering]);
 
+  useEffect(() => {
+    if (innerWidth > 1279) {
+      if (swiperRef.current) {
+        swiperRef.current.allowTouchMove = false;
+      }
+    }
+  }, []);
+
   return (
     <div style={{ position: "relative" }}>
       <SwiperStyle
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
-        spaceBetween={50}
         slidesPerView={"auto"}
         loop
       >
@@ -140,33 +216,8 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
           return <SwiperSlide key={index}>{item}</SwiperSlide>;
         })}
       </SwiperStyle>
-      <button
-        type="button"
-        style={{
-          cursor: "url(/svgs/arrow-left.svg),auto",
-          position: "absolute",
-          top: "0",
-          zIndex: "5",
-          width: "30%",
-          height: "100%",
-        }}
-        onMouseEnter={prevHoverHandler}
-        onMouseLeave={unPrevhoverHandler}
-      ></button>
-      <button
-        type="button"
-        style={{
-          cursor: "url(/svgs/arrow-right.svg),auto",
-          position: "absolute",
-          top: "0",
-          right: "0",
-          zIndex: "5",
-          width: "30%",
-          height: "100%",
-        }}
-        onMouseEnter={nextHoverHandler}
-        onMouseLeave={unNexthoverHandler}
-      ></button>
+      <PrevBtn type="button" onMouseEnter={prevHoverHandler} onMouseLeave={unPrevhoverHandler}></PrevBtn>
+      <NextBtn type="button" onMouseEnter={nextHoverHandler} onMouseLeave={unNexthoverHandler}></NextBtn>
     </div>
   );
 };
