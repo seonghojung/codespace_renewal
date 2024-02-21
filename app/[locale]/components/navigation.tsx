@@ -65,7 +65,9 @@ const MbLogoWrap = styled(Link)`
 `;
 
 const HeaderWrap = styled.header<IHeaderWrap>`
-  position: sticky;
+  width: 100%;
+
+  position: fixed;
   top: 0;
   z-index: 11;
   opacity: ${(props) => (props.$scrollDirection === "up" || props.$open ? 1 : 0)};
@@ -154,6 +156,10 @@ const HeaderBurger = styled.div`
   position: relative;
   width: 40px;
   height: 40px;
+
+  &.open {
+    right: 15px;
+  }
 `;
 const BurgerTop = styled.div`
   position: absolute;
@@ -171,6 +177,10 @@ const BurgerTop = styled.div`
     transform: rotate(45deg);
     top: 19px;
     transition-delay: 0s, 0s, 0.22s;
+  }
+
+  &.hasScrollbar {
+    right: 15px;
   }
 `;
 const BurgerBottom = styled.div`
@@ -191,6 +201,9 @@ const BurgerBottom = styled.div`
     top: 19px;
     transition-delay: 0s, 0s, 0.22s;
   }
+  &.hasScrollbar {
+    right: 15px;
+  }
 `;
 
 // component
@@ -210,6 +223,7 @@ export default function Navigation({
 }) {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const hasScrollbar = useDetectScrollbar();
 
   const openSlideBarHandler = (isOpened: boolean) => {
     setIsOpen(isOpened);
@@ -252,6 +266,7 @@ export default function Navigation({
             </MbLogoWrap>
             <HeaderMenu>
               <HeaderBurger
+                className={hasScrollbar && isOpen ? "open" : ""}
                 onClick={() => {
                   openSlideBarHandler(!isOpen);
                 }}

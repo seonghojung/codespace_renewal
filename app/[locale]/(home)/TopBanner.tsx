@@ -4,14 +4,20 @@ import styled from "styled-components";
 import { Layout } from "../components/navigation";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import { ITranslation } from "./page";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
-import { MotionValue, motion, motionValue, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
 const Section = styled.section`
-  padding-top: 30px;
+  padding-top: 124px;
   @media (min-width: 768px) {
-    padding-top: 60px;
+    padding-top: 170px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 256px;
+  }
+  @media (min-width: 1920px) {
+    padding-top: 300px;
   }
 `;
 const Title = styled.h1`
@@ -43,14 +49,78 @@ const Title = styled.h1`
   }
 `;
 
+interface IProps {
+  $scale: number;
+}
+const VideoContainer = styled(motion.div)<IProps>`
+  aspect-ratio: 1;
+
+  display: flex;
+  justify-content: center;
+  @media (min-width: 768px) {
+    aspect-ratio: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 80px);
+    margin-top: 100px;
+    transform: ${(props) => `scale(${props.$scale})`};
+  }
+  @media (min-width: 1280px) {
+    width: 1130px;
+  }
+
+  @media (min-width: 1300px) {
+    width: 81%;
+    min-width: 1130px;
+    max-width: 1620px;
+  }
+  @media (min-width: 1440px) {
+    width: 79.8%;
+  }
+
+  @media (min-width: 1920px) {
+    width: 88.3%;
+  }
+`;
+const DescriptionWrap = styled.div`
+  margin-top: 60px;
+
+  @media (min-width: 768px) {
+    margin-top: 80px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 111px;
+  }
+  @media (min-width: 1920px) {
+    margin-top: 140px;
+  }
+`;
+
+const VideoLayout = styled.div`
+  margin-top: 80px;
+  @media (min-width: 768px) {
+    margin-top: 100px;
+    br {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 108px;
+  }
+
+  @media (min-width: 1920px) {
+    margin-top: 100px;
+  }
+`;
+
 const MainVideo = styled.video`
   width: 100%;
-  aspect-ratio: 1;
   object-fit: cover;
   cursor: pointer;
   display: block;
   @media (min-width: 768px) {
-    aspect-ratio: auto;
   }
 `;
 
@@ -100,31 +170,6 @@ const Subtitle = styled.h2`
     line-height: 1.41;
   }
 `;
-interface IProps {
-  $scale: number;
-}
-const VideoContainer = styled(motion.div)<IProps>`
-  display: flex;
-  justify-content: center;
-  @media (min-width: 768px) {
-    margin-top: 100px;
-    transform: ${(props) => `scale(${props.$scale})`};
-  }
-`;
-const DescriptionWrap = styled.div``;
-
-const VideoLayout = styled.div`
-  margin-top: 40px;
-  width: 100%;
-  @media (min-width: 768px) {
-    width: 95%;
-    max-width: 1536px;
-    margin: 0 auto;
-    br {
-      display: block;
-    }
-  }
-`;
 
 const LinkWrap = styled.div`
   margin-top: 27px;
@@ -140,13 +185,39 @@ const LinkWrap = styled.div`
 `;
 
 const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
+  const [Scale, setScale] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const bannerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({});
-  const videoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
-  const [Scale, setScale] = useState(0);
+
+  let scaleRange = [1.05463, 1.1];
+
+  if (windowWidth > 1919) {
+    scaleRange = [1.02083, 1.1];
+  } else if (windowWidth > 1279) {
+    scaleRange = [1.03349, 1.1];
+  }
+
+  const videoScale = useTransform(scrollY, [0, 300], scaleRange);
   useMotionValueEvent(videoScale, "change", (lastest) => {
-    setScale(lastest);
+    if (windowWidth > 767) {
+      setScale(lastest);
+    }
   });
+
+  useEffect(() => {
+    const innerWidth = window.innerWidth;
+    setWindowWidth(innerWidth);
+
+    if (windowWidth > 1919) {
+      setScale(1.02083);
+    } else if (windowWidth > 1279) {
+      setScale(1.03349);
+    } else {
+      setScale(1.05463);
+    }
+  }, []);
+
   return (
     <Section>
       <Layout>
