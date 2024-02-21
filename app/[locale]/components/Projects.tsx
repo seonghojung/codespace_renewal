@@ -1,23 +1,16 @@
+"use client";
+
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { css, keyframes, styled } from "styled-components";
 import { Layout } from "./navigation";
+import { ProjectProps } from "@/app/projects";
+import Image from "next/image";
 interface StyleProp {
   $isView: boolean;
 }
-export interface ProjectProps {
-  src: string;
-  title: string;
-  description: string;
-  categories: string[];
-  date: string;
-  details?: {
-    titles: string[];
-    descriptions: string[];
-    images: string[];
-  };
-}
+
 const fadeIn = keyframes`
     from {
       opacity: 30%;
@@ -32,16 +25,22 @@ const fadeIn = keyframes`
 const CategoryContainer = styled.ul`
   opacity: 0;
   transition: opacity 0.5s ease;
-  margin-top: 6px;
+  margin-top: 4px;
+
+  @media (min-width: 1280px) {
+    margin-top: 12px;
+  }
+  @media (min-width: 1920px) {
+    margin-top: 10px;
+  }
 `;
 const Container = styled.li`
-  padding-bottom: 60px;
   ${CategoryContainer} {
     opacity: 1;
   }
+
+  padding-bottom: 60px;
   @media (min-width: 768px) {
-    padding: 40px 0;
-    /* margin: 0 35.5px; */
     ${CategoryContainer} {
       opacity: 0;
     }
@@ -50,21 +49,81 @@ const Container = styled.li`
         opacity: 1;
       }
     }
+    padding-bottom: 0px;
+  }
+  @media (min-width: 1280px) {
+    padding-left: 57px;
+    padding-right: 57px;
+  }
+  @media (min-width: 1920px) {
+    padding-left: 63px;
+    padding-right: 63px;
   }
 `;
 const ContainerA = styled(Container)`
   @media (min-width: 768px) {
-    width: calc(50% - 25px);
+    width: calc(50% - 35.5px);
+    margin-right: 35.5px;
+    padding-top: 27px;
+  }
+  @media (min-width: 1280px) {
+    width: calc(50%);
+    padding-top: 167px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  @media (min-width: 1920px) {
+    padding-top: 200px;
+    padding-bottom: 177px;
   }
 `;
 const ContainerB = styled(ContainerA)`
   @media (min-width: 768px) {
-    padding-top: 160px;
+    margin-left: 35.5px;
+    margin-right: 0px;
+    padding-top: 0px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 98px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  @media (min-width: 1920px) {
+    padding-top: 140px;
+    padding-bottom: 62px;
   }
 `;
 const ContainerC = styled(Container)`
   @media (min-width: 768px) {
-    width: 80.1%;
+    width: 88%;
+    padding-top: 148px;
+    padding-bottom: 158px;
+  }
+  @media (min-width: 1280px) {
+    width: calc(80% + 114px);
+    padding-top: 151px;
+    padding-bottom: 53px;
+  }
+  @media (min-width: 1920px) {
+    width: calc(81.3% + 126px);
+    padding-top: 60px;
+    padding-bottom: 62px;
+  }
+`;
+const ContainerAprime = styled(ContainerA)`
+  margin-left: 35.5px;
+  margin-right: 0px;
+  @media (min-width: 1280px) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+`;
+const ContainerBprime = styled(ContainerB)`
+  margin-left: 0px;
+  margin-right: 35.5px;
+  @media (min-width: 1280px) {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 `;
 
@@ -73,12 +132,19 @@ const floatingUp = css`
 `;
 
 const CategoryItem = styled.li`
-  font-size: 16px;
+  font-size: 14px;
   display: inline;
   list-style: none outside none;
   position: relative;
   color: #8f99aa;
-
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
   &:not(:last-child) {
     position: relative;
     padding-right: 15px;
@@ -109,7 +175,9 @@ const SubProjectContainer = styled.div<StyleProp>`
 `;
 const VideoWrap = styled.div`
   position: relative;
-  &:hover {
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 const ProjectVideo = styled.video`
@@ -128,44 +196,65 @@ const ProjectVideo = styled.video`
   }
 `;
 const InfoWrap = styled.div`
-  margin-top: 12px;
-  padding-left: 10px;
+  margin-top: 16px;
+  padding-left: 24px;
   @media (min-width: 768px) {
     padding-left: 0px;
   }
+  @media (min-width: 1280px) {
+    margin-top: 20px;
+  }
 `;
 const Title = styled.p`
-  font-size: 30px;
+  font-size: 20px;
+  line-height: 25px;
   font-weight: 500;
   color: #000;
+
+  @media (min-width: 1280px) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 36px;
+    line-height: 43.2px;
+  }
 `;
 
 const Description = styled.p`
-  margin-top: 9px;
-  font-size: 16px;
+  margin-top: 4px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.31;
+  line-height: 19px;
   color: rgba(0, 0, 0, 0.8);
-  letter-spacing: -0.2px;
+
+  @media (min-width: 1280px) {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+  @media (min-width: 1920px) {
+    margin-top: 10px;
+    font-size: 18px;
+  }
 `;
+
 const ProjectItems = styled.ul`
   width: 100%;
   @media (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
-    max-width: 1536px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1244px;
     margin: 0 auto;
-    justify-content: space-between;
+    padding-left: 0px;
+    padding-right: 0px;
   }
-`;
-const ProjectLayout = styled.div`
-  @media (min-width: 768px) {
-    margin-left: 40px;
-    margin-right: 40px;
+  @media (min-width: 1920px) {
+    max-width: 1662px;
   }
-  margin-left: 0px;
-  margin-right: 0px;
 `;
 
 const CategoryItems = ({ categories }: { categories: string[] }) => {
@@ -192,20 +281,30 @@ const ProjectItem = ({ index, children }: { index: number; children: React.React
   } else if (isCaseC) {
     return <ContainerC>{children}</ContainerC>;
   } else if (isCaseD) {
-    return <ContainerB>{children}</ContainerB>;
+    return <ContainerBprime>{children}</ContainerBprime>;
   } else if (isCaseE) {
-    return <ContainerA>{children}</ContainerA>;
+    return <ContainerAprime>{children}</ContainerAprime>;
   } else if (isCaseF) {
     return <ContainerC style={{ marginLeft: "auto" }}>{children}</ContainerC>;
   }
 };
 
 //@TODO: 상세페이지들 워딩 다 나오면 href 조치 @Thor
-const ProjectCard = ({ src: { src, title, description, categories }, href = "airkid" }: { src: ProjectProps; href?: string }) => {
+const ProjectCard = ({ src: { src, src1280, title, description, categories }, href = "airkid" }: { src: ProjectProps; href?: string }) => {
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 1280);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const ref = useRef<HTMLVideoElement>(null);
 
@@ -226,7 +325,8 @@ const ProjectCard = ({ src: { src, title, description, categories }, href = "air
     <Link href={`/project/${href}`}>
       <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
         <VideoWrap>
-          <ProjectVideo src={`/videos/${src}.mp4`} ref={ref} muted loop preload="" poster={`/images/thumbnail/${src}.png`} />
+          {/* <ProjectVideo src={`/videos/${src}.mp4`} ref={ref} muted loop preload="" poster={`/images/thumbnail/${src}.png`} /> */}
+          <Image src={isWideScreen ? src1280 : src} alt="" style={{ display: "block" }} />
         </VideoWrap>
         <InfoWrap>
           <Title>{title}</Title>
