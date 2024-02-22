@@ -7,8 +7,11 @@ import largePc from "../public/images/projectComponents/pc3_rectangle_thumbnail_
 export interface ProjectProps {
   isMainPortfolio: boolean; // 대표 포트폴리오 여부
   size: "small" | "medium" | "large";
-  src: StaticImageData;
-  src1280: StaticImageData;
+  videoSrc: string;
+  image: {
+    src: StaticImageData;
+    src1280: StaticImageData;
+  };
   title: string;
   description: string;
   categories: string[];
@@ -29,8 +32,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "KIA EV6 Unplugged",
       description: "KIA EV6 Unplugged Experience Center Introduction & Reservation Responsive Website",
       categories: ["UI/UX", "Web", "Enterprise"],
@@ -54,8 +60,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Dr.full",
       description: "Companion Plant Management & Community Platform",
       categories: ["UI/UX", "Web", "App", "Community"],
@@ -79,8 +88,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "UFO Coffee",
       description: "Coffee Roasting Brand Website with CMS design",
       categories: ["UI/UX", "Web", "CMS", "Ecommerce"],
@@ -100,8 +112,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "+X+",
       description: "Regional Daily Chat-base Community Platform",
       categories: ["UI/UX", "App", "CMS", "Startup"],
@@ -125,8 +140,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "TetherMax",
       description: "Cryptocurrency Futures Transaction Fee Payback Service",
       categories: ["Web", "CMS", "Fintech"],
@@ -150,8 +168,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Fuleaf",
       description: "Plant Encyclopedia & Curation Service",
       categories: ["UI/UX", "Web", "CMS", "Startup"],
@@ -175,8 +196,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Richgo",
       description: "Real Estate Platform where Real Estate Information is updated in real time",
       categories: ["UI/UX", "App", "O2O"],
@@ -200,8 +224,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Kick-off",
       description: "Global Outsourcing Matching Platform",
       categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
@@ -225,8 +252,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Chart-in",
       description: "Music Platform that Matches Musicians with Experts",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
@@ -250,8 +280,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "MarkHoly",
       description: "CTA-centered Responsive Website with Detailed Product Information",
       categories: ["UI/UX", "Web", "Product"],
@@ -275,8 +308,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Find Nomusa",
       description: "Labor Attorney Matching & Consulting Platform",
       categories: ["UI/UX", "Web", "CMS", "O2O"],
@@ -300,8 +336,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "AIRKID",
       description: "Air Kid, Helmet Designed for Kids, Introduction Responsive Website",
       categories: ["UI/UX", "Web", "3D", "Enterprise"],
@@ -325,8 +364,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "DOOSIL",
       description: "Real Estate Interior Brokerage O2O Platform",
       categories: ["UI/UX", "Web", "App", "O2O"],
@@ -350,8 +392,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "City Hoppers",
       description: "Travel Magazine & Community Platform",
       categories: ["Web", "CMS", "Magazine", "O2O"],
@@ -367,8 +412,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "3.3 DESIGN SPACE",
       description: "Interior Company Introduction & Quote Responsive Website",
       categories: ["UI/UX", "Web", "Publishing", "Enterprise"],
@@ -384,8 +432,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Nine Ark",
       description: "Kakao’s Mobile Game Developers Introduction Responsive Website",
       categories: ["UI/UX", "Web", "Publishing"],
@@ -409,8 +460,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "BTBG",
       description: "Luxury Vehicle Export Company Introduction Responsive Website",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
@@ -434,8 +488,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Second White",
       description: "Product Design Agency Introduction Responsive Website",
       categories: ["Web", "CMS", "Enterprise"],
@@ -451,8 +508,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Aware",
       categories: ["Web", "CMS", "Finance", "Magazine"],
       description: "Finance/Investment Journal Magazine Responsive Website",
@@ -462,8 +522,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Digital MBTI Curation",
       categories: ["Web", "App", "CMS", "MBTI"],
       description: "Digital New Way of Life MBTI Test",
@@ -473,8 +536,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Meta Character",
       categories: ["Web", "App", "CMS", "Scraping", "B2B"],
       description: "Global Character Content Marketing Servive",
@@ -484,8 +550,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Ubiocean",
       categories: ["UI/UX", "Web", "App", "CMS", "B2C"],
       description: "Water Sports Companies Introduction Responsive Website based on Google Maps",
@@ -495,8 +564,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Invenconn",
       categories: ["Web", "App", "CMS", "Ecommerce", "B2B"],
       description: "Inter-company Used Goods Trading Platform",
@@ -506,8 +578,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Aliquor Plus",
       categories: ["UI/UX", "Web", "CMS", "Video"],
       description: "Baking Class Online Lecture Platform",
@@ -517,8 +592,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Beum",
       categories: ["Web", "App", "CMS", "Video"],
       description: "Online Lecture & Crowdfunding Platform",
@@ -528,8 +606,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Gradation",
       categories: ["UI/UX", "Web", "CMS", "University"],
       description: "Department of Visual Design Graduation Work Exhibition Responsive Website",
@@ -539,8 +620,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Contents Garden",
       categories: ["UI/UX", "Web", "Publishing", "Magazine"],
       description: "Online Magazine Subscription Responsive Web Publishing",
@@ -550,8 +634,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Cell My Brain",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
       description: "Lawyers Matching Platform specialized for Property Rights",
@@ -561,8 +648,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Aniverything",
       categories: ["Web", "CMS", "Archive", "Startup"],
       description: "Animation Information Sharing Community Responsive Website",
@@ -572,8 +662,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Coreana Curation",
       categories: ["Web", "App", "CMS", "MBTI"],
       description: "Coreana Product Curation & MBTI Test",
@@ -583,8 +676,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "HYID",
       categories: ["UI/UX", "Web", "CMS", "University"],
       description: "Department of Industrial Design Graduation Work Exhibition Responsive Website",
@@ -594,8 +690,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "IZE U VIDEO",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
       description: "Video Production Company Introduction Responsive Website",
@@ -605,8 +704,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "nJobs",
       categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
       description: "Recruitment Platform Specialized in IT industry",
@@ -616,8 +718,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Ahha Asset",
       categories: ["Web", "CMS", "Enterprise"],
       description: "Asset Management Experts Introduction Responsive Website",
@@ -627,8 +732,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "The Lead Law",
       categories: ["Web", "CMS", "Enterprise"],
       description: "Law Firm Introduction Responsive Website",
@@ -638,8 +746,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Shortudy",
       categories: ["Web", "App", "CMS", "Startup"],
       description: "Problem Solving & Editing Platform",
@@ -649,8 +760,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Refeed",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
       description: "BIO Company Introduction Responsive Website",
@@ -660,8 +774,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "Soom",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
       description: "Medical Device Company Introduction Responsive Website",
@@ -671,8 +788,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "The CI Mall",
       categories: ["Web", "CMS", "Ecommerce"],
       description: "Inter Company Mall for Corporate Welfare Responsive Website",
@@ -682,8 +802,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "The CI Group",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
       description: "CI Group Introduction Responsive Website",
@@ -693,8 +816,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "Next Challenge",
       categories: ["Web", "CMS", "Enterprise", "Startup"],
       description: "Global Accelerater Introduction Responsive Website",
@@ -704,8 +830,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "Mitdembauhaus",
       categories: ["Web", "CMS", "Ecommerce", "B2B"],
       description: "Furniture & Lighting Company Imports from Germany Introduction & Purchasing Responsive Website",
@@ -717,8 +846,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "KIA EV6 언플러그드",
       description: "기아 EV6 언플러그드 체험관 소개 예약 반응형 웹",
       categories: ["UI/UX", "Web", "Enterprise"],
@@ -742,8 +874,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "풀박사",
       description: "반려식물 관리 및 커뮤니티 플랫폼",
       categories: ["UI/UX", "Web", "App", "Community"],
@@ -763,8 +898,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "UFO Coffee",
       description: "커피 로스팅 브랜드 쇼핑몰 및 CMS 설계",
       categories: ["UI/UX", "Web", "CMS", "Ecommerce"],
@@ -780,8 +918,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "+X+",
       description: "지역간 데일리 채팅 기반 커뮤니티 플랫폼",
       categories: ["UI/UX", "App", "CMS", "Startup"],
@@ -797,8 +938,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "테더맥스",
       description: "코인 선물 거래수수료 페이백 서비스",
       categories: ["Web", "CMS", "Fintech"],
@@ -823,8 +967,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "플립 [Fuleaf]",
       description: "식물 도감 및 큐레이션 서비스",
       categories: ["UI/UX", "Web", "CMS", "Startup"],
@@ -844,8 +991,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "리치고",
       description: "부동산 정보를 실시간 데이터로 확인할 수 있는 부동산데이터 플랫폼",
       categories: ["UI/UX", "App", "O2O"],
@@ -869,8 +1019,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "킥오프",
       description: "글로벌 외주 매칭 플랫폼",
       categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
@@ -894,8 +1047,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "차트인",
       description: "뮤지션과 전문가를 매칭해주는 음악 플랫폼",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
@@ -915,8 +1071,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "마크홀리",
       description: "제품의 상세 내용을 확인할 수 있는 CTA 중심 반응형 웹",
       categories: ["UI/UX", "Web", "Product"],
@@ -932,8 +1091,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "구해줘 노무사",
       description: "노무사 매칭 및 상담 플랫폼",
       categories: ["UI/UX", "Web", "CMS", "O2O"],
@@ -957,8 +1119,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "AIRKID",
       description: "어린이용 머리 보호 헬맷, 에어키드 소개 반응형 웹",
       categories: ["UI/UX", "Web", "3D", "Enterprise"],
@@ -982,8 +1147,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "DOOSIL",
       description: "부동산 인테리어 중개 O2O 플랫폼",
       categories: ["UI/UX", "Web", "App", "O2O"],
@@ -1007,8 +1175,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "시티호퍼스",
       description: "여행 매거진 및 커뮤니티 플랫폼",
       categories: ["Web", "CMS", "Magazine", "O2O"],
@@ -1024,8 +1195,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "3.3 DESIGN SPACE",
       description: "인테리어 회사 소개 및 견적 반응형 웹",
       categories: ["UI/UX", "Web", "Publishing", "Enterprise"],
@@ -1041,8 +1215,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: true,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "나인아크",
       description: "카카오 산하 모바일 게임 개발사 소개 반응형 웹",
       categories: ["UI/UX", "Web", "Publishing"],
@@ -1066,8 +1243,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: true,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "BTBG",
       description: "고급 차량 수출 회사 소개 반응형 웹",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
@@ -1083,8 +1263,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: true,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "세컨드 화이트",
       description: "프로덕트 디자인 에이전시 회사 소개 반응형 웹",
       categories: ["Web", "CMS", "Enterprise"],
@@ -1100,8 +1283,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "어웨어",
       categories: ["Web", "CMS", "Finance", "Magazine"],
       description: "금융/투자 저널 매거진 반응형 웹사이트",
@@ -1111,8 +1297,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "디지털 갓생 살기",
       categories: ["Web", "App", "CMS", "MBTI"],
       description: "디지털 갓생 살기 MBTI 테스트",
@@ -1122,8 +1311,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "메타 캐릭터",
       categories: ["Web", "App", "CMS", "Scraping", "B2B"],
       description: "글로벌 캐릭터 콘텐츠 마케팅 서비스",
@@ -1133,8 +1325,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "유비오션",
       categories: ["UI/UX", "Web", "App", "CMS", "B2C"],
       description: "구글맵 기반 수상 레저 업체 소개 반응형 웹사이트",
@@ -1144,8 +1339,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "인벤컨",
       categories: ["Web", "App", "CMS", "Ecommerce", "B2B"],
       description: "기업간 중고 물품 거래 플랫폼",
@@ -1155,8 +1353,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "올리커 플러스",
       categories: ["UI/UX", "Web", "CMS", "Video"],
       description: "베이킹 클래스 온라인 강의 플랫폼",
@@ -1166,8 +1367,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "배움",
       categories: ["Web", "App", "CMS", "Video"],
       description: "온라인 강의 및 크라우드 펀딩 플랫폼",
@@ -1177,8 +1381,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "그라데이션",
       categories: ["UI/UX", "Web", "CMS", "University"],
       description: "대학교 시각디자인과 졸업 작품 전시 반응형 웹사이트",
@@ -1188,8 +1395,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "콘텐츠 가든",
       categories: ["UI/UX", "Web", "Publishing", "Magazine"],
       description: "온라인 매거진 구독 반응형 웹 퍼블리싱",
@@ -1199,8 +1409,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "셀 마이 브레인",
       categories: ["UI/UX", "Web", "App", "CMS", "O2O"],
       description: "지식재산권 관련 변호사 매칭 플랫폼",
@@ -1210,8 +1423,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "애니브리띵",
       categories: ["Web", "CMS", "Archive", "Startup"],
       description: "애니메이션 정보 공유 커뮤니티 반응형 웹사이트",
@@ -1221,8 +1437,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "코리아나 큐레이션",
       categories: ["Web", "App", "CMS", "MBTI"],
       description: "코리아나 제품 큐레이션 MBTI 테스트",
@@ -1232,8 +1451,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "HYID",
       categories: ["UI/UX", "Web", "CMS", "University"],
       description: "대학교 산업디자인과 학생들의 졸업 작품 전시 반응형 웹사이트",
@@ -1243,8 +1465,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "아이즈 유 비디오",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
       description: "영상 제작 회사 소개 반응형 웹사이트",
@@ -1254,8 +1479,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "엔잡스",
       categories: ["UI/UX", "Web", "App", "CMS", "Startup"],
       description: "IT 분야 특화 채용 플랫폼",
@@ -1265,8 +1493,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "아하 에셋 자산운용",
       categories: ["Web", "CMS", "Enterprise"],
       description: "자산운용사의 소개 반응형 웹사이트",
@@ -1276,8 +1507,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "더 리드 법률사무소",
       categories: ["Web", "CMS", "Enterprise"],
       description: "법무법인의 소개 반응형 웹사이트",
@@ -1287,8 +1521,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "숏터디",
       categories: ["Web", "App", "CMS", "Startup"],
       description: "시험 문제 풀이 및 첨삭 플랫폼",
@@ -1298,8 +1535,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "뤼피드",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
       description: "바이오 회사 소개 반응형 웹사이트",
@@ -1309,8 +1549,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "숨",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
       description: "의료기기 회사 소개 반응형 웹사이트",
@@ -1320,8 +1563,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "씨아이 그룹 자사몰",
       categories: ["Web", "CMS", "Ecommerce"],
       description: "기업 내부 복지를 위한 자사몰 반응형 웹사이트",
@@ -1331,8 +1577,11 @@ export const Projects: IProjects = {
     {
       size: "medium",
       isMainPortfolio: false,
-      src: medium,
-      src1280: medium,
+      videoSrc: "thumbnail_medium_fake.mp4",
+      image: {
+        src: medium,
+        src1280: medium,
+      },
       title: "씨아이 그룹 자사웹",
       categories: ["Web", "CMS", "Publishing", "Enterprise"],
       description: "씨아이 그룹 소개 반응형 웹사이트",
@@ -1342,8 +1591,11 @@ export const Projects: IProjects = {
     {
       size: "small",
       isMainPortfolio: false,
-      src: small,
-      src1280: small,
+      videoSrc: "thumbnail_small_fake.mp4",
+      image: {
+        src: small,
+        src1280: small,
+      },
       title: "넥스트 챌린지",
       categories: ["Web", "CMS", "Enterprise", "Startup"],
       description: "글로벌 액셀러레이터 소개 반응형 웹사이트",
@@ -1353,8 +1605,11 @@ export const Projects: IProjects = {
     {
       size: "large",
       isMainPortfolio: false,
-      src: large,
-      src1280: largePc,
+      videoSrc: "thumbnail_large_fake.mp4",
+      image: {
+        src: large,
+        src1280: largePc,
+      },
       title: "미뗌바우하우스",
       categories: ["Web", "CMS", "Ecommerce", "B2B"],
       description: "독일 직수입 조명 가구 소개 및 판매 반응형 웹사이트",

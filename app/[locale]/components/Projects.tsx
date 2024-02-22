@@ -188,13 +188,6 @@ const VideoWrap = styled.div`
     width: 100%;
     height: 100%;
   }
-`;
-const ProjectVideo = styled.video`
-  aspect-ratio: 1.777777777778;
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  cursor: pointer;
 
   @media (min-width: 768px) {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -203,6 +196,17 @@ const ProjectVideo = styled.video`
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     }
   }
+`;
+const ProjectVideo = styled.video`
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
 `;
 const InfoWrap = styled.div`
   margin-top: 16px;
@@ -265,6 +269,12 @@ const ProjectItems = styled.ul`
     max-width: 1662px;
   }
 `;
+const ThumbnailImage = styled(Image)`
+  display: block;
+  &:hover {
+    opacity: 0;
+  }
+`;
 
 const CategoryItems = ({ categories }: { categories: string[] }) => {
   return (
@@ -299,7 +309,19 @@ const ProjectItem = ({ index, children }: { index: number; children: React.React
 };
 
 //@TODO: 상세페이지들 워딩 다 나오면 href 조치 @Thor
-const ProjectCard = ({ src: { src, src1280, title, description, categories }, href = "airkid" }: { src: ProjectProps; href?: string }) => {
+const ProjectCard = ({
+  src: {
+    videoSrc,
+    image: { src, src1280 },
+    title,
+    description,
+    categories,
+  },
+  href = "airkid",
+}: {
+  src: ProjectProps;
+  href?: string;
+}) => {
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -335,13 +357,8 @@ const ProjectCard = ({ src: { src, src1280, title, description, categories }, hr
     <Link href={`/project/${href}`}>
       <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
         <VideoWrap>
-          {/* <ProjectVideo src={`/videos/${src}.mp4`} ref={ref} muted loop preload="" poster={`/images/thumbnail/${src}.png`} /> */}
-          <Image
-            src={isWideScreen ? src1280 : src}
-            alt=""
-            style={{ display: "block" }}
-            sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px"
-          />
+          <ProjectVideo src={`/videos/projectComponents/${videoSrc}`} ref={ref} muted loop preload="" />
+          <ThumbnailImage src={isWideScreen ? src1280 : src} alt="" sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px" />
         </VideoWrap>
         <InfoWrap>
           <Title>{title}</Title>
