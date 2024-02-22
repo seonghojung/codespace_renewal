@@ -358,7 +358,7 @@ const ProjectCard = ({
     <Link href={`/project/${href}`}>
       <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
         <VideoWrap>
-          <ProjectVideo src={`/videos/projectComponents/${videoSrc}`} ref={ref} muted loop preload="" />
+          {isWideScreen && <ProjectVideo src={`/videos/projectComponents/${videoSrc}`} ref={ref} muted loop preload="" />}
           <ThumbnailImage src={isWideScreen ? src1280 : src} alt="" sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px" />
         </VideoWrap>
         <InfoWrap>

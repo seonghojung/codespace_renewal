@@ -181,21 +181,21 @@ const LinkWrap = styled.div`
 `;
 
 const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
-  const [Scale, setScale] = useState(0);
+  const [Scale, setScale] = useState(1);
   const [windowWidth, setWindowWidth] = useState(0);
   const bannerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({});
 
   const videoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
+  useEffect(() => {
+    const innerWidth = window.innerWidth;
+    setWindowWidth(innerWidth);
+  }, []);
   useMotionValueEvent(videoScale, "change", (lastest) => {
     if (windowWidth > 767) {
       setScale(lastest);
     }
   });
-  useEffect(() => {
-    const innerWidth = window.innerWidth;
-    setWindowWidth(innerWidth);
-  }, []);
 
   return (
     <Section>
