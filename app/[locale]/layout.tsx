@@ -19,6 +19,7 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
   // i18n footer
   const t = useTranslations("Footer");
   const commonT = useTranslations("Common");
+
   const localeOptions = locales.map((cur) => (
     <option key={cur} value={cur}>
       {t("LocaleSwitcher.locale", { locale: cur })}
@@ -33,6 +34,25 @@ export default function LocaleLayout({ children, params: { locale } }: { childre
   const localeAddressURL = commonT("AddressURL");
   return (
     <html lang={locale}>
+      <head>
+        <link rel={"alternate"} href={`domain.com/${locale}`} hrefLang={locale}></link>
+        <meta property="og:type" content="website" />
+
+        {/*TODO: 대표 url 변경 */}
+        <meta property="og:url" content="http://localhost:8000" />
+        <meta property="og:site_name" content={commonT("Metadata.title")} />
+        <meta property="og:title" content={commonT("Metadata.title")} />
+        <meta property="og:description" content={commonT("Metadata.description")} />
+        <meta property="og:image" content="/og_codespace.jpg" />
+        <meta property="twitter:card" content={commonT("Metadata.description")} />
+        <meta property="twitter:title" content={commonT("Metadata.title")} />
+        <meta property="twitter:description" content={commonT("Metadata.description")} />
+        <meta property="twitter:image" content="/og_codespace.jpg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png" />
+        <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
+      </head>
       <body>
         <StyledComponentsRegistry>
           <Navigation

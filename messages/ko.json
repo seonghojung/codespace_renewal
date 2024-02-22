@@ -83,6 +83,7 @@
   "Common": {
     "AddressURL": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128/address/14150979.9785491,4507188.389424,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20128,new?searchType=address&isCorrectAnswer=true&c=15.00,0,0,0,dh",
     "Metadata": {
+      "title": "코드스페이스",
       "template": "코드스페이스 | %s ",
       "default": "코드스페이스 | 상상하는 서비스를 현실로 만들어내는 혁신적인 기술 파트너",
       "description": "코드스페이스 - 세상을 바꾸는 당신의 아이디어를 놀라운 수준으로 끌어올립니다. 현실적이고 효과적이며 대중적인 서비스를 제작하고 성장하세요"

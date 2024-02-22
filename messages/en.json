@@ -83,6 +83,7 @@
   "Common": {
     "AddressURL": "https://www.google.co.kr/maps/search/128+Beobwon-ro,+Songpa-gu,+Seoul,+05854,+Republic+of+Korea?hl=ko&entry=ttu",
     "Metadata": {
+      "title": "Codespace",
       "template": "Codespace | %s ",
       "default": "Codespace | An Innovative Partner who transforms your immagination into reality",
       "description": "Codespace - We will elevate your brilliant ideas to an extraordinary level with practical, effective, and popular services."
