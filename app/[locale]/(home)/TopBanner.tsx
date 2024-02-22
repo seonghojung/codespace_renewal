@@ -49,10 +49,7 @@ const Title = styled.h1`
   }
 `;
 
-interface IProps {
-  $scale: number;
-}
-const VideoContainer = styled(motion.div)<IProps>`
+const VideoContainer = styled(motion.div)`
   aspect-ratio: 1;
 
   display: flex;
@@ -63,7 +60,6 @@ const VideoContainer = styled(motion.div)<IProps>`
     margin-right: auto;
     width: calc(100% - 80px);
     margin-top: 100px;
-    transform: ${(props) => `scale(${props.$scale})`};
   }
   @media (min-width: 1280px) {
     width: 1130px;
@@ -190,32 +186,15 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
   const bannerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({});
 
-  let scaleRange = [1.05463, 1.1];
-
-  if (windowWidth > 1919) {
-    scaleRange = [1.02083, 1.1];
-  } else if (windowWidth > 1279) {
-    scaleRange = [1.03349, 1.1];
-  }
-
-  const videoScale = useTransform(scrollY, [0, 300], scaleRange);
+  const videoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
   useMotionValueEvent(videoScale, "change", (lastest) => {
     if (windowWidth > 767) {
       setScale(lastest);
     }
   });
-
   useEffect(() => {
     const innerWidth = window.innerWidth;
     setWindowWidth(innerWidth);
-
-    if (windowWidth > 1919) {
-      setScale(1.02083);
-    } else if (windowWidth > 1279) {
-      setScale(1.03349);
-    } else {
-      setScale(1.05463);
-    }
   }, []);
 
   return (
@@ -224,7 +203,7 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
         <Title>{translation.title}</Title>
       </Layout>
       <VideoLayout>
-        <VideoContainer ref={bannerRef} $scale={Scale}>
+        <VideoContainer ref={bannerRef} style={{ transform: `scale(${Scale})` }}>
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
         </VideoContainer>
       </VideoLayout>
