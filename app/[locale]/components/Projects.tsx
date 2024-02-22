@@ -111,8 +111,12 @@ const ContainerC = styled(Container)`
   }
 `;
 const ContainerAprime = styled(ContainerA)`
-  margin-left: 35.5px;
+  margin-left: 0px;
   margin-right: 0px;
+  @media (min-width: 768px) {
+    margin-left: 35.5px;
+    margin-right: 0px;
+  }
   @media (min-width: 1280px) {
     margin-left: 0px;
     margin-right: 0px;
@@ -120,7 +124,12 @@ const ContainerAprime = styled(ContainerA)`
 `;
 const ContainerBprime = styled(ContainerB)`
   margin-left: 0px;
-  margin-right: 35.5px;
+  margin-right: 0px;
+  @media (min-width: 768px) {
+    margin-left: 0px;
+    margin-right: 35.5px;
+  }
+
   @media (min-width: 1280px) {
     margin-left: 0px;
     margin-right: 0px;
@@ -295,11 +304,12 @@ const ProjectCard = ({ src: { src, src1280, title, description, categories }, hr
     threshold: 0.2,
     triggerOnce: true,
   });
-  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
+  const [isWideScreen, setIsWideScreen] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth >= 1280);
     };
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -326,7 +336,12 @@ const ProjectCard = ({ src: { src, src1280, title, description, categories }, hr
       <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
         <VideoWrap>
           {/* <ProjectVideo src={`/videos/${src}.mp4`} ref={ref} muted loop preload="" poster={`/images/thumbnail/${src}.png`} /> */}
-          <Image src={isWideScreen ? src1280 : src} alt="" style={{ display: "block" }} />
+          <Image
+            src={isWideScreen ? src1280 : src}
+            alt=""
+            style={{ display: "block" }}
+            sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px"
+          />
         </VideoWrap>
         <InfoWrap>
           <Title>{title}</Title>
