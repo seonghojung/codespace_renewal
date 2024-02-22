@@ -1,10 +1,13 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ITranslation } from "./page";
 import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
 import { Layout } from "../components/navigation";
 import Swiper from "./Swiper";
+import { useInView } from "react-intersection-observer";
+import MainBannerTop from "./components/MainBannerTop";
+import MainBannerBottom from "./components/MainBannerBottom";
 
 export const VideoLayout = styled.div`
   width: 100%;
@@ -164,21 +167,9 @@ const MainBanner = ({ translation }: { translation: ITranslation }) => {
     <Section>
       <Container>
         <InfoWrap>
-          <Layout>
-            <Title>
-              Imagination
-              <br />
-              into Reality
-            </Title>
-            <TopDescription>{translation.topDescription}</TopDescription>
-          </Layout>
+          <MainBannerTop translation={translation} />
           <Swiper />
-          <Layout>
-            <BottomDescription>{translation.bottomDescription}</BottomDescription>
-            <LinkWrap>
-              <UnderLineLinkArrow href="/contact">{translation.requestBtn}</UnderLineLinkArrow>
-            </LinkWrap>
-          </Layout>
+          <MainBannerBottom translation={translation} />
         </InfoWrap>
       </Container>
     </Section>

@@ -1,12 +1,33 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Layout } from "../components/navigation";
 import { fadeInAndUp } from "../animations/fadeInAndUp";
 import { ITranslation } from "./page";
 import { useEffect, useRef, useState } from "react";
 import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+interface StyleProp {
+  $isView: boolean;
+}
+
+const fadeIn = keyframes`
+    from {
+      opacity: 30%;
+      transform: translate(0px, 10%) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate(0px, 0px)  scale(1);
+    }
+  `;
+
+const floatingUp = css`
+  animation: ${fadeIn} 0.6s ease forwards;
+`;
 
 const Section = styled.section`
   padding-top: 124px;
@@ -120,6 +141,11 @@ const MainVideo = styled.video`
   }
 `;
 
+const SubtitleWrap = styled.div<StyleProp>`
+  opacity: 0;
+  ${({ $isView }) => $isView && floatingUp}
+`;
+
 const Subtitle = styled.h2`
   word-break: keep-all;
   font-size: 18px;
@@ -197,6 +223,11 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
     }
   });
 
+  const [ViewRef, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   return (
     <Section>
       <Layout>
@@ -207,14 +238,16 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
           <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
         </VideoContainer>
       </VideoLayout>
-      <Layout>
-        <DescriptionWrap>
-          <Subtitle>{translation.subTitle}</Subtitle>
-          <LinkWrap>
-            <UnderLineLinkArrow href="/project">{translation.moreBtn}</UnderLineLinkArrow>
-          </LinkWrap>
-        </DescriptionWrap>
-      </Layout>
+      <SubtitleWrap ref={ViewRef} $isView={inView}>
+        <Layout>
+          <DescriptionWrap>
+            <Subtitle>{translation.subTitle}</Subtitle>
+            <LinkWrap>
+              <UnderLineLinkArrow href="/project">{translation.moreBtn}</UnderLineLinkArrow>
+            </LinkWrap>
+          </DescriptionWrap>
+        </Layout>
+      </SubtitleWrap>
     </Section>
   );
 };
