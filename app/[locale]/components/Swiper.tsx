@@ -113,19 +113,22 @@ const SwiperStyle = styled(Swiper)`
 `;
 
 const PrevBtn = styled.button`
+  display: none;
   position: absolute;
   top: 0;
   z-index: 5;
   width: 30%;
   height: 100%;
-
-  &&& {
-    @media (min-width: 1280px) {
+  @media (min-width: 1280px) {
+    display: block;
+    &&& {
       cursor: url("/svgs/arrow-left.svg"), auto;
     }
   }
 `;
+
 const NextBtn = styled.button`
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -133,8 +136,9 @@ const NextBtn = styled.button`
   width: 30%;
   height: 100%;
 
-  &&& {
-    @media (min-width: 1280px) {
+  @media (min-width: 1280px) {
+    display: block;
+    &&& {
       cursor: url(/svgs/arrow-right.svg), auto;
     }
   }
@@ -142,8 +146,14 @@ const NextBtn = styled.button`
 
 const CarouselSwiper = ({ items }: { items: any[] }) => {
   const swiperRef = useRef<SwiperClass | null>(null);
+  const [innerWidth, setInnerWidth] = useState(0);
   const [isPrevHovering, setIsPrevHovering] = useState(false);
   const [isNextHovering, setIsNextHovering] = useState(false);
+
+  useEffect(() => {
+    const browserWidth = window.innerWidth;
+    setInnerWidth(browserWidth);
+  }, []);
 
   // Prev 버튼에 대한 이벤트 처리
   const prevHoverHandler = () => {
@@ -204,7 +214,7 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
+    <>
       <SwiperStyle
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
@@ -218,7 +228,7 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
       </SwiperStyle>
       <PrevBtn type="button" onMouseEnter={prevHoverHandler} onMouseLeave={unPrevhoverHandler}></PrevBtn>
       <NextBtn type="button" onMouseEnter={nextHoverHandler} onMouseLeave={unNexthoverHandler}></NextBtn>
-    </div>
+    </>
   );
 };
 

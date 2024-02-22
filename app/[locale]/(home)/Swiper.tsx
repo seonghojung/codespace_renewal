@@ -1,16 +1,41 @@
 "use client";
 
-import styled from "styled-components";
-import CarouselSwiper, { HorizontalImage, Slide1, Slide2, Slide3, VerticalImage } from "../components/Swiper";
+import { styled, keyframes, css } from "styled-components";
+import CarouselSwiper, { Slide1, Slide2, Slide3 } from "../components/Swiper";
 import swiper0 from "../../../public/images/home/swiper_0.png";
 import swiper1 from "../../../public/images/home/swiper_1.png";
 import swiper2 from "../../../public/images/home/swiper_2.png";
 import swiper3 from "../../../public/images/home/swiper_3.png";
 import swiper4 from "../../../public/images/home/swiper_4.png";
 import swiper5 from "../../../public/images/home/swiper_5.png";
+import { useInView } from "react-intersection-observer";
 
-const Container = styled.div`
+interface StyleProp {
+  $isView: boolean;
+}
+
+const fadeIn = keyframes`
+    from {
+      opacity: 30%;
+      transform: translate(0px, 10%) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate(0px, 0px)  scale(1);
+    }
+  `;
+
+const floatingUp = css`
+  animation: ${fadeIn} 0.6s ease forwards;
+`;
+
+const Section = styled.section<StyleProp>`
+  opacity: 0;
+  ${({ $isView }) => $isView && floatingUp}
+
   margin-top: 40px;
+  position: relative;
   @media (min-width: 768px) {
     margin-top: 103px;
   }
@@ -33,10 +58,15 @@ const images = [
 ];
 
 const MainSwiper = () => {
+  const [ViewRef, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   return (
-    <Container>
+    <Section ref={ViewRef} $isView={inView}>
       <CarouselSwiper items={images} />
-    </Container>
+    </Section>
   );
 };
 
