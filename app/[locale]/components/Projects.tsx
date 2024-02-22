@@ -207,6 +207,10 @@ const ProjectVideo = styled.video`
   top: 0;
   left: 0;
   width: 100%;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
 `;
 const InfoWrap = styled.div`
   margin-top: 16px;
@@ -271,9 +275,6 @@ const ProjectItems = styled.ul`
 `;
 const ThumbnailImage = styled(Image)`
   display: block;
-  &:hover {
-    opacity: 0;
-  }
 `;
 
 const CategoryItems = ({ categories }: { categories: string[] }) => {

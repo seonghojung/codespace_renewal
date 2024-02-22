@@ -14,10 +14,18 @@
     },
     "Component": {
       "moreBtn": "Find out more"
+    },
+    "Metadata": {
+      "title": "An Innovative Partner who transforms your immagination into reality",
+      "description": "Codespace - We will elevate your brilliant ideas to an extraordinary level with practical, effective, and popular services."
     }
   },
   "Projects": {
-    "title": "Create a product fit for<br></br> Your market at Codespace"
+    "title": "Create a product fit for<br></br> Your market at Codespace",
+    "Metadata": {
+      "title": "Create a product fit for your market",
+      "description": "Codespace - Find a product fit for your market! Enhance your business with innovative solutions and tailored strategies."
+    }
   },
   "Services": {
     "HeaderSection": {
@@ -48,11 +56,19 @@
     },
     "SwiperSection": {
       "title": "Start your Platform with<br></br> Codespace"
+    },
+    "Metadata": {
+      "title": "Solutions for achieving business goals and sustaining growth over the long period of time.",
+      "description": "Codespace -We provide a user-friendly CMS to manage responsive websites and core-featured apps with a visually appealing UI created with a sense of UX while maximizing search visibility through SEO."
     }
   },
   "Contact": {
     "title": "Any questions?",
-    "description": "Contact us"
+    "description": "Contact us",
+    "Metadata": {
+      "title": "End-to-End service from planning to web, app, logo, brand, UI/UX design development.",
+      "description": "Codespace - We are a comprehensive digital agency that provides professional assistance at every stage of platform services. From effective planning to logo, brand, UI/UX design, and flawless development, we provide end-to-end service. We lead our clients' businesses to success with innovative solutions. All inquiries are welcome."
+    }
   },
   "Footer": {
     "LocaleSwitcher": {
@@ -65,6 +81,11 @@
     "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854"
   },
   "Common": {
-    "AddressURL": "https://www.google.co.kr/maps/search/128+Beobwon-ro,+Songpa-gu,+Seoul,+05854,+Republic+of+Korea?hl=ko&entry=ttu"
+    "AddressURL": "https://www.google.co.kr/maps/search/128+Beobwon-ro,+Songpa-gu,+Seoul,+05854,+Republic+of+Korea?hl=ko&entry=ttu",
+    "Metadata": {
+      "template": "Codespace | %s ",
+      "default": "Codespace | An Innovative Partner who transforms your immagination into reality",
+      "description": "Codespace - We will elevate your brilliant ideas to an extraordinary level with practical, effective, and popular services."
+    }
   }
 }

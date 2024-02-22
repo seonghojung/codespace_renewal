@@ -2,11 +2,15 @@ import { ILocale } from "../(home)/page";
 import { useTranslations } from "next-intl";
 import Project from "./Project";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "프로덕트 마켓 핏을 만들어보세요!",
-  description: "코드스페이스 - 프로덕트 마켓 핏을 찾아보세요! 혁신적인 솔루션과 맞춤 전략으로 비즈니스를 향상시키세요.",
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "Projects" });
+  return {
+    title: t("Metadata.title"),
+    description: t("Metadata.description"),
+  };
+}
 
 const ProjectPage = ({ params: { locale } }: { params: { locale: ILocale } }) => {
   const t = useTranslations("Projects");

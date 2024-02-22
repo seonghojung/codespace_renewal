@@ -3,13 +3,15 @@ import { Layout } from "../components/navigation";
 import { BannerSection } from "./BannerSection";
 import { Metadata } from "next";
 import { ContactSection } from "./ContactSection";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "성장하는 서비스를위한 기획부터 웹, 앱, 로고, 브랜드, UI, UX 디자인과 개발까지",
-  description:
-    "코드스페이스 - 플랫폼 서비스의 모든 단계에서 전문적인 도움을 드리는 종합 디지털 에이전시입니다. 효과적인 기획부터 로고, 브랜드, UI/UX 디자인, 그리고 완벽한 개발까지 한 곳에서 모든 것을 해결하세요. 우리는 혁신적인 솔루션으로 고객의 비즈니스를 성공으로 이끕니다. 문의를 환영합니다.",
-};
-
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "Contact" });
+  return {
+    title: t("Metadata.title"),
+    description: t("Metadata.description"),
+  };
+}
 function Contact() {
   const t = useTranslations("Contact");
   const QustionTranslation = {

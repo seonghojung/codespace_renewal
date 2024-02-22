@@ -5,14 +5,15 @@ import StyledComponentsRegistry from "@/lib/registry";
 import { useTranslations } from "next-intl";
 import { locales } from "@/i18n";
 
-export const metadata: Metadata = {
-  title: {
-    template: "코드스페이스 | %s ",
-    default: "코드스페이스 | 상상하는 서비스를 현실로 만들어내는 혁신적인 기술 파트너",
-  },
-  description:
-    "코드스페이스 - 세상을 바꾸는 당신의 아이디어를 놀라운 수준으로 끌어올립니다. 현실적이고 효과적이며 대중적인 서비스를 제작하고 성장하세요",
-};
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "Common" });
+  return {
+    title: { template: t("Metadata.template"), default: t("Metadata.default") },
+    description: t("Metadata.template"),
+  };
+}
 
 export default function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
   // i18n footer
