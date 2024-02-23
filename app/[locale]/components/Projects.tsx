@@ -7,6 +7,7 @@ import { css, keyframes, styled } from "styled-components";
 import { Layout } from "./navigation";
 import { ProjectProps } from "@/app/projects";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 interface StyleProp {
   $isView: boolean;
 }
@@ -297,16 +298,38 @@ const ProjectItem = ({ index, children }: { index: number; children: React.React
   if (isCaseA) {
     return <ContainerA>{children}</ContainerA>;
   } else if (isCaseB) {
-    return <ContainerB>{children}</ContainerB>;
+    return (
+      <ContainerB>
+        <ScrollInteractionContainer>{children}</ScrollInteractionContainer>
+      </ContainerB>
+    );
   } else if (isCaseC) {
     return <ContainerC>{children}</ContainerC>;
   } else if (isCaseD) {
     return <ContainerBprime>{children}</ContainerBprime>;
   } else if (isCaseE) {
-    return <ContainerAprime>{children}</ContainerAprime>;
+    return (
+      <ContainerAprime>
+        <ScrollInteractionContainer>{children}</ScrollInteractionContainer>
+      </ContainerAprime>
+    );
   } else if (isCaseF) {
     return <ContainerC style={{ marginLeft: "auto" }}>{children}</ContainerC>;
   }
+};
+
+const ScrollInteractionContainer = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const videoScale = useTransform(scrollYProgress, [0, 1], [150, -100]);
+  return (
+    <motion.div style={{ y: videoScale }} ref={ref}>
+      {children}
+    </motion.div>
+  );
 };
 
 //@TODO: 상세페이지들 워딩 다 나오면 href 조치 @Thor
