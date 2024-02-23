@@ -55,6 +55,12 @@ const images = [
   <Slide1 alt="swiper3" src={swiper3} key={3} />,
   <Slide2 alt="swiper4" src={swiper4} key={4} />,
   <Slide3 alt="swiper5" src={swiper5} key={5} />,
+  <Slide1 alt="swiper0" src={swiper0} key={0} />,
+  <Slide2 alt="swiper1" src={swiper1} key={1} />,
+  <Slide3 alt="swiper2" src={swiper2} key={2} />,
+  <Slide1 alt="swiper3" src={swiper3} key={3} />,
+  <Slide2 alt="swiper4" src={swiper4} key={4} />,
+  <Slide3 alt="swiper5" src={swiper5} key={5} />,
 ];
 
 const MainSwiper = () => {

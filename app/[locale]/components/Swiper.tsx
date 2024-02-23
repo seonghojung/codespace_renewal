@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/free-mode";
+import { FreeMode } from "swiper/modules";
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -220,7 +222,9 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
           swiperRef.current = swiper;
         }}
         slidesPerView={"auto"}
-        loop
+        freeMode={true}
+        modules={[FreeMode]}
+        // loop
       >
         {items.map((item, index) => {
           return <SwiperSlide key={index}>{item}</SwiperSlide>;

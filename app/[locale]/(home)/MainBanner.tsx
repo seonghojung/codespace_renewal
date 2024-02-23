@@ -1,13 +1,13 @@
 "use client";
 
-import styled, { css, keyframes } from "styled-components";
-import { ITranslation } from "./page";
-import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
-import { Layout } from "../components/navigation";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 import Swiper from "./Swiper";
-import { useInView } from "react-intersection-observer";
+
+import { ITranslation } from "./page";
 import MainBannerTop from "./components/MainBannerTop";
 import MainBannerBottom from "./components/MainBannerBottom";
+import Carousel from "./components/Carousel";
 
 export const VideoLayout = styled.div`
   width: 100%;
@@ -163,12 +163,29 @@ const LinkWrap = styled.div`
 `;
 
 const MainBanner = ({ translation }: { translation: ITranslation }) => {
+  const [isPc, setIsPc] = useState(false);
+
+  useEffect(() => {
+    const checkIsPc = () => {
+      setIsPc(window.innerWidth > 1279);
+    };
+
+    checkIsPc();
+
+    window.addEventListener("resize", checkIsPc);
+
+    return () => {
+      window.removeEventListener("resize", checkIsPc);
+    };
+  }, []);
   return (
     <Section>
       <Container>
         <InfoWrap>
           <MainBannerTop translation={translation} />
-          <Swiper />
+          {isPc ? <Carousel /> : <Swiper />}
+          {/* <Swiper /> */}
+          {/* <Carousel /> */}
           <MainBannerBottom translation={translation} />
         </InfoWrap>
       </Container>
