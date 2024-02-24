@@ -64,12 +64,12 @@ const Subtitle = styled.h3`
   }
 `;
 
-const Banner = ({ title, description }: { title: string; description: string }) => {
+const Banner = ({ title, subTitle, description }: { title: string; subTitle: string; description: string }) => {
   return (
     <Section>
       <Layout>
         <Title>{title}</Title>
-        <Subtitle>{"Project Description"}</Subtitle>
+        <Subtitle>{subTitle}</Subtitle>
         <Description>{description}</Description>
       </Layout>
     </Section>

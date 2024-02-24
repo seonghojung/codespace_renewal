@@ -353,10 +353,10 @@ const ProjectCard = ({
     description,
     categories,
   },
-  href = "airkid",
+  href,
 }: {
   src: ProjectProps;
-  href?: string;
+  href: string;
 }) => {
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
@@ -411,7 +411,7 @@ const Projects = ({ projects }: { projects: ProjectProps[] }) => {
     <ProjectItems>
       {projects.map((project, index) => (
         <ProjectItem key={index} index={index}>
-          <ProjectCard src={project} />
+          <ProjectCard src={project} href={project.id} />
         </ProjectItem>
       ))}
     </ProjectItems>

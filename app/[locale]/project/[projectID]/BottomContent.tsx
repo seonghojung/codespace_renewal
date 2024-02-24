@@ -19,7 +19,7 @@ const Section = styled.section`
   }
 `;
 
-const BottomContent = ({ title, description, images }: { title: string; description: string; images: string[] }) => {
+const BottomContent = ({ images }: { images: string[] }) => {
   return (
     <Section>
       <LargeImgWrap>
