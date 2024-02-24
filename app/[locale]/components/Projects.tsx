@@ -179,6 +179,7 @@ const CategoryItem = styled.li`
     }
   }
 `;
+
 const SubProjectContainer = styled.div<StyleProp>`
   opacity: 0;
   ${({ $isView }) => $isView && floatingUp}
@@ -325,8 +326,19 @@ const ScrollInteractionContainer = ({ children }: { children: React.ReactNode })
     offset: ["start end", "end start"],
   });
   const videoScale = useTransform(scrollYProgress, [0, 1], [150, -100]);
+  const [isWideScreen, setIsWideScreen] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
-    <motion.div style={{ y: videoScale }} ref={ref}>
+    <motion.div style={{ y: isWideScreen ? videoScale : undefined }} ref={ref}>
       {children}
     </motion.div>
   );

@@ -6,6 +6,7 @@ import largePc from "../public/images/projectComponents/pc3_rectangle_thumbnail_
 
 export interface ProjectProps {
   isMainPortfolio: boolean; // 대표 포트폴리오 여부
+  id: string; // en과 ko가 공통으로 가질 id (프로젝트 정렬할 때 사용함)
   size: "small" | "medium" | "large";
   videoSrc: string;
   image: {
@@ -30,6 +31,7 @@ export const Projects: IProjects = {
   en: [
     // KIA EV6 Unplugged
     {
+      id: "kia",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -58,6 +60,7 @@ export const Projects: IProjects = {
     },
     // Dr.full
     {
+      id: "drfull",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -86,6 +89,7 @@ export const Projects: IProjects = {
     },
     // UFO Coffee
     {
+      id: "ufo",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -110,6 +114,7 @@ export const Projects: IProjects = {
     },
     // +X+
     {
+      id: "+x+",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -138,6 +143,7 @@ export const Projects: IProjects = {
     },
     // TetherMax
     {
+      id: "tethermax",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -166,6 +172,7 @@ export const Projects: IProjects = {
     },
     // Fuleaf
     {
+      id: "fuleaf",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -194,6 +201,7 @@ export const Projects: IProjects = {
     },
     // Richgo
     {
+      id: "richgo",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -222,6 +230,7 @@ export const Projects: IProjects = {
     },
     // Kick-off
     {
+      id: "kickoff",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -250,6 +259,7 @@ export const Projects: IProjects = {
     },
     // Chart-in
     {
+      id: "chartin",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -278,6 +288,7 @@ export const Projects: IProjects = {
     },
     // MarkHoly
     {
+      id: "markholy",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -306,6 +317,7 @@ export const Projects: IProjects = {
     },
     // Find Nomusa
     {
+      id: "findnomusa",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -334,6 +346,7 @@ export const Projects: IProjects = {
     },
     // AIRKID
     {
+      id: "airkid",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -362,6 +375,7 @@ export const Projects: IProjects = {
     },
     // DOOSIL
     {
+      id: "doosil",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -390,6 +404,7 @@ export const Projects: IProjects = {
     },
     // City Hoppers
     {
+      id: "cityhoppers",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -410,6 +425,7 @@ export const Projects: IProjects = {
     },
     // 3.3 DESIGN SPACE
     {
+      id: "designspace",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -430,6 +446,7 @@ export const Projects: IProjects = {
     },
     // Nine Ark
     {
+      id: "nineark",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -458,6 +475,7 @@ export const Projects: IProjects = {
     },
     // BTBG
     {
+      id: "btbg",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -486,6 +504,7 @@ export const Projects: IProjects = {
     },
     // Second White
     {
+      id: "secondwhite",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -506,6 +525,7 @@ export const Projects: IProjects = {
     },
     // Aware
     {
+      id: "aware",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -520,6 +540,7 @@ export const Projects: IProjects = {
     },
     // Digital MBTI Curation
     {
+      id: "digital",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -534,6 +555,7 @@ export const Projects: IProjects = {
     },
     // Meta Character
     {
+      id: "metacharacter",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -548,6 +570,7 @@ export const Projects: IProjects = {
     },
     // Ubiocean
     {
+      id: "ubiocean",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -562,6 +585,7 @@ export const Projects: IProjects = {
     },
     // Invenconn
     {
+      id: "invenconn",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -576,6 +600,7 @@ export const Projects: IProjects = {
     },
     // Aliquor Plus
     {
+      id: "aliquorplus",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -590,6 +615,7 @@ export const Projects: IProjects = {
     },
     // Beum
     {
+      id: "beum",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -604,6 +630,7 @@ export const Projects: IProjects = {
     },
     // Gradation
     {
+      id: "gradation",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -618,6 +645,7 @@ export const Projects: IProjects = {
     },
     // Contents Garden
     {
+      id: "contentsgarden",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -632,6 +660,7 @@ export const Projects: IProjects = {
     },
     // Cell My Brain
     {
+      id: "cellmybrain",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -646,6 +675,7 @@ export const Projects: IProjects = {
     },
     // Aniverything
     {
+      id: "aniverything",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -660,6 +690,7 @@ export const Projects: IProjects = {
     },
     // Coreana Curation
     {
+      id: "coreanacuration",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -674,6 +705,7 @@ export const Projects: IProjects = {
     },
     // HYID
     {
+      id: "hyid",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -688,6 +720,7 @@ export const Projects: IProjects = {
     },
     // IZE U VIDEO
     {
+      id: "izeuvideo",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -702,6 +735,7 @@ export const Projects: IProjects = {
     },
     // nJobs
     {
+      id: "njobs",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -716,6 +750,7 @@ export const Projects: IProjects = {
     },
     // Ahha Asset
     {
+      id: "ahhaasset",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -730,6 +765,7 @@ export const Projects: IProjects = {
     },
     // The Lead Law
     {
+      id: "theleadlaw",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -744,6 +780,7 @@ export const Projects: IProjects = {
     },
     // Shortudy
     {
+      id: "shortudy",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -758,6 +795,7 @@ export const Projects: IProjects = {
     },
     // Refeed
     {
+      id: "refeed",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -772,6 +810,7 @@ export const Projects: IProjects = {
     },
     // Soom
     {
+      id: "soom",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -786,6 +825,7 @@ export const Projects: IProjects = {
     },
     // The CI Mall
     {
+      id: "thecimall",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -800,6 +840,7 @@ export const Projects: IProjects = {
     },
     // The CI Group
     {
+      id: "thecigroup",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -814,6 +855,7 @@ export const Projects: IProjects = {
     },
     // Next Challenge
     {
+      id: "nextchallenge",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -828,6 +870,7 @@ export const Projects: IProjects = {
     },
     // Mitdembauhaus
     {
+      id: "mitdembauhaus",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -844,6 +887,7 @@ export const Projects: IProjects = {
   ko: [
     // KIA
     {
+      id: "kia",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -872,6 +916,7 @@ export const Projects: IProjects = {
     },
     // 풀박사
     {
+      id: "drfull",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -896,6 +941,7 @@ export const Projects: IProjects = {
     },
     // ufo
     {
+      id: "ufo",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -916,6 +962,7 @@ export const Projects: IProjects = {
     },
     // +X+
     {
+      id: "+x+",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -936,6 +983,7 @@ export const Projects: IProjects = {
     },
     // tethermax
     {
+      id: "tethermax",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -965,6 +1013,7 @@ export const Projects: IProjects = {
     // fuleaf
     // TODO: 썸네일이미지
     {
+      id: "fuleaf",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -989,6 +1038,7 @@ export const Projects: IProjects = {
     },
     // 리치고
     {
+      id: "richgo",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1017,6 +1067,7 @@ export const Projects: IProjects = {
     },
     // 킥오프
     {
+      id: "kickoff",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1045,6 +1096,7 @@ export const Projects: IProjects = {
     },
     // 차트인
     {
+      id: "chartin",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1069,6 +1121,7 @@ export const Projects: IProjects = {
     },
     // 마크홀리
     {
+      id: "markholy",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1089,6 +1142,7 @@ export const Projects: IProjects = {
     },
     // 구해줘 노무사
     {
+      id: "findnomusa",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1117,6 +1171,7 @@ export const Projects: IProjects = {
     },
     // airkid
     {
+      id: "airkid",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1145,6 +1200,7 @@ export const Projects: IProjects = {
     },
     // DOOSIL
     {
+      id: "doosil",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1173,6 +1229,7 @@ export const Projects: IProjects = {
     },
     // 시티호퍼스
     {
+      id: "cityhoppers",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1193,6 +1250,7 @@ export const Projects: IProjects = {
     },
     // 3.3 DESIGN SPACE
     {
+      id: "designspace",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1213,6 +1271,7 @@ export const Projects: IProjects = {
     },
     // 나인아크
     {
+      id: "nineark",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1241,6 +1300,7 @@ export const Projects: IProjects = {
     },
     // BTBG
     {
+      id: "btbg",
       size: "small",
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1261,6 +1321,7 @@ export const Projects: IProjects = {
     },
     // 세컨드 화이트
     {
+      id: "secondwhite",
       size: "large",
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1281,6 +1342,7 @@ export const Projects: IProjects = {
     },
     // 어웨어
     {
+      id: "aware",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1295,6 +1357,7 @@ export const Projects: IProjects = {
     },
     // 디지털 갓생 살기
     {
+      id: "digital",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1309,6 +1372,7 @@ export const Projects: IProjects = {
     },
     // 메타 캐릭터
     {
+      id: "metacharacter",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1323,6 +1387,7 @@ export const Projects: IProjects = {
     },
     // 유비오션
     {
+      id: "ubiocean",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1337,6 +1402,7 @@ export const Projects: IProjects = {
     },
     // 인벤컨
     {
+      id: "invenconn",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1351,6 +1417,7 @@ export const Projects: IProjects = {
     },
     // 올리커 플러스
     {
+      id: "aliquorplus",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1365,6 +1432,7 @@ export const Projects: IProjects = {
     },
     // 배움
     {
+      id: "beum",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1379,6 +1447,7 @@ export const Projects: IProjects = {
     },
     // 그라데이션
     {
+      id: "gradation",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1393,6 +1462,7 @@ export const Projects: IProjects = {
     },
     // 콘텐츠 가든
     {
+      id: "contentsgarden",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1407,6 +1477,7 @@ export const Projects: IProjects = {
     },
     // 셀 마이 브레인
     {
+      id: "cellmybrain",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1421,6 +1492,7 @@ export const Projects: IProjects = {
     },
     // 애니브리띵
     {
+      id: "aniverything",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1435,6 +1507,7 @@ export const Projects: IProjects = {
     },
     // 코리아나 큐레이션
     {
+      id: "coreanacuration",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1449,6 +1522,7 @@ export const Projects: IProjects = {
     },
     // HYID
     {
+      id: "hyid",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1463,6 +1537,7 @@ export const Projects: IProjects = {
     },
     // 아이즈 유 비디오
     {
+      id: "izeuvideo",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1477,6 +1552,7 @@ export const Projects: IProjects = {
     },
     // 엔잡스
     {
+      id: "njobs",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1491,6 +1567,7 @@ export const Projects: IProjects = {
     },
     // 아하 에셋 자산운용
     {
+      id: "ahhaasset",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1505,6 +1582,7 @@ export const Projects: IProjects = {
     },
     // 더 리드 법률사무소
     {
+      id: "theleadlaw",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1519,6 +1597,7 @@ export const Projects: IProjects = {
     },
     // 숏터디
     {
+      id: "shortudy",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1533,6 +1612,7 @@ export const Projects: IProjects = {
     },
     // 뤼피드
     {
+      id: "refeed",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1547,6 +1627,7 @@ export const Projects: IProjects = {
     },
     // 숨
     {
+      id: "soom",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1561,6 +1642,7 @@ export const Projects: IProjects = {
     },
     // 씨아이 그룹 자사몰
     {
+      id: "thecimall",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1575,6 +1657,7 @@ export const Projects: IProjects = {
     },
     // 씨아이 그룹 자사웹
     {
+      id: "thecigroup",
       size: "medium",
       isMainPortfolio: false,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1589,6 +1672,7 @@ export const Projects: IProjects = {
     },
     // 넥스트 챌린지
     {
+      id: "nextchallenge",
       size: "small",
       isMainPortfolio: false,
       videoSrc: "thumbnail_small_fake.mp4",
@@ -1603,6 +1687,7 @@ export const Projects: IProjects = {
     },
     // 미뗌바우하우스
     {
+      id: "mitdembauhaus",
       size: "large",
       isMainPortfolio: false,
       videoSrc: "thumbnail_large_fake.mp4",
@@ -1622,3 +1707,124 @@ export const getProject = (locale: string): ProjectProps[] => {
   if (locale === "ko") return Projects.ko;
   return Projects.en;
 };
+
+// 소팅용 순서
+export const CMS_ORDER = [
+  "tethermax",
+  "+x+",
+  "ufo",
+  "kickoff",
+  "findnomusa",
+  "fuleaf",
+  "btbg",
+  "cityhoppers",
+  "chartin",
+  "digital",
+  "aware",
+  "secondwhite",
+  "invenconn",
+  "ubiocean",
+  "aliquorplus",
+  "gradation",
+  "beum",
+  "metacharacter",
+  "aniverything",
+  "cellmybrain",
+  "coreanacuration",
+  "izeuvideo",
+  "hyid",
+  "njobs",
+  "theleadlaw",
+  "ahhaasset",
+  "shortudy",
+  "soom",
+  "refeed",
+  "thecimall",
+  "nextchallenge",
+  "thecigroup",
+  "mitdembauhaus",
+];
+export const APP_ORDER = [
+  "richgo",
+  "drfull",
+  "chartin",
+  "+x+",
+  "doosil",
+  "metacharacter",
+  "invenconn",
+  "kickoff",
+  "coreanacuration",
+  "digital",
+  "beum",
+  "njobs",
+  "ubiocean",
+  "cellmybrain",
+  "shortudy",
+];
+export const UIUX_ORDER = [
+  "kia",
+  "drfull",
+  "ufo",
+  "+x+",
+  "richgo",
+  "fuleaf",
+  "findnomusa",
+  "kickoff",
+  "chartin",
+  "markholy",
+  "doosil",
+  "airkid",
+  "btbg",
+  "nineark",
+  "designspace",
+  "ubiocean",
+  "hyid",
+  "aliquorplus",
+  "gradation",
+  "cellmybrain",
+  "contentsgarden",
+  "izeuvideo",
+  "njobs",
+];
+export const WEB_ORDER = [
+  "kia",
+  "drfull",
+  "ufo",
+  "kickoff",
+  "tethermax",
+  "fuleaf",
+  "findnomusa",
+  "markholy",
+  "airkid",
+  "cityhoppers",
+  "doosil",
+  "designspace",
+  "btbg",
+  "nineark",
+  "secondwhite",
+  "digital",
+  "aware",
+  "chartin",
+  "invenconn",
+  "ubiocean",
+  "aliquorplus",
+  "gradation",
+  "beum",
+  "contentsgarden",
+  "aniverything",
+  "cellmybrain",
+  "coreanacuration",
+  "izeuvideo",
+  "hyid",
+  "njobs",
+  "theleadlaw",
+  "ahhaasset",
+  "shortudy",
+  "soom",
+  "refeed",
+  "thecimall",
+  "nextchallenge",
+  "thecigroup",
+  "mitdembauhaus",
+  "metacharacter",
+];

@@ -6,60 +6,135 @@ import Projects from "../components/Projects";
 import { Layout } from "../components/navigation";
 import { VideoLayout } from "../(home)/MainBanner";
 import { ILocale, ITranslation } from "../(home)/page";
-import { ProjectProps, getProject } from "@/app/projects";
+import { APP_ORDER, CMS_ORDER, ProjectProps, UIUX_ORDER, WEB_ORDER, getProject } from "@/app/projects";
 
+const SelectDot = styled.span`
+  content: "";
+  position: absolute;
+  display: block;
+  left: -8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #050411;
+`;
+
+const CategoryCount = styled.span`
+  margin-left: 4px;
+  top: -1px;
+  font-size: 12px;
+  line-height: 12px;
+  position: relative;
+  display: inline;
+  @media (min-width: 1280px) {
+    top: -8px;
+  }
+`;
+type ICategory = "" | "Web" | "UI/UX" | "App" | "CMS";
 const Project = ({ locale, translation }: { locale: ILocale; translation: ITranslation }) => {
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<ICategory>("");
   const [sortedProjects, setSortedProjects] = useState<ProjectProps[]>(getProject(locale));
 
-  const filterByCategory = (category: string) => {
+  const filterByCategory = (category: ICategory) => {
     setSelectedCategory(category);
-    if (category === "" || category === "Management") {
+    if (category === "") {
       return setSortedProjects(getProject(locale));
+    } else if (category === "App") {
+      setSortedProjects(APP_ORDER.map((targetId) => getProject(locale).find(({ id }) => id === targetId)) as ProjectProps[]);
+    } else if (category === "CMS") {
+      setSortedProjects(CMS_ORDER.map((targetId) => getProject(locale).find(({ id }) => id === targetId)) as ProjectProps[]);
+    } else if (category === "UI/UX") {
+      setSortedProjects(UIUX_ORDER.map((targetId) => getProject(locale).find(({ id }) => id === targetId)) as ProjectProps[]);
+    } else if (category === "Web") {
+      setSortedProjects(WEB_ORDER.map((targetId) => getProject(locale).find(({ id }) => id === targetId)) as ProjectProps[]);
     }
-    setSortedProjects(getProject(locale).filter((project) => project.categories.includes(category)));
   };
 
   return (
-    <ProjectWrap>
-      <Layout>
-        <NavWrap>
-          <ProjectTitle>{translation.title}</ProjectTitle>
-          <CategoryListWrap>
-            <CategoryList onClick={() => filterByCategory("")} selected={selectedCategory === ""}>
-              <h2>ALL</h2>
-            </CategoryList>
-            <CategoryList onClick={() => filterByCategory("Management")} selected={selectedCategory === "Management"}>
-              <h2>MANAGEMENT</h2>
-            </CategoryList>
-            <CategoryList onClick={() => filterByCategory("Web")} selected={selectedCategory === "Web"}>
-              <h2>WEBSITES</h2>
-            </CategoryList>
-            <CategoryList onClick={() => filterByCategory("UI/UX")} selected={selectedCategory === "UI/UX"}>
-              <h2>UI/UX</h2>
-            </CategoryList>
-            <CategoryList onClick={() => filterByCategory("App")} selected={selectedCategory === "App"}>
-              <h2>APPLICATION</h2>
-            </CategoryList>
-            <CategoryList onClick={() => filterByCategory("CMS")} selected={selectedCategory === "CMS"}>
-              <h2>CMS SOLUTION</h2>
-            </CategoryList>
-          </CategoryListWrap>
-        </NavWrap>
-      </Layout>
-      <VideoLayout>{/* <Projects projects={sortedProjects} /> */}</VideoLayout>
-    </ProjectWrap>
+    <PageLayout>
+      <ProjectWrap>
+        <Layout>
+          <NavWrap>
+            <ProjectTitle>{translation.title}</ProjectTitle>
+            <CategoryListWrap>
+              <CategoryList onClick={() => filterByCategory("")} selected={selectedCategory === ""}>
+                {selectedCategory === "" && <SelectDot />}
+                <h2>
+                  ALL<CategoryCount>{getProject(locale).length}</CategoryCount>
+                </h2>
+              </CategoryList>
+              <CategoryList onClick={() => filterByCategory("Web")} selected={selectedCategory === "Web"}>
+                {selectedCategory === "Web" && <SelectDot />}
+                <h2>
+                  WEBSITES
+                  <CategoryCount>{WEB_ORDER.length}</CategoryCount>
+                </h2>
+              </CategoryList>
+              <CategoryList onClick={() => filterByCategory("UI/UX")} selected={selectedCategory === "UI/UX"}>
+                {selectedCategory === "UI/UX" && <SelectDot />}
+                <h2>
+                  UI/UX<CategoryCount>{UIUX_ORDER.length}</CategoryCount>
+                </h2>
+              </CategoryList>
+              <CategoryList onClick={() => filterByCategory("App")} selected={selectedCategory === "App"}>
+                {selectedCategory === "App" && <SelectDot />}
+                <h2>
+                  APPLICATION<CategoryCount>{APP_ORDER.length}</CategoryCount>
+                </h2>
+              </CategoryList>
+              <CategoryList onClick={() => filterByCategory("CMS")} selected={selectedCategory === "CMS"}>
+                {selectedCategory === "CMS" && <SelectDot />}
+                <h2>
+                  CMS SOLUTION
+                  <CategoryCount>{CMS_ORDER.length}</CategoryCount>
+                </h2>
+              </CategoryList>
+            </CategoryListWrap>
+          </NavWrap>
+        </Layout>
+        <ProjectsWrap>
+          <VideoLayout>
+            <Projects projects={sortedProjects} />
+          </VideoLayout>
+        </ProjectsWrap>
+      </ProjectWrap>
+    </PageLayout>
   );
 };
 
 export default Project;
+const ProjectsWrap = styled.div`
+  margin-top: 80px;
+  @media (min-width: 1280px) {
+    margin-top: 90px;
+  }
+  @media (min-width: 1920px) {
+    margin-top: 100px;
+  }
+`;
+export const PageLayout = styled.section`
+  padding-top: 64px;
+  @media (min-width: 768px) {
+    padding-top: 90px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 110px;
+  }
+`;
 
-const ProjectWrap = styled.section`
-  padding-top: 20px;
+const ProjectWrap = styled.div`
+  padding-top: 60px;
   padding-bottom: 60px;
   @media (min-width: 768px) {
     padding-top: 80px;
     padding-bottom: 80px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 146px;
+    padding-bottom: 100px;
+  }
+  @media (min-width: 1920px) {
+    padding-top: 190px;
   }
 `;
 const NavWrap = styled.div`
@@ -73,15 +148,28 @@ const NavWrap = styled.div`
 `;
 
 const ProjectTitle = styled.h1`
-  width: auto;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.36;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: -2.6%;
   color: #000;
+  word-break: keep-all;
 
   @media (min-width: 768px) {
-    font-size: 42px;
-    line-height: 1.14;
+    width: 395px;
+    line-height: 57.2px;
+    font-size: 52px;
+  }
+  @media (min-width: 1280px) {
+    width: 560px;
+    line-height: 81.4px;
+    font-size: 74px;
+  }
+  @media (min-width: 1920px) {
+    width: auto;
+    line-height: 95px;
+    font-size: 86px;
+    letter-spacing: -3.44%;
   }
 `;
 
@@ -89,17 +177,43 @@ const CategoryListWrap = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 157px;
-  padding-top: 8px;
+  position: relative;
+  width: auto;
   text-transform: capitalize;
+  gap: 8px;
+  margin-top: 80px; //TODO: 필터영역 모바일 디자인잡히면 삭제
   @media (min-width: 768px) {
-    padding-top: 0;
+    margin-top: 0px; //TODO: 필터영역 모바일 디자인잡히면 삭제
+  }
+  @media (min-width: 1280px) {
+    gap: 10px;
   }
 `;
 
 const CategoryList = styled.li<{ selected: boolean }>`
   cursor: pointer;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: ${(props) => (props.selected ? "#000" : "#637695")};
+  position: relative;
+
+  // TODO: 375디자인이 안잡혀있음
+  font-weight: 400;
   font-size: 15px;
-  font-weight: 500;
-  color: ${(props) => (props.selected ? "#000" : "rgba(0, 0, 0, 0.4)")};
+  line-height: 20px;
+  @media (min-width: 768px) {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  @media (min-width: 1280px) {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  &:hover {
+    opacity: ${(props) => !props.selected && 0.7};
+  }
 `;
