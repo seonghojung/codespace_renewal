@@ -66,7 +66,6 @@ const MbLogoWrap = styled(Link)`
 
 const HeaderWrap = styled.header<IHeaderWrap>`
   width: 100%;
-
   position: fixed;
   top: 0;
   z-index: 11;

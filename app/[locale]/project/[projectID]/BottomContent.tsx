@@ -1,74 +1,32 @@
 "use client";
 
 import styled from "styled-components";
-import { Layout } from "../../components/navigation";
-import { ImageStyle } from "./MiddleContent";
-import { Title, Description } from "./TopContent";
+import { LargeImg, LargeImgWrap } from "./MiddleContent";
 
-const Container = styled.section`
-  padding-top: 52px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #bfbfbf;
-`;
+const Section = styled.section`
+  margin-top: 80px;
 
-const BasicContainer = styled.div`
-  margin-top: 40px;
-  background-color: #d9d9d9;
-  border-radius: 8px;
   @media (min-width: 768px) {
-    margin-top: 0px;
+    margin: 100px 40px 80px;
   }
-`;
-
-const ImageContainerB = styled(BasicContainer)`
-  aspect-ratio: 0.75;
-`;
-
-const ImageContainerA = styled(BasicContainer)`
-  aspect-ratio: 1.63;
-  @media (min-width: 768px) {
-    margin-top: 60px;
+  @media (min-width: 1280px) {
+    max-width: 1130px;
+    margin: 120px auto 100px;
   }
-`;
-
-const ImageWrap = styled.div`
-  display: block;
-  @media (min-width: 768px) {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  @media (min-width: 1920px) {
+    max-width: 1536px;
+    margin: 160px auto 100px;
   }
 `;
 
 const BottomContent = ({ title, description, images }: { title: string; description: string; images: string[] }) => {
   return (
-    <Layout>
-      <Container>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-        <ImageContainerA>
-          <ImageStyle alt="" src={images[0]} width={1200} height={902} />
-        </ImageContainerA>
-        <ImageWrap>
-          <ImageContainerB>
-            <ImageStyle alt="" src={images[1]} width={583} height={777} />
-          </ImageContainerB>
-          <ImageContainerB>
-            <ImageStyle alt="" src={images[2]} width={583} height={777} />
-          </ImageContainerB>
-        </ImageWrap>
-      </Container>
-      <BottomSection />
-    </Layout>
+    <Section>
+      <LargeImgWrap>
+        <LargeImg src={images[0]} alt="" fill />
+      </LargeImgWrap>
+    </Section>
   );
 };
-
-const BottomSection = styled.div`
-  padding-bottom: 120px;
-  @media (min-width: 768px) {
-    padding-bottom: 160px;
-  }
-`;
 
 export default BottomContent;
