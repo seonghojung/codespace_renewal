@@ -9,6 +9,8 @@ import MainBannerTop from "./components/MainBannerTop";
 import MainBannerBottom from "./components/MainBannerBottom";
 import Carousel from "./components/Carousel";
 
+import debounce from "@/app/utils/debounce";
+
 export const VideoLayout = styled.div`
   width: 100%;
   @media (min-width: 768px) {
@@ -169,15 +171,13 @@ const MainBanner = ({ translation }: { translation: ITranslation }) => {
     const checkIsPc = () => {
       setIsPc(window.innerWidth > 1279);
     };
-
-    checkIsPc();
-
-    window.addEventListener("resize", checkIsPc);
-
+    const debouncedCheckIsPc = debounce(checkIsPc, 250);
+    window.addEventListener("resize", debouncedCheckIsPc);
     return () => {
-      window.removeEventListener("resize", checkIsPc);
+      window.removeEventListener("resize", debouncedCheckIsPc);
     };
   }, []);
+
   return (
     <Section>
       <Container>
