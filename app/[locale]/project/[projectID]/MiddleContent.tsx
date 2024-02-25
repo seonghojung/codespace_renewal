@@ -81,13 +81,13 @@ const Container = styled.div`
   margin-top: 20px;
 
   @media (min-width: 768px) {
-    padding-top: 40px;
+    margin-top: 40px;
   }
   @media (min-width: 1280px) {
-    padding-top: 60px;
+    margin-top: 60px;
   }
   @media (min-width: 1920px) {
-    padding-top: 80px;
+    margin-top: 80px;
   }
 `;
 

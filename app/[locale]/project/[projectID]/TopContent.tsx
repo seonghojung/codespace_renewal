@@ -3,12 +3,8 @@
 import styled from "styled-components";
 import { Layout } from "../../components/navigation";
 
-const Section = styled.section`
-  margin-top: 80px;
-
-  @media (min-width: 768px) {
-    margin-top: 60px;
-  }
+const Section = styled.article`
+  margin-top: 60px;
 
   @media (min-width: 1920px) {
     margin-top: 80px;
@@ -46,7 +42,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Container = styled.section`
+const Container = styled.div`
   margin-top: 20px;
 
   @media (min-width: 768px) {
@@ -63,15 +59,14 @@ const Container = styled.section`
 `;
 
 export const Title = styled.h2`
-  max-width: 195px;
   font-size: 30px;
   font-weight: bold;
   line-height: 1.2;
   letter-spacing: -0.78px;
   color: #050411;
-
+  white-space: pre-wrap;
+  word-break: keep-all;
   @media (min-width: 768px) {
-    max-width: 265px;
     font-size: 40px;
     font-weight: 600;
     line-height: 1.1;
@@ -79,13 +74,12 @@ export const Title = styled.h2`
   }
 
   @media (min-width: 1280px) {
-    max-width: 343px;
     font-size: 52px;
     letter-spacing: -0.81px;
   }
 
   @media (min-width: 1920px) {
-    max-width: 435px;
+    /* max-width: 435px; */
     font-size: 64px;
     font-weight: 600;
     letter-spacing: -1.23px;
@@ -106,6 +100,7 @@ export const Description = styled.h3`
     font-size: 22px;
     line-height: 1.35;
     letter-spacing: -0.1px;
+    white-space: pre-wrap;
   }
 
   @media (min-width: 1920px) {
