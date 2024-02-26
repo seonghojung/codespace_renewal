@@ -118,7 +118,7 @@ export const Projects: IProjects = {
     },
     // +X+
     {
-      id: "+x+",
+      id: "plusxplus",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -974,7 +974,7 @@ export const Projects: IProjects = {
     },
     // +X+
     {
-      id: "+x+",
+      id: "plusxplus",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1755,7 +1755,7 @@ export const getProject = (locale: string): ProjectProps[] => {
 // 소팅용 순서
 export const CMS_ORDER = [
   "tethermax",
-  "+x+",
+  "plusxplus",
   "ufo",
   "kickoff",
   "findnomusa",
@@ -1792,7 +1792,7 @@ export const APP_ORDER = [
   "richgo",
   "drfull",
   "chartin",
-  "+x+",
+  "plusxplus",
   "doosil",
   "metacharacter",
   "invenconn",
@@ -1809,7 +1809,7 @@ export const UIUX_ORDER = [
   "kia",
   "drfull",
   "ufo",
-  "+x+",
+  "plusxplus",
   "richgo",
   "fuleaf",
   "findnomusa",
