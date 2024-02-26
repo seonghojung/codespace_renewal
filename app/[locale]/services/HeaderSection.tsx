@@ -1,89 +1,28 @@
 "use client";
 
-import { BlueDotIcon } from "@/app/[locale]/components/icons";
-import { BlueDotIconMb } from "@/app/[locale]/components/icons";
 import { styled } from "styled-components";
 import { enTitleFadeIn, koSubTitleFadeIn, koTitleFadeIn } from "../animations/titleFadeIn";
-import { useEffect, useState } from "react";
 import { ITranslation } from "../(home)/page";
 
-const SectionWrap = styled.section`
-  padding: 20px 0px 100px;
-
+const Wrap = styled.article`
   @media (min-width: 768px) {
-    padding: 81px 0 0 0;
   }
 `;
-const EnTitle = styled.h1`
-  position: relative;
-  color: #000;
-  /* font-size: 50px; */
-  font-size: clamp(50px, 13.5vw, 74px);
-  letter-spacing: -2.4px;
-  font-weight: 700;
-  line-height: 0.88;
-  text-transform: uppercase;
-  svg {
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    right: -2px;
-    bottom: 4px;
-  }
 
-  @media (min-width: 768px) {
-    opacity: 0;
-    ${enTitleFadeIn}
-    font-size: clamp(108px, 14.0625vw, 160px);
-    line-height: 0.875;
-    color: #000;
-
-    svg {
-      width: 32px;
-      height: 32px;
-      right: 19px;
-      bottom: 11px;
-    }
-  }
-`;
-const SubHeaderWrap = styled.div`
-  padding-top: 60px;
-  h1 {
-    /* min-width: 340px; */
-    color: #000;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 1.2;
-    /* word-break: keep-all; */
-    br {
-      display: none;
-    }
-  }
+const SubTitleWrap = styled.div`
+  padding-top: 20px;
+  /* max-width: 74.4%; */
+  max-width: 279px;
   h2 {
     margin-top: 34px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.625;
     color: rgba(0, 0, 0, 0.8);
-
-    br {
-      display: none;
-    }
   }
   @media (min-width: 768px) {
-    padding-top: 80px;
-    h1 {
-      opacity: 0;
-      ${koTitleFadeIn}
-      /* width: 668px; */
-      font-size: 42px;
-      font-weight: 600;
-      line-height: 1.2;
-      font-size: clamp(42px, 5.46875vw, 86px);
-      br {
-        display: block;
-      }
-    }
+    padding-top: 40px;
+    max-width: 425px;
     h2 {
       opacity: 0;
       ${koSubTitleFadeIn}
@@ -96,35 +35,76 @@ const SubHeaderWrap = styled.div`
       }
     }
   }
+
+  @media (min-width: 1280px) {
+    max-width: 466px;
+  }
+  @media (min-width: 1920px) {
+    max-width: 532px;
+  }
+`;
+
+const Subtitle = styled.h3`
+  opacity: 0;
+  ${koTitleFadeIn}
+  color: #050411;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  word-break: keep-all;
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 28px;
+    line-height: 1.4;
+    letter-spacing: -0.08px;
+  }
+  @media (min-width: 1920px) {
+    font-size: 32px;
+    line-height: 1.39;
+    letter-spacing: -0.16px;
+  }
+`;
+
+const EnTitle = styled.h2`
+  position: relative;
+  opacity: 0;
+  ${enTitleFadeIn}
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: -1.04px;
+  color: #050411;
+
+  @media (min-width: 768px) {
+    font-size: 52px;
+    letter-spacing: -1.35px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 74px;
+    letter-spacing: -2.19px;
+  }
+
+  @media (min-width: 1920px) {
+    font-size: 86px;
+    letter-spacing: -2.96px;
+  }
 `;
 
 const HeaderSection = ({ translation }: { translation: ITranslation }) => {
-  const [isRspPc, setIsRspPc] = useState(false);
-  useEffect(() => {
-    const handleResize = () => {
-      const bodyWidth = window.innerWidth;
-      setIsRspPc(bodyWidth > 767);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <SectionWrap>
+    <Wrap>
       <EnTitle>
-        Bring
-        <br /> imagination <br />
-        to PRODUCT
-        {isRspPc ? <BlueDotIcon /> : <BlueDotIconMb />}
+        Bring imagination <br />
+        To Product
       </EnTitle>
-      <SubHeaderWrap>
-        <h1>{translation.title}</h1>
-        <h2>{translation.description}</h2>
-      </SubHeaderWrap>
-    </SectionWrap>
+      <SubTitleWrap>
+        <Subtitle>{translation.title}</Subtitle>
+      </SubTitleWrap>
+    </Wrap>
   );
 };
 export default HeaderSection;
