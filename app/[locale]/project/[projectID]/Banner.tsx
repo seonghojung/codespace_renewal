@@ -2,22 +2,19 @@
 
 import styled from "styled-components";
 import { Layout } from "../../components/navigation";
-import { Description } from "./TopContent";
+import { fadeInAndUp, fadeInAndUp2Sec } from "../../animations/fadeInAndUp";
 
 const Container = styled.article`
-  padding-top: 60px;
   @media (min-width: 768px) {
-    padding-top: 80px;
   }
   @media (min-width: 1280px) {
-    padding-top: 146px;
   }
   @media (min-width: 1920px) {
-    padding-top: 190px;
   }
 `;
 
 const Title = styled.h2`
+  opacity: 0;
   font-size: 40px;
   font-weight: bold;
   line-height: 1.1;
@@ -25,6 +22,7 @@ const Title = styled.h2`
   text-align: left;
   color: #050411;
   word-break: keep-all;
+  ${fadeInAndUp}
   @media (min-width: 768px) {
     font-size: 52px;
     letter-spacing: -1.35px;
@@ -41,27 +39,57 @@ const Title = styled.h2`
   }
 `;
 const Subtitle = styled.h3`
+  opacity: 0;
   margin-top: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 1.2;
-  letter-spacing: -0.78px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
   color: #050411;
   white-space: pre-wrap;
   word-break: keep-all;
+  ${fadeInAndUp2Sec}
   @media (min-width: 768px) {
     margin-top: 24px;
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.48px;
+    font-size: 20px;
+    line-height: 28px;
   }
   @media (min-width: 1280px) {
     margin-top: 32px;
+    font-size: 28px;
+    line-height: 39.2px;
   }
 
   @media (min-width: 1920px) {
     font-size: 32px;
+    line-height: 44.6px;
+  }
+`;
+
+const Description = styled.h3`
+  opacity: 0;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.48;
+  letter-spacing: -0.03px;
+  color: #000;
+  ${fadeInAndUp2Sec}
+  @media (min-width: 1280px) {
+    word-break: keep-all;
+    max-width: 896px;
+    margin-top: 28px;
+    font-size: 22px;
+    line-height: 1.35;
+    letter-spacing: -0.1px;
+    white-space: pre-wrap;
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 1080px;
+    margin-top: 32px;
+    font-size: 26px;
+    line-height: 1.45;
+    letter-spacing: -0.39px;
   }
 `;
 
