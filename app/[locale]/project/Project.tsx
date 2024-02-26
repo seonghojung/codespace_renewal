@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { styled } from "styled-components";
 import Projects from "../components/Projects";
 import { Layout } from "../components/navigation";

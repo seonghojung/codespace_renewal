@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { css, keyframes, styled } from "styled-components";
-import { Layout } from "./navigation";
 import { ProjectProps } from "@/app/projects";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
