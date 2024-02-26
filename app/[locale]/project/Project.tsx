@@ -113,12 +113,18 @@ const ProjectsWrap = styled.div`
   }
 `;
 export const PageLayout = styled.section`
+  min-height: calc(100vh - 533.16px);
   padding-top: 64px;
   @media (min-width: 768px) {
+    min-height: calc(100vh - 414.38px);
     padding-top: 90px;
   }
   @media (min-width: 1280px) {
+    min-height: calc(100vh - 422.94px);
     padding-top: 110px;
+  }
+  @media (min-width: 1920px) {
+    min-height: calc(100vh - 442.97px);
   }
 `;
 

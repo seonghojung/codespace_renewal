@@ -1,9 +1,7 @@
 import { useTranslations } from "next-intl";
-import { Layout } from "../components/navigation";
-import { BannerSection } from "./BannerSection";
 import { Metadata } from "next";
-import { ContactSection } from "./ContactSection";
 import { getTranslations } from "next-intl/server";
+import ContactPage from "./ContactPage";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Contact" });
@@ -19,14 +17,7 @@ function Contact() {
     description: t.rich("description", { br: () => <br /> }),
   };
 
-  return (
-    <div style={{ minHeight: "70vh" }}>
-      <BannerSection />
-      <Layout>
-        <ContactSection translation={QustionTranslation} />
-      </Layout>
-    </div>
-  );
+  return <ContactPage translation={QustionTranslation} />;
 }
 
 export default Contact;
