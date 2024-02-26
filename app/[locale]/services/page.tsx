@@ -6,6 +6,7 @@ import SwiperSection from "./SwiperSection";
 import { ILocale } from "../(home)/page";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import Section from "../project/[projectID]/Section";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Services" });
@@ -28,13 +29,13 @@ function Services({ params: { locale } }: { params: { locale: ILocale } }) {
     title: t.rich("SwiperSection.title", { br: () => <br /> }),
   };
   return (
-    <>
+    <Section>
       <Layout>
         <HeaderSection translation={HeaderSectionTranslation} />
       </Layout>
       <ContentsSection locale={locale} />
       <SwiperSection translation={SwiperSectionTranslation} />
-    </>
+    </Section>
   );
 }
 

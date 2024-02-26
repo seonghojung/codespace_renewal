@@ -153,7 +153,6 @@ const Subtitle = styled.h2`
   line-height: 1.39;
   letter-spacing: -0.04px;
   color: #050411;
-
   ${fadeInAndUp}
   br:first-child {
     display: none;

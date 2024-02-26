@@ -1,9 +1,31 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Layout } from "../../components/navigation";
 import NextImage from "next/image";
 import { Title, Description } from "./TopContent";
+import { useInView } from "react-intersection-observer";
+
+interface StyleProp {
+  $isView: boolean;
+}
+
+const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  `;
+
+const floatingUp = css`
+  animation: 0.9s ${fadeIn} 0.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+`;
+const floatingUpTablet = css`
+  animation: 1.25s ${fadeIn} 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+`;
 
 const ImageContainer = styled.div`
   margin-top: 80px;
@@ -77,14 +99,18 @@ const Img = styled(NextImage)`
   object-fit: cover;
 `;
 
-const Container = styled.div`
+const Container = styled.div<StyleProp>`
+  opacity: 0;
   margin-top: 20px;
+  ${({ $isView }) => $isView && floatingUp}
 
   @media (min-width: 768px) {
     margin-top: 40px;
+    ${({ $isView }) => $isView && floatingUpTablet}
   }
   @media (min-width: 1280px) {
     margin-top: 60px;
+    ${({ $isView }) => $isView && floatingUp}
   }
   @media (min-width: 1920px) {
     margin-top: 80px;
@@ -92,6 +118,13 @@ const Container = styled.div`
 `;
 
 const SubContent = ({ title, description, images }: { title: string; description: string; images: string[] }) => {
+  console.log(images);
+
+  const [ViewRef, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   return (
     <>
       <ImageContainer>
@@ -108,7 +141,7 @@ const SubContent = ({ title, description, images }: { title: string; description
         </Wrap>
       </ImageContainer>
       <Layout>
-        <Container>
+        <Container ref={ViewRef} $isView={inView}>
           <Title>{title}</Title>
           <Description>{description}</Description>
         </Container>

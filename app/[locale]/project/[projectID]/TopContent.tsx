@@ -1,22 +1,54 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Layout } from "../../components/navigation";
+import { useInView } from "react-intersection-observer";
+import { imageFadeInAndUp } from "../../animations/fadeInAndUp";
+
+interface StyleProp {
+  $isView: boolean;
+}
+
+const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  `;
+
+const floatingUp = css`
+  animation: 0.9s ${fadeIn} 0.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+`;
+const floatingUpTablet = css`
+  animation: 1.25s ${fadeIn} 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+`;
 
 const Section = styled.article`
-  margin-top: 60px;
+  margin-top: 80px;
+
+  @media (min-width: 768px) {
+    margin-top: 100px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 120px;
+  }
 
   @media (min-width: 1920px) {
-    margin-top: 80px;
+    margin-top: 160px;
   }
 `;
 
 const ImageContainer = styled.div`
-  margin-top: 60px;
+  opacity: 0;
   position: relative;
   width: 100%;
   background-color: #d9d9d9;
   aspect-ratio: 1;
+  ${imageFadeInAndUp}
 
   img {
     display: block;
@@ -27,30 +59,35 @@ const ImageContainer = styled.div`
 
   @media (min-width: 768px) {
     width: auto;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0 40px;
     aspect-ratio: 688 / 390;
   }
 
   @media (min-width: 1280px) {
-    max-width: 1130px;
+    max-width: 1136px;
+    aspect-ratio: 1136 / 650;
     margin: 0 auto;
   }
 
   @media (min-width: 1920px) {
-    max-width: 1536px;
+    max-width: 1662px;
+    aspect-ratio: 1662 / 911;
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<StyleProp>`
+  opacity: 0;
+  ${({ $isView }) => $isView && floatingUp}
   margin-top: 20px;
 
   @media (min-width: 768px) {
     margin-top: 40px;
+    ${({ $isView }) => $isView && floatingUpTablet}
   }
 
   @media (min-width: 1280px) {
     margin-top: 60px;
+    ${({ $isView }) => $isView && floatingUp}
   }
 
   @media (min-width: 1920px) {
@@ -79,7 +116,6 @@ export const Title = styled.h2`
   }
 
   @media (min-width: 1920px) {
-    /* max-width: 435px; */
     font-size: 64px;
     font-weight: 600;
     letter-spacing: -1.23px;
@@ -113,11 +149,16 @@ export const Description = styled.h3`
 `;
 
 const TopContent = ({ title, description }: { title: string; description: string }) => {
+  const [ViewRef, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
   return (
     <Section>
       <ImageContainer></ImageContainer>
       <Layout>
-        <Container>
+        <Container ref={ViewRef} $isView={inView}>
           <Title>{title}</Title>
           <Description>{description}</Description>
         </Container>
