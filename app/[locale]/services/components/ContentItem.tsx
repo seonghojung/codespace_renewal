@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 // import { ILocale } from "../(home)/page";
 
 import { IContent, contents } from "@/app/data/services";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
 // interface
 
@@ -201,16 +201,23 @@ const TechDescItem = styled.li`
 const ContentItem = ({ content, isRspPc }: Prop) => {
   const minValue = -66; // 최소값
   const maxValue = 85.91; // 최대값
+  const [windowWidth, setWindowWidth] = useState(0);
   const ref = useRef(null);
-  const [isWideScreen, setIsWideScreen] = useState(false);
 
-  const [videoScaleValue, setVideoScaleValue] = useState(85.91);
+  const [videoScaleValue, setVideoScaleValue] = useState(-85.91);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
+  const { scrollYProgress } = useScroll({});
+  const videoScale = useTransform(scrollYProgress, [0, 1], [70, -66]);
+
+  useEffect(() => {
+    const innerWidth = window.innerWidth;
+    setWindowWidth(innerWidth);
+  }, []);
+  useMotionValueEvent(videoScale, "change", (lastest) => {
+    if (windowWidth > 767) {
+      setVideoScaleValue(videoScaleValue);
+    }
   });
-  const videoScale = useTransform(scrollYProgress, [0, 1], [videoScaleValue, -66]);
 
   return (
     <Wrapper>
