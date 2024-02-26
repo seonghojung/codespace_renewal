@@ -66,20 +66,14 @@ const Project = ({ locale, translation }: { locale: ILocale; translation: ITrans
               <CategoryList onClick={() => filterByCategory("Web")} selected={selectedCategory === "Web"}>
                 {selectedCategory === "Web" && <SelectDot />}
                 <h2>
-                  WEBSITES
+                  WEB
                   <CategoryCount>{WEB_ORDER.length}</CategoryCount>
-                </h2>
-              </CategoryList>
-              <CategoryList onClick={() => filterByCategory("UI/UX")} selected={selectedCategory === "UI/UX"}>
-                {selectedCategory === "UI/UX" && <SelectDot />}
-                <h2>
-                  UI/UX<CategoryCount>{UIUX_ORDER.length}</CategoryCount>
                 </h2>
               </CategoryList>
               <CategoryList onClick={() => filterByCategory("App")} selected={selectedCategory === "App"}>
                 {selectedCategory === "App" && <SelectDot />}
                 <h2>
-                  APPLICATION<CategoryCount>{APP_ORDER.length}</CategoryCount>
+                  APP<CategoryCount>{APP_ORDER.length}</CategoryCount>
                 </h2>
               </CategoryList>
               <CategoryList onClick={() => filterByCategory("CMS")} selected={selectedCategory === "CMS"}>
@@ -87,6 +81,12 @@ const Project = ({ locale, translation }: { locale: ILocale; translation: ITrans
                 <h2>
                   CMS SOLUTION
                   <CategoryCount>{CMS_ORDER.length}</CategoryCount>
+                </h2>
+              </CategoryList>
+              <CategoryList onClick={() => filterByCategory("UI/UX")} selected={selectedCategory === "UI/UX"}>
+                {selectedCategory === "UI/UX" && <SelectDot />}
+                <h2>
+                  UI/UX<CategoryCount>{UIUX_ORDER.length}</CategoryCount>
                 </h2>
               </CategoryList>
             </CategoryListWrap>
