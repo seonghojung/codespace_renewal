@@ -203,7 +203,7 @@ const ProjectVideo = styled.video`
   display: block;
   width: 100%;
   object-fit: cover;
-  cursor: pointer;
+
   position: absolute;
   z-index: 3;
   top: 0;
@@ -353,10 +353,8 @@ const ProjectCard = ({
     description,
     categories,
   },
-  href,
 }: {
   src: ProjectProps;
-  href: string;
 }) => {
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
@@ -390,30 +388,35 @@ const ProjectCard = ({
   };
 
   return (
-    <Link href={`/project/${href}`}>
-      <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
-        <VideoWrap>
-          {isWideScreen && <ProjectVideo src={`/videos/projectComponents/${videoSrc}`} ref={ref} muted loop preload="" />}
-          <ThumbnailImage src={isWideScreen ? src1280 : src} alt="" sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px" />
-        </VideoWrap>
-        <InfoWrap>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
-          <CategoryItems categories={categories} />
-        </InfoWrap>
-      </SubProjectContainer>
-    </Link>
+    <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
+      <VideoWrap>
+        {isWideScreen && <ProjectVideo src={`/videos/projectComponents/${videoSrc}`} ref={ref} muted loop preload="" />}
+        <ThumbnailImage src={isWideScreen ? src1280 : src} alt="" sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px" />
+      </VideoWrap>
+      <InfoWrap>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <CategoryItems categories={categories} />
+      </InfoWrap>
+    </SubProjectContainer>
   );
 };
-
 const Projects = ({ projects }: { projects: ProjectProps[] }) => {
   return (
     <ProjectItems>
-      {projects.map((project, index) => (
-        <ProjectItem key={index} index={index}>
-          <ProjectCard src={project} href={project.id} />
-        </ProjectItem>
-      ))}
+      {projects.map((project, index) => {
+        return (
+          <ProjectItem key={index} index={index}>
+            {project.details ? (
+              <Link href={`/project/${project.id}`} style={{ cursor: "pointer" }}>
+                <ProjectCard src={project} />
+              </Link>
+            ) : (
+              <ProjectCard src={project} />
+            )}
+          </ProjectItem>
+        );
+      })}
     </ProjectItems>
   );
 };
