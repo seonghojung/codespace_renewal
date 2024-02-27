@@ -22,7 +22,7 @@ export const contents: IContents = {
       description:
         "다양한 디바이스, 브라우저에서도 유연한 웹사이트를 통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성 고려, SEO 최적화 텐츠 가독성 향상이 모바일과 PC 등 다양한 환경에서 올바르게 보여질 수 있도록 제공하고 있습니다.",
       descriptionMb: `다양한 디바이스, 브라우저에서도 유연한 웹사이트를 통해 반응형 디자인, 크로스 브라우징을 비롯한 접근성고려, SEO 최적화 콘텐츠 가독성 향상이 모바일과 PC 등 다양한 환경에서 올바르게 보여질 수 있도록 제공하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["반응형 웹", "컨텐츠 전략", "크로스 브라우징", "웹 성능 최적화", "API 개발 및 통합", "웹 분석 및 추적"],
     },
     {
       thumbnail: "/videos/service/app.mp4",
@@ -35,7 +35,7 @@ export const contents: IContents = {
 애플리케이션을 개발하여 합리적인 가격으로 투자에 대한
 최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에
 달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["크로스 플랫폼 개발", "앱 성능 최적화", "푸시 알림", "앱 수익화 전략", "하이브리드 앱 개발", "웹앱 패키징"],
     },
     {
       thumbnail: "/videos/service/ui.mp4",
@@ -56,7 +56,7 @@ CMS 솔루션`,
 션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율
 성을 높일 수 있는 운영에 필요한 개발 서비스를 
 제공하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["사용자 및 권한 관리", "내용 분류", "사용자 친화적인 인터페이스", "컨텐츠 가져오기 / 내보내기", "컨텐츠 작성 및 편집", "다국어 지원"],
     },
     {
       thumbnail: "/videos/service/seo.mp4",
@@ -69,7 +69,7 @@ CMS 솔루션`,
     렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바
     르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공
     하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["A/B 테스트", "키워드 연구", "페이지 로드 속도 최적화", "구글 애널리틱스 통합", "SEO 친화적인 URL 구조", "SEO 보고 및 분석"],
     },
   ],
   en: [
@@ -84,7 +84,7 @@ CMS 솔루션`,
 고려, SEO 최적화 콘텐츠 가독성 향상이 모바일과 PC 등
 다양한 환경에서 올바르게 보여질 수 있도록
 제공하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["Responsive Web", "Content Strategy", "Cross-Browsing", "Web Performance Optimization", "API Development and Integration", "Web Analytics and Tracking"],
     },
     {
       thumbnail: "/videos/service/app.mp4",
@@ -96,7 +96,7 @@ CMS 솔루션`,
 애플리케이션을 개발하여 합리적인 가격으로 투자에 대한
 최대 가치를 제공하고 있습니다. 서비스의 품질과 목표를 동시에
 달성하는 앱 개발의 여정을 코드스페이스와 함께하세요.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["Cross-platform Development", "App Performance Optimization", "Push Notification", "App Monetization Strategies", "Hybrid App Development", "Web App Packaging"],
     },
     {
       thumbnail: "/videos/service/ui.mp4",
@@ -120,7 +120,7 @@ CMS 솔루션`,
 션으로 콘텐츠를 혁신적으로 관리하고 고객 관리의 효율
 성을 높일 수 있는 운영에 필요한 개발 서비스를 
 제공하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["User and Permission Management", "Content Categorization", "User-Friendly Interface", "Content Import/Export", "Content Creation and Editing", "Multilingual Support"],
     },
     {
       thumbnail: "/videos/service/seo.mp4",
@@ -132,7 +132,7 @@ CMS 솔루션`,
     렌드를 활용하여 파트너의 서비스가 핵심 고객에게 올바
     르게 보여질 수 있도록 검색 트래픽 최적화 서비스를 제공
     하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["A/B Testing", "Keyword Research", "Page Load Speed Optimization", "Google Analytics Integration", "SEO-friendly URL Structures", "SEO Reporting and Analysis"],
     },
   ],
 };
