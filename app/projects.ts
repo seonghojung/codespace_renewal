@@ -400,7 +400,7 @@ export const Projects: IProjects = {
       description: "Travel Magazine & Community Platform",
       categories: ["Web", "CMS", "Magazine", "O2O"],
       date: "Jun, 2022",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["Subscription-based Travel Story Magazine Service", "Optimized development environment for visibility of content", "To facilitate voluntary expansion of the community"],
         descriptions: [
@@ -425,7 +425,7 @@ export const Projects: IProjects = {
       description: "Interior Company Introduction & Quote Responsive Website",
       categories: ["UI/UX", "Web", "Publishing", "Enterprise"],
       date: "Apr, 2021",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["Presenting interior design in a book-like format on the web", "Where variety of storytelling can be expressed", "Accurately capture the customer's voice"],
         descriptions: [
@@ -450,7 +450,7 @@ export const Projects: IProjects = {
       description: "Kakao’s Mobile Game Developers Introduction Responsive Website",
       categories: ["UI/UX", "Web", "Publishing"],
       date: "Apr, 2021",
-      // TODO: details
+      // TODO: images
       details: {
         titles: [
           "Clearly showcase the intentions and directions of the production company",
@@ -504,7 +504,7 @@ export const Projects: IProjects = {
       description: "Product Design Agency Introduction Responsive Website",
       categories: ["Web", "CMS", "Enterprise"],
       date: "Dec, 2020",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["Clearly showcased the company’s belief", "Environment kept simple, while the work presented clearly", "Self-maintainable environment"],
         descriptions: [
@@ -941,7 +941,7 @@ export const Projects: IProjects = {
       description: "커피 로스팅 브랜드 쇼핑몰 및 CMS 설계",
       categories: ["UI/UX", "Web", "CMS", "Ecommerce"],
       date: "Jul, 2023",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["Play your Flavor, 커피를 가장 재밌게 즐기는 법", "다양한 놀거리가\n제공되는 사이트", "고객의 데이터까지\n확인이 가능한 CMS"],
         descriptions: [
@@ -966,7 +966,7 @@ export const Projects: IProjects = {
       description: "지역간 데일리 채팅 기반 커뮤니티 플랫폼",
       categories: ["UI/UX", "App", "CMS", "Startup"],
       date: "Oct, 2020",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["빠르게 지역 사람들과 간단 채팅을 도와주는 +X+", "색상을 통해 더욱 가시성이\n높아질 수 있도록", "삭제되는 메시지라 할지라도\n데이터가 보호되는 것을 우선"],
         descriptions: [
@@ -1121,7 +1121,7 @@ export const Projects: IProjects = {
       description: "제품의 상세 내용을 확인할 수 있는 CTA 중심 반응형 웹",
       categories: ["UI/UX", "Web", "Product"],
       date: "Dec, 2023",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["외국인 막걸리, 마크홀리", "캐릭터의 다양한 포즈가\n다양한 해상도에 담기도록", "율동감 있는\n레이아웃 구성"],
         descriptions: [
@@ -1175,7 +1175,7 @@ export const Projects: IProjects = {
       description: "어린이용 머리 보호 헬맷, 에어키드 소개 반응형 웹",
       categories: ["UI/UX", "Web", "3D", "Enterprise"],
       date: "Jul, 2020",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["제품을 온라인에서 자유롭게 확인할 수 있는 PDP 반응형 웹사이트", "스크롤마다 제품의 다각도 모습이\n잘 전달될 수 있도록", "브랜드 아이덴티티의 핵심이\nGUI에 잘 녹아들 수 있게"],
         descriptions: [
@@ -1225,7 +1225,7 @@ export const Projects: IProjects = {
       description: "여행 매거진 및 커뮤니티 플랫폼",
       categories: ["Web", "CMS", "Magazine", "O2O"],
       date: "Jun, 2022",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["구독형 여행 스토리 매거진 서비스", "콘텐츠가 잘 보일 수 있도록\n최적화 된 개발 환경", "자발적 커뮤니티가\n확장될 수 있도록"],
         descriptions: [
@@ -1250,7 +1250,7 @@ export const Projects: IProjects = {
       description: "인테리어 회사 소개 및 견적 반응형 웹",
       categories: ["UI/UX", "Web", "Publishing", "Enterprise"],
       date: "Apr, 2021",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["인테리어를 책자처럼 웹에서 볼 수 있도록", "다양한 스토리텔링이\n보여질 수 있도록", "고객의 목소리를\n정확히 들을 수 있도록"],
         descriptions: [
@@ -1300,7 +1300,7 @@ export const Projects: IProjects = {
       description: "고급 차량 수출 회사 소개 반응형 웹",
       categories: ["UI/UX", "Web", "CMS", "Enterprise"],
       date: "Apr, 2023",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["다국적 모빌리티 옥션 서비스 BTBG", "다양한 차량이\n복잡하게 보이지 않도록", "문의와 서비스를\n지속적으로 관리하는 시스템"],
         descriptions: [
@@ -1325,7 +1325,7 @@ export const Projects: IProjects = {
       description: "프로덕트 디자인 에이전시 회사 소개 반응형 웹",
       categories: ["Web", "CMS", "Enterprise"],
       date: "Dec, 2020",
-      // TODO: details
+      // TODO: images
       details: {
         titles: ["회사의 신념이 명확히 보이도록", "환경은 심플하게\n작업물은 명확하게", "지속적으로 색을\n더할 수 있도록"],
         descriptions: [
