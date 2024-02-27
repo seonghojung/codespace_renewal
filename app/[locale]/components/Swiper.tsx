@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode } from "swiper/modules";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 
 const DefaultImage = styled(Image)`
   display: block;
@@ -114,113 +113,10 @@ const SwiperStyle = styled(Swiper)`
   }
 `;
 
-const PrevBtn = styled.button`
-  display: none;
-  position: absolute;
-  top: 0;
-  z-index: 5;
-  width: 30%;
-  height: 100%;
-  @media (min-width: 1280px) {
-    display: block;
-    &&& {
-      cursor: url("/svgs/arrow-left.svg"), auto;
-    }
-  }
-`;
-
-const NextBtn = styled.button`
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 5;
-  width: 30%;
-  height: 100%;
-
-  @media (min-width: 1280px) {
-    display: block;
-    &&& {
-      cursor: url(/svgs/arrow-right.svg), auto;
-    }
-  }
-`;
-
 const CarouselSwiper = ({ items }: { items: any[] }) => {
-  const swiperRef = useRef<SwiperClass | null>(null);
-  const [innerWidth, setInnerWidth] = useState(0);
-  const [isPrevHovering, setIsPrevHovering] = useState(false);
-  const [isNextHovering, setIsNextHovering] = useState(false);
-
-  useEffect(() => {
-    const browserWidth = window.innerWidth;
-    setInnerWidth(browserWidth);
-  }, []);
-
-  // Prev 버튼에 대한 이벤트 처리
-  const prevHoverHandler = () => {
-    if (innerWidth > 1279) {
-      setIsPrevHovering(true);
-    }
-  };
-
-  const unPrevhoverHandler = () => {
-    setIsPrevHovering(false);
-  };
-
-  useEffect(() => {
-    let interval: any;
-
-    if (isPrevHovering) {
-      interval = setInterval(() => {
-        if (!swiperRef.current) {
-          return;
-        }
-        swiperRef.current.slidePrev(600);
-      }, 1);
-    }
-    return () => clearInterval(interval);
-  }, [isPrevHovering]);
-
-  // Next 버튼에 대한 이벤트 처리
-  const nextHoverHandler = () => {
-    if (innerWidth > 1279) {
-      setIsNextHovering(true);
-    }
-  };
-
-  const unNexthoverHandler = () => {
-    setIsNextHovering(false);
-  };
-
-  useEffect(() => {
-    let interval: any;
-
-    if (isNextHovering) {
-      interval = setInterval(() => {
-        if (!swiperRef.current) {
-          return;
-        }
-        swiperRef.current.slideNext(700);
-      }, 1);
-    }
-    return () => clearInterval(interval);
-  }, [isNextHovering]);
-
-  useEffect(() => {
-    if (innerWidth > 1279) {
-      if (swiperRef.current) {
-        swiperRef.current.allowTouchMove = false;
-      }
-    }
-  }, []);
-
   return (
     <>
       <SwiperStyle
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-        }}
         slidesPerView={"auto"}
         freeMode={true}
         modules={[FreeMode]}
@@ -230,8 +126,6 @@ const CarouselSwiper = ({ items }: { items: any[] }) => {
           return <SwiperSlide key={index}>{item}</SwiperSlide>;
         })}
       </SwiperStyle>
-      <PrevBtn type="button" onMouseEnter={prevHoverHandler} onMouseLeave={unPrevhoverHandler}></PrevBtn>
-      <NextBtn type="button" onMouseEnter={nextHoverHandler} onMouseLeave={unNexthoverHandler}></NextBtn>
     </>
   );
 };

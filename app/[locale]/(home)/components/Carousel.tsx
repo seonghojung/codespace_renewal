@@ -53,8 +53,8 @@ const Carousel = () => {
   const [isPrevHovering, setIsPrevHovering] = useState(false);
   const [isNextHovering, setIsNextHovering] = useState(false);
 
-  const [translateX, setTranslateX] = useState(0);
-
+  const [translateX, setTranslateX] = useState(5215);
+  // console.log(translateX);
   const prevHoverHandler = () => {
     setIsPrevHovering(true);
   };
@@ -221,7 +221,7 @@ const SlideImgs = () => {
   ];
 
   return (
-    <>
+    <div style={{ display: "flex" }}>
       {images.map((item, index) => {
         return (
           <li key={index} style={{ display: "flex" }}>
@@ -231,6 +231,6 @@ const SlideImgs = () => {
           </li>
         );
       })}
-    </>
+    </div>
   );
 };

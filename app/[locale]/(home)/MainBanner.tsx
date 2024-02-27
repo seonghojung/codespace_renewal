@@ -171,6 +171,7 @@ const MainBanner = ({ translation }: { translation: ITranslation }) => {
     const checkIsPc = () => {
       setIsPc(window.innerWidth > 1279);
     };
+    checkIsPc();
     const debouncedCheckIsPc = debounce(checkIsPc, 250);
     window.addEventListener("resize", debouncedCheckIsPc);
     return () => {
