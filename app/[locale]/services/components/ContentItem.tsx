@@ -18,7 +18,8 @@ interface Prop {
 
 // styled-components
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
+  opacity: 0;
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -37,30 +38,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const scaleUp = keyframes`
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-  
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  `;
-
-const scaleAnimation = css`
-  animation: ${scaleUp} 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-`;
-
 const ContentImgWrap = styled(motion.div)`
+  opacity: 0;
   width: 100%;
   aspect-ratio: 375 / 487;
-
+  will-change: transform;
   @media (min-width: 768px) {
-    opacity: 0;
-    ${scaleAnimation}
-    transform: translateY(150px);
     width: 45.93%;
     aspect-ratio: 316 / 436;
   }
@@ -216,17 +199,17 @@ const TechDescItem = styled.li`
 `;
 const ContentItem = ({ content, isRspPc }: Prop) => {
   const ref = useRef(null);
-  // const  [y,setY] = useState(150)
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const transform = useTransform(scrollYProgress, [0, 1], [0, -60]);
-
+  const transform = useTransform(scrollYProgress, [0, 1], [300, -300]);
+  scrollYProgress.on("change", (e) => {
+    console.log(e);
+  });
   return (
-    <Wrapper>
-      <ContentImgWrap style={{ y: transform }}>
+    <Wrapper animate={{ opacity: 1 }}>
+      <ContentImgWrap style={{ y: transform }} animate={{ opacity: 1 }} ref={ref}>
         <ContentImg src={content.thumbnail} muted autoPlay loop />
       </ContentImgWrap>
       <ContentWrap>
