@@ -2,7 +2,7 @@
 
 // clay 경우 총 11개의 슬라이드이미지가 있음
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import swiper0 from "../../../../public/images/home/swiper_0.png";
 import swiper1 from "../../../../public/images/home/swiper_1.png";
@@ -15,7 +15,6 @@ import Image from "next/image";
 const CarouselContainer = styled.div`
   position: relative;
 `;
-
 const CarouselWrapper = styled.div`
   display: flex;
   overflow: hidden;
@@ -26,9 +25,7 @@ const CarouselWrapper = styled.div`
   @media (min-width: 768px) {
   }
 `;
-
 const SlideWrap = styled.ul`
-  /* transition: transform 0.5s ease-in-out; */
   display: flex;
   will-change: transform;
 `;
@@ -50,15 +47,15 @@ const ImgWrap = styled.div`
 `;
 
 const Carousel = () => {
+  const hoverStartTime = useRef<null | number>(null);
   const [isPrevHovering, setIsPrevHovering] = useState(false);
   const [isNextHovering, setIsNextHovering] = useState(false);
+  const [translateX, setTranslateX] = useState(0);
 
-  const [translateX, setTranslateX] = useState(5215);
-  // console.log(translateX);
+  // PrevBtn 관련 로직
   const prevHoverHandler = () => {
     setIsPrevHovering(true);
   };
-
   const unPrevhoverHandler = () => {
     setIsPrevHovering(false);
   };
@@ -66,43 +63,88 @@ const Carousel = () => {
     let interval: any;
 
     if (isPrevHovering) {
+      hoverStartTime.current = performance.now();
+
+      let speed = 0;
+      const acceleration = 0.01;
+      const maxSpeed = 3;
       interval = setInterval(() => {
-        setTranslateX((prevTranslateX) => prevTranslateX + 5);
+        if (speed < maxSpeed) {
+          speed += acceleration;
+          setTranslateX((prevTranslateX) => prevTranslateX + speed);
+        } else {
+          setTranslateX((prevTranslateX) => prevTranslateX + maxSpeed);
+        }
+      }, 1);
+    } else {
+      let hoverDuration = 0;
+      if (hoverStartTime.current) {
+        hoverDuration = performance.now() - hoverStartTime.current;
+      }
+      let speed = hoverDuration < 800 ? 0.5 : 2.2;
+
+      const deceleration = 0.01;
+      interval = setInterval(() => {
+        if (speed > 0) {
+          speed -= deceleration;
+          setTranslateX((prevTranslateX) => prevTranslateX + speed);
+        } else {
+          clearInterval(interval);
+        }
       }, 1);
     }
-
     return () => clearInterval(interval);
   }, [isPrevHovering]);
 
+  // NextBtn 관련 로직
   const nextHoverHandler = () => {
     if (innerWidth > 1279) {
       setIsNextHovering(true);
     }
   };
-
   const unNexthoverHandler = () => {
     setIsNextHovering(false);
   };
 
   useEffect(() => {
     let interval: any;
-
     if (isNextHovering) {
+      hoverStartTime.current = performance.now();
+      let speed = 0;
+      const acceleration = 0.01;
+      const maxSpeed = 3;
       interval = setInterval(() => {
-        setTranslateX((prevTranslateX) => prevTranslateX - 5);
+        if (speed < maxSpeed) {
+          speed += acceleration;
+          setTranslateX((prevTranslateX) => prevTranslateX - speed);
+        } else {
+          setTranslateX((prevTranslateX) => prevTranslateX - maxSpeed);
+        }
+      }, 1);
+    } else {
+      let hoverDuration = 0;
+      if (hoverStartTime.current) {
+        hoverDuration = performance.now() - hoverStartTime.current;
+      }
+      let speed = hoverDuration < 800 ? 0.5 : 2.2;
+      const deceleration = 0.01;
+      interval = setInterval(() => {
+        if (speed > 0) {
+          speed -= deceleration;
+          setTranslateX((prevTranslateX) => prevTranslateX - speed);
+        } else {
+          clearInterval(interval);
+        }
       }, 1);
     }
-
     return () => clearInterval(interval);
   }, [isNextHovering]);
-
   return (
     <div style={{ marginTop: "100px" }}>
       <CarouselContainer>
         <PrevBtn type="button" onMouseEnter={prevHoverHandler} onMouseLeave={unPrevhoverHandler}></PrevBtn>
         <CarouselWrapper>
           <SlideWrap style={{ transform: `translateX(${translateX}px)` }}>
-            <SlideImgs />
             <SlideImgs />
             <SlideImgs />
             <SlideImgs />
