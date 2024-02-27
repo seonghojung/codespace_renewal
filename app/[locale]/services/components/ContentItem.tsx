@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { styled } from "styled-components";
+import { css, keyframes, styled } from "styled-components";
 // import { ILocale } from "../(home)/page";
 
 import { IContent, contents } from "@/app/data/services";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { motion, useAnimation, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // interface
 
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 80px;
+    /* padding-bottom: 80px; */
     &:nth-child(2n-1) {
       flex-direction: row-reverse;
     }
@@ -35,16 +37,30 @@ const Wrapper = styled.div`
   }
 `;
 
-interface ITest {
-  $videoScaleValue: number;
-}
+const scaleUp = keyframes`
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  `;
 
-const ContentImgWrap = styled(motion.div)<ITest>`
+const scaleAnimation = css`
+  animation: ${scaleUp} 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+`;
+
+const ContentImgWrap = styled(motion.div)`
   width: 100%;
   aspect-ratio: 375 / 487;
-  transform: translateY(${(props) => props.$videoScaleValue}px);
 
   @media (min-width: 768px) {
+    opacity: 0;
+    ${scaleAnimation}
+    transform: translateY(150px);
     width: 45.93%;
     aspect-ratio: 316 / 436;
   }
@@ -199,29 +215,18 @@ const TechDescItem = styled.li`
   }
 `;
 const ContentItem = ({ content, isRspPc }: Prop) => {
-  const minValue = -66; // 최소값
-  const maxValue = 85.91; // 최대값
-  const [windowWidth, setWindowWidth] = useState(0);
   const ref = useRef(null);
+  // const  [y,setY] = useState(150)
 
-  const [videoScaleValue, setVideoScaleValue] = useState(-85.91);
-
-  const { scrollYProgress } = useScroll({});
-  const videoScale = useTransform(scrollYProgress, [0, 1], [70, -66]);
-
-  useEffect(() => {
-    const innerWidth = window.innerWidth;
-    setWindowWidth(innerWidth);
-  }, []);
-  useMotionValueEvent(videoScale, "change", (lastest) => {
-    if (windowWidth > 767) {
-      setVideoScaleValue(videoScaleValue);
-    }
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
   });
+  const transform = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <Wrapper>
-      <ContentImgWrap style={{ y: videoScale }} ref={ref} $videoScaleValue={videoScaleValue}>
+      <ContentImgWrap style={{ y: transform }}>
         <ContentImg src={content.thumbnail} muted autoPlay loop />
       </ContentImgWrap>
       <ContentWrap>
