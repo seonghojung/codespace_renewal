@@ -34,7 +34,6 @@ function Services({ params: { locale } }: { params: { locale: ILocale } }) {
         <HeaderSection translation={HeaderSectionTranslation} />
       </Layout>
       <ContentsSection locale={locale} />
-      {/* <SwiperSection translation={SwiperSectionTranslation} /> */}
     </Section>
   );
 }

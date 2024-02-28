@@ -204,9 +204,7 @@ const ContentItem = ({ content, isRspPc }: Prop) => {
     offset: ["start end", "end start"],
   });
   const transform = useTransform(scrollYProgress, [0, 1], [300, -300]);
-  scrollYProgress.on("change", (e) => {
-    console.log(e);
-  });
+  scrollYProgress.on("change", (e) => {});
   return (
     <Wrapper animate={{ opacity: 1 }}>
       <ContentImgWrap style={{ y: transform }} animate={{ opacity: 1 }} ref={ref}>
