@@ -402,7 +402,7 @@ export const Projects: IProjects = {
       date: "Jun, 2022",
       // TODO: images
       details: {
-        titles: ["Subscription-based Travel Story Magazine Service", "Optimized development environment for visibility of content", "To facilitate voluntary expansion of the community"],
+        titles: ["Subscription-based Travel Story Magazine Service", "Optimized development environment\nfor visibility of content", "To facilitate voluntary\nexpansion of the community"],
         descriptions: [
           "City Hoppers is a travel content subscription platform where customers can subscribe to magazines based on cities, themes, and industries. The platform is developed as not only to allow users to read magazines but also to expand into a community platform where they can create and join group gatherings.",
           "The most crucial aspect for development was to establish a service environment on City Hoppers where customers can use platform in any specifications and editors can consistently create high-quality content within the same standards. In this development, we have taken a comprehensive responsive design approach to ensure that the content looks good on various devices.",
@@ -427,7 +427,7 @@ export const Projects: IProjects = {
       date: "Apr, 2021",
       // TODO: images
       details: {
-        titles: ["Presenting interior design in a book-like format on the web", "Where variety of storytelling can be expressed", "Accurately capture the customer's voice"],
+        titles: ["Presenting interior design in a book-like format on the web", "Where variety of\nstorytelling can be expressed", "Accurately capture\nthe customer's voice"],
         descriptions: [
           "3.3 DESIGN SPACE, as an interior design company, desired to build an introduction portfolio website that could complement the overall visual aesthetics of its extensive portfolio. In this project, we focused on creating an environment where customers can not only view interior designs but also flip through them like a book. We designed an environment where the distinctions and differences in portfolios are clearly visible using ample white space, clear differentiation between portfolios.",
           "Interior design should not only showcase the appearance from a construction perspective but also be crafted to reflect the customer's identity and persona, incorporating diverse storytelling in the portfolio. This website aims to create a web environment where the storytelling in each interior design portfolio resonates with customers, allowing for better visibility and connection.",
@@ -481,7 +481,7 @@ export const Projects: IProjects = {
       date: "Apr, 2023",
       // TODO: images
       details: {
-        titles: ["BTBG, a global mobility auction service", "Displaying variety of vehicles in simplified manner", "A system that consistently manages inquiries and services"],
+        titles: ["BTBG, a global mobility auction service", "Displaying variety of vehicles\nin simplified manner", "A system that consistently\nmanages inquiries and services"],
         descriptions: [
           "BTBG is a website where both international and domestic buyers auction and introduce luxury vehicles. It is designed to showcase the vehicles that have been imported and are ready for auction, allowing customers to find vehicles that match their preferences through various tags.",
           "Given that the images of various brands and colors are displayed in correlation with the number of vehicles being auctioned on BTBG, it was crucial to design the overall UI environment in a way that avoids complexity and appears concise. The design ensures that the continuous exposure of the service's brand does not make it look cluttered, allowing the clear visibility of various products.",
@@ -506,7 +506,7 @@ export const Projects: IProjects = {
       date: "Dec, 2020",
       // TODO: images
       details: {
-        titles: ["Clearly showcased the company’s belief", "Environment kept simple, while the work presented clearly", "Self-maintainable environment"],
+        titles: ["Clearly showcased the company’s belief", "Environment kept simple,\nwhile the work presented clearly", "Self-maintainable environment"],
         descriptions: [
           "Second White, as a product design company, aimed to build a website that clearly reflects our internal brand values, beliefs, and operational direction. Aligning with its name, we designed the website with a spacious white background to enhance the clarity and visibility of our work.",
           "Product design requires a clear focus through modeling, implementation images, and more. In this project, we designed the entire web content area to ensure Second White's works are solely showcased, capturing full attention of the customers.",

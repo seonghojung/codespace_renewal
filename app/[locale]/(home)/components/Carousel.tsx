@@ -51,6 +51,23 @@ const Carousel = () => {
   const [isPrevHovering, setIsPrevHovering] = useState(false);
   const [isNextHovering, setIsNextHovering] = useState(false);
   const [translateX, setTranslateX] = useState(0);
+  const [slides, setSlides] = useState([1, 2, 3]);
+
+  // slide
+  const updateSlidesOrder = () => {
+    setSlides((prevSlides) => {
+      // 배열의 첫 번째 요소를 맨 뒤로 이동
+      return [...prevSlides.slice(1), prevSlides[0]];
+    });
+  };
+
+  // translateX 업데이트 로직에 슬라이드 위치 변경 로직 추가
+  useEffect(() => {
+    if (Math.abs(translateX) >= 2900) {
+      updateSlidesOrder();
+      setTranslateX(0); // translateX 초기화
+    }
+  }, [translateX]);
 
   // PrevBtn 관련 로직
   const prevHoverHandler = () => {
@@ -148,6 +165,9 @@ const Carousel = () => {
             <SlideImgs />
             <SlideImgs />
             <SlideImgs />
+            {/* {slides.map((slide, index) => (
+              <SlideImgs key={index} /> // 가정: SlideImgs 컴포넌트는 slide prop을 받음
+            ))} */}
           </SlideWrap>
         </CarouselWrapper>
         <NextBtn type="button" onMouseEnter={nextHoverHandler} onMouseLeave={unNexthoverHandler}></NextBtn>
