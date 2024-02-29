@@ -7,6 +7,7 @@ import { css, keyframes, styled } from "styled-components";
 import { IContent, contents } from "@/app/data/services";
 import { motion, useAnimation, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import debounce from "@/app/utils/debounce";
 
 // interface
 
@@ -25,7 +26,7 @@ const Wrapper = styled(motion.div)`
     justify-content: space-between;
     align-items: center;
     margin-top: 80px;
-    /* padding-bottom: 80px; */
+    padding-bottom: 200px;
     &:nth-child(2n-1) {
       flex-direction: row-reverse;
     }
@@ -92,7 +93,7 @@ const ContentWrap = styled.div`
   }
   h3 {
     margin-top: 14px;
-    max-width: 59.6%;
+    width: 226px;
     font-size: 30px;
     font-weight: bold;
     line-height: 1.2;
@@ -102,8 +103,7 @@ const ContentWrap = styled.div`
 
     @media (min-width: 768px) {
       margin-top: 0;
-      max-width: initial;
-      width: 265px;
+      width: 304px;
       font-weight: 600;
       font-size: 40px;
       line-height: 1.1;
@@ -111,13 +111,13 @@ const ContentWrap = styled.div`
     }
     @media (min-width: 1280px) {
       margin-top: 6px;
-      width: 343px;
+      width: 393px;
       font-size: 52px;
       letter-spacing: -0.81px;
     }
     @media (min-width: 1920px) {
       margin-top: 16px;
-      width: 420px;
+      width: 480px;
       font-size: 64px;
       letter-spacing: -1.23px;
     }
@@ -199,15 +199,46 @@ const TechDescItem = styled.li`
 `;
 const ContentItem = ({ content, isRspPc }: Prop) => {
   const ref = useRef(null);
+  const [isMb, setIsMb] = useState(false);
+  const [browserWidth, setBrowserWidth] = useState(0);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const transform = useTransform(scrollYProgress, [0, 1], [300, -300]);
   scrollYProgress.on("change", (e) => {});
+
+  let startValue = 0;
+  let endValue = 0;
+
+  if (browserWidth >= 768 && browserWidth < 1280) {
+    startValue = 150;
+    endValue = -150;
+  } else if (browserWidth >= 1280 && browserWidth < 1920) {
+    startValue = 250;
+    endValue = -250;
+  } else if (browserWidth >= 1920) {
+    startValue = 220;
+    endValue = -220;
+  }
+
+  const transform = useTransform(scrollYProgress, [0, 1], [startValue, endValue]);
+  // mobile(브라우저 width가 768 미만) 유무 체크
+  useEffect(() => {
+    const checkIsMb = () => {
+      setIsMb(window.innerWidth > 767);
+      setBrowserWidth(window.innerWidth);
+    };
+    checkIsMb();
+    const debouncedCheckIsMb = debounce(checkIsMb, 250);
+    window.addEventListener("resize", debouncedCheckIsMb);
+    return () => {
+      window.removeEventListener("resize", debouncedCheckIsMb);
+    };
+  }, []);
+
   return (
     <Wrapper animate={{ opacity: 1 }}>
-      <ContentImgWrap style={{ y: transform }} animate={{ opacity: 1 }} ref={ref}>
+      <ContentImgWrap className="content__img-wrap" style={isMb ? { y: transform } : {}} animate={{ opacity: 1 }} ref={ref}>
         <ContentImg src={content.thumbnail} muted autoPlay loop />
       </ContentImgWrap>
       <ContentWrap>

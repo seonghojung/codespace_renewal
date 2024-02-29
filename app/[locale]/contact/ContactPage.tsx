@@ -175,16 +175,10 @@ export default function Contact({ translation }: { translation: ITranslation }) 
         <SectionWrap>
           <EmailTitleWrap>
             <TopTitle>{translation.title}</TopTitle>
-            <UnderLineText href="mailto:bentley@codespace.im">
-              <Header>bentley@codespace.im</Header>
+            <UnderLineText href="mailto:contact@codespace.im">
+              <Header>contact@codespace.im</Header>
             </UnderLineText>
           </EmailTitleWrap>
-          <PhoneTitleWrap>
-            <Title>{translation.description}</Title>
-            <UnderLineText href="#">
-              <Header>010-0000-0000</Header>
-            </UnderLineText>
-          </PhoneTitleWrap>
         </SectionWrap>
       </PageWrap>
     </PageLayout>

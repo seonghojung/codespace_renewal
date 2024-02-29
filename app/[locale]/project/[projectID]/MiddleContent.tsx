@@ -27,6 +27,8 @@ const floatingUpTablet = css`
   animation: 1.25s ${fadeIn} 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 `;
 
+const Container = styled.article``;
+
 const ImageContainer = styled.div`
   margin-top: 80px;
   @media (min-width: 768px) {
@@ -99,7 +101,7 @@ const Img = styled(NextImage)`
   object-fit: cover;
 `;
 
-const Container = styled.div<StyleProp>`
+const TextWrap = styled.div<StyleProp>`
   opacity: 0;
   margin-top: 20px;
   ${({ $isView }) => $isView && floatingUp}
@@ -118,15 +120,13 @@ const Container = styled.div<StyleProp>`
 `;
 
 const SubContent = ({ title, description, images }: { title: string; description: string; images: string[] }) => {
-  console.log(images);
-
   const [ViewRef, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
 
   return (
-    <>
+    <Container>
       <ImageContainer>
         <LargeImgWrap>
           <LargeImg src={images[0]} alt="" fill />
@@ -141,12 +141,12 @@ const SubContent = ({ title, description, images }: { title: string; description
         </Wrap>
       </ImageContainer>
       <Layout>
-        <Container ref={ViewRef} $isView={inView}>
+        <TextWrap ref={ViewRef} $isView={inView}>
           <Title>{title}</Title>
           <Description>{description}</Description>
-        </Container>
+        </TextWrap>
       </Layout>
-    </>
+    </Container>
   );
 };
 

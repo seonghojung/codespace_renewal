@@ -26,7 +26,7 @@ const floatingUpTablet = css`
   animation: 1.25s ${fadeIn} 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 `;
 
-const Section = styled.article`
+const Container = styled.article`
   margin-top: 80px;
 
   @media (min-width: 768px) {
@@ -75,7 +75,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Container = styled.div<StyleProp>`
+const TextWrap = styled.div<StyleProp>`
   opacity: 0;
   ${({ $isView }) => $isView && floatingUp}
   margin-top: 20px;
@@ -155,15 +155,15 @@ const TopContent = ({ title, description }: { title: string; description: string
   });
 
   return (
-    <Section>
+    <Container>
       <ImageContainer></ImageContainer>
       <Layout>
-        <Container ref={ViewRef} $isView={inView}>
+        <TextWrap ref={ViewRef} $isView={inView}>
           <Title>{title}</Title>
           <Description>{description}</Description>
-        </Container>
+        </TextWrap>
       </Layout>
-    </Section>
+    </Container>
   );
 };
 export default TopContent;

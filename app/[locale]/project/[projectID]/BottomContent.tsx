@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import { LargeImg, LargeImgWrap } from "./MiddleContent";
 
-const Section = styled.section`
+const Container = styled.article`
   margin-top: 80px;
 
   @media (min-width: 768px) {
@@ -21,11 +21,11 @@ const Section = styled.section`
 
 const BottomContent = ({ images }: { images: string[] }) => {
   return (
-    <Section>
+    <Container>
       <LargeImgWrap>
         <LargeImg src={images[0]} alt="" fill />
       </LargeImgWrap>
-    </Section>
+    </Container>
   );
 };
 

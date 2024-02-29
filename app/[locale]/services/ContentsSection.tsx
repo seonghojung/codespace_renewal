@@ -21,11 +21,11 @@ const Wrap = styled.article`
   }
   @media (min-width: 1280px) {
     max-width: 1130px;
-    margin: 160px auto 80px;
+    margin: 160px auto 120px;
   }
   @media (min-width: 1920px) {
     max-width: 1536px;
-    margin: 100px auto 100px;
+    margin: 100px auto 140px;
   }
 `;
 

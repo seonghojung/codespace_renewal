@@ -44,7 +44,7 @@ export const contents: IContents = {
 만들어지는 매력적인 UI`,
       description: "사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스 확장을 고려하여 서비스를 제공하고 있습니다.",
       descriptionMb: `사용자 패턴을 분석하여 파트너가 바라보는 산업에 알맞는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것이 아닌 향후 전개될 비즈니스 확장을 고려하여 서비스를 제공하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["사용자 조사", "페르소나 전략", "사용자 경험 전략", "사용자 인터페이스 디자인", "비주얼 디자인", "모바일 아이콘 디자인"],
     },
     {
       thumbnail: "/videos/service/cms.mp4",
@@ -108,7 +108,7 @@ CMS 솔루션`,
     는 비주얼 시스템을 제작합니다. 단순히 일관성을 보는 것
     이 아닌  향후 전개될 비즈니스 확장을 고려하여 서비스를
     제공하고 있습니다.`,
-      techDescription: ["UI/UX Market Research", "UX Stretegy", "Product Launcher Icon", "UI/UX Market Research", "UX Stretegy", "Product Launcher Icon"],
+      techDescription: ["User Research", "Persona Strategy", "User Experience", "User Interface", "Visual Design Direction", "Mobile Iconography"],
     },
     {
       thumbnail: "/videos/service/cms.mp4",
