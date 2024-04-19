@@ -44,7 +44,7 @@ const Section = styled.section`
 const Title = styled.h1`
   opacity: 0;
   position: relative;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -1.04px;
@@ -100,17 +100,17 @@ const VideoContainer = styled(motion.div)`
   }
 `;
 const DescriptionWrap = styled.div`
-  margin-top: 60px;
+  margin-top: 20px;
 
   @media (min-width: 768px) {
-    margin-top: 80px;
+    margin-top: 30px;
   }
 
   @media (min-width: 1280px) {
-    margin-top: 111px;
+    margin-top: 40px;
   }
   @media (min-width: 1920px) {
-    margin-top: 140px;
+    margin-top: 60px;
   }
 `;
 
@@ -232,11 +232,6 @@ const SectionTopBanner = ({ translation }: { translation: ITranslation }) => {
       <Layout>
         <Title>{translation.title}</Title>
       </Layout>
-      <VideoLayout>
-        <VideoContainer ref={bannerRef} style={{ transform: `scale(${Scale})` }}>
-          <MainVideo src="/videos/clayMain.mp4" autoPlay muted loop />
-        </VideoContainer>
-      </VideoLayout>
       <SubtitleWrap ref={ViewRef} $isView={inView}>
         <Layout>
           <DescriptionWrap>

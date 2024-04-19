@@ -11,8 +11,20 @@ export interface IMainProject {
   moreBtn: string;
 }
 const Section = styled.section`
-  margin-top: 120px;
+  margin-top: 80px;
+  /* @media (min-width: 768px) {
+    margin-top: 60px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 0px;
+  } */
 `;
+
+const sizeObj = {
+  small: "705px * 705px",
+  medium: "705px * 880px",
+  large: "(PC) 1350px * 760px ,(Mobile) 1055px * 1318px",
+};
 
 const SectionProjects = ({ locale }: { locale: ILocale }) => {
   return (

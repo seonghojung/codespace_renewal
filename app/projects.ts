@@ -103,7 +103,11 @@ export const Projects: IProjects = {
       date: "Jul, 2023",
       // TODO: images
       details: {
-        titles: ["Ways to enjoy coffee experience", "Website that offers\nvarious entertainment options", "A CMS that allows\naccess to customer data"],
+        titles: [
+          "Ways to enjoy coffee experience",
+          "Website that offers\nvarious entertainment options",
+          "A CMS that allows\naccess to customer data",
+        ],
         descriptions: [
           "UFO Coffee is a B2B brand engaged in coffee bean roasting, but there was a need for web development to expand into the B2C sector for selling its own coffee beans. This website not only focuses on selling coffee beans but also incorporates various programs and content, providing a comprehensive web service.",
           "As mentioned, UFO Coffee not only sells coffee beans but also offers various entertaining elements on its website, including comics, programs, friendships, cinema, and more. The goal was to create a layout where each element is displayed, and information is presented smoothly for an engaging user experience.",
@@ -128,7 +132,11 @@ export const Projects: IProjects = {
       date: "Oct, 2020",
       // TODO: images
       details: {
-        titles: ["+X+ aids in quick and simple chats with local users", "Enhancing visibility\nthrough various color choices", "Prioritizing on data protection\neven for the deleted messages"],
+        titles: [
+          "+X+ aids in quick and simple chats with local users",
+          "Enhancing visibility\nthrough various color choices",
+          "Prioritizing on data protection\neven for the deleted messages",
+        ],
         descriptions: [
           "descripti+X+ is a social communication application where users can share information about their local area by simply entering messages when they have questions or desire to know the latest news. The unique element of this website is that all messages are text-based rather than image, and the all messages are deleted after 24 hours.on1",
           "Since this service relies solely on messaging, we prioritized on accessibility and readability. All designs are based on message boxes, allowing customers to choose from various colors for better visibility and readability.",
@@ -182,7 +190,11 @@ export const Projects: IProjects = {
       date: "Dec, 2021",
       // TODO: images
       details: {
-        titles: ["Easy plant care with Fuleaf Plant platform", "A space where diverse magazines\nand stories can coexist", "To enable expansion\nwith more services"],
+        titles: [
+          "Easy plant care with Fuleaf Plant platform",
+          "A space where diverse magazines\nand stories can coexist",
+          "To enable expansion\nwith more services",
+        ],
         descriptions: [
           "Fuleaf is a comprehensive plant platform starting with a fast and accurate plant search platform that provides information for anyone curious about plant care. It expands into a B2B, B2C integrated plant platform where various plant-related products can be purchased.",
           "Beyond searching for a plant encyclopedia, Fuleaf goes further by collaborating with affiliated writers to share content in a magazine format. The design and planning were centered around allowing users to subscribe and continuously enjoy their plant life, and development was carried out based on this concept.",
@@ -265,7 +277,11 @@ export const Projects: IProjects = {
       date: "Feb, 2022",
       // TODO: images
       details: {
-        titles: ["Chart-in, Global music portfolio platform", "Focusing on core colors\nto achieve professionalism", "Developed with consideration of\nvarious scenarios and circumstances"],
+        titles: [
+          "Chart-in, Global music portfolio platform",
+          "Focusing on core colors\nto achieve professionalism",
+          "Developed with consideration of\nvarious scenarios and circumstances",
+        ],
         descriptions: [
           "Chart-in is a music community platform service for everyone who loves music and wants to discover new playlists. It features a community where individuals can promote themselves, listen to and evaluate trending music, and receive feedback from other users.",
           "UI features core colors that reflects a dark background resembling the environment where music creators concentrate on their work. Through the overall atmosphere and visual balance, users are encouraged to engage more professionally on Chart-in, fostering a sense of expertise",
@@ -274,9 +290,9 @@ export const Projects: IProjects = {
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
-    // MarkHoly
+    // 당신의 타로
     {
-      id: "markholy",
+      id: "taro",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -284,22 +300,14 @@ export const Projects: IProjects = {
         src: medium,
         src1280: medium,
       },
-      title: "MarkHoly",
-      description: "CTA-centered Responsive Website with Detailed Product Information",
-      categories: ["UI/UX", "Web", "Product"],
+      title: "urtarot",
+      description: "Tarot platform web publishing",
+      categories: ["UI/UX", "Web", "Product", "Publishing"],
       date: "Dec, 2023",
       // TODO: images
       details: {
-        titles: [
-          "MarkHoly, Korean Traditional Drink (Makgeolli) for foreigners",
-          "Ensuring various posture of the characte\nare captured in different resolutions",
-          "Energetic and dynamic\nlayout composition",
-        ],
-        descriptions: [
-          "MarkHoly is a brand created by Mark Holy who has a high affection for Korean culture. The brand name also sounds similar to Makgeolli which greatly represents brand’s identity. Unlike traditional Makgeolli, the brand aims to showcase a trendy branding of Makgeolli on the web, effectively communicating with customers.",
-          "The essence of MarkHoly lies in the character's appearance and actions. Occasionally, there may be cases where the images are cropped or appears differently when exposed to different devices. In this development and design, efforts were made to ensure the entire landing page are presented uniformly across various device environments.",
-          "descriptMarkHoly aims beyond selling Makgeolli and envisions business expansion into the IP category. The look and feel composition, showcasing various postures and styles of the character, and presenting the products were crucial. In this web design, we emphasized the fine-tuning of the overall composition and section structure for each scroll to effectively capture the essence of the brand in the layout.",
-        ],
+        titles: ["_", "_", "_"],
+        descriptions: ["_", "_", "_"],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -377,7 +385,11 @@ export const Projects: IProjects = {
       date: "Aug, 2022",
       // TODO: images
       details: {
-        titles: ["DOOSIL, the interior brokerage plaform to find your perfect home", "To make various tags appear\nsimple and easy to understand", "From web browsers\nto mobile applications"],
+        titles: [
+          "DOOSIL, the interior brokerage plaform to find your perfect home",
+          "To make various tags appear\nsimple and easy to understand",
+          "From web browsers\nto mobile applications",
+        ],
         descriptions: [
           "DOOSIL is an interior O2O platform that helps you find the perfect home by providing diverse home interior information. Through various lifestyle tags, the platform identifies your consumer preferences and the brands you encounter. It then offers insights into how your living space should be designed and provides assistance in the actual implementation and execution of interior projects.",
           "Existing interior platforms have commonly featured excessive white space or a UI environment similar to traditional shopping mall sites. DOOSIL aimed to differentiate itself by considering various aspects such as multi-directional scrolling and page depth in the planning and design, providing customers with a feeling of searching for and reading lifestyle tags akin to a life magazine.",
@@ -402,7 +414,11 @@ export const Projects: IProjects = {
       date: "Jun, 2022",
       // TODO: images
       details: {
-        titles: ["Subscription-based Travel Story Magazine Service", "Optimized development environment\nfor visibility of content", "To facilitate voluntary\nexpansion of the community"],
+        titles: [
+          "Subscription-based Travel Story Magazine Service",
+          "Optimized development environment\nfor visibility of content",
+          "To facilitate voluntary\nexpansion of the community",
+        ],
         descriptions: [
           "City Hoppers is a travel content subscription platform where customers can subscribe to magazines based on cities, themes, and industries. The platform is developed as not only to allow users to read magazines but also to expand into a community platform where they can create and join group gatherings.",
           "The most crucial aspect for development was to establish a service environment on City Hoppers where customers can use platform in any specifications and editors can consistently create high-quality content within the same standards. In this development, we have taken a comprehensive responsive design approach to ensure that the content looks good on various devices.",
@@ -427,7 +443,11 @@ export const Projects: IProjects = {
       date: "Apr, 2021",
       // TODO: images
       details: {
-        titles: ["Presenting interior design in a book-like format on the web", "Where variety of\nstorytelling can be expressed", "Accurately capture\nthe customer's voice"],
+        titles: [
+          "Presenting interior design in a book-like format on the web",
+          "Where variety of\nstorytelling can be expressed",
+          "Accurately capture\nthe customer's voice",
+        ],
         descriptions: [
           "3.3 DESIGN SPACE, as an interior design company, desired to build an introduction portfolio website that could complement the overall visual aesthetics of its extensive portfolio. In this project, we focused on creating an environment where customers can not only view interior designs but also flip through them like a book. We designed an environment where the distinctions and differences in portfolios are clearly visible using ample white space, clear differentiation between portfolios.",
           "Interior design should not only showcase the appearance from a construction perspective but also be crafted to reflect the customer's identity and persona, incorporating diverse storytelling in the portfolio. This website aims to create a web environment where the storytelling in each interior design portfolio resonates with customers, allowing for better visibility and connection.",
@@ -481,7 +501,11 @@ export const Projects: IProjects = {
       date: "Apr, 2023",
       // TODO: images
       details: {
-        titles: ["BTBG, a global mobility auction service", "Displaying variety of vehicles\nin simplified manner", "A system that consistently\nmanages inquiries and services"],
+        titles: [
+          "BTBG, a global mobility auction service",
+          "Displaying variety of vehicles\nin simplified manner",
+          "A system that consistently\nmanages inquiries and services",
+        ],
         descriptions: [
           "BTBG is a website where both international and domestic buyers auction and introduce luxury vehicles. It is designed to showcase the vehicles that have been imported and are ready for auction, allowing customers to find vehicles that match their preferences through various tags.",
           "Given that the images of various brands and colors are displayed in correlation with the number of vehicles being auctioned on BTBG, it was crucial to design the overall UI environment in a way that avoids complexity and appears concise. The design ensures that the continuous exposure of the service's brand does not make it look cluttered, allowing the clear visibility of various products.",
@@ -506,7 +530,11 @@ export const Projects: IProjects = {
       date: "Dec, 2020",
       // TODO: images
       details: {
-        titles: ["Clearly showcased the company’s belief", "Environment kept simple,\nwhile the work presented clearly", "Self-maintainable environment"],
+        titles: [
+          "Clearly showcased the company’s belief",
+          "Environment kept simple,\nwhile the work presented clearly",
+          "Self-maintainable environment",
+        ],
         descriptions: [
           "Second White, as a product design company, aimed to build a website that clearly reflects our internal brand values, beliefs, and operational direction. Aligning with its name, we designed the website with a spacious white background to enhance the clarity and visibility of our work.",
           "Product design requires a clear focus through modeling, implementation images, and more. In this project, we designed the entire web content area to ensure Second White's works are solely showcased, capturing full attention of the customers.",
@@ -893,7 +921,11 @@ export const Projects: IProjects = {
       date: "Aug. 2022",
       // TODO: 이미지
       details: {
-        titles: ["제품의 정보를 잘 전달하고 시승 예약 서비스에 집중", `제품의 비주얼이\n디지털 환경에서 잘 보일 수 있도록`, `언제 어디서나\n모바일로 간편하게 방문`],
+        titles: [
+          "제품의 정보를 잘 전달하고 시승 예약 서비스에 집중",
+          `제품의 비주얼이\n디지털 환경에서 잘 보일 수 있도록`,
+          `언제 어디서나\n모바일로 간편하게 방문`,
+        ],
         descriptions: [
           "기아 언플러그드 EV6 프로젝트는 각 지점별 시승 및 차량 경험이 가능한 오프라인 시설을 소개하기 위한 반응형 웹 사이트로 제작이 되었습니다. 고객들이 새롭게 출시되는 차량에 대한 정보를 제대로 인지하는 것과 더불어 시승 예약, 코스 등 경험 관점의 정보를 제대로 전달하기 위해 디자인 / 기획을 진행하였습니다.",
           "EV6의 전기 카테고리를 활용한 에코, 스타일, 트랜드에 자연스럽게 녹아들며 실질적으로 구매 시 고객이 얻는 만족감을 상상할 수 있는 이미지 등을 고객의 시선 방향에 고려하여 제작 표현되었습니다.",
@@ -918,7 +950,11 @@ export const Projects: IProjects = {
       date: "Oct, 2023",
       // TODO: 이미지
       details: {
-        titles: ["함께 키우는 식물 커뮤니티 풀박사", "단순한 커뮤니티를 넘어\nO2O까지 확장이 되도록", "정확한 날씨 정보가\n고객에게 전달 될 수 있도록"],
+        titles: [
+          "함께 키우는 식물 커뮤니티 풀박사",
+          "단순한 커뮤니티를 넘어\nO2O까지 확장이 되도록",
+          "정확한 날씨 정보가\n고객에게 전달 될 수 있도록",
+        ],
         descriptions: [
           "풀박사는 기존에 플랫폼들과 달리 혼자 키우는 식물을 넘어서 사람들끼리 같은 지역 날씨 환경 아래 자신 들의 식물을 공유하고 정보를 탐색하는 식물 커뮤니티 플랫폼입니다. 기존 식물 플랫폼의 비즈니스 구조 를 이해하고 현 시장에 알맞는 비즈니스 구조를 함께 설계를 하였고 이에 따른 베타 서비스 디자인, 기획, 개발을 진행하였습니다.",
           "풀박사는 식물을 키우는 정보를 교류하는 것을 넘어 더 잘 키우기 위해서 접하는 판매 제품 및 지역별 날씨를 제안하고 더 좋은 정보를 만날 수 있는 O2O 영역까지의 확장을 고려하며 디자인 및 기획 설계를 진행하였습니다.",
@@ -968,7 +1004,11 @@ export const Projects: IProjects = {
       date: "Oct, 2020",
       // TODO: images
       details: {
-        titles: ["빠르게 지역 사람들과 간단 채팅을 도와주는 +X+", "색상을 통해 더욱 가시성이\n높아질 수 있도록", "삭제되는 메시지라 할지라도\n데이터가 보호되는 것을 우선"],
+        titles: [
+          "빠르게 지역 사람들과 간단 채팅을 도와주는 +X+",
+          "색상을 통해 더욱 가시성이\n높아질 수 있도록",
+          "삭제되는 메시지라 할지라도\n데이터가 보호되는 것을 우선",
+        ],
         descriptions: [
           "+X+는 사람들이 궁금한게 있을 때 그 지역에 대한 소식을 알고싶을 때 자신이 있는 지역에서 메시지를 가볍게 입력하여 정보를 공유하는 소셜 커뮤니케이션 애플리케이션입니다. 모든 메세지는 이미지가 아닌 텍스트 위주로 올라가도록 되어있고하루가 지나면 모든 메세지가 삭제되는 위주로 제작이 되었습니다.",
           "메세지로만 소통을 해야하는 서비스다보니 그 무엇보다 접근성, 시인성이 좋아야하는 이유가 있었습니다. 모든 디자인은 메시지 박스를 기반으로 다양한 색상을 고객들이 선택하고 볼 수 있도록 하였습니다.",
@@ -1048,7 +1088,11 @@ export const Projects: IProjects = {
       date: "Apr. 2020",
       // TODO: images
       details: {
-        titles: ["데이터를 통한 실거래가와 미래가격 예측 부동산 플랫폼, 리치고", "거주자 관점, 투자자 관점\n양쪽을 고려한 기획 설계", "다양한 정보가 복잡하지 않게\n한눈에 보일 수 있도록"],
+        titles: [
+          "데이터를 통한 실거래가와 미래가격 예측 부동산 플랫폼, 리치고",
+          "거주자 관점, 투자자 관점\n양쪽을 고려한 기획 설계",
+          "다양한 정보가 복잡하지 않게\n한눈에 보일 수 있도록",
+        ],
         descriptions: [
           "리치고는 데이터 기반으로 만들어지는 실거주자, 실거래, 상권분석 등의 정보를 지역별 부동산 정보를 제공하는 종합 부동산 플랫폼으로 부동산을 투자하는 고객과 실거주를 목표로 하는 고객 모두가 자신의 상황에 맞게 부동산을 탐색할 수 있도록 도와주는 플랫폼입니다.",
           "모든 부동산 플랫폼이 대부분 투자에 포커스를 두고 있지만 이번 리치고에서는 거주자 관점을 더욱 집중하여 주변 학군을 비롯해 편의시설, 의료시설 등 실질적으로 거주 시 얻을 수 있는 주변 시설의 환경까지 한눈에 확인할 수 있도록 제작되었습니다.",
@@ -1073,7 +1117,11 @@ export const Projects: IProjects = {
       date: "Aug, 2021",
       // TODO: images
       details: {
-        titles: ["누구나 자유롭게 자신의 프로젝트를 찾고 프로젝트를 믿고 맡길 수 있도록", "가장 빠르게 만들어진\nMVP 서비스", "IP사업까지 고려하여 제작된\n비주얼 아이덴티티 디자인"],
+        titles: [
+          "누구나 자유롭게 자신의 프로젝트를 찾고 프로젝트를 믿고 맡길 수 있도록",
+          "가장 빠르게 만들어진\nMVP 서비스",
+          "IP사업까지 고려하여 제작된\n비주얼 아이덴티티 디자인",
+        ],
         descriptions: [
           "킥오프는 프로젝트를 수주하는 전문가와 일을 맡겨야하는 파트너간의 연결을 도와주는 아웃소싱 O2O 플랫폼입니다. 기존의 아웃소싱 플랫폼이 가지고 있었던 과도한 정보와 허위 정보를 잡고 전문성으로 만들어진 파트너 정보를 합리적인 가격으로 이용이 될 수 있도록 제작되었습니다.",
           "킥오프는 양방향 O2O 플랫폼으로 파트너와 전문가가 상시 교류를 해야하는 서비스입니다. 그러므로 다양한 페이지가 존재하고 과정이 있는 것이 다반사이지만 이번 플랫폼에서는 최대한 대부분의 기능은 CMS를 통해 자동화로 진행이 될 수 있도록 제작이 되었고 이 과정을 통해 시장에 더욱 빠르게 제품을 선보일 수 있는 최적의 작업 기간으로 진행하였습니다.",
@@ -1098,7 +1146,11 @@ export const Projects: IProjects = {
       date: "Feb, 2022",
       // TODO: images
       details: {
-        titles: ["글로벌 뮤직 포트폴리오 플랫폼 차트인", "더욱 전문적일 수 있도록\n핵심 컬러에만 집중", "여러 경우의 수를 파악하며\n진행 된 개발 환경"],
+        titles: [
+          "글로벌 뮤직 포트폴리오 플랫폼 차트인",
+          "더욱 전문적일 수 있도록\n핵심 컬러에만 집중",
+          "여러 경우의 수를 파악하며\n진행 된 개발 환경",
+        ],
         descriptions: [
           "차트인은 음악을 좋아하는 사람, 음악을 찾고 싶은 사람 모두가 즐길 수 있는 음악 커뮤니티 플랫폼 서비스입니다. 다수의 사람들이 자신을 PR하고 더 나아가 현재 트랜드로 자리잡고 있는 음악 등을 함께 듣고 평가하고 평가를 받을 수 있는 서비스의 특징을 담고 있습니다.",
           "음악을 만드는 사람들이 방 안에서 자신의 음악에 집중하며 마주하는 컬러처럼 어두운 다크 배경에 핵심적인 컬러가 UI에 작용할 수 있도록 제작되었습니다. 전체적인 분위기나 비주얼 벨런스를 통해 고객이 더욱 차트인에서 활동하며 전문성을 키울 수 있도록 하였습니다.",
@@ -1107,9 +1159,9 @@ export const Projects: IProjects = {
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
-    // 마크홀리
+    // 당신의 타로
     {
-      id: "markholy",
+      id: "taro",
       size: "medium",
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
@@ -1117,18 +1169,14 @@ export const Projects: IProjects = {
         src: medium,
         src1280: medium,
       },
-      title: "마크홀리",
-      description: "제품의 상세 내용을 확인할 수 있는 CTA 중심 반응형 웹",
-      categories: ["UI/UX", "Web", "Product"],
-      date: "Dec, 2023",
+      title: "당신의 타로",
+      description: "타로 플랫폼 웹 퍼블리싱",
+      categories: ["UI/UX", "Web", "Product", "Publishing"],
+      date: "Nov, 2023",
       // TODO: images
       details: {
-        titles: ["외국인 막걸리, 마크홀리", "캐릭터의 다양한 포즈가\n다양한 해상도에 담기도록", "율동감 있는\n레이아웃 구성"],
-        descriptions: [
-          "마크홀리는 막걸리를 부르는 말인 것 같으면서도 한국을 좋아하는 마크홀리씨가 막걸리를 만드는 브랜드 아이덴티티를 갖고있는 브랜드입니다. 기존 전통 막걸리와 달리 힙한 스타일의 막걸리 브랜드가 웹에서 잘 보여지고 고객들에게 전달 될 수 있는 것을 목표로 제작하였습니다.",
-          "마크홀리의 핵심은 캐릭터의 모습, 행동입니다. 간혹 다양한 디바이스의 환경에 노출이 될 때 이미지의 규격이 달라지면서 이미지가 잘리는 경우가 발생하는데 이번 개발과 디자인에는 전체 랜딩을 구성하는데 있어서 콘텐츠의 요소들이 다양한 디바이스 환경에서 달리 보이지 않도록 제작하였습니다.",
-          "마크홀리는 막걸리를 판매하는 것을 넘어 IP사업까지 바라보고 있는 비즈니스 카테고리로 캐릭터의 다양한 포즈와 스타일을 보여주는 것과 제품이 보여지는 것에 룩 앤 필 구성이 가장 중요했습니다. 이번 웹에서는 전체 구성의 강약조절과 브랜드에 맞는 스크롤 마다의 섹션 구성을 레이아웃에 잘 담길 수 있도록 하는 것을 중요하게 생각하여 제작하였습니다.",
-        ],
+        titles: ["_"],
+        descriptions: ["_"],
         images: ["이미지 경로_01", "이미지 경로_02"],
       },
     },
@@ -1177,7 +1225,11 @@ export const Projects: IProjects = {
       date: "Jul, 2020",
       // TODO: images
       details: {
-        titles: ["제품을 온라인에서 자유롭게 확인할 수 있는 PDP 반응형 웹사이트", "스크롤마다 제품의 다각도 모습이\n잘 전달될 수 있도록", "브랜드 아이덴티티의 핵심이\nGUI에 잘 녹아들 수 있게"],
+        titles: [
+          "제품을 온라인에서 자유롭게 확인할 수 있는 PDP 반응형 웹사이트",
+          "스크롤마다 제품의 다각도 모습이\n잘 전달될 수 있도록",
+          "브랜드 아이덴티티의 핵심이\nGUI에 잘 녹아들 수 있게",
+        ],
         descriptions: [
           "AIRKID는 유아용 헬맷 브랜드인 Legit이 개발한 제품으로 당시에는 생소한 유아용 헬멧을 고객에게 올바르게 전달할 수 있는 웹을 구축하는 것이 목표였습니다. 그로인해 모델링이 자유 각도로 보여지고 세부적인 기술이 어떻게 들어가며 제작이 되었는지 고객에게 어렵지 않게 보여지는 것을 목표로 제작되었습니다.",
           "고해상도 모델링 이미지가 실제 스크롤을 내리면서 고객에게 보여졌을 때 최적화된 용량으로 버벅임 없이 전달될 수 있도록 이미지 데이터를 최적화하는 개발을 함과 동시에 스크롤 마다 프레임이 올바르게 보여질 수 있는 개발 기술을 통해 고객이 스크롤을 올리고 내리는 모든 과정에 자연스러운 인터렉션이 구동될 수 있는 개발 환경을 구축하였습니다.",
@@ -1202,7 +1254,11 @@ export const Projects: IProjects = {
       date: "Aug, 2022",
       // TODO: images
       details: {
-        titles: ["나에게 딱 맞는 집을 찾는 인테리어 중개 플랫폼 두꺼비실장", "다양한 태그가 복잡하게\n보이지 않고 이해되기 쉽도록", "웹 브라우저부터\n모바일 애플리케이션까지"],
+        titles: [
+          "나에게 딱 맞는 집을 찾는 인테리어 중개 플랫폼 두꺼비실장",
+          "다양한 태그가 복잡하게\n보이지 않고 이해되기 쉽도록",
+          "웹 브라우저부터\n모바일 애플리케이션까지",
+        ],
         descriptions: [
           "두꺼비실장은 다양한 라이프 스타일 태그를 통해 내가 소비하고 마주하는 브랜드가 무엇인지 그렇다면 내가 살고 있는 집 공간은 어떤 모습으로 인테리어가 되는 것이 좋은지 다양한 홈 인테리어 정보를 제공함과 동시에 직접 시공하고 인테리어를 진행 할 수록 도와주는 인테리어 O2O 플랫폼입니다.",
           "지금까지 인테리어 플랫폼은 과하게 공백, 여백을 만들거나 기존 쇼핑몰 사이트와 같은 UI 환경으로 구성이 되어있는 것이 시장의 공통된 모습이였습니다. 두꺼비실장은 고객이 자신의 라이프 스타일 태그를 찾고 서치하는 것과 더불어 라이프 매거진을 읽는 느낌을 얻을 수 있도록 다방면 스크롤, 페이지 뎁스 등을 고려하여 기획, 디자인하고자 노력하였습니다.",
@@ -1277,7 +1333,11 @@ export const Projects: IProjects = {
       date: "Apr, 2021",
       // TODO: images
       details: {
-        titles: ["제작사의 의도와 제작 방향이 잘 보여질 수 있도록", "다양한 크루가 모인 나인아크\n각자의 개성 또한 뚜렷하게", "실시간 뉴스가 보는 이들에게\n잘 전달될 수 있도록"],
+        titles: [
+          "제작사의 의도와 제작 방향이 잘 보여질 수 있도록",
+          "다양한 크루가 모인 나인아크\n각자의 개성 또한 뚜렷하게",
+          "실시간 뉴스가 보는 이들에게\n잘 전달될 수 있도록",
+        ],
         descriptions: [
           "나인아크는 카카오게임즈 산하 게임 개발 제작사로 다양한 게임을 퍼블리싱함과 동시에 자신들의 게임 자산을 출시하는 기업입니다. 이번 웹은 나인아크의 비전과 신념이 잘 보여질 수 있도록 현재 진행 중인 게임의 아이덴티티와 기업의 아이덴티티가 잘 보일 수 있는 환경을 구축하고자 노력하였습니다.",
           "나인아크는 여러 게임 제작 크루를 보유한 형태의 기업구조로 하나의 개발사의 모습을 보여줌과 동시에 다양한 크루들의 활동까지 보여줘야하는 제작 기업의 형태를 띄고 있습니다. 이번 웹 환경을 구축할 때도 모든 아이덴티티가 하나의 지붕 아래에서 잘 보여질 수 있는 디자인, 기획을 중요하게 바라보며 제작하였습니다.",
@@ -1767,7 +1827,7 @@ export const UIUX_ORDER = [
   "findnomusa",
   "kickoff",
   "chartin",
-  "markholy",
+  "taro",
   "doosil",
   "airkid",
   "btbg",
@@ -1790,7 +1850,7 @@ export const WEB_ORDER = [
   "tethermax",
   "fuleaf",
   "findnomusa",
-  "markholy",
+  "taro",
   "airkid",
   "cityhoppers",
   "doosil",

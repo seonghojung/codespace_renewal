@@ -35,6 +35,10 @@ const CategoryContainer = styled.ul`
   }
 `;
 const Container = styled.li`
+  &:first-child,
+  &:nth-child(2) {
+    padding-top: 0px;
+  }
   ${CategoryContainer} {
     opacity: 1;
   }
@@ -185,16 +189,20 @@ const SubProjectContainer = styled.div<StyleProp>`
 `;
 const VideoWrap = styled.div`
   position: relative;
+  overflow: hidden;
   img {
     width: 100%;
     height: 100%;
   }
 
   @media (min-width: 768px) {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    img {
+      transition: transform 1.5s ease;
+    }
     &:hover {
-      transform: scale(1.02);
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      img {
+        transform: scale(1.1);
+      }
     }
   }
 `;
@@ -389,7 +397,6 @@ const ProjectCard = ({
   return (
     <SubProjectContainer ref={ViewRef} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut} $isView={inView}>
       <VideoWrap>
-        {isWideScreen && <ProjectVideo src={`/videos/projectComponents/${videoSrc}`} ref={ref} muted loop preload="" />}
         <ThumbnailImage src={isWideScreen ? src1280 : src} alt="" sizes="(max-width: 767px) 100vw, (max-width: 1919px) 1992px, 2708px" />
       </VideoWrap>
       <InfoWrap>
@@ -406,13 +413,15 @@ const Projects = ({ projects }: { projects: ProjectProps[] }) => {
       {projects.map((project, index) => {
         return (
           <ProjectItem key={index} index={index}>
+            {/* 
+            //@TODO: 잠시 상세페이지 이동 기능은 없애고 디자인 나오면 주석해제
             {project.details ? (
               <Link href={`/project/${project.id}`} style={{ cursor: "pointer" }}>
                 <ProjectCard src={project} />
               </Link>
-            ) : (
-              <ProjectCard src={project} />
-            )}
+            ) : ( */}
+            <ProjectCard src={project} />
+            {/* )} */}
           </ProjectItem>
         );
       })}
