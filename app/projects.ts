@@ -1790,7 +1790,45 @@ export const getProject = (locale: string): ProjectProps[] => {
 };
 
 // 소팅용 순서
-export const CMS_ORDER = [
+export const CMS_ORDER = ["tethermax", "plusxplus", "ufo", "kickoff", "findnomusa", "fuleaf", "btbg", "cityhoppers", "chartin"];
+export const APP_ORDER = ["richgo", "drfull", "chartin", "plusxplus", "kickoff"];
+export const UIUX_ORDER = [
+  "kia",
+  "drfull",
+  "ufo",
+  "plusxplus",
+  "richgo",
+  "fuleaf",
+  "findnomusa",
+  "kickoff",
+  "chartin",
+  "taro",
+  "doosil",
+  "airkid",
+  "btbg",
+  "nineark",
+  "designspace",
+];
+export const WEB_ORDER = [
+  "kia",
+  "drfull",
+  "ufo",
+  "kickoff",
+  "tethermax",
+  "fuleaf",
+  "findnomusa",
+  "taro",
+  "airkid",
+  "cityhoppers",
+  "doosil",
+  "designspace",
+  "btbg",
+  "nineark",
+  "secondwhite",
+];
+
+// 소팅용 순서 (썸네일 없는 포트폴리오 포함된 버전)
+export const CMS_ORDER_ARCHIVED = [
   "tethermax",
   "plusxplus",
   "ufo",
@@ -1825,7 +1863,7 @@ export const CMS_ORDER = [
   "thecigroup",
   "mitdembauhaus",
 ];
-export const APP_ORDER = [
+export const APP_ORDER_ARCHIVED = [
   "richgo",
   "drfull",
   "chartin",
@@ -1842,7 +1880,7 @@ export const APP_ORDER = [
   "cellmybrain",
   "shortudy",
 ];
-export const UIUX_ORDER = [
+export const UIUX_ORDER_ARCHIVED = [
   "kia",
   "drfull",
   "ufo",
@@ -1867,7 +1905,7 @@ export const UIUX_ORDER = [
   "izeuvideo",
   "njobs",
 ];
-export const WEB_ORDER = [
+export const WEB_ORDER_ARCHIVED = [
   "kia",
   "drfull",
   "ufo",

@@ -33,12 +33,13 @@ const CategoryCount = styled.span`
 type ICategory = "" | "Web" | "UI/UX" | "App" | "CMS";
 const Project = ({ locale, translation }: { locale: ILocale; translation: ITranslation }) => {
   const [selectedCategory, setSelectedCategory] = useState<ICategory>("");
-  const [sortedProjects, setSortedProjects] = useState<ProjectProps[]>(getProject(locale));
+  const AllProjects = getProject(locale).filter(({ isMainPortfolio }) => isMainPortfolio == true);
+  const [sortedProjects, setSortedProjects] = useState<ProjectProps[]>(AllProjects);
 
   const filterByCategory = (category: ICategory) => {
     setSelectedCategory(category);
     if (category === "") {
-      return setSortedProjects(getProject(locale));
+      return setSortedProjects(AllProjects);
     } else if (category === "App") {
       setSortedProjects(APP_ORDER.map((targetId) => getProject(locale).find(({ id }) => id === targetId)) as ProjectProps[]);
     } else if (category === "CMS") {
@@ -60,7 +61,7 @@ const Project = ({ locale, translation }: { locale: ILocale; translation: ITrans
               <CategoryList onClick={() => filterByCategory("")} selected={selectedCategory === ""}>
                 {selectedCategory === "" && <SelectDot />}
                 <h2>
-                  ALL<CategoryCount>{getProject(locale).length}</CategoryCount>
+                  ALL<CategoryCount>{AllProjects.length}</CategoryCount>
                 </h2>
               </CategoryList>
               <CategoryList onClick={() => filterByCategory("Web")} selected={selectedCategory === "Web"}>
