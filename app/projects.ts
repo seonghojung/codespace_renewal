@@ -4,6 +4,31 @@ import medium from "../public/images/projectComponents/mb2_rectangle_thumbnail.w
 import large from "../public/images/projectComponents/mb3_rectangle_thumbnail.webp";
 import largePc from "../public/images/projectComponents/pc3_rectangle_thumbnail_1280.webp";
 
+import kia from "../public/images/projects/kia.png";
+import airkid_MO from "../public/images/projects/airkid_MO.png";
+import airkid_PC from "../public/images/projects/airkid_PC.png";
+import btbg from "../public/images/projects/btbg.png";
+import chartin_MO from "../public/images/projects/chartin_MO.png";
+import chartin_PC from "../public/images/projects/chartin_PC.png";
+import cityhoppers from "../public/images/projects/cityhoppers.png";
+import designspace_MO from "../public/images/projects/designspace_MO.png";
+import designspace_PC from "../public/images/projects/designspace_PC.png";
+import doosil from "../public/images/projects/doosil.png";
+import drfull from "../public/images/projects/drfull.png";
+import findnomusa from "../public/images/projects/findnomusa.png";
+import fuleaf_MO from "../public/images/projects/fuleaf_MO.png";
+import fuleaf_PC from "../public/images/projects/fuleaf_PC.png";
+import kickoff from "../public/images/projects/kickoff.png";
+import nineark from "../public/images/projects/nineark.png";
+import plusxplus from "../public/images/projects/plusxplus.png";
+import richgo from "../public/images/projects/richgo.png";
+import secondwhite_MO from "../public/images/projects/secondwhite_MO.png";
+import secondwhite_PC from "../public/images/projects/secondwhite_PC.png";
+import taro from "../public/images/projects/taro.png";
+import tethermax from "../public/images/projects/tethermax.png";
+import ufo_MO from "../public/images/projects/ufo_MO.png";
+import ufo_PC from "../public/images/projects/ufo_PC.png";
+
 export interface ProjectProps {
   isMainPortfolio: boolean; // 대표 포트폴리오 여부
   id: string; // en과 ko가 공통으로 가질 id (프로젝트 정렬할 때 사용함)
@@ -36,8 +61,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: kia,
+        src1280: kia,
       },
       title: "KIA EV6 Unplugged",
       description: "KIA EV6 Unplugged Experience Center Introduction & Reservation Responsive Website",
@@ -65,8 +90,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: drfull,
+        src1280: drfull,
       },
       title: "Dr.full",
       description: "Companion Plant Management & Community Platform",
@@ -94,8 +119,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: ufo_MO,
+        src1280: ufo_PC,
       },
       title: "UFO Coffee",
       description: "Coffee Roasting Brand Website with CMS design",
@@ -123,8 +148,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: plusxplus,
+        src1280: plusxplus,
       },
       title: "+X+",
       description: "Regional Daily Chat-base Community Platform",
@@ -152,8 +177,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: tethermax,
+        src1280: tethermax,
       },
       title: "TetherMax",
       description: "Cryptocurrency Futures Transaction Fee Payback Service",
@@ -181,8 +206,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: fuleaf_MO,
+        src1280: fuleaf_PC,
       },
       title: "Fuleaf",
       description: "Plant Encyclopedia & Curation Service",
@@ -210,8 +235,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: richgo,
+        src1280: richgo,
       },
       title: "Richgo",
       description: "Real Estate Platform where Real Estate Information is updated in real time",
@@ -239,8 +264,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: kickoff,
+        src1280: kickoff,
       },
       title: "Kick-off",
       description: "Global Outsourcing Matching Platform",
@@ -268,8 +293,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: chartin_MO,
+        src1280: chartin_PC,
       },
       title: "Chart-in",
       description: "Music Platform that Matches Musicians with Experts",
@@ -297,8 +322,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: taro,
+        src1280: taro,
       },
       title: "urtarot",
       description: "Tarot platform web publishing",
@@ -318,8 +343,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: findnomusa,
+        src1280: findnomusa,
       },
       title: "Find Nomusa",
       description: "Labor Attorney Matching & Consulting Platform",
@@ -347,8 +372,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: airkid_MO,
+        src1280: airkid_PC,
       },
       title: "AIRKID",
       description: "Air Kid, Helmet Designed for Kids, Introduction Responsive Website",
@@ -376,8 +401,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: doosil,
+        src1280: doosil,
       },
       title: "DOOSIL",
       description: "Real Estate Interior Brokerage O2O Platform",
@@ -405,8 +430,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: cityhoppers,
+        src1280: cityhoppers,
       },
       title: "City Hoppers",
       description: "Travel Magazine & Community Platform",
@@ -434,8 +459,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: designspace_MO,
+        src1280: designspace_PC,
       },
       title: "3.3 DESIGN SPACE",
       description: "Interior Company Introduction & Quote Responsive Website",
@@ -463,8 +488,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: nineark,
+        src1280: nineark,
       },
       title: "Nine Ark",
       description: "Kakao’s Mobile Game Developers Introduction Responsive Website",
@@ -492,8 +517,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: btbg,
+        src1280: btbg,
       },
       title: "BTBG",
       description: "Luxury Vehicle Export Company Introduction Responsive Website",
@@ -521,8 +546,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: secondwhite_MO,
+        src1280: secondwhite_PC,
       },
       title: "Second White",
       description: "Product Design Agency Introduction Responsive Website",
@@ -912,8 +937,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: kia,
+        src1280: kia,
       },
       title: "KIA EV6 언플러그드",
       description: "기아 EV6 언플러그드 체험관 소개 예약 반응형 웹",
@@ -941,8 +966,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: drfull,
+        src1280: drfull,
       },
       title: "풀박사",
       description: "반려식물 관리 및 커뮤니티 플랫폼",
@@ -970,8 +995,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: ufo_MO,
+        src1280: ufo_PC,
       },
       title: "UFO Coffee",
       description: "커피 로스팅 브랜드 쇼핑몰 및 CMS 설계",
@@ -995,8 +1020,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: plusxplus,
+        src1280: plusxplus,
       },
       title: "+X+",
       description: "지역간 데일리 채팅 기반 커뮤니티 플랫폼",
@@ -1024,8 +1049,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: tethermax,
+        src1280: tethermax,
       },
       title: "테더맥스",
       description: "코인 선물 거래수수료 페이백 서비스",
@@ -1054,8 +1079,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: fuleaf_MO,
+        src1280: fuleaf_PC,
       },
       title: "플립 [Fuleaf]",
       description: "식물 도감 및 큐레이션 서비스",
@@ -1079,8 +1104,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: richgo,
+        src1280: richgo,
       },
       title: "리치고",
       description: "부동산 정보를 실시간 데이터로 확인할 수 있는 부동산데이터 플랫폼",
@@ -1108,8 +1133,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: kickoff,
+        src1280: kickoff,
       },
       title: "킥오프",
       description: "글로벌 외주 매칭 플랫폼",
@@ -1137,8 +1162,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: chartin_MO,
+        src1280: chartin_PC,
       },
       title: "차트인",
       description: "뮤지션과 전문가를 매칭해주는 음악 플랫폼",
@@ -1166,8 +1191,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: taro,
+        src1280: taro,
       },
       title: "당신의 타로",
       description: "타로 플랫폼 웹 퍼블리싱",
@@ -1187,8 +1212,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: findnomusa,
+        src1280: findnomusa,
       },
       title: "구해줘 노무사",
       description: "노무사 매칭 및 상담 플랫폼",
@@ -1216,8 +1241,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: airkid_MO,
+        src1280: airkid_PC,
       },
       title: "AIRKID",
       description: "어린이용 머리 보호 헬맷, 에어키드 소개 반응형 웹",
@@ -1245,8 +1270,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: doosil,
+        src1280: doosil,
       },
       title: "DOOSIL",
       description: "부동산 인테리어 중개 O2O 플랫폼",
@@ -1274,8 +1299,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: cityhoppers,
+        src1280: cityhoppers,
       },
       title: "시티호퍼스",
       description: "여행 매거진 및 커뮤니티 플랫폼",
@@ -1299,8 +1324,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: designspace_MO,
+        src1280: designspace_PC,
       },
       title: "3.3 DESIGN SPACE",
       description: "인테리어 회사 소개 및 견적 반응형 웹",
@@ -1324,8 +1349,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_medium_fake.mp4",
       image: {
-        src: medium,
-        src1280: medium,
+        src: nineark,
+        src1280: nineark,
       },
       title: "나인아크",
       description: "카카오 산하 모바일 게임 개발사 소개 반응형 웹",
@@ -1353,8 +1378,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_small_fake.mp4",
       image: {
-        src: small,
-        src1280: small,
+        src: btbg,
+        src1280: btbg,
       },
       title: "BTBG",
       description: "고급 차량 수출 회사 소개 반응형 웹",
@@ -1378,8 +1403,8 @@ export const Projects: IProjects = {
       isMainPortfolio: true,
       videoSrc: "thumbnail_large_fake.mp4",
       image: {
-        src: large,
-        src1280: largePc,
+        src: secondwhite_MO,
+        src1280: secondwhite_PC,
       },
       title: "세컨드 화이트",
       description: "프로덕트 디자인 에이전시 회사 소개 반응형 웹",
