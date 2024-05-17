@@ -17,7 +17,7 @@ const Title = styled.h2`
   opacity: 0;
   font-size: 40px;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1.4; // 1.1;
   letter-spacing: -1.04px;
   text-align: left;
   color: #050411;
@@ -43,7 +43,7 @@ const Subtitle = styled.h3`
   margin-top: 20px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 25px;
+  line-height: 1.4; // 25px;
   color: #050411;
   white-space: pre-wrap;
   word-break: keep-all;
@@ -51,17 +51,17 @@ const Subtitle = styled.h3`
   @media (min-width: 768px) {
     margin-top: 24px;
     font-size: 20px;
-    line-height: 28px;
+    line-height: 1.4; // 28px;
   }
   @media (min-width: 1280px) {
     margin-top: 32px;
     font-size: 28px;
-    line-height: 39.2px;
+    line-height: 1.4; // 39.2px;
   }
 
   @media (min-width: 1920px) {
     font-size: 32px;
-    line-height: 44.6px;
+    line-height: 1.4; // 44.6px;
   }
 `;
 
@@ -70,7 +70,7 @@ const Description = styled.h3`
   margin-top: 20px;
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.48;
+  line-height: 1.4; // 1.48;
   letter-spacing: -0.03px;
   color: #000;
   ${fadeInAndUp2Sec}
@@ -79,7 +79,7 @@ const Description = styled.h3`
     max-width: 896px;
     margin-top: 28px;
     font-size: 22px;
-    line-height: 1.35;
+    line-height: 1.4; // 1.35;
     letter-spacing: -0.1px;
     white-space: pre-wrap;
   }
@@ -88,7 +88,7 @@ const Description = styled.h3`
     max-width: 1080px;
     margin-top: 32px;
     font-size: 26px;
-    line-height: 1.45;
+    line-height: 1.4; // 1.45;
     letter-spacing: -0.39px;
   }
 `;

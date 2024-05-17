@@ -20,7 +20,7 @@ const Section = styled.div`
 `;
 const LanguageSwitchBtn = styled.button`
   text-decoration: underline;
-  line-height: 2;
+  line-height: 1.4; // 2;
   font-size: 14px;
   span {
     margin-right: 6px;
@@ -32,7 +32,7 @@ const LanguageSwitchBtn = styled.button`
   }
   @media (min-width: 1280px) {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1.4; // 120%;
     width: 368px;
   }
   @media (min-width: 1920px) {
@@ -85,7 +85,7 @@ const SlideBarWrap = styled.div`
     display: flex;
     align-items: center;
     font-size: 30px;
-    line-height: 1.36;
+    line-height: 1.4; // 1.36;
     color: #fff;
 
     &:not(:first-child) {
@@ -143,14 +143,14 @@ const MenuList = styled.ul`
 const Title = styled.p`
   font-size: 14px;
   font-weight: 500;
-  line-height: 140%;
+  line-height: 1.4; // 140%;
   margin-bottom: 5px;
   color: #858e97;
 `;
 
 const MailLinkText = styled.span`
   font-size: 24px;
-  line-height: 135%;
+  line-height: 1.4; // 135%;
   color: #fff;
 `;
 

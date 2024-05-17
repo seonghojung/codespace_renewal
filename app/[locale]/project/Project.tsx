@@ -23,7 +23,7 @@ const CategoryCount = styled.span`
   margin-left: 4px;
   top: -1px;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 1.4; // 12px;
   position: relative;
   display: inline;
   @media (min-width: 1280px) {
@@ -157,24 +157,24 @@ const NavWrap = styled.div`
 const ProjectTitle = styled.h1`
   font-size: 40px;
   font-weight: 700;
-  line-height: 44px;
+  line-height: 1.4; // 44px;
   letter-spacing: -2.6%;
   color: #000;
   word-break: keep-all;
 
   @media (min-width: 768px) {
     width: 395px;
-    line-height: 57.2px;
+    line-height: 1.4; // 57.2px;
     font-size: 52px;
   }
   @media (min-width: 1280px) {
     width: 560px;
-    line-height: 81.4px;
+    line-height: 1.4; // 81.4px;
     font-size: 74px;
   }
   @media (min-width: 1920px) {
     width: auto;
-    line-height: 95px;
+    line-height: 1.4; // 95px;
     font-size: 86px;
     letter-spacing: -3.44%;
   }
@@ -208,16 +208,16 @@ const CategoryList = styled.li<{ selected: boolean }>`
   // TODO: 375디자인이 안잡혀있음
   font-weight: 400;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 1.4; // 20px;
   @media (min-width: 768px) {
     font-weight: 400;
     font-size: 15px;
-    line-height: 20px;
+    line-height: 1.4; // 20px;
   }
   @media (min-width: 1280px) {
     font-weight: 400;
     font-size: 20px;
-    line-height: 26px;
+    line-height: 1.4; // 26px;
   }
 
   &:hover {

@@ -62,13 +62,13 @@ const Address = styled.span<IStyle>`
     }
   }
   font-size: 16px;
-  line-height: 22px;
+  line-height: 1.4; // 22px;
   @media (min-width: 768px) {
-    line-height: 24px;
+    line-height: 1.4; // 24px;
   }
   @media (min-width: 1280px) {
     font-size: 22px;
-    line-height: 26px;
+    line-height: 1.4; // 26px;
     svg {
       left: 18px;
       width: 40px;
@@ -77,7 +77,7 @@ const Address = styled.span<IStyle>`
   }
   @media (min-width: 1920px) {
     font-size: 26px;
-    line-height: 38px;
+    line-height: 1.4; // 38px;
   }
 `;
 
@@ -85,7 +85,7 @@ const Address = styled.span<IStyle>`
 
 const UnderLineLink = ({ children, theme = "dark", href }: { href: string; theme?: "dark" | "white" | undefined; children: React.ReactNode }) => {
   return (
-    <Link href={href} target="_blank">
+    <Link href={href}>
       <Address theme={theme}>
         {children}
         <div style={{ position: "relative", display: "flex", alignItems: "center" }}>

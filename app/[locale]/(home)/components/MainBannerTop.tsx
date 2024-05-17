@@ -33,14 +33,14 @@ const TopSection = styled.div<StyleProp>`
 const Title = styled.h2`
   font-size: 30px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.4; // 1.2;
   letter-spacing: -0.36px;
   color: #050411;
   text-transform: uppercase;
 
   @media (min-width: 768px) {
     font-size: 40px;
-    line-height: 1.1;
+    line-height: 1.4; // 1.1;
     letter-spacing: -0.48px;
   }
 
@@ -53,7 +53,7 @@ const TopDescription = styled.h3`
   margin-top: 20px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.39;
+  line-height: 1.4; // 1.39;
   letter-spacing: -0.04px;
   text-align: left;
   color: #050411;
@@ -63,7 +63,7 @@ const TopDescription = styled.h3`
 
   @media (min-width: 768px) {
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1.4; // 1.4;
     letter-spacing: -0.04px;
 
     br {

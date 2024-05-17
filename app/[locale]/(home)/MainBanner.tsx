@@ -48,14 +48,14 @@ const InfoWrap = styled.div`
 const Title = styled.h2`
   font-size: 30px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.4; // 1.2;
   letter-spacing: -0.36px;
   color: #050411;
   text-transform: uppercase;
 
   @media (min-width: 768px) {
     font-size: 40px;
-    line-height: 1.1;
+    line-height: 1.4; // 1.1;
     letter-spacing: -0.48px;
   }
 
@@ -68,7 +68,7 @@ const TopDescription = styled.h3`
   margin-top: 20px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.39;
+  line-height: 1.4; // 1.39;
   letter-spacing: -0.04px;
   text-align: left;
   color: #050411;
@@ -78,7 +78,7 @@ const TopDescription = styled.h3`
 
   @media (min-width: 768px) {
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1.4; // 1.4;
     letter-spacing: -0.04px;
 
     br {
@@ -101,7 +101,7 @@ const BottomDescription = styled.h3`
   margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.39;
+  line-height: 1.4; // 1.39;
   letter-spacing: -0.04px;
   color: #050411;
   br {
@@ -111,7 +111,7 @@ const BottomDescription = styled.h3`
   @media (min-width: 768px) {
     margin-top: 80px;
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1.4; // 1.4;
     letter-spacing: -0.04px;
 
     br {
@@ -138,7 +138,7 @@ const LinkWrap = styled.div`
   align-items: center;
   a {
     font-size: 16px;
-    line-height: 1.45;
+    line-height: 1.4; // 1.45;
     letter-spacing: -0.03px;
     color: #050411;
   }
@@ -150,7 +150,7 @@ const LinkWrap = styled.div`
     margin-top: 60px;
     a {
       font-size: 22px;
-      line-height: 1.35;
+      line-height: 1.4; // 1.35;
       letter-spacing: -0.1px;
     }
   }
@@ -158,7 +158,7 @@ const LinkWrap = styled.div`
     margin-top: 40px;
     a {
       font-size: 26px;
-      line-height: 1.45;
+      line-height: 1.4; // 1.45;
       letter-spacing: -0.14px;
     }
   }

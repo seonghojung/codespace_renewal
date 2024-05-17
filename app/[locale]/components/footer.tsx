@@ -133,7 +133,7 @@ const Name = styled.span`
 
   @media (min-width: 1280px) {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1.4; // 120%;
   }
   @media (min-width: 1920px) {
     font-size: 18px;
@@ -142,7 +142,7 @@ const Name = styled.span`
 
 const LanguageSwitchBtn = styled.button`
   text-decoration: underline;
-  line-height: 2;
+  line-height: 1.4; // 2;
   font-size: 14px;
   span {
     margin-right: 6px;
@@ -154,7 +154,7 @@ const LanguageSwitchBtn = styled.button`
   }
   @media (min-width: 1280px) {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1.4; // 120%;
     width: 368px;
   }
   @media (min-width: 1920px) {
@@ -165,12 +165,12 @@ const LanguageSwitchBtn = styled.button`
 const LinkText = styled.span`
   font-size: 18px;
   font-weight: 300;
-  line-height: 140%;
+  line-height: 1.4; // 140%;
   color: #fff;
 `;
 const MailLinkText = styled(LinkText)`
   font-size: 18px;
-  line-height: 140%;
+  line-height: 1.4; // 140%;
   @media (min-width: 768px) {
     font-size: 20px;
   }
@@ -185,7 +185,7 @@ const NavLinkText = styled(LinkText)`
   font-size: 14px;
   @media (min-width: 1280px) {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1.4; // 120%;
   }
   @media (min-width: 1920px) {
     font-size: 18px;
@@ -202,7 +202,7 @@ const CopyrightText = styled(LinkText)`
   }
   @media (min-width: 1280px) {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1.4; // 120%;
     width: 368px;
   }
   @media (min-width: 1920px) {

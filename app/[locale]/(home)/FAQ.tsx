@@ -24,13 +24,13 @@ const FAQSection = styled.section`
 const FAQTitle = styled.p`
   font-size: 30px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.4; // 1.2;
   letter-spacing: -0.36px;
   color: #fff;
 
   @media (min-width: 768px) {
     font-size: 40px;
-    line-height: 1.1;
+    line-height: 1.4; // 1.1;
     letter-spacing: -0.48px;
   }
   @media (min-width: 1280px) {

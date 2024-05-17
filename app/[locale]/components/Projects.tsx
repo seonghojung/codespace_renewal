@@ -152,11 +152,11 @@ const CategoryItem = styled.li`
   color: #8f99aa;
   @media (min-width: 1280px) {
     font-size: 16px;
-    line-height: 19.2px;
+    line-height: 1.4; // 19.2px;
   }
   @media (min-width: 1920px) {
     font-size: 18px;
-    line-height: 21.6px;
+    line-height: 1.4; // 21.6px;
   }
   &:not(:last-child) {
     position: relative;
@@ -233,17 +233,17 @@ const InfoWrap = styled.div`
 `;
 const Title = styled.p`
   font-size: 20px;
-  line-height: 25px;
+  line-height: 1.4; // 25px;
   font-weight: 500;
   color: #000;
 
   @media (min-width: 1280px) {
     font-size: 30px;
-    line-height: 36px;
+    line-height: 1.4; // 36px;
   }
   @media (min-width: 1920px) {
     font-size: 36px;
-    line-height: 43.2px;
+    line-height: 1.4; // 43.2px;
   }
 `;
 
@@ -251,7 +251,7 @@ const Description = styled.p`
   margin-top: 4px;
   font-size: 14px;
   font-weight: 500;
-  line-height: 19px;
+  line-height: 1.4; // 19px;
   color: rgba(0, 0, 0, 0.8);
 
   @media (min-width: 1280px) {

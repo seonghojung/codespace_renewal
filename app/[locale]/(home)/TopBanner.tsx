@@ -2,7 +2,7 @@
 
 import styled, { css, keyframes } from "styled-components";
 import { Layout } from "../components/navigation";
-import { fadeInAndUp } from "../animations/fadeInAndUp";
+import { fadeInAndUp, fadeInAndUp3Sec } from "../animations/fadeInAndUp";
 import { ITranslation } from "./page";
 import { useEffect, useRef, useState } from "react";
 import UnderLineLinkArrow from "../components/UnderLineLinkArrow";
@@ -46,10 +46,12 @@ const Title = styled.h1`
   position: relative;
   font-size: 35px;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.4; // 1.1;
   letter-spacing: -1.04px;
   color: #050411;
-  ${fadeInAndUp}
+  ${css`
+    animation: ${fadeIn} 0.3s ease forwards;
+  `}
   @media (min-width: 500px) {
     br:not(:first-child) {
       display: none;
@@ -57,7 +59,7 @@ const Title = styled.h1`
   }
   @media (min-width: 768px) {
     font-size: 52px;
-    line-height: 1.1;
+    line-height: 1.4; // 1.1;
     letter-spacing: -1.35px;
   }
   @media (min-width: 1280px) {
@@ -141,19 +143,20 @@ const MainVideo = styled.video`
   }
 `;
 
-const SubtitleWrap = styled.div<StyleProp>`
-  opacity: 0;
-  ${({ $isView }) => $isView && floatingUp}
-`;
+const SubtitleWrap = styled.div<StyleProp>``;
 
 const Subtitle = styled.h2`
+  opacity: 0;
+  ${css`
+    animation: ${fadeIn} 0.3s ease forwards;
+    animation-delay: 0.2s;
+  `}
   word-break: keep-all;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.39;
+  line-height: 1.4; // 1.39;
   letter-spacing: -0.04px;
   color: #050411;
-  ${fadeInAndUp}
   br:first-child {
     display: none;
   }
@@ -170,7 +173,7 @@ const Subtitle = styled.h2`
     font-size: 20px;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.4;
+    line-height: 1.4; // 1.4;
     letter-spacing: -0.04px;
     text-align: left;
     color: #050411;
@@ -181,18 +184,23 @@ const Subtitle = styled.h2`
   }
   @media (min-width: 1920px) {
     font-size: 32px;
-    line-height: 1.39;
+    line-height: 1.4; // 1.39;
     letter-spacing: -0.16px;
   }
 
   @media (min-width: 768px) {
     font-weight: 500;
     font-size: clamp(22px, 2.8645833333333vw, 32px);
-    line-height: 1.41;
+    line-height: 1.4; // 1.41;
   }
 `;
 
 const LinkWrap = styled.div`
+  opacity: 0;
+  ${css`
+    animation: ${fadeIn} 0.3s ease forwards;
+    animation-delay: 0.4s;
+  `}
   margin-top: 27px;
   @media (min-width: 768px) {
     margin-top: 40px;

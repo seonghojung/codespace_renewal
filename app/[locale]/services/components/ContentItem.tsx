@@ -74,21 +74,21 @@ const ContentWrap = styled.div`
   h2 {
     font-size: 16px;
     font-weight: 500;
-    line-height: 25px;
+    line-height: 1.4; // 25px;
     color: #050411;
     word-break: keep-all;
 
     @media (min-width: 768px) {
       font-size: 24px;
-      line-height: 1.51;
+      line-height: 1.4; // 1.51;
     }
     @media (min-width: 1280px) {
       font-size: 28px;
-      line-height: 1.4;
+      line-height: 1.4; // 1.4;
     }
     @media (min-width: 1920px) {
       font-size: 32px;
-      line-height: 1.31;
+      line-height: 1.4; // 1.31;
     }
   }
   h3 {
@@ -96,7 +96,7 @@ const ContentWrap = styled.div`
     width: 226px;
     font-size: 30px;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1.4; // 1.2;
     letter-spacing: -0.78px;
     color: #050411;
     word-break: keep-all;
@@ -106,7 +106,7 @@ const ContentWrap = styled.div`
       width: 304px;
       font-weight: 600;
       font-size: 40px;
-      line-height: 1.1;
+      line-height: 1.4; // 1.1;
       letter-spacing: -0.48px;
     }
     @media (min-width: 1280px) {
@@ -126,19 +126,19 @@ const ContentWrap = styled.div`
     margin-top: 20px;
     font-size: 16px;
     font-weight: 500;
-    line-height: 1.48;
+    line-height: 1.4; // 1.48;
     letter-spacing: -0.03px;
     color: #050411;
     word-break: keep-all;
 
     @media (min-width: 1280px) {
       font-size: 22px;
-      line-height: 1.35;
+      line-height: 1.4; // 1.35;
       letter-spacing: -0.1px;
     }
     @media (min-width: 1920px) {
       font-size: 26px;
-      line-height: 1.45;
+      line-height: 1.4; // 1.45;
       letter-spacing: -0.39px;
     }
   }
@@ -183,17 +183,17 @@ const TechDescItem = styled.li`
   color: #050411;
   font-size: 15px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.4; // 1.4;
   letter-spacing: -0.03px;
 
   @media (min-width: 1280px) {
     font-size: 18px;
-    line-height: 1.33;
+    line-height: 1.4; // 1.33;
     letter-spacing: -0.04px;
   }
   @media (min-width: 1920px) {
     font-size: 20px;
-    line-height: 1.2;
+    line-height: 1.4; // 1.2;
     letter-spacing: -0.04px;
   }
 `;

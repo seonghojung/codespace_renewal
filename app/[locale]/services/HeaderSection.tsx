@@ -17,7 +17,7 @@ const SubTitleWrap = styled.div`
     margin-top: 34px;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.625;
+    line-height: 1.4; // 1.625;
     color: rgba(0, 0, 0, 0.8);
   }
   @media (min-width: 768px) {
@@ -27,7 +27,7 @@ const SubTitleWrap = styled.div`
       opacity: 0;
       ${koSubTitleFadeIn}
       font-size: 20px;
-      line-height: 1.6;
+      line-height: 1.4; // 1.6;
       color: #050411;
 
       br {
@@ -50,21 +50,21 @@ const Subtitle = styled.h3`
   color: #050411;
   font-size: 18px;
   font-weight: 500;
-  line-height: 25px;
+  line-height: 1.4; // 25px;
   word-break: keep-all;
   @media (min-width: 768px) {
     font-size: 20px;
-    line-height: 28px;
+    line-height: 1.4; // 28px;
   }
 
   @media (min-width: 1280px) {
     font-size: 28px;
-    line-height: 1.4;
+    line-height: 1.4; // 1.4;
     letter-spacing: -0.08px;
   }
   @media (min-width: 1920px) {
     font-size: 32px;
-    line-height: 1.39;
+    line-height: 1.4; // 1.39;
     letter-spacing: -0.16px;
   }
 `;
@@ -75,7 +75,7 @@ const EnTitle = styled.h2`
   ${enTitleFadeIn}
   font-size: 40px;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1.4; // 1.1;
   letter-spacing: -1.04px;
   color: #050411;
 

@@ -92,7 +92,7 @@ const LinkItem = styled.li`
   opacity: 0;
   color: rgb(5, 4, 17);
   font-size: 15px;
-  line-height: 130%;
+  line-height: 1.4; // 130%;
   ${fadeInAndUp}
   padding: 5px 10px;
 

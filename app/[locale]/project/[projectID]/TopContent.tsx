@@ -98,7 +98,7 @@ const TextWrap = styled.div<StyleProp>`
 export const Title = styled.h2`
   font-size: 30px;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.4; // 1.2;
   letter-spacing: -0.78px;
   color: #050411;
   white-space: pre-wrap;
@@ -106,7 +106,7 @@ export const Title = styled.h2`
   @media (min-width: 768px) {
     font-size: 40px;
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 1.4; // 1.1;
     letter-spacing: -0.48px;
   }
 
@@ -125,7 +125,7 @@ export const Description = styled.h3`
   margin-top: 20px;
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.48;
+  line-height: 1.4; // 1.48;
   letter-spacing: -0.03px;
   color: #000;
 
@@ -134,7 +134,7 @@ export const Description = styled.h3`
     max-width: 896px;
     margin-top: 28px;
     font-size: 22px;
-    line-height: 1.35;
+    line-height: 1.4; // 1.35;
     letter-spacing: -0.1px;
     white-space: pre-wrap;
   }
@@ -143,7 +143,7 @@ export const Description = styled.h3`
     max-width: 1080px;
     margin-top: 32px;
     font-size: 26px;
-    line-height: 1.45;
+    line-height: 1.4; // 1.45;
     letter-spacing: -0.39px;
   }
 `;

@@ -12,6 +12,7 @@ import CokaCola from "./icon/logo_cola_icon";
 import Sony from "./icon/logo_sony_icon";
 import Slack from "./icon/logo_slack_icon";
 import Uber from "./icon/logo_uber_icon";
+import { fadeIn } from "../animations/fadeIn";
 
 const Section = styled.section`
   @media (min-width: 768px) {

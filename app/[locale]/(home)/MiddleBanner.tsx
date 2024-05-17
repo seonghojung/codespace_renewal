@@ -178,13 +178,13 @@ const SubTitle = styled.p<IStyleProps>`
   margin-top: 40px;
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.31;
+  line-height: 1.4; // 1.31;
   color: rgba(0, 0, 0, 0.8);
   word-break: keep-all;
   @media (min-width: 768px) {
     margin-top: 0px;
     /* max-width: 450px; */
-    line-height: 1.6;
+    line-height: 1.4; // 1.6;
     ${({ $isView }) => $isView && floatingUp}
   }
 
@@ -214,13 +214,11 @@ const FloatingWrap = styled.div`
 const FloatingContent = styled.h2<IStyleProps>`
   font-size: 46px;
   font-weight: 600;
-  line-height: 0.95;
+  line-height: 1.4; // 0.95;
   color: #000;
 
   @media (min-width: 768px) {
     font-size: 46px;
-    /* line-height: 0.87; */
-
     ${({ $isView }) => $isView && floatingUp}
   }
 `;

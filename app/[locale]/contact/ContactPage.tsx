@@ -38,26 +38,26 @@ const SectionWrap = styled.section`
 
 const Title = styled.h1`
   font-size: 18px;
-  line-height: 25px;
+  line-height: 1.4; // 25px;
   color: #000000;
   font-weight: 500;
   @media (min-width: 768px) {
     font-size: 16px;
-    line-height: 23.7px;
+    line-height: 1.4; // 23.7px;
   }
   @media (min-width: 1280px) {
     font-size: 22px;
-    line-height: 29.7px;
+    line-height: 1.4; // 29.7px;
   }
   @media (min-width: 1920px) {
     font-size: 26px;
-    line-height: 37.7px;
+    line-height: 1.4; // 37.7px;
   }
 `;
 const TopTitle = styled.h1`
   font-size: 40px;
   font-weight: 700;
-  line-height: 44px;
+  line-height: 1.4; // 44px;
   letter-spacing: -2.6%;
   word-break: keep-all;
   @media (min-width: 768px) {
@@ -65,11 +65,11 @@ const TopTitle = styled.h1`
   }
   @media (min-width: 1280px) {
     font-size: 52px;
-    line-height: 57.2px;
+    line-height: 1.4; // 57.2px;
   }
   @media (min-width: 1920px) {
     font-size: 64px;
-    line-height: 70.4px;
+    line-height: 1.4; // 70.4px;
   }
 `;
 
@@ -77,18 +77,18 @@ const Header = styled.h2`
   margin-top: 28px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 26px;
+  line-height: 1.4; // 26px;
   @media (min-width: 768px) {
     font-size: 20px;
-    line-height: 28px;
+    line-height: 1.4; // 28px;
   }
   @media (min-width: 1280px) {
     font-size: 28px;
-    line-height: 39.2px;
+    line-height: 1.4; // 39.2px;
   }
   @media (min-width: 1920px) {
     font-size: 32px;
-    line-height: 44.8px;
+    line-height: 1.4; // 44.8px;
   }
 `;
 

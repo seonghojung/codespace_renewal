@@ -18,12 +18,12 @@ const SectionWrap = styled.section`
     text-align: center;
     font-size: 28px;
     font-weight: 600;
-    line-height: 38px;
+    line-height: 1.4; // 38px;
   }
   @media (min-width: 1200px) {
     h2 {
       font-size: 42px;
-      line-height: 48px;
+      line-height: 1.4; // 48px;
     }
   }
 `;

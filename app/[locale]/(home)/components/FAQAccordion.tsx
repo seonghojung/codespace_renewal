@@ -33,7 +33,7 @@ const Container = styled.div<IProps>`
 `;
 const Content = styled.p`
   font-size: 15px;
-  line-height: 1.3;
+  line-height: 1.4; // 1.3;
   letter-spacing: -0.02px;
   color: #858e97;
   white-space: pre-wrap;
@@ -68,7 +68,7 @@ export default FAQAccordion;
 const Title = styled.div`
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.44;
+  line-height: 1.4; // 1.44;
   letter-spacing: -0.04px;
   color: #f4f5f8;
   width: 77.98%;
@@ -78,7 +78,7 @@ const Title = styled.div`
 
   @media (min-width: 768px) {
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1.4; // 1.4;
   }
   @media (min-width: 1280px) {
     font-size: 28px;
