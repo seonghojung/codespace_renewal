@@ -75,13 +75,13 @@
       "label": "Change language",
       "locale": "{locale, select, ko {🇰🇷 Korean} en {🇺🇸 English} other {Unknown}}"
     },
-    "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854"
+    "Address": "7, Dongnam-ro 2-gil, Songpa-gu, Seoul, 05805"
   },
   "Header": {
-    "Address": "128 Beobwon-ro, Songpa-gu, Seoul, 05854"
+    "Address": "7, Dongnam-ro 2-gil, Songpa-gu, Seoul, 05805"
   },
   "Common": {
-    "AddressURL": "https://www.google.co.kr/maps/search/128+Beobwon-ro,+Songpa-gu,+Seoul,+05854,+Republic+of+Korea?hl=ko&entry=ttu",
+    "AddressURL": "https://maps.app.goo.gl/aRbmzFj4dq4hFNy19",
     "Metadata": {
       "title": "Codespace",
       "template": "Codespace | %s ",
